@@ -53,6 +53,25 @@ html, body {
   min-height: 100vh;
 }
 
+/* ABOUT HERO – HERO İLE AYNI RENK */
+.about-hero {
+  padding: 120px 20px 80px;
+  text-align: center;
+  background:
+    radial-gradient(circle at top, #1a1f4d, var(--bg));
+}
+
+.about-hero h1 {
+  font-size: 42px;
+  margin: 0;
+}
+
+.about-hero p {
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+
 /* ---------- LINKS ---------- */
 
 a {
