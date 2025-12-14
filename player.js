@@ -33,3 +33,16 @@ function nextEpisode() {
 function prevEpisode() {
   loadEpisode(currentEpisode - 1);
 }
+
+const buttons = document.querySelectorAll(".episode-list button");
+
+function loadEpisode(index) {
+  if (index < 0 || index >= episodes.length) return;
+
+  currentEpisode = index;
+  player.src = `https://drive.google.com/file/d/${episodes[index].driveId}/preview`;
+  title.textContent = episodes[index].title;
+
+  buttons.forEach(b => b.classList.remove("active"));
+  buttons[index].classList.add("active");
+}
