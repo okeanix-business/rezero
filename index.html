@@ -2,8 +2,9 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Re:Zero Türkçe</title>
+  <title>Re:Zero İzle - Re:Zero Türkçe Anime</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Re:Zero animesini Türkçe altyazılı, yüksek kaliteli izleyin.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,20 +16,21 @@
   </div>
 
   <div class="nav-links" id="navLinks">
-    <a href="index.html">Ana Sayfa</a>
-    <a href="about.html">Hakkında</a>
+    <a href="index.html" class="active">Ana Sayfa</a>
   </div>
 
-  <div class="hamburger" onclick="toggleMenu()">
-    ☰
-  </div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
 </nav>
 
 <!-- HERO -->
 <header class="hero-header">
+  <div class="hero-bg"></div>
   <div class="hero-grain"></div>
-  <h1>Re:Zero</h1>
-  <p class="subtitle">Türkçe Altyazılı İzle</p>
+
+  <div class="hero-content">
+    <h1>Re:Zero</h1>
+    <p class="subtitle">Türkçe Altyazılı İzle</p>
+  </div>
 </header>
 
 <!-- SEASON CARDS -->
@@ -42,37 +44,72 @@
   </a>
 
   <!-- 2. SEZON -->
-  <a href="coming-soon.html" class="season-card s2 locked">
-    <div class="badge">Yakında</div>
-    <div class="lock">🔒</div>
+  <div class="season-card s2 locked">
+    <div class="coming-overlay">
+      <div class="lock-icon">🔒</div>
+      <div class="coming-text">Yakında</div>
+    </div>
     <div class="overlay">
       <span>2. Sezon</span>
     </div>
-  </a>
+  </div>
 
   <!-- 3. SEZON -->
-  <a href="coming-soon.html" class="season-card s3 locked">
-    <div class="badge">Yakında</div>
-    <div class="lock">🔒</div>
+  <div class="season-card s3 locked">
+    <div class="coming-overlay">
+      <div class="lock-icon">🔒</div>
+      <div class="coming-text">Yakında</div>
+    </div>
     <div class="overlay">
       <span>3. Sezon</span>
     </div>
-  </a>
+  </div>
 
   <!-- 4. SEZON -->
-  <a href="coming-soon.html" class="season-card s4 locked">
-    <div class="badge">Yakında</div>
-    <div class="lock">🔒</div>
+  <div class="season-card s4 locked">
+    <div class="coming-overlay">
+      <div class="lock-icon">🔒</div>
+      <div class="coming-text">Yakında</div>
+    </div>
     <div class="overlay">
       <span>4. Sezon</span>
     </div>
-  </a>
+  </div>
 
 </main>
 
+<!-- WHY SECTION -->
+<section class="why-section">
+  <div class="why-container">
+
+    <div class="contact-box">
+      <h3>Neden rezeroizle.com?</h3>
+      <p>
+        Bu site, <strong>Re:Zero</strong> animesini kaliteli bir çeviriyle ve
+        yüksek görüntü kalitesinde izleyebilmeniz için oluşturulmuş,
+        tamamen <strong>kâr amacı gütmeyen</strong> bir fan projesidir.
+      </p>
+    </div>
+
+    <div class="contact-box">
+      <h3>İletişim</h3>
+      <p>📧 Mail: <a href="mailto:okeanix.business@gmail.com">okeanix.business@gmail.com</a></p>
+      <p>💬 Discord: <span>Okeanix</span></p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2025 rezeroizle.com</p>
+</footer>
+
 <script>
 function toggleMenu() {
-  document.getElementById("navLinks").classList.toggle("open");
+  const nav = document.getElementById("navLinks");
+  nav.classList.toggle("open");
+  document.body.style.overflow = nav.classList.contains("open") ? "hidden" : "auto";
 }
 </script>
 

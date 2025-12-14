@@ -8,86 +8,6 @@
   --border: rgba(255,255,255,0.06);
 }
 
-/* ---------- NAVBAR ---------- */
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 24px;
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: linear-gradient(to bottom, rgba(11,14,26,0.9), rgba(11,14,26,0.6));
-  backdrop-filter: blur(10px);
-}
-
-.nav-logo a {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links a {
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.nav-links a:hover {
-  color: var(--accent);
-}
-
-.hamburger {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-/* COMING SOON PAGE */
-
-.coming-hero {
-  min-height: calc(100vh - 60px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px 20px;
-
-  background:
-    radial-gradient(circle at top, #1a1f4d, var(--bg));
-}
-
-.coming-hero h1 {
-  font-size: 42px;
-  margin-bottom: 12px;
-}
-
-.coming-hero p {
-  color: var(--muted);
-  font-size: 16px;
-  margin-bottom: 24px;
-}
-
-.back-home {
-  padding: 12px 22px;
-  border-radius: 14px;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  color: var(--text);
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.back-home:hover {
-  background: var(--panel-hover);
-  transform: translateY(-2px);
-}
-
 /* ---------- RESET ---------- */
 
 * {
@@ -103,61 +23,184 @@ html, body {
   min-height: 100vh;
 }
 
-/* ABOUT HERO – HERO İLE AYNI RENK */
-.about-hero {
-  padding: 120px 20px 80px;
-  text-align: center;
-  background:
-    radial-gradient(circle at top, #1a1f4d, var(--bg));
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.about-hero h1 {
-  font-size: 42px;
-  margin: 0;
-}
+/* ---------- NAVBAR ---------- */
 
-.about-hero p {
-  color: var(--muted);
-  margin-top: 8px;
-}
-
-.about-content {
-  padding: 60px 20px;
-  background: radial-gradient(circle at top, #14183a, var(--bg));
-}
-
-.about-container {
-  max-width: 1100px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 40px;
+.navbar {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: linear-gradient(
+    to bottom,
+    rgba(11,14,26,0.9),
+    rgba(11,14,26,0.6)
+  );
+  backdrop-filter: blur(10px);
 }
 
-.about-text h2 {
-  font-size: 30px;
-  margin-bottom: 16px;
-}
-
-.about-text p {
-  line-height: 1.6;
+.nav-logo a {
+  font-size: 20px;
+  font-weight: 700;
   color: var(--text);
 }
 
-.about-image img {
-  width: 100%;
-  border-radius: 16px;
+.nav-links {
+  display: flex;
+  gap: 20px;
 }
 
-/* ---------- LINKS ---------- */
+.nav-links a {
+  font-size: 14px;
+  color: var(--muted);
+}
 
-a {
+.nav-links a:hover {
   color: var(--accent);
-  text-decoration: none;
 }
 
-/* ---------- HEADER ---------- */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ---------- HERO (BANNER) ---------- */
+
+.hero-header {
+  position: relative;
+  text-align: center;
+  padding: 160px 20px 120px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("images/hero-banner.jpg"); /* BURAYA KENDİ BANNER’IN */
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.45);
+  z-index: 0;
+}
+
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-header h1 {
+  font-size: 48px;
+  margin: 0;
+}
+
+.hero-header .subtitle {
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+/* ---------- SEASON GRID ---------- */
+
+.season-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.season-card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.season-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.season-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.15) 60%,
+    rgba(0,0,0,0)
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+  z-index: 2;
+}
+
+.season-card .overlay span {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+}
+
+/* ---------- LOCKED SEASONS ---------- */
+
+.season-card.locked {
+  filter: grayscale(0.6);
+}
+
+.season-card.locked:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.coming-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  text-align: center;
+}
+
+.lock-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.coming-text {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+/* ---------- PLAYER PAGE ---------- */
 
 .player-header {
   max-width: 1100px;
@@ -179,20 +222,16 @@ a {
   color: var(--accent);
 }
 
-/* ---------- MAIN LAYOUT ---------- */
-
 .player-container {
   max-width: 1100px;
   margin: auto;
   padding: 20px;
 }
 
-/* ---------- VIDEO PLAYER ---------- */
-
 .video-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 */
+  padding-top: 56.25%;
   border-radius: 16px;
   overflow: hidden;
   background: black;
@@ -235,66 +274,8 @@ a {
 #episodeTitle {
   font-size: 15px;
   color: var(--muted);
-  text-align: center;
   flex: 1;
-}
-
-/* HERO (üst alan) */
-
-.season-card.locked {
-  filter: grayscale(0.6) blur(1px);
-}
-
-.season-card.locked:hover {
-  transform: none;
-  box-shadow: none;
-}
-
-.badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: rgba(143,155,255,0.9);
-  color: #000;
-  font-size: 12px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-weight: 600;
-  z-index: 2;
-}
-
-.lock {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  font-size: 18px;
-  z-index: 2;
-}
-
-.hero-header {
-  position: relative;
   text-align: center;
-  padding: 140px 20px 100px;
-  background: radial-gradient(circle at top, #1a1f4d, var(--bg));
-  overflow: hidden;
-}
-
-.hero-grain {
-  position: absolute;
-  inset: 0;
-  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-  opacity: 0.05;
-  pointer-events: none;
-}
-
-.hero-header h1 {
-  font-size: 48px;
-  margin: 0;
-}
-
-.hero-header .subtitle {
-  color: var(--muted);
-  margin-top: 6px;
 }
 
 /* ---------- EPISODE LIST ---------- */
@@ -303,7 +284,6 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 10px;
-  margin-top: 10px;
 }
 
 .episode-list button {
@@ -313,13 +293,6 @@ a {
   padding: 12px;
   border-radius: 12px;
   cursor: pointer;
-  font-size: 14px;
-  transition: background 0.15s ease, transform 0.15s ease, border 0.15s ease;
-}
-
-.episode-list button:hover {
-  background: var(--panel-hover);
-  transform: translateY(-1px);
 }
 
 .episode-list button.active {
@@ -327,153 +300,45 @@ a {
   background: rgba(143,155,255,0.15);
 }
 
-/* ---------- SCROLLBAR (OPTIONAL) ---------- */
+/* ---------- COMING SOON PAGE ---------- */
 
-::-webkit-scrollbar {
-  width: 8px;
+.coming-hero {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  background: radial-gradient(circle at top, #1a1f4d, var(--bg));
 }
 
-::-webkit-scrollbar-track {
-  background: #0b0e1a;
+.coming-hero h1 {
+  font-size: 42px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #2a2f66;
-  border-radius: 6px;
+.coming-hero p {
+  color: var(--muted);
+}
+
+.back-home {
+  margin-top: 20px;
+  padding: 12px 22px;
+  border-radius: 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  transition: background 0.2s ease;
+}
+
+.back-home:hover {
+  background: var(--panel-hover);
 }
 
 /* ---------- MOBILE ---------- */
 
-@media (max-width: 600px) {
-  .controls {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  #episodeTitle {
-    order: -1;
-    margin-bottom: 8px;
-  }
-}
-
-/* ============================= */
-/* SEASON CARDS – FIX / RESTORE */
-/* ============================= */
-
-.season-grid {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.season-card {
-  position: relative;
-  aspect-ratio: 1 / 1;
-  border-radius: 16px;
-  overflow: hidden;
-  text-decoration: none;
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.season-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-}
-
-.season-card .overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.6),
-    rgba(0,0,0,0.15) 60%,
-    rgba(0,0,0,0)
-  );
-  display: flex;
-  align-items: flex-end;
-  padding: 18px;
-}
-
-.season-card .overlay span {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #fff;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.8);
-}
-
-/* BACKGROUND IMAGES */
-.s1 { background-image: url("images/s1.jpg"); }
-.s2 { background-image: url("images/s2.jpg"); }
-.s3 { background-image: url("images/s3.jpg"); }
-.s4 { background-image: url("images/s4.jpg"); }
-
-
-/* ALT BİLGİ ALANI */
-.info-section {
-  background: #2a2a2a;
-  padding: 60px 20px;
-}
-
-.info-container {
-  max-width: 1100px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 40px;
-  align-items: center;
-}
-
-.info-text h2 {
-  font-size: 32px;
-  margin-bottom: 20px;
-}
-
-.info-text p {
-  color: #ddd;
-  line-height: 1.6;
-}
-
-.info-note {
-  margin-top: 16px;
-  color: var(--accent);
-}
-
-.info-image img {
-  width: 100%;
-  border-radius: 16px;
-}
-
-/* FOOTER */
-
-.footer {
-  padding: 24px;
-  text-align: center;
-  background: #0b0e1a;
-  border-top: 1px solid var(--border);
-}
-
-.footer p {
-  margin: 0;
-  font-weight: 600;
-}
-
-.footer span {
-  font-size: 13px;
-  color: var(--muted);
-}
-
-/* MOBILE */
 @media (max-width: 768px) {
-  .info-container {
-    grid-template-columns: 1fr;
-    text-align: center;
+  .hero-header h1 {
+    font-size: 36px;
   }
 
   .nav-links {
@@ -495,12 +360,234 @@ a {
     display: block;
   }
 
-  .about-container {
-    grid-template-columns: 1fr;
-    text-align: center;
+  .controls {
+    flex-direction: column;
   }
+}
 
-  .hero-header h1 {
-    font-size: 36px;
-  }
+/* ---------- SCROLLBAR ---------- */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2f66;
+  border-radius: 6px;
+}
+
+/* ---------- BACKGROUND IMAGES ---------- */
+
+.s1 { background-image: url("images/s1.jpg"); }
+.s2 { background-image: url("images/s2.jpg"); }
+.s3 { background-image: url("images/s3.jpg"); }
+.s4 { background-image: url("images/s4.jpg"); }
+
+/* ---------- WHY SECTION ---------- */
+
+.why-section {
+  padding: 80px 20px;
+  position: relative;
+  border-top: 1px solid var(--border);
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Arka plan görseli ve karartma için */
+.why-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('images/why-bg.jpg') center/cover no-repeat;
+  filter: brightness(0.4); /* 0.4 = %60 karartma, istediğine göre artırabilirsin */
+  z-index: 0;
+}
+
+
+/* İçerik üstte olacak şekilde */
+.why-container {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.why-container h2 {
+  font-size: 34px;
+  margin-bottom: 24px;
+}
+
+.why-container p {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 16px;
+  margin-bottom: 18px;
+}
+
+.bottom-controls {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 12px;
+  z-index: 100;
+}
+
+.player-container {
+  position: relative;
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Playerın sağ altı: video-wrapper dışında */
+.player-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.player-controls button,
+.player-controls .download-btn {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.player-controls button:hover,
+.player-controls .download-btn:hover {
+  background: var(--panel-hover);
+  transform: translateY(-1px);
+}
+
+
+.bottom-controls button,
+.bottom-controls .download-btn {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.bottom-controls button:hover,
+.bottom-controls .download-btn:hover {
+  background: var(--panel-hover);
+  transform: translateY(-1px);
+}
+
+/* Player Controls */
+.player-controls {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 24px 0;
+  flex-wrap: wrap;
+}
+
+.player-controls button,
+.player-controls .download-btn {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 12px 22px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.player-controls button:hover,
+.player-controls .download-btn:hover {
+  background: var(--accent);
+  color: #000;
+  transform: translateY(-2px);
+}
+
+/* Episode List */
+.episode-list {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.episode-list button {
+  background: var(--panel);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 10px 16px;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.episode-list button:hover {
+  background: var(--panel-hover);
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+.episode-list button.active {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+}
+
+
+.contact-box {
+  margin-top: 32px;
+  padding: 24px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.contact-box h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.contact-box p {
+  margin: 6px 0;
+  color: var(--text);
+}
+
+.contact-box a {
+  color: var(--accent);
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer {
+  padding: 28px 20px;
+  text-align: center;
+  background: #0b0e1a;
+  border-top: 1px solid var(--border);
+}
+
+.footer p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.footer span {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--muted);
 }
