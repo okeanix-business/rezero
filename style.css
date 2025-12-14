@@ -38,6 +38,46 @@
   color: var(--accent);
 }
 
+/* COMING SOON PAGE */
+
+.coming-hero {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+
+  background:
+    radial-gradient(circle at top, #1a1f4d, var(--bg));
+}
+
+.coming-hero h1 {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.coming-hero p {
+  color: var(--muted);
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.back-home {
+  padding: 12px 22px;
+  border-radius: 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.back-home:hover {
+  background: var(--panel-hover);
+  transform: translateY(-2px);
+}
+
 /* ---------- RESET ---------- */
 
 * {
