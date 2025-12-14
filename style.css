@@ -170,3 +170,61 @@ a {
     margin-bottom: 8px;
   }
 }
+
+/* ============================= */
+/* SEASON CARDS – FIX / RESTORE */
+/* ============================= */
+
+.season-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.season-card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.season-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.season-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.15) 60%,
+    rgba(0,0,0,0)
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+}
+
+.season-card .overlay span {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+}
+
+/* BACKGROUND IMAGES */
+.s1 { background-image: url("images/s1.jpg"); }
+.s2 { background-image: url("images/s2.jpg"); }
+.s3 { background-image: url("images/s3.jpg"); }
+.s4 { background-image: url("images/s4.jpg"); }
