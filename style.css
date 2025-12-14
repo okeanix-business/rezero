@@ -11,31 +11,41 @@
 /* ---------- NAVBAR ---------- */
 
 .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(11,14,26,0.8);
-  backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 24px;
-  border-bottom: 1px solid var(--border);
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: linear-gradient(to bottom, rgba(11,14,26,0.9), rgba(11,14,26,0.6));
+  backdrop-filter: blur(10px);
 }
 
-.nav-logo {
+.nav-logo a {
   font-size: 20px;
   font-weight: 700;
+  color: var(--text);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
 }
 
 .nav-links a {
-  margin-left: 18px;
   color: var(--muted);
   font-size: 14px;
 }
 
 .nav-links a:hover {
   color: var(--accent);
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 /* COMING SOON PAGE */
@@ -231,14 +241,50 @@ a {
 
 /* HERO (üst alan) */
 
+.season-card.locked {
+  filter: grayscale(0.6) blur(1px);
+}
+
+.season-card.locked:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(143,155,255,0.9);
+  color: #000;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.lock {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 18px;
+  z-index: 2;
+}
+
 .hero-header {
-  height: 260px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background:
-    radial-gradient(circle at top, #1a1f4d, var(--bg));
+  position: relative;
   text-align: center;
+  padding: 140px 20px 100px;
+  background: radial-gradient(circle at top, #1a1f4d, var(--bg));
+  overflow: hidden;
+}
+
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.05;
+  pointer-events: none;
 }
 
 .hero-header h1 {
@@ -431,7 +477,22 @@ a {
   }
 
   .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: var(--panel);
+    flex-direction: column;
+    padding: 16px;
+    border-radius: 14px;
     display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
   }
 
   .about-container {
