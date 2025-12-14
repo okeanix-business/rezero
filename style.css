@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0b0e1a;
+  color: #eaeaff;
+  font-family: system-ui, sans-serif;
+  text-align: center;
+  padding: 30px;
+}
+
+h1 {
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  opacity: 0.7;
+  margin-bottom: 30px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.card {
+  background: #151933;
+  padding: 30px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #fff;
+  transition: 0.2s;
+}
+
+.card:hover {
+  background: #1f2450;
+  transform: translateY(-3px);
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #9aa4ff;
+}
+
+.episodes {
+  max-width: 500px;
+  margin: auto;
+}
+
+.episode {
+  display: block;
+  background: #151933;
+  margin: 10px 0;
+  padding: 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #cdd3ff;
+  transition: 0.15s;
+}
+
+.episode:hover {
+  background: #222766;
+}
