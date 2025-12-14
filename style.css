@@ -1,92 +1,172 @@
 :root {
   --bg: #0b0e1a;
-  --text: #ffffff;
-  --overlay: rgba(0, 0, 0, 0.55);
+  --panel: #151933;
+  --panel-hover: #1f2450;
   --accent: #8f9bff;
+  --text: #eaeaff;
+  --muted: #9aa0d0;
+  --border: rgba(255,255,255,0.06);
 }
+
+/* ---------- RESET ---------- */
 
 * {
   box-sizing: border-box;
 }
 
-body {
+html, body {
   margin: 0;
+  padding: 0;
   background: radial-gradient(circle at top, #14183a, var(--bg));
   color: var(--text);
-  font-family: system-ui, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   min-height: 100vh;
+}
+
+/* ---------- LINKS ---------- */
+
+a {
+  color: var(--accent);
+  text-decoration: none;
 }
 
 /* ---------- HEADER ---------- */
 
-header {
-  text-align: center;
-  padding: 40px 20px 20px;
+.player-header {
+  max-width: 1100px;
+  margin: auto;
+  padding: 24px 20px 10px;
 }
 
-h1 {
-  margin: 0;
-  font-size: 36px;
+.player-header h1 {
+  margin: 6px 0 0;
+  font-size: 28px;
 }
 
-.subtitle {
-  margin-top: 6px;
-  opacity: 0.7;
+.back {
+  font-size: 14px;
+  color: var(--muted);
 }
 
-/* ---------- GRID ---------- */
+.back:hover {
+  color: var(--accent);
+}
 
-.season-grid {
-  max-width: 900px;
-  margin: 0 auto;
+/* ---------- MAIN LAYOUT ---------- */
+
+.player-container {
+  max-width: 1100px;
+  margin: auto;
   padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
 }
 
-/* ---------- CARD ---------- */
+/* ---------- VIDEO PLAYER ---------- */
 
-.season-card {
+.video-wrapper {
   position: relative;
-  aspect-ratio: 1 / 1; /* KARE */
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
   border-radius: 16px;
   overflow: hidden;
-  text-decoration: none;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  background-size: cover;
-  background-position: center;
+  background: black;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.55);
 }
 
-.season-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-}
-
-/* ---------- OVERLAY ---------- */
-
-.overlay {
+.video-wrapper iframe {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, var(--overlay), transparent 60%);
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ---------- CONTROLS ---------- */
+
+.controls {
   display: flex;
-  align-items: flex-end;
-  padding: 18px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0 14px;
 }
 
-.overlay span {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 1px;
+.controls button {
+  background: var(--panel);
   color: var(--text);
-  text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+  border: 1px solid var(--border);
+  padding: 10px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
 }
 
-/* ---------- BACKGROUND IMAGES ---------- */
-/* BURADA GÖRSELLERİ DEĞİŞTİRİYORSUN */
+.controls button:hover {
+  background: var(--panel-hover);
+  transform: translateY(-1px);
+}
 
-.s1 { background-image: url("images/s1.jpg"); }
-.s2 { background-image: url("images/s2.jpg"); }
-.s3 { background-image: url("images/s3.jpg"); }
-.s4 { background-image: url("images/s4.jpg"); }
+#episodeTitle {
+  font-size: 15px;
+  color: var(--muted);
+  text-align: center;
+  flex: 1;
+}
+
+/* ---------- EPISODE LIST ---------- */
+
+.episode-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.episode-list button {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.15s ease, transform 0.15s ease, border 0.15s ease;
+}
+
+.episode-list button:hover {
+  background: var(--panel-hover);
+  transform: translateY(-1px);
+}
+
+.episode-list button.active {
+  border-color: var(--accent);
+  background: rgba(143,155,255,0.15);
+}
+
+/* ---------- SCROLLBAR (OPTIONAL) ---------- */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0e1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2f66;
+  border-radius: 6px;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #episodeTitle {
+    order: -1;
+    margin-bottom: 8px;
+  }
+}
