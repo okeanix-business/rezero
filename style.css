@@ -8,6 +8,36 @@
   --border: rgba(255,255,255,0.06);
 }
 
+/* ---------- NAVBAR ---------- */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(11,14,26,0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.nav-links a {
+  margin-left: 18px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
 /* ---------- RESET ---------- */
 
 * {
@@ -113,39 +143,25 @@ a {
 }
 
 /* HERO (üst alan) */
-.hero {
-  background: radial-gradient(
-      circle at top,
-      #1a2140 0%,
-      #0b1026 45%,
-      #070b1a 100%
-  );
-  padding: 60px 0 90px;
-}
 
-.hero-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* Üst başlık */
 .hero-header {
-  text-align: left;
-  margin-bottom: 40px;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at top, #1a1f4d, var(--bg));
+  text-align: center;
 }
 
 .hero-header h1 {
-  font-size: 42px;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 6px;
+  font-size: 48px;
+  margin: 0;
 }
 
 .hero-header .subtitle {
-  font-size: 16px;
-  color: #b6c0ff;
-  opacity: 0.9;
+  color: var(--muted);
+  margin-top: 6px;
 }
 
 /* ---------- EPISODE LIST ---------- */
@@ -268,52 +284,70 @@ a {
 
 /* ALT BİLGİ ALANI */
 .info-section {
-  background-color: #2f2f2f;
-  padding: 70px 0;
+  background: #2a2a2a;
+  padding: 60px 20px;
 }
 
-.info-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 24px;
+.info-container {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
 }
 
-.info-inner h2 {
+.info-text h2 {
   font-size: 32px;
-  color: #ffffff;
   margin-bottom: 20px;
 }
 
-.info-inner p {
-  color: #d0d0d0;
-  line-height: 1.7;
-  font-size: 16px;
-  margin-bottom: 14px;
+.info-text p {
+  color: #ddd;
+  line-height: 1.6;
 }
 
 .info-note {
-  margin-top: 24px;
-  font-weight: 600;
-  color: #ffffff;
-}
-
-.info-image {
-  text-align: center;
+  margin-top: 16px;
+  color: var(--accent);
 }
 
 .info-image img {
-  max-width: 100%;
-  border-radius: 12px;
+  width: 100%;
+  border-radius: 16px;
+}
+
+/* FOOTER */
+
+.footer {
+  padding: 24px;
+  text-align: center;
+  background: #0b0e1a;
+  border-top: 1px solid var(--border);
+}
+
+.footer p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.footer span {
+  font-size: 13px;
+  color: var(--muted);
 }
 
 /* MOBILE */
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .info-container {
     grid-template-columns: 1fr;
     text-align: center;
   }
 
-  .info-text h2 {
-    font-size: 28px;
+  .nav-links {
+    display: none;
+  }
+
+  .hero-header h1 {
+    font-size: 36px;
   }
 }
