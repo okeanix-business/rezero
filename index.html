@@ -14,14 +14,19 @@
     <a href="index.html">Re:Zero</a>
   </div>
 
-  <div class="nav-links">
+  <div class="nav-links" id="navLinks">
     <a href="index.html">Ana Sayfa</a>
     <a href="about.html">Hakkında</a>
+  </div>
+
+  <div class="hamburger" onclick="toggleMenu()">
+    ☰
   </div>
 </nav>
 
 <!-- HERO -->
 <header class="hero-header">
+  <div class="hero-grain"></div>
   <h1>Re:Zero</h1>
   <p class="subtitle">Türkçe Altyazılı İzle</p>
 </header>
@@ -29,35 +34,47 @@
 <!-- SEASON CARDS -->
 <main class="season-grid">
 
-  <!-- SEZON 1 (AKTİF) -->
+  <!-- 1. SEZON -->
   <a href="season1.html" class="season-card s1">
     <div class="overlay">
-      <span>SEZON 1</span>
+      <span>1. Sezon</span>
     </div>
   </a>
 
-  <!-- SEZON 2 (YAKINDA) -->
-  <a href="coming-soon.html" class="season-card s2">
+  <!-- 2. SEZON -->
+  <a href="coming-soon.html" class="season-card s2 locked">
+    <div class="badge">Yakında</div>
+    <div class="lock">🔒</div>
     <div class="overlay">
-      <span>SEZON 2</span>
+      <span>2. Sezon</span>
     </div>
   </a>
 
-  <!-- SEZON 3 (YAKINDA) -->
-  <a href="coming-soon.html" class="season-card s3">
+  <!-- 3. SEZON -->
+  <a href="coming-soon.html" class="season-card s3 locked">
+    <div class="badge">Yakında</div>
+    <div class="lock">🔒</div>
     <div class="overlay">
-      <span>SEZON 3</span>
+      <span>3. Sezon</span>
     </div>
   </a>
 
-  <!-- SEZON 4 (YAKINDA) -->
-  <a href="coming-soon.html" class="season-card s4">
+  <!-- 4. SEZON -->
+  <a href="coming-soon.html" class="season-card s4 locked">
+    <div class="badge">Yakında</div>
+    <div class="lock">🔒</div>
     <div class="overlay">
-      <span>SEZON 4</span>
+      <span>4. Sezon</span>
     </div>
   </a>
 
 </main>
+
+<script>
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("open");
+}
+</script>
 
 </body>
 </html>
