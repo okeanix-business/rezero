@@ -1,9 +1,8 @@
 :root {
   --bg: #0b0e1a;
-  --card: rgba(21, 25, 51, 0.9);
+  --text: #ffffff;
+  --overlay: rgba(0, 0, 0, 0.55);
   --accent: #8f9bff;
-  --text: #eaeaff;
-  --muted: #9aa0d0;
 }
 
 * {
@@ -12,126 +11,82 @@
 
 body {
   margin: 0;
-  min-height: 100vh;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: radial-gradient(circle at top, #14183a, var(--bg));
   color: var(--text);
+  font-family: system-ui, sans-serif;
+  min-height: 100vh;
 }
 
 /* ---------- HEADER ---------- */
 
 header {
   text-align: center;
-  padding: 50px 20px 30px;
+  padding: 40px 20px 20px;
 }
 
 h1 {
-  font-size: 38px;
   margin: 0;
+  font-size: 36px;
 }
 
 .subtitle {
   margin-top: 6px;
-  color: var(--muted);
-  letter-spacing: 0.5px;
+  opacity: 0.7;
 }
 
-/* ---------- SEASON GRID ---------- */
+/* ---------- GRID ---------- */
 
 .season-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
-  max-width: 720px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
 }
+
+/* ---------- CARD ---------- */
 
 .season-card {
   position: relative;
-  background: var(--card);
-  border-radius: 18px;
-  padding: 36px 28px;
+  aspect-ratio: 1 / 1; /* KARE */
+  border-radius: 16px;
+  overflow: hidden;
   text-decoration: none;
-  color: var(--text);
-  box-shadow: 0 0 25px rgba(143, 155, 255, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background-size: cover;
+  background-position: center;
 }
 
 .season-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 35px rgba(143, 155, 255, 0.18);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
 }
 
-.season-number {
+/* ---------- OVERLAY ---------- */
+
+.overlay {
   position: absolute;
-  top: 18px;
-  right: 22px;
-  font-size: 42px;
-  font-weight: 700;
-  color: rgba(143, 155, 255, 0.15);
-}
-
-.season-card h2 {
-  margin: 0;
-  font-size: 22px;
-}
-
-.season-card p {
-  margin-top: 6px;
-  color: var(--muted);
-}
-
-/* ---------- EPISODES ---------- */
-
-.page-header {
-  padding: 30px 20px 10px;
-  max-width: 600px;
-  margin: auto;
-}
-
-.back {
-  text-decoration: none;
-  color: var(--accent);
-  font-size: 14px;
-}
-
-.episodes {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 10px 20px 40px;
-}
-
-.episode {
+  inset: 0;
+  background: linear-gradient(to top, var(--overlay), transparent 60%);
   display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 16px 18px;
-  margin-bottom: 12px;
-  background: var(--card);
-  border-radius: 14px;
-  text-decoration: none;
+  align-items: flex-end;
+  padding: 18px;
+}
+
+.overlay span {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
   color: var(--text);
-  border-left: 3px solid var(--accent);
-  transition: background 0.15s ease, transform 0.15s ease;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.8);
 }
 
-.episode:hover {
-  background: rgba(34, 39, 102, 0.9);
-  transform: translateX(4px);
-}
+/* ---------- BACKGROUND IMAGES ---------- */
+/* BURADA GÖRSELLERİ DEĞİŞTİRİYORSUN */
 
-.episode span {
-  font-size: 13px;
-  color: var(--muted);
-}
-
-/* ---------- FOOTER ---------- */
-
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 13px;
-  color: var(--muted);
-}
+.s1 { background-image: url("images/s1.jpg"); }
+.s2 { background-image: url("images/s2.jpg"); }
+.s3 { background-image: url("images/s3.jpg"); }
+.s4 { background-image: url("images/s4.jpg"); }
