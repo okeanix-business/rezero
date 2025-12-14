@@ -209,8 +209,10 @@ a {
 }
 
 .player-header h1 {
-  margin: 6px 0 0;
-  font-size: 28px;
+  margin: 5px 0 0;
+  font-size: 36px; /* 28px → 36px ile daha büyük */
+  text-align: left;
+  font-weight: 700; /* istersen kalınlaştırabilirsin */
 }
 
 .back {

@@ -19,8 +19,7 @@
 </nav>
 
 <header class="player-header">
-  <a href="index.html" class="back">← Sezonlar</a>
-  <h1>Sezon 1</h1>
+  <h1 id="episodeTitle">Sezon 12</h1> <!-- Bu id çok önemli -->
 </header>
 
 <main class="player-container">
@@ -43,11 +42,8 @@
   </div>
 
   <!-- EPISODE LIST -->
-  <div class="episode-list">
-    <button onclick="loadEpisode(0)">Bölüm 1</button>
-    <button onclick="loadEpisode(1)">Bölüm 2</button>
-    <button onclick="loadEpisode(2)">Bölüm 3</button>
-  </div>
+	<div class="episode-list"></div>
+
   
   <!-- ===== YORUMLAR ===== -->
   <section class="comments-section">
@@ -57,41 +53,7 @@
 
 </main>
 
-<script>
-const episodes = [
-  { title: "Bölüm 1 – Başlangıcın Sonu", driveId: "1u4nTZDBpHl1tX1uDS-AyKR8IRzFu4yqs" },
-  { title: "Bölüm 2 – Yeniden Başlangıç", driveId: "1U7s7CT9UXCmlCneAN5X0Ol8H8aw2mwkV" },
-  { title: "Bölüm 3 – Umutsuzluk", driveId: "1iOXvuMeRZ9J54R2p_XrVIKhK-U1-7zQ3" }
-];
-
-let currentEpisode = 0;
-
-const player = document.getElementById("videoPlayer");
-const buttons = document.querySelectorAll(".episode-list button");
-const downloadBtn = document.getElementById("downloadBtn");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
-
-function loadEpisode(index) {
-  if (index < 0 || index >= episodes.length) return;
-
-  currentEpisode = index;
-  player.src = `https://drive.google.com/file/d/${episodes[index].driveId}/preview`;
-  downloadBtn.href = `https://drive.google.com/uc?export=download&id=${episodes[index].driveId}`;
-
-  buttons.forEach(b => b.classList.remove("active"));
-  buttons[index].classList.add("active");
-
-  prevBtn.style.display = index === 0 ? "none" : "inline-block";
-  nextBtn.style.display = index === episodes.length - 1 ? "none" : "inline-block";
-}
-
-// Başlangıçta ilk bölümü yükle
-loadEpisode(0);
-
-function nextEpisode() { loadEpisode(currentEpisode + 1); }
-function prevEpisode() { loadEpisode(currentEpisode - 1); }
-</script>
+<script src="player.js"></script>
 
 <!-- ===== Utterances Yorum Sistemi ===== -->
 <script src="https://utteranc.es/client.js"
