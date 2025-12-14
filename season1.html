@@ -8,27 +8,39 @@
 </head>
 <body>
 
-  <header class="page-header">
-    <a class="back" href="index.html">← Sezonlar</a>
-    <h1>Sezon 1</h1>
-  </header>
+<header class="player-header">
+  <a href="index.html" class="back">← Sezonlar</a>
+  <h1>Sezon 1</h1>
+</header>
 
-  <main class="episodes">
-    <a class="episode" href="https://drive.google.com/..." target="_blank">
-      <span>Bölüm 01</span>
-      <strong>Başlangıcın Sonu</strong>
-    </a>
+<main class="player-container">
 
-    <a class="episode" href="https://drive.google.com/..." target="_blank">
-      <span>Bölüm 02</span>
-      <strong>Yeniden Başlangıç</strong>
-    </a>
+  <!-- VIDEO -->
+  <div class="video-wrapper">
+    <iframe
+      id="videoPlayer"
+      src="https://drive.google.com/file/d/VIDEO_ID_1/preview"
+      allow="autoplay; fullscreen"
+      allowfullscreen>
+    </iframe>
+  </div>
 
-    <a class="episode" href="https://drive.google.com/..." target="_blank">
-      <span>Bölüm 03</span>
-      <strong>Umutsuzluk</strong>
-    </a>
-  </main>
+  <!-- CONTROLS -->
+  <div class="controls">
+    <button onclick="prevEpisode()">⏮ Önceki</button>
+    <span id="episodeTitle">Bölüm 1</span>
+    <button onclick="nextEpisode()">Sonraki ⏭</button>
+  </div>
 
+  <!-- EPISODE LIST -->
+  <div class="episode-list">
+    <button onclick="loadEpisode(0)">Bölüm 1</button>
+    <button onclick="loadEpisode(1)">Bölüm 2</button>
+    <button onclick="loadEpisode(2)">Bölüm 3</button>
+  </div>
+
+</main>
+
+<script src="player.js"></script>
 </body>
 </html>
