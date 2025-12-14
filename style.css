@@ -266,38 +266,29 @@ a {
 .s4 { background-image: url("images/s4.jpg"); }
 
 
-/* ============================= */
-/* INFO SECTION (WEB NOVEL) */
-/* ============================= */
-
+/* ALT BİLGİ ALANI */
 .info-section {
-  margin-top: 80px;
-  padding: 60px 20px;
-  background: #2e2e2e;
+  background-color: #2f2f2f;
+  padding: 70px 0;
 }
 
-.info-container {
-  max-width: 1100px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 40px;
-  align-items: center;
-  border-top: 2px solid rgba(255,255,255,0.15);
-  padding-top: 40px;
+.info-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-.info-text h2 {
-  font-size: 36px;
-  margin: 0 0 20px;
-  font-weight: 800;
+.info-inner h2 {
+  font-size: 32px;
+  color: #ffffff;
+  margin-bottom: 20px;
 }
 
-.info-text p {
-  font-size: 16px;
+.info-inner p {
+  color: #d0d0d0;
   line-height: 1.7;
-  color: #e0e0e0;
-  margin-bottom: 16px;
+  font-size: 16px;
+  margin-bottom: 14px;
 }
 
 .info-note {
