@@ -1,15 +1,15 @@
 const episodes = [
   {
     title: "Bölüm 1 – Başlangıcın Sonu",
-    driveId: "VIDEO_ID_1"
+    driveId: "1u4nTZDBpHl1tX1uDS-AyKR8IRzFu4yqs"
   },
   {
     title: "Bölüm 2 – Yeniden Başlangıç",
-    driveId: "VIDEO_ID_2"
+    driveId: "1U7s7CT9UXCmlCneAN5X0Ol8H8aw2mwkV"
   },
   {
     title: "Bölüm 3 – Umutsuzluk",
-    driveId: "VIDEO_ID_3"
+    driveId: "1iOXvuMeRZ9J54R2p_XrVIKhK-U1-7zQ3"
   }
 ];
 
