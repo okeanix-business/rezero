@@ -112,6 +112,42 @@ a {
   flex: 1;
 }
 
+/* HERO (üst alan) */
+.hero {
+  background: radial-gradient(
+      circle at top,
+      #1a2140 0%,
+      #0b1026 45%,
+      #070b1a 100%
+  );
+  padding: 60px 0 90px;
+}
+
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Üst başlık */
+.hero-header {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.hero-header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.hero-header .subtitle {
+  font-size: 16px;
+  color: #b6c0ff;
+  opacity: 0.9;
+}
+
 /* ---------- EPISODE LIST ---------- */
 
 .episode-list {
