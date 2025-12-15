@@ -72,49 +72,6 @@ a {
   cursor: pointer;
 }
 
-/* ---------- HERO (BANNER) ---------- */
-
-.hero-header {
-  position: relative;
-  text-align: center;
-  padding: 160px 20px 120px;
-  overflow: hidden;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background-image: url("images/hero-banner.jpg"); /* BURAYA KENDİ BANNER’IN */
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.45);
-  z-index: 0;
-}
-
-.hero-grain {
-  position: absolute;
-  inset: 0;
-  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-  opacity: 0.05;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-.hero-header h1 {
-  font-size: 48px;
-  margin: 0;
-}
-
-.hero-header .subtitle {
-  margin-top: 6px;
-  color: var(--muted);
-}
-
 /* ---------- SEASON GRID ---------- */
 
 .season-grid {
@@ -233,7 +190,7 @@ a {
 .video-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 56.25%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
   border-radius: 16px;
   overflow: hidden;
   background: black;
@@ -302,40 +259,6 @@ a {
   background: rgba(143,155,255,0.15);
 }
 
-/* ---------- COMING SOON PAGE ---------- */
-
-.coming-hero {
-  min-height: calc(100vh - 60px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px 20px;
-  background: radial-gradient(circle at top, #1a1f4d, var(--bg));
-}
-
-.coming-hero h1 {
-  font-size: 42px;
-}
-
-.coming-hero p {
-  color: var(--muted);
-}
-
-.back-home {
-  margin-top: 20px;
-  padding: 12px 22px;
-  border-radius: 14px;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  transition: background 0.2s ease;
-}
-
-.back-home:hover {
-  background: var(--panel-hover);
-}
-
 /* ---------- MOBILE ---------- */
 
 @media (max-width: 768px) {
@@ -364,6 +287,37 @@ a {
 
   .controls {
     flex-direction: column;
+  }
+
+  /* Video container for better mobile responsiveness */
+  .video-wrapper {
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+    box-shadow: none;
+    border-radius: 8px;
+  }
+
+  .episode-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .episode-list button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .player-header h1 {
+    font-size: 28px;
+  }
+
+  .controls button,
+  .controls .download-btn {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  .episode-list button {
+    padding: 10px;
+    font-size: 14px;
   }
 }
 
@@ -470,7 +424,6 @@ a {
   transform: translateY(-1px);
 }
 
-
 .bottom-controls button,
 .bottom-controls .download-btn {
   background: var(--panel);
@@ -549,7 +502,6 @@ a {
   color: #000;
   border-color: var(--accent);
 }
-
 
 .contact-box {
   margin-top: 32px;
