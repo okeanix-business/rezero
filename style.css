@@ -5,16 +5,16 @@
   --accent: #8f9bff;
   --text: #eaeaff;
   --muted: #9aa0d0;
-  --border: rgba(255,255,255,0.06);
+  --border: rgba(255, 255, 255, 0.06);
 }
 
 /* ---------- RESET ---------- */
-
 * {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   background: radial-gradient(circle at top, #14183a, var(--bg));
@@ -29,7 +29,6 @@ a {
 }
 
 /* ---------- NAVBAR ---------- */
-
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -38,11 +37,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: linear-gradient(
-    to bottom,
-    rgba(11,14,26,0.9),
-    rgba(11,14,26,0.6)
-  );
+  background: linear-gradient(to bottom, rgba(11, 14, 26, 0.9), rgba(11, 14, 26, 0.6));
   backdrop-filter: blur(10px);
 }
 
@@ -72,8 +67,49 @@ a {
   cursor: pointer;
 }
 
-/* ---------- SEASON GRID ---------- */
+/* ---------- HERO (BANNER) ---------- */
+.hero-header {
+  position: relative;
+  text-align: center;
+  padding: 160px 20px 120px;
+  overflow: hidden;
+}
 
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("images/hero-banner.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.45);
+  z-index: 0;
+}
+
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-header h1 {
+  font-size: 48px;
+  margin: 0;
+}
+
+.hero-header .subtitle {
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+/* ---------- SEASON GRID ---------- */
 .season-grid {
   max-width: 900px;
   margin: 0 auto;
@@ -90,24 +126,19 @@ a {
   overflow: hidden;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .season-card:hover {
   transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 .season-card .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.6),
-    rgba(0,0,0,0.15) 60%,
-    rgba(0,0,0,0)
-  );
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.15) 60%, rgba(0, 0, 0, 0));
   display: flex;
   align-items: flex-end;
   padding: 18px;
@@ -119,11 +150,10 @@ a {
   font-weight: 700;
   letter-spacing: 1px;
   color: #fff;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 /* ---------- LOCKED SEASONS ---------- */
-
 .season-card.locked {
   filter: grayscale(0.6);
 }
@@ -136,7 +166,7 @@ a {
 .coming-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -158,7 +188,6 @@ a {
 }
 
 /* ---------- PLAYER PAGE ---------- */
-
 .player-header {
   max-width: 1100px;
   margin: auto;
@@ -167,9 +196,9 @@ a {
 
 .player-header h1 {
   margin: 5px 0 0;
-  font-size: 36px; /* 28px → 36px ile daha büyük */
+  font-size: 36px;
   text-align: left;
-  font-weight: 700; /* istersen kalınlaştırabilirsin */
+  font-weight: 700;
 }
 
 .back {
@@ -194,7 +223,8 @@ a {
   border-radius: 16px;
   overflow: hidden;
   background: black;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.55);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
+  transition: transform 0.3s ease;
 }
 
 .video-wrapper iframe {
@@ -206,7 +236,6 @@ a {
 }
 
 /* ---------- CONTROLS ---------- */
-
 .controls {
   display: flex;
   justify-content: space-between;
@@ -238,7 +267,6 @@ a {
 }
 
 /* ---------- EPISODE LIST ---------- */
-
 .episode-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -256,11 +284,43 @@ a {
 
 .episode-list button.active {
   border-color: var(--accent);
-  background: rgba(143,155,255,0.15);
+  background: rgba(143, 155, 255, 0.15);
+}
+
+/* ---------- COMING SOON PAGE ---------- */
+.coming-hero {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  background: radial-gradient(circle at top, #1a1f4d, var(--bg));
+}
+
+.coming-hero h1 {
+  font-size: 42px;
+}
+
+.coming-hero p {
+  color: var(--muted);
+}
+
+.back-home {
+  margin-top: 20px;
+  padding: 12px 22px;
+  border-radius: 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  transition: background 0.2s ease;
+}
+
+.back-home:hover {
+  background: var(--panel-hover);
 }
 
 /* ---------- MOBILE ---------- */
-
 @media (max-width: 768px) {
   .hero-header h1 {
     font-size: 36px;
@@ -288,41 +348,9 @@ a {
   .controls {
     flex-direction: column;
   }
-
-  /* Video container for better mobile responsiveness */
-  .video-wrapper {
-    padding-top: 56.25%; /* 16:9 aspect ratio */
-    box-shadow: none;
-    border-radius: 8px;
-  }
-
-  .episode-list {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .episode-list button {
-    font-size: 14px;
-    padding: 8px;
-  }
-
-  .player-header h1 {
-    font-size: 28px;
-  }
-
-  .controls button,
-  .controls .download-btn {
-    padding: 8px 14px;
-    font-size: 14px;
-  }
-
-  .episode-list button {
-    padding: 10px;
-    font-size: 14px;
-  }
 }
 
 /* ---------- SCROLLBAR ---------- */
-
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -333,14 +361,23 @@ a {
 }
 
 /* ---------- BACKGROUND IMAGES ---------- */
+.s1 {
+  background-image: url("images/s1.jpg");
+}
 
-.s1 { background-image: url("images/s1.jpg"); }
-.s2 { background-image: url("images/s2.jpg"); }
-.s3 { background-image: url("images/s3.jpg"); }
-.s4 { background-image: url("images/s4.jpg"); }
+.s2 {
+  background-image: url("images/s2.jpg");
+}
+
+.s3 {
+  background-image: url("images/s3.jpg");
+}
+
+.s4 {
+  background-image: url("images/s4.jpg");
+}
 
 /* ---------- WHY SECTION ---------- */
-
 .why-section {
   padding: 80px 20px;
   position: relative;
@@ -349,18 +386,15 @@ a {
   overflow: hidden;
 }
 
-/* Arka plan görseli ve karartma için */
 .why-section::before {
   content: "";
   position: absolute;
   inset: 0;
   background: url('images/why-bg.jpg') center/cover no-repeat;
-  filter: brightness(0.4); /* 0.4 = %60 karartma, istediğine göre artırabilirsin */
+  filter: brightness(0.4);
   z-index: 0;
 }
 
-
-/* İçerik üstte olacak şekilde */
 .why-container {
   position: relative;
   z-index: 1;
@@ -395,52 +429,6 @@ a {
   max-width: 1100px;
   margin: auto;
   padding: 20px;
-}
-
-/* Playerın sağ altı: video-wrapper dışında */
-.player-controls {
-  display: flex;
-  gap: 12px;
-  justify-content: flex-end;
-  margin-top: 10px;
-}
-
-.player-controls button,
-.player-controls .download-btn {
-  background: var(--panel);
-  color: var(--text);
-  border: 1px solid var(--border);
-  padding: 10px 16px;
-  border-radius: 12px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 14px;
-  transition: background 0.15s ease, transform 0.15s ease;
-}
-
-.player-controls button:hover,
-.player-controls .download-btn:hover {
-  background: var(--panel-hover);
-  transform: translateY(-1px);
-}
-
-.bottom-controls button,
-.bottom-controls .download-btn {
-  background: var(--panel);
-  color: var(--text);
-  border: 1px solid var(--border);
-  padding: 10px 16px;
-  border-radius: 12px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 14px;
-  transition: background 0.15s ease, transform 0.15s ease;
-}
-
-.bottom-controls button:hover,
-.bottom-controls .download-btn:hover {
-  background: var(--panel-hover);
-  transform: translateY(-1px);
 }
 
 /* Player Controls */
@@ -526,7 +514,6 @@ a {
 }
 
 /* ---------- FOOTER ---------- */
-
 .footer {
   padding: 28px 20px;
   text-align: center;
