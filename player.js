@@ -86,6 +86,27 @@ function loadEpisode(index) {
 function nextEpisode() { loadEpisode(currentEpisode + 1); }
 function prevEpisode() { loadEpisode(currentEpisode - 1); }
 
+// Google Drive iframe video tam ekran moduna geçtiğinde
+const iframe = document.getElementById("videoPlayer");
+
+iframe.addEventListener("fullscreenchange", function() {
+    if (document.fullscreenElement) {
+        // Tam ekran moduna geçildiğinde ekranı yataya döndür
+        screen.orientation.lock("landscape").catch((err) => {
+            console.log("Yatay ekran geçişi başarısız:", err);
+        });
+    }
+});
+
+iframe.addEventListener("webkitfullscreenchange", function() {
+    if (document.webkitFullscreenElement) {
+        // Webkit tarayıcılar için de aynı işlemi yapalım
+        screen.orientation.lock("landscape").catch((err) => {
+            console.log("Yatay ekran geçişi başarısız:", err);
+        });
+    }
+});
+
 // Başlangıç
 renderEpisodeList();
 loadEpisode(0);
