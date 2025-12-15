@@ -7,7 +7,8 @@ const seasons = [
       { number: 3, title: "Hayat Başka Bir Dünyada Sıfırdan Başladı", driveId: "1_9C-W6tnw5TocE4WoWXG1LKQ6Uy7_50o" },
       { number: 4, title: "Mutlu Roswaal Malikanesi Ailesi", driveId: "1dnklu9BqCZFO5_WwtKR7KFM9XC1g5klw" },
       { number: 5, title: "Sözümüzün Sabahı Hala Uzak", driveId: "1XyWrB_Zkz6jQW4--nUGnxflgSU97xGxL" },
-      { number: 6, title: "Zincirlerin Sesi", driveId: "1mNujsOoATisKdH2Lue5Sf0qmMGIKelcf" }
+      { number: 6, title: "Zincirlerin Sesi", driveId: "1mNujsOoATisKdH2Lue5Sf0qmMGIKelcf" },
+	  { number: 7, title: "Natsuki Subaru'nun Yeniden Başlaması", driveId: "1xPAGPMtpWQUrhvJl-2t-BDvVOrvy4r92" }
     ]
   },
   {
@@ -90,21 +91,25 @@ function prevEpisode() { loadEpisode(currentEpisode - 1); }
 const iframe = document.getElementById("videoPlayer");
 
 iframe.addEventListener("fullscreenchange", function() {
-    if (document.fullscreenElement) {
-        // Tam ekran moduna geçildiğinde ekranı yataya döndür
-        screen.orientation.lock("landscape").catch((err) => {
-            console.log("Yatay ekran geçişi başarısız:", err);
-        });
-    }
+  if (document.fullscreenElement && iframe === document.fullscreenElement) {
+    // Sadece video tam ekran modundayken ekranı yataya döndür
+    screen.orientation.lock("landscape").catch((err) => {
+      console.log("Yatay ekran geçişi başarısız:", err);
+    });
+  } else {
+    // Ekran tam ekran modundan çıktığında normal kaydırmayı sağla
+    screen.orientation.unlock();
+  }
 });
 
 iframe.addEventListener("webkitfullscreenchange", function() {
-    if (document.webkitFullscreenElement) {
-        // Webkit tarayıcılar için de aynı işlemi yapalım
-        screen.orientation.lock("landscape").catch((err) => {
-            console.log("Yatay ekran geçişi başarısız:", err);
-        });
-    }
+  if (document.webkitFullscreenElement && iframe === document.webkitFullscreenElement) {
+    screen.orientation.lock("landscape").catch((err) => {
+      console.log("Yatay ekran geçişi başarısız:", err);
+    });
+  } else {
+    screen.orientation.unlock();
+  }
 });
 
 // Başlangıç

@@ -58,26 +58,39 @@
 
 <!-- Tam Ekran ve Yatay Modu Kilitlemek için -->
 <script>
-  const iframe = document.getElementById("videoPlayer");
+	const iframe = document.getElementById("videoPlayer");
 
-  iframe.addEventListener("fullscreenchange", function() {
-      if (document.fullscreenElement) {
-          // Tam ekran moduna geçildiğinde ekranı yataya döndür
-          screen.orientation.lock("landscape").catch((err) => {
-              console.log("Yatay ekran geçişi başarısız:", err);
-          });
-      }
-  });
+	iframe.addEventListener("fullscreenchange", function() {
+	  if (document.fullscreenElement && iframe === document.fullscreenElement) {
+		// Video tam ekran modunda yatay ekranı kilitle
+		screen.orientation.lock("landscape").catch((err) => {
+		  console.log("Yatay ekran geçişi başarısız:", err);
+		});
+	  } else {
+		// Ekran tam ekran modundan çıkarsa, kilidi kaldır
+		screen.orientation.unlock();
+	  }
+	});
 
-  iframe.addEventListener("webkitfullscreenchange", function() {
-      if (document.webkitFullscreenElement) {
-          // Webkit tarayıcılar için de aynı işlemi yapalım
-          screen.orientation.lock("landscape").catch((err) => {
-              console.log("Yatay ekran geçişi başarısız:", err);
-          });
-      }
-  });
+	iframe.addEventListener("webkitfullscreenchange", function() {
+	  if (document.webkitFullscreenElement && iframe === document.webkitFullscreenElement) {
+		screen.orientation.lock("landscape").catch((err) => {
+		  console.log("Yatay ekran geçişi başarısız:", err);
+		});
+	  } else {
+		screen.orientation.unlock();
+	  }
+	});
 </script>
+
+<!-- Mobilde 'Bölümü İndir' butonunu gizle -->
+<style>
+  @media (max-width: 768px) {
+    #downloadBtn {
+      display: none;
+    }
+  }
+</style>
 
 </body>
 </html>
