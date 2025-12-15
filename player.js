@@ -2,16 +2,16 @@ const seasons = [
   {
     season: 1,
     episodes: [
-      { number: 1, title: "Başlangıcın Sonu", driveId: "1u4nTZDBpHl1tX1uDS-AyKR8IRzFu4yqs" },
-      { number: 2, title: "Yeniden Başlangıç", driveId: "1U7s7CT9UXCmlCneAN5X0Ol8H8aw2mwkV" },
-      { number: 3, title: "Umutsuzluk", driveId: "1iOXvuMeRZ9J54R2p_XrVIKhK-U1-7zQ3" }
+      { number: 1, title: "Başlangıcın Sonu Ve Sonun Başlangıcı", driveId: "180nR6WRoc2exM94QUcFeL-f7cRTv83i9" },
+      { number: 2, title: "Cadıyla Yeniden Buluşma", driveId: "1lcSpoiUiB8BbD4uebRiJAbHxH7qVCTv_" },
+      { number: 3, title: "Hayat Başka Bir Dünyada Sıfırdan Başladı", driveId: "1_9C-W6tnw5TocE4WoWXG1LKQ6Uy7_50o" }
     ]
   },
   {
     season: 2,
     episodes: [
-      { number: 1, title: "Yeni Başlangıç", driveId: "..." },
-      { number: 2, title: "Zorluklar", driveId: "..." }
+      { number: 1, title: "deneme", driveId: "..." },
+      { number: 2, title: "deneme", driveId: "..." }
     ]
   }
 ];
