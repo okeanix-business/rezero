@@ -14,15 +14,19 @@
 <!-- NAVBAR -->
 <nav class="navbar">
   <div class="nav-logo">
-    <a href="index.html">rezeroizle.com - Beta v0.6</a>
+    <a href="index.html">rezeroizle.com - Beta v0.2.0</a>
   </div>
   <div class="nav-links">
     <a href="index.html">Ana Sayfa</a>
   </div>
 </nav>
 
+<!-- PLAYER HEADER - Başlık Dinamik Olarak Güncellenecek -->
 <header class="player-header">
-  <h1 id="episodeTitle"></h1> <!-- JS ile güncellenecek -->
+  <h1 id="episodeTitle">
+    <span class="season-episode"></span> <!-- Sezon ve Bölüm -->
+    <span class="episode-title"></span>  <!-- Bölüm Başlığı -->
+  </h1>
 </header>
 
 <main class="player-container">
@@ -47,11 +51,20 @@
   <!-- EPISODE LIST -->
   <div class="episode-list"></div>
 
-  <!-- ===== YORUMLAR ===== -->
-  <section class="comments-section">
-    <h2>Bölüm Yorumları</h2>
+<!-- Yorumlar Kısmı -->
+<section class="comments-section">
+  <h2>Bölüm Yorumları</h2>
+  <!-- Spoiler Uyarısı -->
+  <div id="spoiler-warning" class="spoiler-warning">
+    <p><strong>Uyarı:</strong> Gelecek bölümler hakkında konuşmak yasaktır, sadece izlediğiniz bölümle alakalı yorum giriniz. Saygılı olunuz.</p>
+    <button id="acceptRulesBtn">Yorumları Aç</button>
+  </div>
+
+  <!-- Yorum Kutusu -->
+  <div id="commentsContainer" class="comments-container" style="display: none;">
     <div id="utterances-container"></div>
-  </section>
+  </div>
+</section>
 </main>
 
 <script src="player.js"></script>

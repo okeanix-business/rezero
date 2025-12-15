@@ -2,13 +2,15 @@ const seasons = [
   {
     season: 1,
     episodes: [
-      { number: 1, title: "Başlangıcın Sonu Ve Sonun Başlangıcı", driveId: "180nR6WRoc2exM94QUcFeL-f7cRTv83i9" },
-      { number: 2, title: "Cadıyla Yeniden Buluşma", driveId: "1lcSpoiUiB8BbD4uebRiJAbHxH7qVCTv_" },
-      { number: 3, title: "Hayat Başka Bir Dünyada Sıfırdan Başladı", driveId: "1_9C-W6tnw5TocE4WoWXG1LKQ6Uy7_50o" },
-      { number: 4, title: "Mutlu Roswaal Malikanesi Ailesi", driveId: "1dnklu9BqCZFO5_WwtKR7KFM9XC1g5klw" },
-      { number: 5, title: "Sözümüzün Sabahı Hala Uzak", driveId: "1XyWrB_Zkz6jQW4--nUGnxflgSU97xGxL" },
-      { number: 6, title: "Zincirlerin Sesi", driveId: "1mNujsOoATisKdH2Lue5Sf0qmMGIKelcf" },
-	  { number: 7, title: "Natsuki Subaru'nun Yeniden Başlaması", driveId: "1xPAGPMtpWQUrhvJl-2t-BDvVOrvy4r92" }
+      { number: 1, title: "Başlangıcın Sonu Ve Sonun Başlangıcı", driveId: "1IRoumgrfF9L901hZa0DmVG6FTiXOxLTW" },
+      { number: 2, title: "Cadıyla Yeniden Buluşma", driveId: "1Q6GZsTB5aADk6l8sOgWmq2QDvASYikDS" },
+      { number: 3, title: "Hayat Başka Bir Dünyada Sıfırdan Başladı", driveId: "1efyo-5cpEJZL0M14qWp_UdNCdeYFIsZP" },
+      { number: 4, title: "Mutlu Roswaal Malikanesi Ailesi", driveId: "1RoAKrXq7oBvzU9iFn_mywfrp8TDqGzLT" },
+      { number: 5, title: "Sözümüzün Sabahı Hala Uzak", driveId: "19dhRuU8RQqoukjZQrJAjciAIXdlRd2dz" },
+      { number: 6, title: "Zincirlerin Sesi", driveId: "19wz0YmTb7w5j_tpq9tZh3OIA3_6wVmrK" },
+      { number: 7, title: "Natsuki Subaru'nun Yeniden Başlaması", driveId: "1nKAAcB8XoxU2byOmPg3-m4ojzZ__kJwl" },
+      { number: 8, title: "Ağladım, Ciğerlerim Çıkana Kadar Ağladım ve Ağlamayı Bıraktım", driveId: "1WjaRK4eP7j5FRLm5D90BWlhaopK8_oSj" },
+      { number: 9, title: "Cesaretin Anlamı", driveId: "12KVdQF7TN0XznqlQzjU8wTyjmm5ZiEFH" }
     ]
   },
   {
@@ -39,6 +41,8 @@ function renderEpisodeList() {
     const btn = document.createElement("button");
     btn.textContent = `${ep.number}. Bölüm`;
     btn.classList.toggle("active", i === currentEpisode);
+    btn.classList.add("episode-button");
+    btn.setAttribute("data-episode-id", ep.number);
     btn.addEventListener("click", () => loadEpisode(i));
     episodeListContainer.appendChild(btn);
   });
@@ -56,8 +60,13 @@ function loadEpisode(index) {
   player.src = `https://drive.google.com/file/d/${episode.driveId}/preview`;
   downloadBtn.href = `https://drive.google.com/uc?export=download&id=${episode.driveId}`;
 
-  // Başlık güncelle
-  episodeTitle.textContent = `${seasons[currentSeason].season}. Sezon ${episode.number}. Bölüm - ${episode.title}`;
+  // Sezon ve Bölüm Başlıklarını Güncelleme
+  const seasonText = `${seasons[currentSeason].season}. Sezon ${episode.number}. Bölüm`; 
+  const episodeText = episode.title;
+
+  // Başlıkları HTML'de güncelle
+  document.querySelector('.season-episode').textContent = seasonText;
+  document.querySelector('.episode-title').textContent = episodeText;
 
   // Episode list active class
   Array.from(episodeListContainer.children).forEach((b, i) => {
@@ -81,6 +90,10 @@ function loadEpisode(index) {
     script.async = true;
     utterancesContainer.appendChild(script);
   }
+
+  // Kuralları tekrar göster
+  document.getElementById("spoiler-warning").style.display = "block"; // Kuralları yeniden göster
+  document.getElementById("commentsContainer").style.display = "none"; // Yorumları gizle
 }
 
 // Butonlar
@@ -92,18 +105,7 @@ const iframe = document.getElementById("videoPlayer");
 
 iframe.addEventListener("fullscreenchange", function() {
   if (document.fullscreenElement && iframe === document.fullscreenElement) {
-    // Sadece video tam ekran modundayken ekranı yataya döndür
-    screen.orientation.lock("landscape").catch((err) => {
-      console.log("Yatay ekran geçişi başarısız:", err);
-    });
-  } else {
-    // Ekran tam ekran modundan çıktığında normal kaydırmayı sağla
-    screen.orientation.unlock();
-  }
-});
-
-iframe.addEventListener("webkitfullscreenchange", function() {
-  if (document.webkitFullscreenElement && iframe === document.webkitFullscreenElement) {
+    // Yatay ekran geçişi
     screen.orientation.lock("landscape").catch((err) => {
       console.log("Yatay ekran geçişi başarısız:", err);
     });
@@ -112,6 +114,37 @@ iframe.addEventListener("webkitfullscreenchange", function() {
   }
 });
 
-// Başlangıç
+// Bölüm seçildiğinde kaydet
+document.querySelectorAll('.episode-button').forEach(button => {
+  button.addEventListener('click', function() {
+    const episodeId = this.getAttribute('data-episode-id');
+    localStorage.setItem('lastWatchedEpisode', episodeId); // Son izlenen bölümü kaydet
+    loadEpisode(episodeId - 1); // Seçilen bölümü yükle (id 1'den başlıyor, sıfır tabanlı index)
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const lastWatchedEpisode = localStorage.getItem('lastWatchedEpisode');
+  
+  if (lastWatchedEpisode) {
+    // Son izlenen bölümü bul ve video oynatmaya başla
+    const episodeButton = document.querySelector(`.episode-button[data-episode-id="${lastWatchedEpisode}"]`);
+    if (episodeButton) {
+      episodeButton.classList.add('active'); // Seçili yap
+      loadEpisode(lastWatchedEpisode - 1); // Son izlenen bölümü oynat (sıfır tabanlı indeks)
+    }
+  } else {
+    // İlk defa gelen kullanıcı için, varsayılan olarak ilk bölümü başlat
+    loadEpisode(0); // İlk bölüm
+  }
+});
+
+// Kuralları kabul etme butonuna tıklama
+document.getElementById("acceptRulesBtn").addEventListener("click", function() {
+  document.getElementById("spoiler-warning").style.display = "none";
+  document.getElementById("commentsContainer").style.display = "block";
+});
+
+// Başlangıçta bölüm listesi oluştur
 renderEpisodeList();
 loadEpisode(0);

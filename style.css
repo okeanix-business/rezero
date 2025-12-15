@@ -67,6 +67,45 @@ a {
   cursor: pointer;
 }
 
+/* Spoiler Uyarısı */
+.spoiler-warning {
+  background: rgba(255, 0, 0, 0.2);
+  padding: 15px;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.spoiler-warning button {
+  padding: 10px 20px;
+  background: #ff4d4d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.spoiler-warning button:hover {
+  background: #ff1a1a;
+}
+
+/* Yorum Kutusu */
+.comments-container {
+  padding: 20px;
+  background: #2a2a2a;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
+}
+
+#utterances-container {
+  background: #1c1c1c;
+  border-radius: 8px;
+  padding: 10px;
+}
+
 /* ---------- HERO (BANNER) ---------- */
 .hero-header {
   position: relative;
@@ -195,10 +234,31 @@ a {
 }
 
 .player-header h1 {
-  margin: 5px 0 0;
   font-size: 36px;
-  text-align: left;
+  margin: 5px 0 0;
+  text-align: center;
   font-weight: 700;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.season-episode {
+  display: block;
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.episode-title {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 10px;
+  color: var(--text);
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1.5px;
 }
 
 .back {
@@ -541,4 +601,10 @@ a {
   margin-top: 6px;
   font-size: 13px;
   color: var(--muted);
+}
+
+.episode-button.selected {
+  background-color: #8f9bff; /* Seçili bölüm için renk */
+  color: #000;
+  border-color: #8f9bff;
 }
