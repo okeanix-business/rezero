@@ -329,15 +329,13 @@ a {
   }
   
   .video-wrapper {
-    height: auto; /* Yüksekliği %100'e çekiyoruz */
-    padding-top: 56.25%; /* Aspect ratio yine korunuyor */
+    padding-top: 56.25%;
   }
-
+  
   .video-wrapper iframe {
-    width: 100%;
-    height: 100%;
+    object-fit: cover;
+    transform: rotate(0deg); /* Yatay modda göstermek için */
   }
-
   .nav-links {
     position: absolute;
     top: 60px;
