@@ -325,6 +325,10 @@ a {
   .hero-header h1 {
     font-size: 36px;
   }
+  
+  .video-wrapper {
+    padding-top: 56.25%;  /* 16:9 aspect ratio */
+  }
 
   .nav-links {
     position: absolute;
