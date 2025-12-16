@@ -10,7 +10,9 @@ const seasons = [
       { number: 6, title: "Zincirlerin Sesi", driveId: "19wz0YmTb7w5j_tpq9tZh3OIA3_6wVmrK" },
       { number: 7, title: "Natsuki Subaru'nun Yeniden Başlaması", driveId: "1nKAAcB8XoxU2byOmPg3-m4ojzZ__kJwl" },
       { number: 8, title: "Ağladım, Ciğerlerim Çıkana Kadar Ağladım ve Ağlamayı Bıraktım", driveId: "1WjaRK4eP7j5FRLm5D90BWlhaopK8_oSj" },
-      { number: 9, title: "Cesaretin Anlamı", driveId: "12KVdQF7TN0XznqlQzjU8wTyjmm5ZiEFH" }
+      { number: 9, title: "Cesaretin Anlamı", driveId: "12KVdQF7TN0XznqlQzjU8wTyjmm5ZiEFH" },
+	  { number: 10, title: "Bir Oni Gibi Fanatik Yöntemler", driveId: "1pUE8LgLo24MM09fvXtGMaNa5n5-l13Pe" },
+	  { number: 11, title: "Rem", driveId: "1MsxjPwysXdvdKuPVfRzwsgpZ-XeKq_ab" }
     ]
   },
   {

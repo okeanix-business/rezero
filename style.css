@@ -33,7 +33,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 24px;
+  padding: 8px 24px;
   position: sticky;
   top: 0;
   z-index: 50;
@@ -42,11 +42,21 @@ a {
 }
 
 .nav-logo a {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--text);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    display: inline-flex;
+    align-items: center;  /* dikey ortalama */
+    gap: 10px;
+    line-height: 3;
 }
 
+.nav-logo a img.nav-icon {
+    width: 48px;
+    height: 48px;
+    position: relative;
+    top: 0px; /* ikon yukarı kaydırıldı */
+}
 .nav-links {
   display: flex;
   gap: 20px;
@@ -581,6 +591,13 @@ a {
 
 .contact-box a {
   color: var(--accent);
+}
+
+#siteLogo {
+  height: 40px;       /* Yükseklik, navbar ile uyumlu */
+  width: auto;        /* Oranı korur */
+  margin-right: 10px; /* Yazıdan boşluk */
+  vertical-align: middle;
 }
 
 /* ---------- FOOTER ---------- */
