@@ -1,152 +1,227 @@
+/* ================================
+   CONFIG
+================================ */
+const CURRENT_SEASON_INDEX = 0;
+const STORAGE_KEY = `rezero_s${CURRENT_SEASON_INDEX + 1}_last_episode`;
+
+/* ================================
+   SEASONS DATA (AUTO GENERATED)
+================================ */
 const seasons = [
   {
     season: 1,
-    episodes: [
-      { number: 1, title: "Başlangıcın Sonu Ve Sonun Başlangıcı", driveId: "1IRoumgrfF9L901hZa0DmVG6FTiXOxLTW" },
-      { number: 2, title: "Cadıyla Yeniden Buluşma", driveId: "1Q6GZsTB5aADk6l8sOgWmq2QDvASYikDS" },
-      { number: 3, title: "Hayat Başka Bir Dünyada Sıfırdan Başladı", driveId: "1efyo-5cpEJZL0M14qWp_UdNCdeYFIsZP" },
-      { number: 4, title: "Mutlu Roswaal Malikanesi Ailesi", driveId: "1RoAKrXq7oBvzU9iFn_mywfrp8TDqGzLT" },
-      { number: 5, title: "Sözümüzün Sabahı Hala Uzak", driveId: "19dhRuU8RQqoukjZQrJAjciAIXdlRd2dz" },
-      { number: 6, title: "Zincirlerin Sesi", driveId: "19wz0YmTb7w5j_tpq9tZh3OIA3_6wVmrK" },
-      { number: 7, title: "Natsuki Subaru'nun Yeniden Başlaması", driveId: "1nKAAcB8XoxU2byOmPg3-m4ojzZ__kJwl" },
-      { number: 8, title: "Ağladım, Ciğerlerim Çıkana Kadar Ağladım ve Ağlamayı Bıraktım", driveId: "1WjaRK4eP7j5FRLm5D90BWlhaopK8_oSj" },
-      { number: 9, title: "Cesaretin Anlamı", driveId: "12KVdQF7TN0XznqlQzjU8wTyjmm5ZiEFH" },
-	  { number: 10, title: "Bir Oni Gibi Fanatik Yöntemler", driveId: "1pUE8LgLo24MM09fvXtGMaNa5n5-l13Pe" },
-	  { number: 11, title: "Rem", driveId: "1MsxjPwysXdvdKuPVfRzwsgpZ-XeKq_ab" }
-    ]
-  },
-  {
-    season: 2,
-    episodes: [
-      { number: 1, title: "deneme", driveId: "..." },
-      { number: 2, title: "deneme", driveId: "..." }
-    ]
+    episodes: generateSeason1()
   }
 ];
 
-let currentSeason = 0;
+function generateSeason1() {
+  const list = [];
+
+  const mainEpisodes = [
+    "Başlangıcın Sonu Ve Sonun Başlangıcı",
+    "Cadıyla Yeniden Buluşma",
+    "Hayat Başka Bir Dünyada Sıfırdan Başladı",
+    "Mutlu Roswaal Malikanesi Ailesi",
+    "Sözümüzün Sabahı Hala Uzak",
+    "Zincirlerin Sesi",
+    "Natsuki Subaru'nun Yeniden Başlaması",
+    "Ağladım, Ciğerlerim Çıkana Kadar Ağladım ve Ağlamayı Bıraktım",
+    "Cesaretin Anlamı",
+    "Bir Oni Gibi Fanatik Yöntemler",
+    "Rem"
+  ];
+
+  const driveIds = [
+    ["1IRoumgrfF9L901hZa0DmVG6FTiXOxLTW", "1CGapULNS1POrTmYmXnKBlO_wDkKHaeMe"],
+    ["1Q6GZsTB5aADk6l8sOgWmq2QDvASYikDS", "1dwYy4k2U81Q8y1vUC8Ey6pIjCIFo1scR"],
+    ["1efyo-5cpEJZL0M14qWp_UdNCdeYFIsZP", "15Iwc2XhEmtdzPRP_o5lddjgnF39ClIt9"],
+    ["1RoAKrXq7oBvzU9iFn_mywfrp8TDqGzLT", "1gKCWIRI9t3LyjgnQubgRdCWhjsbWJu-H"],
+    ["19dhRuU8RQqoukjZQrJAjciAIXdlRd2dz", "1lv7LdOzUdXCoF_Elnf3kdnBeiWhP573g"],
+    ["19wz0YmTb7w5j_tpq9tZh3OIA3_6wVmrK", "1RKzi37yb1xByAy-ZQi5zHpveBAxpyGjD"],
+    ["1nKAAcB8XoxU2byOmPg3-m4ojzZ__kJwl", "1-GYhbc3uCN5nUCG21B40vuE91OMa9dIv"],
+    ["1WjaRK4eP7j5FRLm5D90BWlhaopK8_oSj", "1B-SZgEam7BccEorYHdwwE8GLVqnS6LtC"],
+    ["12KVdQF7TN0XznqlQzjU8wTyjmm5ZiEFH", "1mZT2EmXn-Ag3ZBc4g5D1Na-g_DCAPkuP"],
+    ["1pUE8LgLo24MM09fvXtGMaNa5n5-l13Pe", "1elORZUp1fXF1_83i8qXHLPNNNJzVh4Vv"],
+    ["1MsxjPwysXdvdKuPVfRzwsgpZ-XeKq_ab", "1_Yf-yO5LIU-3mDKiWTpesUFVdvREGCNv"]
+  ];
+
+  mainEpisodes.forEach((title, i) => {
+    const epNum = i + 1;
+
+    list.push({
+      number: epNum,
+      title,
+      driveId: driveIds[i][0],
+      isExtra: false
+    });
+
+    list.push({
+      number: epNum,
+      title: `${epNum}. Mola Zamanı`,
+      driveId: driveIds[i][1],
+      isExtra: true
+    });
+  });
+
+  return list;
+}
+
+/* ================================
+   STATE
+================================ */
 let currentEpisode = 0;
 
+/* ================================
+   ELEMENTS
+================================ */
 const player = document.getElementById("videoPlayer");
 const downloadBtn = document.getElementById("downloadBtn");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
-const utterancesContainer = document.getElementById("utterances-container");
 const episodeListContainer = document.querySelector(".episode-list");
-const episodeTitle = document.getElementById("episodeTitle");
+const utterancesContainer = document.getElementById("utterances-container");
 
-// Episode listini oluştur
+/* ================================
+   URL
+================================ */
+function getIndexFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  const i = params.get("i");
+  return i !== null ? parseInt(i, 10) : null;
+}
+
+/* ================================
+   RENDER EPISODE LIST
+================================ */
 function renderEpisodeList() {
   episodeListContainer.innerHTML = "";
-  const episodes = seasons[currentSeason].episodes;
-  episodes.forEach((ep, i) => {
+
+  const savedIndex = parseInt(localStorage.getItem(STORAGE_KEY) || -1, 10);
+
+  seasons[CURRENT_SEASON_INDEX].episodes.forEach((ep, index) => {
     const btn = document.createElement("button");
-    btn.textContent = `${ep.number}. Bölüm`;
-    btn.classList.toggle("active", i === currentEpisode);
-    btn.classList.add("episode-button");
-    btn.setAttribute("data-episode-id", ep.number);
-    btn.addEventListener("click", () => loadEpisode(i));
+
+    if (ep.isExtra) {
+      btn.innerHTML = `${ep.number}<span class="break-icon">☕</span>`;
+      btn.classList.add("special-episode");
+    } else {
+      btn.textContent = ep.number;
+    }
+
+    if (index < savedIndex) {
+      btn.classList.add("watched");
+    }
+
+    if (index === currentEpisode) {
+      btn.classList.add("active");
+    }
+
+    btn.onclick = () => loadEpisode(index);
     episodeListContainer.appendChild(btn);
   });
 }
 
-// Bölüm yükleme
+/* ================================
+   LOAD EPISODE
+================================ */
 function loadEpisode(index) {
-  const episodes = seasons[currentSeason].episodes;
+  const episodes = seasons[CURRENT_SEASON_INDEX].episodes;
   if (index < 0 || index >= episodes.length) return;
 
   currentEpisode = index;
-  const episode = episodes[index];
+  const ep = episodes[index];
 
-  // Video ve download linki
-  player.src = `https://drive.google.com/file/d/${episode.driveId}/preview`;
-  downloadBtn.href = `https://drive.google.com/uc?export=download&id=${episode.driveId}`;
+  player.src = `https://drive.google.com/file/d/${ep.driveId}/preview`;
+  downloadBtn.href = `https://drive.google.com/uc?export=download&id=${ep.driveId}`;
 
-  // Sezon ve Bölüm Başlıklarını Güncelleme
-  const seasonText = `${seasons[currentSeason].season}. Sezon ${episode.number}. Bölüm`; 
-  const episodeText = episode.title;
+  // Title
+  const seasonText = ep.isExtra
+    ? `1. Sezon ${ep.number}. Ara Bölüm`
+    : `1. Sezon ${ep.number}. Bölüm`;
 
-  // Başlıkları HTML'de güncelle
-  document.querySelector('.season-episode').textContent = seasonText;
-  document.querySelector('.episode-title').textContent = episodeText;
+  const episodeText = ep.isExtra ? `${ep.number}. Mola Zamanı` : ep.title;
 
-  // Episode list active class
-  Array.from(episodeListContainer.children).forEach((b, i) => {
-    b.classList.toggle("active", i === index);
-  });
+  document.querySelector(".season-episode").textContent = seasonText;
+  document.querySelector(".episode-title").textContent = episodeText;
 
-  // Prev / Next butonları
+	// === SEO + OG ===
+	const ogTitle = document.querySelector('meta[property="og:title"]');
+	const ogDesc = document.querySelector('meta[property="og:description"]');
+
+	const seoTitle = ep.isExtra
+	  ? `Re:Zero 1. Sezon ${ep.number}. Ara Bölüm`
+	  : `Re:Zero 1. Sezon ${ep.number}. Bölüm`;
+
+	const seoDesc = ep.isExtra
+	  ? `${ep.number}. Mola Zamanı – Re:Zero canon ara bölümü.`
+	  : ep.title;
+
+	document.title = `${seoTitle} | rezeroizle.com`;
+	document
+	  .querySelector('meta[name="description"]')
+	  ?.setAttribute("content", seoDesc);
+
+	if (ogTitle) ogTitle.setAttribute("content", seoTitle);
+	if (ogDesc) ogDesc.setAttribute("content", seoDesc);
+
+
+  // Buttons
   prevBtn.style.display = index === 0 ? "none" : "inline-block";
   nextBtn.style.display = index === episodes.length - 1 ? "none" : "inline-block";
 
-  // Utterances yorumları
+  // Active state
+  [...episodeListContainer.children].forEach((b, i) =>
+    b.classList.toggle("active", i === index)
+  );
+
+  // URL + storage
+  history.replaceState(null, "", `?i=${index}`);
+  localStorage.setItem(STORAGE_KEY, index);
+
+  // Comments
   if (utterancesContainer) {
     utterancesContainer.innerHTML = "";
-    const script = document.createElement("script");
-    script.src = "https://utteranc.es/client.js";
-    script.setAttribute("repo", "okeanix-business/rezero");
-    script.setAttribute("issue-term", `season${seasons[currentSeason].season}-episode${episode.number}`);
-    script.setAttribute("label", "yorum");
-    script.setAttribute("theme", "github-dark");
-    script.setAttribute("crossorigin", "anonymous");
-    script.async = true;
-    utterancesContainer.appendChild(script);
+    const s = document.createElement("script");
+    s.src = "https://utteranc.es/client.js";
+    s.setAttribute("repo", "okeanix-business/rezero");
+    s.setAttribute("issue-term", `s1-i${index}`);
+    s.setAttribute("label", "yorum");
+    s.setAttribute("theme", "github-dark");
+    s.crossOrigin = "anonymous";
+    s.async = true;
+    utterancesContainer.appendChild(s);
   }
 
-  // Kuralları tekrar göster
-  document.getElementById("spoiler-warning").style.display = "block"; // Kuralları yeniden göster
-  document.getElementById("commentsContainer").style.display = "none"; // Yorumları gizle
+  document.getElementById("spoiler-warning").style.display = "block";
+  document.getElementById("commentsContainer").style.display = "none";
+  
+  // 🔥 EKLE
+  renderEpisodeList();
 }
 
-// Butonlar
-function nextEpisode() { loadEpisode(currentEpisode + 1); }
-function prevEpisode() { loadEpisode(currentEpisode - 1); }
+/* ================================
+   CONTROLS
+================================ */
+function nextEpisode() {
+  loadEpisode(currentEpisode + 1);
+}
 
-// Google Drive iframe video tam ekran moduna geçtiğinde
-const iframe = document.getElementById("videoPlayer");
+function prevEpisode() {
+  loadEpisode(currentEpisode - 1);
+}
 
-iframe.addEventListener("fullscreenchange", function() {
-  if (document.fullscreenElement && iframe === document.fullscreenElement) {
-    // Yatay ekran geçişi
-    screen.orientation.lock("landscape").catch((err) => {
-      console.log("Yatay ekran geçişi başarısız:", err);
-    });
-  } else {
-    screen.orientation.unlock();
-  }
-});
-
-// Bölüm seçildiğinde kaydet
-document.querySelectorAll('.episode-button').forEach(button => {
-  button.addEventListener('click', function() {
-    const episodeId = this.getAttribute('data-episode-id');
-    localStorage.setItem('lastWatchedEpisode', episodeId); // Son izlenen bölümü kaydet
-    loadEpisode(episodeId - 1); // Seçilen bölümü yükle (id 1'den başlıyor, sıfır tabanlı index)
-  });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-  const lastWatchedEpisode = localStorage.getItem('lastWatchedEpisode');
-  
-  if (lastWatchedEpisode) {
-    // Son izlenen bölümü bul ve video oynatmaya başla
-    const episodeButton = document.querySelector(`.episode-button[data-episode-id="${lastWatchedEpisode}"]`);
-    if (episodeButton) {
-      episodeButton.classList.add('active'); // Seçili yap
-      loadEpisode(lastWatchedEpisode - 1); // Son izlenen bölümü oynat (sıfır tabanlı indeks)
-    }
-  } else {
-    // İlk defa gelen kullanıcı için, varsayılan olarak ilk bölümü başlat
-    loadEpisode(0); // İlk bölüm
-  }
-});
-
-// Kuralları kabul etme butonuna tıklama
-document.getElementById("acceptRulesBtn").addEventListener("click", function() {
-  document.getElementById("spoiler-warning").style.display = "none";
-  document.getElementById("commentsContainer").style.display = "block";
-});
-
-// Başlangıçta bölüm listesi oluştur
+/* ================================
+   INIT
+================================ */
 renderEpisodeList();
-loadEpisode(0);
+
+const urlIndex = getIndexFromURL();
+const saved = localStorage.getItem(STORAGE_KEY);
+
+if (urlIndex !== null && !isNaN(urlIndex)) {
+  loadEpisode(urlIndex);
+} else if (saved !== null) {
+  loadEpisode(parseInt(saved, 10));
+} else {
+  loadEpisode(0);
+}

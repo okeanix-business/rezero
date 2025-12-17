@@ -14,6 +14,18 @@
   ">
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+  <!-- Open Graph / Social Preview -->
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Re:Zero İzle – Türkçe Altyazı Anime">
+	<meta property="og:description" content="Re:Zero Animesini Türkçe altyazılı ve yüksek kalitede izleyin. 1–4. sezon bölümleri, ara bölümler ve diğer canon içerikler.">
+	<meta property="og:url" content="https://rezeroizle.com/">
+
+	<!-- Twitter / X -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Re:Zero İzle – Türkçe Altyazı Anime">
+	<meta name="twitter:description" content="Re:Zero Animesini Türkçe altyazılı ve yüksek kalitede izleyin.">
+
 
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="images/iconsquare.jpg">
@@ -25,14 +37,9 @@
   <div class="nav-logo">
 	  <a href="index.html">
 		<img src="images/icon.png" alt="Logo" class="nav-icon">
-		rezeroizle.com - Beta v0.2.1
+		rezeroizle.com - Beta v0.3.0
 	  </a>
   </div>
-
-  <div class="nav-links" id="navLinks">
-    <a href="index.html" class="active">Ana Sayfa</a>
-  </div>
-
   <div class="hamburger" onclick="toggleMenu()">☰</div>
 </nav>
 
@@ -47,50 +54,62 @@
   </div>
 </header>
 
-<!-- SEASON CARDS -->
-<main class="season-grid">
+<!-- 🔥 CONTINUE + SEASON WRAPPER -->
+<div class="season-wrapper">
 
-  <!-- 1. SEZON -->
-  <a href="season1.html" class="season-card s1">
-    <div class="overlay">
-      <span>1. Sezon</span>
-    </div>
-  </a>
+  <!-- CONTINUE STRIP -->
+  <div class="continue-strip" id="continueBox" style="display:none;">
+    <div class="continue-strip-inner">
 
-  <!-- 2. SEZON -->
-  <div class="season-card s2 locked">
-    <div class="coming-overlay">
-      <div class="lock-icon">🔒</div>
-      <div class="coming-text">Yakında</div>
-    </div>
-    <div class="overlay">
-      <span>2. Sezon</span>
+      <div class="continue-bg" id="continueBg"></div>
+
+      <div class="continue-info">
+        <span class="continue-label">KALDIĞIN YERDEN DEVAM ET</span>
+        <strong id="continueText">
+          1. Sezon 6. Bölümden devam ediyorsun
+        </strong>
+      </div>
+
+      <a class="continue-action" id="continueBtn">Devam Et →</a>
+
     </div>
   </div>
 
-  <!-- 3. SEZON -->
-  <div class="season-card s3 locked">
-    <div class="coming-overlay">
-      <div class="lock-icon">🔒</div>
-      <div class="coming-text">Yakında</div>
-    </div>
-    <div class="overlay">
-      <span>3. Sezon</span>
-    </div>
-  </div>
+  <!-- SEASON CARDS -->
+  <main class="season-grid">
 
-  <!-- 4. SEZON -->
-  <div class="season-card s4 locked">
-    <div class="coming-overlay">
-      <div class="lock-icon">🔒</div>
-      <div class="coming-text">Yakında</div>
-    </div>
-    <div class="overlay">
-      <span>4. Sezon</span>
-    </div>
-  </div>
+    <a href="season1.html" class="season-card s1">
+      <div class="overlay"><span>1. Sezon</span></div>
+    </a>
 
-</main>
+    <div class="season-card s2 locked">
+      <div class="coming-overlay">
+        <div class="lock-icon">🔒</div>
+        <div class="coming-text">Yakında</div>
+      </div>
+      <div class="overlay"><span>2. Sezon</span></div>
+    </div>
+
+    <div class="season-card s3 locked">
+      <div class="coming-overlay">
+        <div class="lock-icon">🔒</div>
+        <div class="coming-text">Yakında</div>
+      </div>
+      <div class="overlay"><span>3. Sezon</span></div>
+    </div>
+
+    <div class="season-card s4 locked">
+      <div class="coming-overlay">
+        <div class="lock-icon">🔒</div>
+        <div class="coming-text">Yakında</div>
+      </div>
+      <div class="overlay"><span>4. Sezon</span></div>
+    </div>
+
+  </main>
+
+</div>
+
 
 <!-- WHY SECTION -->
 <section class="why-section">
@@ -126,6 +145,31 @@ function toggleMenu() {
   document.body.style.overflow = nav.classList.contains("open") ? "hidden" : "auto";
 }
 </script>
+
+<script>
+const lastEpisode = localStorage.getItem("rezero_s1_last_episode");
+
+if (lastEpisode !== null) {
+  const epIndex = parseInt(lastEpisode, 10);
+  const epNum = Math.floor(epIndex / 2) + 1;
+
+  document.getElementById("continueBox").style.display = "block";
+  document.getElementById("continueText").textContent =
+    `1. Sezon ${epNum}. Bölümden devam ediyorsun`;
+
+  document.getElementById("continueBtn").href =
+    `season1.html?i=${epIndex}`;
+}
+</script>
+
+<script>
+const continueBg = document.getElementById("continueBg");
+
+// Örnek: son izlenen bölümden görsel
+// bunu episode -> season cover -> frame olarak sonra otomatikleştirebilirsin
+continueBg.style.backgroundImage = "url('images/s1.jpg')";
+</script>
+
 
 </body>
 </html>
