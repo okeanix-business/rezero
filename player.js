@@ -28,7 +28,8 @@ function generateSeason1() {
     "Ağladım, Ciğerlerim Çıkana Kadar Ağladım ve Ağlamayı Bıraktım",
     "Cesaretin Anlamı",
     "Bir Oni Gibi Fanatik Yöntemler",
-    "Rem"
+    "Rem",
+	"Başkente Dönüş" // ✅ 12. BÖLÜM
   ];
 
   const driveIds = [
@@ -42,12 +43,16 @@ function generateSeason1() {
     ["1WjaRK4eP7j5FRLm5D90BWlhaopK8_oSj", "1B-SZgEam7BccEorYHdwwE8GLVqnS6LtC"],
     ["12KVdQF7TN0XznqlQzjU8wTyjmm5ZiEFH", "1mZT2EmXn-Ag3ZBc4g5D1Na-g_DCAPkuP"],
     ["1pUE8LgLo24MM09fvXtGMaNa5n5-l13Pe", "1elORZUp1fXF1_83i8qXHLPNNNJzVh4Vv"],
-    ["1MsxjPwysXdvdKuPVfRzwsgpZ-XeKq_ab", "1_Yf-yO5LIU-3mDKiWTpesUFVdvREGCNv"]
+    ["1MsxjPwysXdvdKuPVfRzwsgpZ-XeKq_ab", "1_Yf-yO5LIU-3mDKiWTpesUFVdvREGCNv"],
+	
+	 // ❗ 12. bölüm ve sonrası MOLA YOK
+    ["1NB9r8nD2tTEKuMimUWFfCbn3egPYSFEf"]
   ];
 
   mainEpisodes.forEach((title, i) => {
     const epNum = i + 1;
 
+    // 🎬 NORMAL BÖLÜM
     list.push({
       number: epNum,
       title,
@@ -55,12 +60,26 @@ function generateSeason1() {
       isExtra: false
     });
 
-    list.push({
-      number: epNum,
-      title: `${epNum}. Mola Zamanı`,
-      driveId: driveIds[i][1],
-      isExtra: true
-    });
+    // ☕ SADECE 1–11 ARASI MOLA EKLE
+    if (epNum <= 11 && driveIds[i][1]) {
+      list.push({
+        number: epNum,
+        title: `${epNum}. Mola Zamanı`,
+        driveId: driveIds[i][1],
+        isExtra: true
+      });
+    }
+	
+	// ❄ 11. bölümden SONRA kar özel bölüm
+    if (epNum === 11) {
+		list.push({
+		  number: 11,
+		  title: "Kar Altındaki Hatıralar (Memory Snow OVA)",
+		  driveId: "1WmyT2LZB5j1u5Vyt22u9Vf21VE3se0S0",
+		  isExtra: true,
+		  extraType: "snow"
+		});
+	}
   });
 
   return list;
@@ -100,13 +119,26 @@ function renderEpisodeList() {
 
   seasons[CURRENT_SEASON_INDEX].episodes.forEach((ep, index) => {
     const btn = document.createElement("button");
+	
+	// 🔴 NORMAL BÖLÜM
+	if (!ep.isExtra) {
+		btn.textContent = ep.number;
 
-    if (ep.isExtra) {
-      btn.innerHTML = `${ep.number}<span class="break-icon">☕</span>`;
-      btn.classList.add("special-episode");
-    } else {
-      btn.textContent = ep.number;
-    }
+		if (ep.number >= 12) {
+			btn.classList.add("arc3");
+		}
+	}
+
+
+	if (ep.isExtra) {
+	  if (ep.extraType === "snow") {
+		btn.innerHTML = `${ep.number}<span class="snow-icon">❄</span>`;
+		btn.classList.add("special-snow");
+	  } else {
+		btn.innerHTML = `${ep.number}<span class="break-icon">☕</span>`;
+		btn.classList.add("special-episode");
+	  }
+	}
 
     if (index < savedIndex) {
       btn.classList.add("watched");
@@ -135,34 +167,61 @@ function loadEpisode(index) {
   downloadBtn.href = `https://drive.google.com/uc?export=download&id=${ep.driveId}`;
 
   // Title
-  const seasonText = ep.isExtra
-    ? `1. Sezon ${ep.number}. Ara Bölüm`
-    : `1. Sezon ${ep.number}. Bölüm`;
+	const seasonText = ep.isExtra
+	  ? ep.extraType === "snow"
+		? `1. Sezon Özel Bölüm`
+		: `1. Sezon ${ep.number}. Ara Bölüm`
+	  : `1. Sezon ${ep.number}. Bölüm`;
 
-  const episodeText = ep.isExtra ? `${ep.number}. Mola Zamanı` : ep.title;
+
+	const episodeText =
+	  ep.isExtra && ep.extraType === "snow"
+		? ep.title
+		: ep.isExtra
+		? `${ep.number}. Mola Zamanı`
+		: ep.title;
+
 
   document.querySelector(".season-episode").textContent = seasonText;
   document.querySelector(".episode-title").textContent = episodeText;
 
-	// === SEO + OG ===
+	// === SEO + OG (NORMAL / MOLA / KAR AYRIMI) ===
 	const ogTitle = document.querySelector('meta[property="og:title"]');
 	const ogDesc = document.querySelector('meta[property="og:description"]');
 
-	const seoTitle = ep.isExtra
-	  ? `Re:Zero 1. Sezon ${ep.number}. Ara Bölüm`
-	  : `Re:Zero 1. Sezon ${ep.number}. Bölüm`;
+	let seoTitle = "";
+	let seoDesc = "";
 
-	const seoDesc = ep.isExtra
-	  ? `${ep.number}. Mola Zamanı – Re:Zero canon ara bölümü.`
-	  : ep.title;
+	// ❄ KAR ÖZEL BÖLÜM
+	if (ep.isExtra && ep.extraType === "snow") {
+	  seoTitle = "Re:Zero 1. Sezon – Kar Altındaki Hatıralar - Memory Snow";
+	  seoDesc =
+		"Re:Zero 1. sezon özel bölümü Kar Altındaki Hatıralar. Canon özel içerik Türkçe altyazılı izle.";
+	}
 
+	// ☕ MOLA BÖLÜMÜ
+	else if (ep.isExtra) {
+	  seoTitle = `Re:Zero 1. Sezon ${ep.number}. Ara Bölüm`;
+	  seoDesc = `${ep.number}. Mola Zamanı – Re:Zero canon ara bölümü.`;
+	}
+
+	// 🎬 NORMAL BÖLÜM
+	else {
+	  seoTitle = `Re:Zero 1. Sezon ${ep.number}. Bölüm`;
+	  seoDesc = ep.title;
+	}
+
+	// Title + meta
 	document.title = `${seoTitle} | rezeroizle.com`;
+
 	document
 	  .querySelector('meta[name="description"]')
 	  ?.setAttribute("content", seoDesc);
 
+	// OG
 	if (ogTitle) ogTitle.setAttribute("content", seoTitle);
 	if (ogDesc) ogDesc.setAttribute("content", seoDesc);
+
 
 
   // Buttons

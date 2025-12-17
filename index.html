@@ -37,7 +37,7 @@
   <div class="nav-logo">
 	  <a href="index.html">
 		<img src="images/icon.png" alt="Logo" class="nav-icon">
-		rezeroizle.com - Beta v0.3.0
+		rezeroizle.com - Beta v0.3.2
 	  </a>
   </div>
   <div class="hamburger" onclick="toggleMenu()">☰</div>
@@ -151,12 +151,51 @@ const lastEpisode = localStorage.getItem("rezero_s1_last_episode");
 
 if (lastEpisode !== null) {
   const epIndex = parseInt(lastEpisode, 10);
-  const epNum = Math.floor(epIndex / 2) + 1;
+
+  // player.js ile uyumlu mini tablo
+  const episodeMap = [
+    { n: 1, type: "normal" }, { n: 1, type: "mola" },
+    { n: 2, type: "normal" }, { n: 2, type: "mola" },
+    { n: 3, type: "normal" }, { n: 3, type: "mola" },
+    { n: 4, type: "normal" }, { n: 4, type: "mola" },
+    { n: 5, type: "normal" }, { n: 5, type: "mola" },
+    { n: 6, type: "normal" }, { n: 6, type: "mola" },
+    { n: 7, type: "normal" }, { n: 7, type: "mola" },
+    { n: 8, type: "normal" }, { n: 8, type: "mola" },
+    { n: 9, type: "normal" }, { n: 9, type: "mola" },
+    { n: 10, type: "normal" }, { n: 10, type: "mola" },
+    { n: 11, type: "normal" }, { n: 11, type: "mola" },
+    { n: 11, type: "special" }, // ❄ Kar Altındaki Hatıralar
+    { n: 12, type: "normal" },
+	{ n: 13, type: "normal" },
+	{ n: 14, type: "normal" },
+	{ n: 15, type: "normal" },
+	{ n: 16, type: "normal" },
+	{ n: 17, type: "normal" },
+	{ n: 18, type: "normal" },
+	{ n: 19, type: "normal" },
+	{ n: 20, type: "normal" },
+	{ n: 21, type: "normal" },
+	{ n: 22, type: "normal" },
+	{ n: 23, type: "normal" },
+	{ n: 24, type: "normal" },
+	{ n: 25, type: "normal" }
+  ];
+
+  const ep = episodeMap[epIndex];
+
+  let text = "";
+
+  if (ep.type === "normal") {
+    text = `1. Sezon ${ep.n}. Bölümden devam ediyorsun`;
+  } else if (ep.type === "mola") {
+    text = `1. Sezon ${ep.n}. Ara Bölümden devam ediyorsun`;
+  } else if (ep.type === "special") {
+    text = `1. Sezon Özel Bölümden devam ediyorsun`;
+  }
 
   document.getElementById("continueBox").style.display = "block";
-  document.getElementById("continueText").textContent =
-    `1. Sezon ${epNum}. Bölümden devam ediyorsun`;
-
+  document.getElementById("continueText").textContent = text;
   document.getElementById("continueBtn").href =
     `season1.html?i=${epIndex}`;
 }
