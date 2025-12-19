@@ -29,7 +29,11 @@ function generateSeason1() {
     "Cesaretin Anlamı",
     "Bir Oni Gibi Fanatik Yöntemler",
     "Rem",
-	"Başkente Dönüş" // ✅ 12. BÖLÜM
+    "Başkente Dönüş",
+    "Kendini Şövalye İlan Eden Kişi",
+    "Çaresizlik Adındaki Hastalık",
+    "Deliliğin Dışında",
+    "Bir Domuzun Açgözlülüğü"
   ];
 
   const driveIds = [
@@ -44,9 +48,12 @@ function generateSeason1() {
     ["12KVdQF7TN0XznqlQzjU8wTyjmm5ZiEFH", "1mZT2EmXn-Ag3ZBc4g5D1Na-g_DCAPkuP"],
     ["1pUE8LgLo24MM09fvXtGMaNa5n5-l13Pe", "1elORZUp1fXF1_83i8qXHLPNNNJzVh4Vv"],
     ["1MsxjPwysXdvdKuPVfRzwsgpZ-XeKq_ab", "1_Yf-yO5LIU-3mDKiWTpesUFVdvREGCNv"],
-	
-	 // ❗ 12. bölüm ve sonrası MOLA YOK
-    ["1NB9r8nD2tTEKuMimUWFfCbn3egPYSFEf"]
+
+    ["1NB9r8nD2tTEKuMimUWFfCbn3egPYSFEf"], // 12
+    ["1fNLA2nQFAxXxWptt88jLG6hMxVuaAlft"], // 13
+    ["1sM4kLJLV0-cC4wpywz2rHGwKLXZ4rbOh"], // 14
+    ["1hNJbMnk6vxmk10og_-zZgK54gipXzGOD"], // 15
+    ["1rLifn1wQU7cd8QNEN3F8z1YcC2V4rPHj"]  // 16
   ];
 
   mainEpisodes.forEach((title, i) => {
@@ -69,17 +76,17 @@ function generateSeason1() {
         isExtra: true
       });
     }
-	
-	// ❄ 11. bölümden SONRA kar özel bölüm
+
+    // ❄ 11. bölüm SONRASI — ÖZEL KAR BÖLÜMÜ
     if (epNum === 11) {
-		list.push({
-		  number: 11,
-		  title: "Kar Altındaki Hatıralar (Memory Snow OVA)",
-		  driveId: "1WmyT2LZB5j1u5Vyt22u9Vf21VE3se0S0",
-		  isExtra: true,
-		  extraType: "snow"
-		});
-	}
+      list.push({
+        number: 11,
+        title: "Kar Altındaki Hatıralar (Memory Snow OVA)",
+        driveId: "1WmyT2LZB5j1u5Vyt22u9Vf21VE3se0S0",
+        isExtra: true,
+        extraType: "snow"
+      });
+    }
   });
 
   return list;
@@ -119,26 +126,20 @@ function renderEpisodeList() {
 
   seasons[CURRENT_SEASON_INDEX].episodes.forEach((ep, index) => {
     const btn = document.createElement("button");
-	
-	// 🔴 NORMAL BÖLÜM
-	if (!ep.isExtra) {
-		btn.textContent = ep.number;
 
-		if (ep.number >= 12) {
-			btn.classList.add("arc3");
-		}
-	}
+    if (!ep.isExtra) {
+      btn.textContent = ep.number;
+    }
 
-
-	if (ep.isExtra) {
-	  if (ep.extraType === "snow") {
-		btn.innerHTML = `${ep.number}<span class="snow-icon">❄</span>`;
-		btn.classList.add("special-snow");
-	  } else {
-		btn.innerHTML = `${ep.number}<span class="break-icon">☕</span>`;
-		btn.classList.add("special-episode");
-	  }
-	}
+    if (ep.isExtra) {
+      if (ep.extraType === "snow") {
+        btn.innerHTML = `${ep.number}<span class="snow-icon">❄</span>`;
+        btn.classList.add("special-snow");
+      } else {
+        btn.innerHTML = `${ep.number}<span class="break-icon">☕</span>`;
+        btn.classList.add("special-episode");
+      }
+    }
 
     if (index < savedIndex) {
       btn.classList.add("watched");
@@ -166,96 +167,68 @@ function loadEpisode(index) {
   player.src = `https://drive.google.com/file/d/${ep.driveId}/preview`;
   downloadBtn.href = `https://drive.google.com/uc?export=download&id=${ep.driveId}`;
 
-  // Title
-	const seasonText = ep.isExtra
-	  ? ep.extraType === "snow"
-		? `1. Sezon Özel Bölüm`
-		: `1. Sezon ${ep.number}. Ara Bölüm`
-	  : `1. Sezon ${ep.number}. Bölüm`;
+  const seasonText = ep.isExtra
+    ? ep.extraType === "snow"
+      ? `1. Sezon Özel Bölüm`
+      : `1. Sezon ${ep.number}. Ara Bölüm`
+    : `1. Sezon ${ep.number}. Bölüm`;
 
-
-	const episodeText =
-	  ep.isExtra && ep.extraType === "snow"
-		? ep.title
-		: ep.isExtra
-		? `${ep.number}. Mola Zamanı`
-		: ep.title;
-
+  const episodeText =
+    ep.isExtra && ep.extraType === "snow"
+      ? ep.title
+      : ep.isExtra
+      ? `${ep.number}. Mola Zamanı`
+      : ep.title;
 
   document.querySelector(".season-episode").textContent = seasonText;
   document.querySelector(".episode-title").textContent = episodeText;
 
-	// === SEO + OG (NORMAL / MOLA / KAR AYRIMI) ===
-	const ogTitle = document.querySelector('meta[property="og:title"]');
-	const ogDesc = document.querySelector('meta[property="og:description"]');
-
-	let seoTitle = "";
-	let seoDesc = "";
-
-	// ❄ KAR ÖZEL BÖLÜM
-	if (ep.isExtra && ep.extraType === "snow") {
-	  seoTitle = "Re:Zero 1. Sezon – Kar Altındaki Hatıralar - Memory Snow";
-	  seoDesc =
-		"Re:Zero 1. sezon özel bölümü Kar Altındaki Hatıralar. Canon özel içerik Türkçe altyazılı izle.";
-	}
-
-	// ☕ MOLA BÖLÜMÜ
-	else if (ep.isExtra) {
-	  seoTitle = `Re:Zero 1. Sezon ${ep.number}. Ara Bölüm`;
-	  seoDesc = `${ep.number}. Mola Zamanı – Re:Zero canon ara bölümü.`;
-	}
-
-	// 🎬 NORMAL BÖLÜM
-	else {
-	  seoTitle = `Re:Zero 1. Sezon ${ep.number}. Bölüm`;
-	  seoDesc = ep.title;
-	}
-
-	// Title + meta
-	document.title = `${seoTitle} | rezeroizle.com`;
-
-	document
-	  .querySelector('meta[name="description"]')
-	  ?.setAttribute("content", seoDesc);
-
-	// OG
-	if (ogTitle) ogTitle.setAttribute("content", seoTitle);
-	if (ogDesc) ogDesc.setAttribute("content", seoDesc);
-
-
-
-  // Buttons
   prevBtn.style.display = index === 0 ? "none" : "inline-block";
   nextBtn.style.display = index === episodes.length - 1 ? "none" : "inline-block";
 
-  // Active state
   [...episodeListContainer.children].forEach((b, i) =>
     b.classList.toggle("active", i === index)
   );
 
-  // URL + storage
   history.replaceState(null, "", `?i=${index}`);
   localStorage.setItem(STORAGE_KEY, index);
 
-  // Comments
-  if (utterancesContainer) {
-    utterancesContainer.innerHTML = "";
-    const s = document.createElement("script");
-    s.src = "https://utteranc.es/client.js";
-    s.setAttribute("repo", "okeanix-business/rezero");
-    s.setAttribute("issue-term", `s1-i${index}`);
-    s.setAttribute("label", "yorum");
-    s.setAttribute("theme", "github-dark");
-    s.crossOrigin = "anonymous";
-    s.async = true;
-    utterancesContainer.appendChild(s);
-  }
-
-  document.getElementById("spoiler-warning").style.display = "block";
-  document.getElementById("commentsContainer").style.display = "none";
-  
-  // 🔥 EKLE
+  loadComments();
   renderEpisodeList();
+  applySEO(ep);
+}
+
+/* ================================
+   COMMENTS (GISCUS)
+================================ */
+function loadComments() {
+  if (!utterancesContainer) return;
+
+  utterancesContainer.innerHTML = "";
+
+  const script = document.createElement("script");
+  script.src = "https://giscus.app/client.js";
+
+  script.setAttribute("data-repo", "okeanix-business/rezero");
+  script.setAttribute("data-repo-id", "R_kgDOQojhlA");
+
+  script.setAttribute("data-category", "GENEL");
+  script.setAttribute("data-category-id", "DIC_kwDOQojhlM4ClFdm");
+
+  script.setAttribute("data-mapping", "specific");
+  script.setAttribute("data-term", `s1-i${currentEpisode}`);
+
+  script.setAttribute("data-strict", "0");
+  script.setAttribute("data-reactions-enabled", "1");
+  script.setAttribute("data-emit-metadata", "1");
+  script.setAttribute("data-input-position", "top");
+  script.setAttribute("data-theme", "preferred_color_scheme");
+  script.setAttribute("data-lang", "tr");
+  script.setAttribute("data-loading", "lazy");
+  script.setAttribute("crossorigin", "anonymous");
+  script.async = true;
+
+  utterancesContainer.appendChild(script);
 }
 
 /* ================================
@@ -283,4 +256,75 @@ if (urlIndex !== null && !isNaN(urlIndex)) {
   loadEpisode(parseInt(saved, 10));
 } else {
   loadEpisode(0);
+}
+
+function applySEO(ep) {
+
+  // === TITLE ===
+  if (ep.isExtra && ep.extraType === "snow") {
+    document.title = `Re:Zero Memory Snow – Kar Altındaki Hatıralar Türkçe İzle | rezeroizle.com`;
+  }
+
+  else if (ep.isExtra) {
+    document.title = `Re:Zero ${ep.number}. Ara Bölüm Türkçe İzle (HD) | rezeroizle.com`;
+  }
+
+  else {
+    document.title = `Re:Zero 1. Sezon ${ep.number}. Bölüm Türkçe Altyazılı İzle (HD) | rezeroizle.com`;
+  }
+
+
+  // === META DESCRIPTION ===
+  const desc = document.querySelector('meta[name="description"]');
+  if (desc) {
+
+    if (ep.isExtra && ep.extraType === "snow") {
+      desc.setAttribute("content", `Re:Zero Memory Snow özel bölümünü Türkçe altyazılı HD olarak izleyin.`);
+    }
+
+    else if (ep.isExtra) {
+      desc.setAttribute("content", `Re:Zero ${ep.number}. ara bölümü (mola zamanı) Türkçe altyazılı HD izle.`);
+    }
+
+    else {
+      desc.setAttribute("content", `Re:Zero 1. sezon ${ep.number}. bölümü Türkçe altyazılı HD izle: ${ep.title}`);
+    }
+
+  }
+
+
+  // === OG TITLE ===
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) {
+
+    if (ep.isExtra && ep.extraType === "snow") {
+      ogTitle.setAttribute("content", "Re:Zero – Memory Snow Türkçe İzle");
+    }
+
+    else if (ep.isExtra) {
+      ogTitle.setAttribute("content", `Re:Zero ${ep.number}. Ara Bölüm Türkçe İzle`);
+    }
+
+    else {
+      ogTitle.setAttribute("content", `Re:Zero 1. Sezon ${ep.number}. Bölüm Türkçe İzle`);
+    }
+  }
+
+
+  // === OG DESC ===
+  const ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc) {
+
+    if (ep.isExtra && ep.extraType === "snow") {
+      ogDesc.setAttribute("content", "Re:Zero Memory Snow özel bölümünü Türkçe altyazılı HD izle.");
+    }
+
+    else if (ep.isExtra) {
+      ogDesc.setAttribute("content", `Re:Zero ${ep.number}. ara bölümünü izle.`);
+    }
+
+    else {
+      ogDesc.setAttribute("content", `Re:Zero 1. sezon ${ep.number}. bölümü Türkçe izle: ${ep.title}`);
+    }
+  }
 }
