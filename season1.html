@@ -27,7 +27,7 @@
   <div class="nav-logo">
 	  <a href="index.html">
 		<img src="images/icon.png" alt="Logo" class="nav-icon">
-		rezeroizle.com - Beta v0.3.4
+		rezeroizle.com - Beta v0.4.0
 	  </a>
   </div>
 </nav>
@@ -56,14 +56,26 @@
     </iframe>
   </div>
 
-  <!-- CONTROLS -->
+<!--
+  
   <div class="player-controls">
     <button id="prevBtn" onclick="prevEpisode()">⏮ Önceki Bölüm</button>
     <button id="nextBtn" onclick="nextEpisode()">Sonraki Bölüm ⏭</button>
     <a id="downloadBtn" class="download-btn" href="#" target="_blank">⬇ Bölümü İndir</a>
   </div>
+  
+-->
 
   <!-- EPISODE LIST -->
+<h2 class="episode-section-title">Bölüm Seç</h2>
+
+<div class="episode-download-box">
+  <span>► Daha yüksek görüntü kalitesi için bölümü indirebilirsiniz.</span>
+  <a id="downloadBtn" href="#" target="_blank" class="episode-download-btn">
+    ⬇ İndir
+  </a>
+</div>
+
   <div class="episode-list"></div>
 
 <!-- Yorumlar Kısmı -->
@@ -122,10 +134,19 @@
 
 <script>
 document.getElementById("acceptRulesBtn").addEventListener("click", () => {
-  document.getElementById("spoiler-warning").style.display = "none";
-  document.getElementById("commentsContainer").style.display = "block";
+  const warning = document.getElementById("spoiler-warning");
+  const container = document.getElementById("commentsContainer");
+
+  warning.style.display = "none";
+  container.style.display = "block";
+
+  // Yorumlar açıldıktan sonra sayfada bu blokta kal
+  setTimeout(() => {
+    container.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, 80);
 });
 </script>
+
 
 
 </body>

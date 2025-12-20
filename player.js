@@ -187,9 +187,6 @@ function loadEpisode(index) {
   document.querySelector(".season-episode").textContent = seasonText;
   document.querySelector(".episode-title").textContent = episodeText;
 
-  prevBtn.style.display = index === 0 ? "none" : "inline-block";
-  nextBtn.style.display = index === episodes.length - 1 ? "none" : "inline-block";
-
   [...episodeListContainer.children].forEach((b, i) =>
     b.classList.toggle("active", i === index)
   );
@@ -198,9 +195,14 @@ function loadEpisode(index) {
   localStorage.setItem(STORAGE_KEY, index);
 
   loadComments();
-  renderEpisodeList();
   applySEO(ep);
+  renderEpisodeList();
+  
+  // 🔥 Yorumları bölüm değiştirdikçe kapat
+  document.getElementById("spoiler-warning").style.display = "block";
+  document.getElementById("commentsContainer").style.display = "none";
 }
+
 
 /* ================================
    COMMENTS (UTTERANCES)

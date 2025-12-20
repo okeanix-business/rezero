@@ -138,6 +138,54 @@ a {
   margin: auto;
 }
 
+.episode-section-title {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.episode-section-note {
+  text-align: center;
+  font-size: 15px;
+  color: #9aa0d0;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.episode-download-box {
+  margin: 6px auto 16px;
+  max-width: 1100px;
+  text-align: center;
+  font-size: 14px;
+  color: #b7bdf9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  opacity: 0.95;
+}
+
+.episode-download-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  background: rgba(120,130,255,0.14);
+  border: 1px solid rgba(120,130,255,0.35);
+  border-radius: 6px;
+  color: #dfe2ff;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.episode-download-btn:hover {
+  background: rgba(120,130,255,0.3);
+  border-color: rgba(160,170,255,0.5);
+  transform: translateY(-1px);
+}
+
 
 /* ---------- HERO (BANNER) ---------- */
 .hero-header {
@@ -848,3 +896,33 @@ a {
   visibility: hidden;
 }
 
+#acceptRulesBtn {
+  padding: 10px 26px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 50% 0, #272f66, #141833);
+  border: 1px solid rgba(143, 155, 255, 0.7);
+  color: #eaeaff;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+#acceptRulesBtn:hover {
+  background: radial-gradient(circle at 50% 0, #36407f, #171c3a);
+  transform: translateY(-1px);
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.75),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+#acceptRulesBtn:active {
+  transform: translateY(0);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 rgba(0,0,0,0);
+}
