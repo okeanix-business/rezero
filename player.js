@@ -33,7 +33,9 @@ function generateSeason1() {
     "Kendini Şövalye İlan Eden Kişi",
     "Çaresizlik Adındaki Hastalık",
     "Deliliğin Dışında",
-    "Bir Domuzun Açgözlülüğü"
+    "Bir Domuzun Açgözlülüğü",
+	"Aşırı Utanç",
+	"Sıfırdan"
   ];
 
   const driveIds = [
@@ -53,7 +55,9 @@ function generateSeason1() {
     ["1fNLA2nQFAxXxWptt88jLG6hMxVuaAlft"], // 13
     ["1sM4kLJLV0-cC4wpywz2rHGwKLXZ4rbOh"], // 14
     ["1hNJbMnk6vxmk10og_-zZgK54gipXzGOD"], // 15
-    ["1rLifn1wQU7cd8QNEN3F8z1YcC2V4rPHj"]  // 16
+    ["1rLifn1wQU7cd8QNEN3F8z1YcC2V4rPHj"],  // 16
+	["1SCm55ZnTKa5Nb7Prl_PGaQ9rbws7VOaz"],  // 17
+	["1oQVfYnSqY1r_6qaEVBfgGKCIoT97pgZu"]  // 18
   ];
 
   mainEpisodes.forEach((title, i) => {
