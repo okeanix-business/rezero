@@ -35,7 +35,8 @@ function generateSeason1() {
     "Deliliğin Dışında",
     "Bir Domuzun Açgözlülüğü",
 	"Aşırı Utanç",
-	"Sıfırdan"
+	"Sıfırdan",
+	"Beyaz Balina'ya Karşı Savaş"
   ];
 
   const driveIds = [
@@ -57,7 +58,8 @@ function generateSeason1() {
     ["1hNJbMnk6vxmk10og_-zZgK54gipXzGOD"], // 15
     ["1rLifn1wQU7cd8QNEN3F8z1YcC2V4rPHj"],  // 16
 	["1SCm55ZnTKa5Nb7Prl_PGaQ9rbws7VOaz"],  // 17
-	["1oQVfYnSqY1r_6qaEVBfgGKCIoT97pgZu"]  // 18
+	["1oQVfYnSqY1r_6qaEVBfgGKCIoT97pgZu"],  // 18
+	["13-4tmmMCCcMWE6AXr71HZvB1BD-hMno6"]  // 19
   ];
 
   mainEpisodes.forEach((title, i) => {
