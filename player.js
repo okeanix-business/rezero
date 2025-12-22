@@ -36,7 +36,10 @@ function generateSeason1() {
     "Bir Domuzun Açgözlülüğü",
 	"Aşırı Utanç",
 	"Sıfırdan",
-	"Beyaz Balina'ya Karşı Savaş"
+	"Beyaz Balina'ya Karşı Savaş",
+	"Wilhelm van Astrea",
+	"Umutsuzluğu Aşan Kumar",
+	"Tembelliğin Ani Belirişi"
   ];
 
   const driveIds = [
@@ -59,7 +62,10 @@ function generateSeason1() {
     ["1rLifn1wQU7cd8QNEN3F8z1YcC2V4rPHj"],  // 16
 	["1SCm55ZnTKa5Nb7Prl_PGaQ9rbws7VOaz"],  // 17
 	["1oQVfYnSqY1r_6qaEVBfgGKCIoT97pgZu"],  // 18
-	["13-4tmmMCCcMWE6AXr71HZvB1BD-hMno6"]  // 19
+	["13-4tmmMCCcMWE6AXr71HZvB1BD-hMno6"],  // 19
+	["1HbLwYAPWLfw5GGmbvZ9hc_JHIjhGX1s4"],  // 20
+	["1BOX7ABUF0vP7ibuwC2K8z-MqEi1ikqkf"],  // 21
+	["1cNDfioFdd46s1i7pVjN7XiqBsoaRVxcB"]  // 22
   ];
 
   mainEpisodes.forEach((title, i) => {
