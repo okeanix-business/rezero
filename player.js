@@ -39,7 +39,8 @@ function generateSeason1() {
 	"Beyaz Balina'ya Karşı Savaş",
 	"Wilhelm van Astrea",
 	"Umutsuzluğu Aşan Kumar",
-	"Tembelliğin Ani Belirişi"
+	"Tembelliğin Ani Belirişi",
+	"Alçak Tembellik"
   ];
 
   const driveIds = [
@@ -65,7 +66,8 @@ function generateSeason1() {
 	["13-4tmmMCCcMWE6AXr71HZvB1BD-hMno6"],  // 19
 	["1HbLwYAPWLfw5GGmbvZ9hc_JHIjhGX1s4"],  // 20
 	["1BOX7ABUF0vP7ibuwC2K8z-MqEi1ikqkf"],  // 21
-	["1cNDfioFdd46s1i7pVjN7XiqBsoaRVxcB"]  // 22
+	["1cNDfioFdd46s1i7pVjN7XiqBsoaRVxcB"],  // 22
+	["1oI48XG-ER2ntdEDAAtEj9KnFA3y-33TF"]  // 23
   ];
 
   mainEpisodes.forEach((title, i) => {
