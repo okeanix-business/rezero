@@ -41,7 +41,8 @@ function generateSeason1() {
 	"Umutsuzluğu Aşan Kumar",
 	"Tembelliğin Ani Belirişi",
 	"Alçak Tembellik",
-	"Sözde Şövalye ile Şövalyelerin En Yücesi"
+	"Sözde Şövalye ile Şövalyelerin En Yücesi",
+	"Bu Hikâye Sadece Bundan İbaret" // 25 (Final)
   ];
 
   const driveIds = [
@@ -52,7 +53,7 @@ function generateSeason1() {
     ["19dhRuU8RQqoukjZQrJAjciAIXdlRd2dz", "1lv7LdOzUdXCoF_Elnf3kdnBeiWhP573g"],
     ["19wz0YmTb7w5j_tpq9tZh3OIA3_6wVmrK", "1RKzi37yb1xByAy-ZQi5zHpveBAxpyGjD"],
     ["1nKAAcB8XoxU2byOmPg3-m4ojzZ__kJwl", "1-GYhbc3uCN5nUCG21B40vuE91OMa9dIv"],
-    ["1WjaRK4eP7j5FRLm5D90BWlhaopK8_oSj", "1B-SZgEam7BccEorYHdwwE8GLVqnS6LtC"],
+    ["1WjaRK4eP7j5FRLm5D90BWlhaopK8_oSj", "1B-SZgEam7BccEorYFull HDwwE8GLVqnS6LtC"],
     ["12KVdQF7TN0XznqlQzjU8wTyjmm5ZiEFH", "1mZT2EmXn-Ag3ZBc4g5D1Na-g_DCAPkuP"],
     ["1pUE8LgLo24MM09fvXtGMaNa5n5-l13Pe", "1elORZUp1fXF1_83i8qXHLPNNNJzVh4Vv"],
     ["1MsxjPwysXdvdKuPVfRzwsgpZ-XeKq_ab", "1_Yf-yO5LIU-3mDKiWTpesUFVdvREGCNv"],
@@ -69,18 +70,21 @@ function generateSeason1() {
 	["1BOX7ABUF0vP7ibuwC2K8z-MqEi1ikqkf"],  // 21
 	["1cNDfioFdd46s1i7pVjN7XiqBsoaRVxcB"],  // 22
 	["1oI48XG-ER2ntdEDAAtEj9KnFA3y-33TF"],  // 23
-	["1287qoCy9SiZunFpwe-w0Ymw0GrIQC14z"]  // 24
+	["1287qoCy9SiZunFpwe-w0Ymw0GrIQC14z"],  // 24
+	["17T_ve_IA2f05GqhlRoTIDu39imgqiQ1z"] // 25 (Final)
   ];
 
   mainEpisodes.forEach((title, i) => {
     const epNum = i + 1;
+    const isFinal = epNum === 25; // 🔥 FINAL
 
     // 🎬 NORMAL BÖLÜM
     list.push({
       number: epNum,
       title,
       driveId: driveIds[i][0],
-      isExtra: false
+      isExtra: false,
+      isFinal
     });
 
     // ☕ SADECE 1–11 ARASI MOLA EKLE
@@ -144,7 +148,11 @@ function renderEpisodeList() {
     const btn = document.createElement("button");
 
     if (!ep.isExtra) {
-      btn.textContent = ep.number;
+      btn.textContent = ep.number; // Final bile olsa 25 görünsün
+    }
+
+    if (ep.isFinal) {
+      btn.classList.add("final-episode");
     }
 
     if (ep.isExtra) {
@@ -183,18 +191,19 @@ function loadEpisode(index) {
   player.src = `https://drive.google.com/file/d/${ep.driveId}/preview`;
   downloadBtn.href = `https://drive.google.com/uc?export=download&id=${ep.driveId}`;
 
-  const seasonText = ep.isExtra
+  const seasonText = ep.isFinal
+    ? `1. Sezon Final Bölümü`
+    : ep.isExtra
     ? ep.extraType === "snow"
       ? `1. Sezon Özel Bölüm`
       : `1. Sezon ${ep.number}. Ara Bölüm`
     : `1. Sezon ${ep.number}. Bölüm`;
 
-  const episodeText =
-    ep.isExtra && ep.extraType === "snow"
-      ? ep.title
-      : ep.isExtra
-      ? `${ep.number}. Mola Zamanı`
-      : ep.title;
+  const episodeText = ep.isExtra && ep.extraType === "snow"
+    ? ep.title
+    : ep.isExtra
+    ? `${ep.number}. Mola Zamanı`
+    : ep.title; // Final olsa da kendi başlığı yazsın
 
   document.querySelector(".season-episode").textContent = seasonText;
   document.querySelector(".episode-title").textContent = episodeText;
@@ -271,11 +280,11 @@ function applySEO(ep) {
   }
 
   else if (ep.isExtra) {
-    document.title = `Re:Zero ${ep.number}. Ara Bölüm Türkçe İzle (HD) | rezeroizle.com`;
+    document.title = `Re:Zero ${ep.number}. Ara Bölüm Türkçe İzle (Full HD) | rezeroizle.com`;
   }
 
   else {
-    document.title = `Re:Zero 1. Sezon ${ep.number}. Bölüm Türkçe Altyazılı İzle (HD) | rezeroizle.com`;
+    document.title = `Re:Zero 1. Sezon ${ep.number}. Bölüm Türkçe Altyazılı İzle (Full HD) | rezeroizle.com`;
   }
 
 
@@ -284,15 +293,15 @@ function applySEO(ep) {
   if (desc) {
 
     if (ep.isExtra && ep.extraType === "snow") {
-      desc.setAttribute("content", `Re:Zero Memory Snow özel bölümünü Türkçe altyazılı HD olarak izleyin.`);
+      desc.setAttribute("content", `Re:Zero Memory Snow özel bölümünü Türkçe altyazılı Full HD olarak izleyin.`);
     }
 
     else if (ep.isExtra) {
-      desc.setAttribute("content", `Re:Zero ${ep.number}. ara bölümü (mola zamanı) Türkçe altyazılı HD izle.`);
+      desc.setAttribute("content", `Re:Zero ${ep.number}. ara bölümü (mola zamanı) Türkçe altyazılı Full HD izle.`);
     }
 
     else {
-      desc.setAttribute("content", `Re:Zero 1. sezon ${ep.number}. bölümü Türkçe altyazılı HD izle: ${ep.title}`);
+      desc.setAttribute("content", `Re:Zero 1. sezon ${ep.number}. bölümü Türkçe altyazılı Full HD izle: ${ep.title}`);
     }
 
   }
@@ -321,7 +330,7 @@ function applySEO(ep) {
   if (ogDesc) {
 
     if (ep.isExtra && ep.extraType === "snow") {
-      ogDesc.setAttribute("content", "Re:Zero Memory Snow özel bölümünü Türkçe altyazılı HD izle.");
+      ogDesc.setAttribute("content", "Re:Zero Memory Snow özel bölümünü Türkçe altyazılı Full HD izle.");
     }
 
     else if (ep.isExtra) {
