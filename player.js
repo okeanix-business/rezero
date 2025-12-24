@@ -40,7 +40,8 @@ function generateSeason1() {
 	"Wilhelm van Astrea",
 	"Umutsuzluğu Aşan Kumar",
 	"Tembelliğin Ani Belirişi",
-	"Alçak Tembellik"
+	"Alçak Tembellik",
+	"Sözde Şövalye ile Şövalyelerin En Yücesi"
   ];
 
   const driveIds = [
@@ -67,7 +68,8 @@ function generateSeason1() {
 	["1HbLwYAPWLfw5GGmbvZ9hc_JHIjhGX1s4"],  // 20
 	["1BOX7ABUF0vP7ibuwC2K8z-MqEi1ikqkf"],  // 21
 	["1cNDfioFdd46s1i7pVjN7XiqBsoaRVxcB"],  // 22
-	["1oI48XG-ER2ntdEDAAtEj9KnFA3y-33TF"]  // 23
+	["1oI48XG-ER2ntdEDAAtEj9KnFA3y-33TF"],  // 23
+	["1287qoCy9SiZunFpwe-w0Ymw0GrIQC14z"]  // 24
   ];
 
   mainEpisodes.forEach((title, i) => {
