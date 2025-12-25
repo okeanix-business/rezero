@@ -70,7 +70,7 @@ var SEASON_CONFIGS = {
       5: "1lv7LdOzUdXCoF_Elnf3kdnBeiWhP573g",
       6: "1RKzi37yb1xByAy-ZQi5zHpveBAxpyGjD",
       7: "1-GYhbc3uCN5nUCG21B40vuE91OMa9dIv",
-      8: "1B-SZgEam7BccEorYwwE8GLVqnS6LtC",
+      8: "1B-SZgEam7BccEorYHdwwE8GLVqnS6LtC",
       9: "1mZT2EmXn-Ag3ZBc4g5D1Na-g_DCAPkuP",
       10: "1elORZUp1fXF1_83i8qXHLPNNNJzVh4Vv",
       11: "1_Yf-yO5LIU-3mDKiWTpesUFVdvREGCNv"
