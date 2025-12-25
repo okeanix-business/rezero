@@ -198,7 +198,7 @@ a {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url("images/hero-banner.jpg");
+  background-image: url("images/hero-banner.webp");
   background-size: cover;
   background-position: center;
   filter: brightness(0.45);
@@ -492,19 +492,19 @@ a {
 
 /* ---------- BACKGROUND IMAGES ---------- */
 .s1 {
-  background-image: url("images/s1.jpg");
+  background-image: url("images/s1.webp");
 }
 
 .s2 {
-  background-image: url("images/s2.jpg");
+  background-image: url("images/s2.webp");
 }
 
 .s3 {
-  background-image: url("images/s3.jpg");
+  background-image: url("images/s3.webp");
 }
 
 .s4 {
-  background-image: url("images/s4.jpg");
+  background-image: url("images/s4.webp");
 }
 
 /* ---------- WHY SECTION ---------- */
@@ -520,7 +520,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: url('images/why-bg.jpg') center/cover no-repeat;
+  background: url('images/why-bg.webp') center/cover no-repeat;
   filter: brightness(0.4);
   z-index: 0;
 }
@@ -1014,3 +1014,308 @@ a {
   font-size: 13px;
   color: var(--muted);
 }
+
+/* ===============================
+   EPISODE GRID – PREMIUM
+================================ */
+
+.episode-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 56px);
+  justify-content: center;
+  gap: 14px;
+  margin: 28px 0;
+}
+
+/* Ortak buton (button + a) */
+.episode-list button,
+.episode-list a.ep-link {
+  width: 56px;
+  height: 56px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+  color: #e4e8ff;
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  background: radial-gradient(circle at 50% 40%, #1e265a, #0c1024);
+  border: 2px solid rgba(120, 130, 255, 0.6);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    inset 0 0 14px rgba(120,140,255,0.18),
+    0 6px 14px rgba(0,0,0,0.45);
+
+  /* a için: underline/padding vb olmasın */
+  text-decoration: none;
+}
+
+/* Hover (button + a) */
+.episode-list button:hover,
+.episode-list a.ep-link:hover {
+  background: radial-gradient(circle at 50% 40%, #222c6b, #111632);
+  transform: translateY(-2px);
+}
+
+/* Mola (B) */
+.episode-list button.special-episode,
+.episode-list a.ep-link.special-episode {
+  background: radial-gradient(circle at 50% 40%, #2f341c, #1a1d12);
+  border-color: rgba(255,230,150,0.45);
+  color: #ffe8b0;
+}
+
+/* --- TÜM ACTIVE BUTONLAR İÇİN ORTAK PARLAMA --- */
+.episode-list button.active,
+.episode-list a.ep-link.active,
+.episode-list button.special-episode.active,
+.episode-list a.ep-link.special-episode.active,
+.episode-list button.special-snow.active,
+.episode-list a.ep-link.special-snow.active {
+  border-color: rgba(200,210,255,0.9) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 1px rgba(160,175,255,0.55) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* normal aktif */
+.episode-list button.active,
+.episode-list a.ep-link.active {
+  background: radial-gradient(circle at 50% 40%, #5560ff, #1b2252);
+}
+
+/* mola aktif (sarı aktif) */
+.episode-list button.special-episode.active,
+.episode-list a.ep-link.special-episode.active {
+  background: radial-gradient(circle at 50% 40%, #f8d777, #8c7840) !important;
+  border-color: rgba(200,210,255,0.9) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 1px rgba(160,175,255,0.55) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* kar aktif (mor aktif) */
+.episode-list button.special-snow.active,
+.episode-list a.ep-link.special-snow.active {
+  background: radial-gradient(circle at 50% 40%, #6f4fbf, #55359e);
+}
+
+/* ikonlar */
+.break-icon {
+  font-size: 12px;
+  margin-left: 4px;
+  opacity: 0.75;
+}
+
+.snow-icon {
+  font-size: 12px;
+  margin-left: 4px;
+  opacity: 0.8;
+}
+
+/* ❄ KAR ÖZEL BÖLÜMÜ */
+.episode-list button.special-snow,
+.episode-list a.ep-link.special-snow {
+  background: radial-gradient(circle at 50% 40%, #3a1c66, #24103f);
+  border-color: rgba(170,130,255,0.45);
+}
+
+.episode-list button.special-snow:hover,
+.episode-list a.ep-link.special-snow:hover {
+  background: linear-gradient(145deg, #43206f, #2a134a);
+  transform: translateY(-1px);
+}
+
+/* WATCHED */
+.episode-list button.watched,
+.episode-list a.ep-link.watched {
+  background: linear-gradient(145deg, #121633, #0d1026);
+  color: #7f86b8;
+  opacity: 0.55;
+  box-shadow: inset 0 0 0 1px rgba(143,155,255,0.15);
+}
+
+/* FINAL EPISODE (25) */
+.episode-list button.final-episode,
+.episode-list a.ep-link.final-episode {
+  background: radial-gradient(circle at 50% 40%, #ffb84a, #7a2a00);
+  border-color: rgba(255, 170, 80, 0.75);
+  color: #1a0900;
+  font-weight: 900;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    inset 0 0 18px rgba(255,160,70,0.20),
+    0 10px 26px rgba(0,0,0,0.65),
+    0 0 22px rgba(255,120,50,0.25);
+}
+
+.episode-list button.final-episode:hover,
+.episode-list a.ep-link.final-episode:hover {
+  background: radial-gradient(circle at 50% 40%, #ffd07a, #9a3a00);
+  transform: translateY(-2px);
+}
+
+/* Final aktifken maviye düşmesin */
+.episode-list button.final-episode.active,
+.episode-list a.ep-link.final-episode.active {
+  background: radial-gradient(circle at 50% 40%, #ffe08a, #ff7a18) !important;
+  border-color: rgba(255,255,255,0.75) !important;
+  color: #120600 !important;
+
+  box-shadow:
+    0 0 1px rgba(255, 200, 90, 0.65),
+    0 0 1px rgba(255, 110, 40, 0.55) !important;
+}
+
+/* UNRELEASED */
+.episode-list button.unreleased,
+.episode-list a.ep-link.unreleased {
+  background: linear-gradient(145deg, #0f132b, #0a0d1f) !important;
+  border-color: rgba(255,255,255,0.10) !important;
+  color: rgba(234,234,255,0.45) !important;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06) !important;
+  opacity: 0.85;
+}
+
+.episode-list button.unreleased:hover,
+.episode-list a.ep-link.unreleased:hover {
+  transform: none !important;
+  filter: brightness(1.05);
+}
+
+/* klavye focus (a için) */
+.episode-list a.ep-link:focus-visible {
+  outline: 2px solid rgba(200,210,255,0.85);
+  outline-offset: 2px;
+}
+
+/* ---- (Opsiyonel) Bölüm Özeti alanı şık dursun ---- */
+.episode-summary {
+  margin: 10px auto 18px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: rgba(21, 25, 51, 0.65);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+
+.episode-summary h2 {
+  margin: 0 0 8px;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+}
+
+.episode-summary p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+  /* Prev / Hub / Next */
+  .ep-nav {
+    max-width: 900px;
+    margin: 12px auto 0;
+    padding: 0 8px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .ep-nav-btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px 12px;
+    border-radius: 14px;
+    font-weight: 800;
+    background: rgba(21,25,51,0.55);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #eaeaff;
+    transition: transform 0.12s ease, background 0.12s ease;
+  }
+  .ep-nav-btn.center {
+    flex: 1.2;
+    background: rgba(143,155,255,0.18);
+    border: 1px solid rgba(143,155,255,0.40);
+  }
+  .ep-nav-btn:hover {
+    background: rgba(31,36,80,0.65);
+    transform: translateY(-1px);
+  }
+  .ep-nav-btn.disabled {
+    opacity: 0.45;
+    pointer-events: none;
+  }
+  @media (max-width: 520px) {
+    .ep-nav { gap: 8px; }
+    .ep-nav-btn { padding: 10px 8px; font-size: 14px; }
+    .ep-nav-btn.center { flex: 1; }
+  }
+  
+  /* ✅ Toolbar: sol=önceki | orta=bölüm seç | sağ=sonraki */
+.episode-toolbar{
+  width: 100%;
+  margin: 18px 0 10px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+}
+
+.episode-toolbar .episode-section-title{
+  margin: 0;
+  justify-self: center; /* ✅ "Bölüm Seç" ortalı */
+}
+
+.episode-nav-left{ justify-self: start; }
+.episode-nav-right{ justify-self: end; }
+
+.ep-nav-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 12px;
+  border-radius: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  color: rgba(234,234,255,0.92);
+  background: rgba(21,25,51,0.45);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.22);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.ep-nav-btn:hover{
+  background: rgba(31,36,80,0.55);
+  border-color: rgba(143,155,255,0.35);
+}
+
+.ep-nav-btn.disabled,
+.ep-nav-btn[aria-disabled="true"]{
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* Mobile: alt alta ve ortalı */
+@media (max-width: 768px){
+  .episode-toolbar{
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+  .episode-nav-left, .episode-nav-right{
+    justify-self: center;
+  }
+}
+

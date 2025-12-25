@@ -1,51 +1,61 @@
-/* ================================
-   MULTI-SEASON PLAYER (DATA DRIVEN)
-   - seasons-data.js -> window.REZERO_SEASONS
-   - seasonX.html -> window.SEASON_NUMBER = X
-   - driveId boşsa: video açılmaz, overlay görünür
-   - Title / üst başlıkta "yayınlanmadı" yazmaz (overlay zaten anlatıyor)
-   - ✅ Index'teki "Devam Et" için: en son açılan bölüm GLOBAL olarak kaydedilir
-================================ */
+/* player.js — URL çözümleme + yönlendirme + yorum issue-term stabil */
 
 const SEASON_NUMBER = Number(window.SEASON_NUMBER || 1);
+const EPISODE_INDEX = Number(window.EPISODE_INDEX ?? 0);
 
-// Bu key "izleme ilerlemesi" gibi davranır (watch/watched boyaması için)
 const STORAGE_KEY = `rezero_s${SEASON_NUMBER}_last_episode`;
-
-// ✅ En son açılan bölüm (sezon fark etmeksizin index'te bunu gösteriyoruz)
 const GLOBAL_LAST_OPEN_KEY = "rezero_last_open";
-// İstersen sadece yayınlananlarda da ayrıca tut:
 const GLOBAL_LAST_WATCH_KEY = "rezero_last_watch";
 
 const episodes = window.REZERO_SEASONS?.buildEpisodes
   ? window.REZERO_SEASONS.buildEpisodes(SEASON_NUMBER)
   : [];
 
-let currentEpisode = 0;
+let currentEpisode = Math.min(Math.max(EPISODE_INDEX, 0), Math.max(episodes.length - 1, 0));
 
-/* ================================
-   ELEMENTS
-================================ */
 const player = document.getElementById("videoPlayer");
 const downloadBtn = document.getElementById("downloadBtn");
 const episodeListContainer = document.querySelector(".episode-list");
 const utterancesContainer = document.getElementById("utterances-container");
 const unreleasedOverlay = document.getElementById("unreleasedOverlay");
 
-/* ================================
-   URL
-================================ */
-function getIndexFromURL() {
-  const params = new URLSearchParams(window.location.search);
-  const i = params.get("i");
-  return i !== null ? parseInt(i, 10) : null;
+function isAvailable(ep) { return !!ep.driveId; }
+
+function slugifyLite(s) {
+  return String(s || "")
+    .toLowerCase()
+    .replace(/ı/g, "i").replace(/ğ/g, "g").replace(/ü/g, "u").replace(/ş/g, "s").replace(/ö/g, "o").replace(/ç/g, "c")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 60) || "ozel";
 }
 
-/* ================================
-   HELPERS
-================================ */
-function isAvailable(ep) {
-  return !!ep.driveId;
+// ✅ (3) Yorumlar: index'e bağlı olmayan sabit anahtar
+function getIssueTerm(ep) {
+  if (!ep) return `s${SEASON_NUMBER}-unknown`;
+
+  if (ep.kind === "episode") return `s${SEASON_NUMBER}-e${ep.number}`;
+  if (ep.kind === "break") return `s${SEASON_NUMBER}-b${ep.number}`;
+
+  if (ep.kind === "special") {
+    if (ep.extraType === "snow") return `s${SEASON_NUMBER}-sp-memory-snow`;
+    if (ep.extraType === "special0") return `s${SEASON_NUMBER}-sp-frozen-bond`;
+    const slug = slugifyLite(ep.title || "ozel");
+    return `s${SEASON_NUMBER}-sp-${slug}`;
+  }
+
+  // fallback
+  return `s${SEASON_NUMBER}-x${ep.number || currentEpisode}`;
+}
+
+function getEpisodePageUrl(season, index) {
+  try {
+    const rel = window.REZERO_EP_PAGES?.[season]?.[index] || null;
+    if (!rel) return null;
+    return new URL(rel, document.baseURI).toString();
+  } catch (e) {
+    return null;
+  }
 }
 
 function setDownloadState(ep) {
@@ -75,7 +85,6 @@ function setVideoState(ep) {
   }
 }
 
-// ✅ Üst başlıkta "yayınlanmadı" YAZMA
 function makeSeasonLine(ep) {
   if (ep.isFinal) return `${SEASON_NUMBER}. Sezon Final Bölümü`;
   if (ep.kind === "break") return `${SEASON_NUMBER}. Sezon ${ep.number}. Ara Bölüm`;
@@ -88,9 +97,6 @@ function makeTitleLine(ep) {
   return ep.title || `Bölüm ${ep.number}`;
 }
 
-/* ================================
-   RENDER EPISODE LIST
-================================ */
 function renderEpisodeList() {
   if (!episodeListContainer) return;
 
@@ -100,13 +106,10 @@ function renderEpisodeList() {
   episodes.forEach((ep, index) => {
     const btn = document.createElement("button");
 
-    // normal bölüm
     if (!ep.isExtra) btn.textContent = ep.number;
 
-    // final rengi
     if (ep.isFinal) btn.classList.add("final-episode");
 
-    // extras
     if (ep.isExtra) {
       if (ep.kind === "break") {
         btn.innerHTML = `${ep.number}<span class="break-icon">☕</span>`;
@@ -120,33 +123,31 @@ function renderEpisodeList() {
       }
     }
 
-    // yayınlanmamış / çevirilmemiş (gri buton)
     if (!isAvailable(ep)) btn.classList.add("unreleased");
-
-    // watched (sadece yayınlananlarda kaydedilmiş index'e göre)
     if (index < savedIndex) btn.classList.add("watched");
-
-    // active
     if (index === currentEpisode) btn.classList.add("active");
 
-    btn.onclick = () => loadEpisode(index);
+    btn.onclick = () => {
+      const absUrl = getEpisodePageUrl(SEASON_NUMBER, index);
+      if (absUrl) window.location.href = absUrl;
+      else loadEpisode(index, true);
+    };
+
     episodeListContainer.appendChild(btn);
   });
 }
 
-/* ================================
-   COMMENTS (UTTERANCES)
-================================ */
 function loadComments() {
   if (!utterancesContainer) return;
-
   utterancesContainer.innerHTML = "";
+
+  const ep = episodes[currentEpisode];
+  const issueTerm = getIssueTerm(ep);
 
   const script = document.createElement("script");
   script.src = "https://utteranc.es/client.js";
-
   script.setAttribute("repo", "okeanix-business/rezero");
-  script.setAttribute("issue-term", `s${SEASON_NUMBER}-i${currentEpisode}`);
+  script.setAttribute("issue-term", issueTerm); // ✅ stabil
   script.setAttribute("theme", "github-dark");
   script.setAttribute("label", "comment");
   script.async = true;
@@ -154,135 +155,12 @@ function loadComments() {
   utterancesContainer.appendChild(script);
 }
 
-/* ================================
-   SEO (TITLE / META / OG / CANONICAL)
-   - canonical + og:url => ?i= ile güncellenir
-================================ */
-function upsertJsonLd(id, obj) {
-  let s = document.getElementById(id);
-  if (!s) {
-    s = document.createElement("script");
-    s.type = "application/ld+json";
-    s.id = id;
-    document.head.appendChild(s);
-  }
-  s.textContent = JSON.stringify(obj);
-}
-
-function applySEO(ep) {
-  const desc = document.querySelector('meta[name="description"]');
-  const ogTitle = document.querySelector('meta[property="og:title"]');
-  const ogDesc = document.querySelector('meta[property="og:description"]');
-  const ogUrl = document.querySelector('meta[property="og:url"]');
-  const canonical = document.querySelector('link[rel="canonical"]');
-
-  const isBreak = ep.kind === "break";
-  const isSpecial = ep.kind === "special";
-  const isSnow = ep.extraType === "snow";
-  const unavailable = !isAvailable(ep);
-
-  // Title
-  if (isSnow) {
-    document.title = `Re:Zero Memory Snow – Türkçe İzle | rezeroizle.com`;
-  } else if (isBreak) {
-    document.title = `Re:Zero ${SEASON_NUMBER}. Sezon ${ep.number}. Ara Bölüm Türkçe İzle | rezeroizle.com`;
-  } else if (isSpecial) {
-    document.title = `Re:Zero ${SEASON_NUMBER}. Sezon Özel Bölüm Türkçe İzle | rezeroizle.com`;
-  } else {
-    document.title = `Re:Zero ${SEASON_NUMBER}. Sezon ${ep.number}. Bölüm Türkçe Altyazılı İzle (Full HD) | rezeroizle.com`;
-  }
-
-  // Description
-  let descText = "";
-  if (unavailable) {
-    descText = `Bu bölüm henüz hazır değil. Güncellemeler için siteyi takip edin.`;
-  } else if (isSnow) {
-    descText = `Re:Zero Memory Snow özel bölümünü Türkçe altyazılı Full HD olarak izleyin.`;
-  } else if (isBreak) {
-    descText = `Re:Zero ${SEASON_NUMBER}. sezon ${ep.number}. ara bölümü (mola zamanı) Türkçe altyazılı Full HD izle.`;
-  } else if (isSpecial) {
-    descText = `Re:Zero ${SEASON_NUMBER}. sezon özel bölümünü Türkçe altyazılı Full HD izle.`;
-  } else {
-    descText = `Re:Zero ${SEASON_NUMBER}. sezon ${ep.number}. bölümü Türkçe altyazılı Full HD izle: ${ep.title}`;
-  }
-  if (desc) desc.setAttribute("content", descText);
-
-  // OG title/desc
-  if (ogTitle) {
-    ogTitle.setAttribute(
-      "content",
-      isBreak
-        ? `Re:Zero ${SEASON_NUMBER}. Sezon ${ep.number}. Ara Bölüm Türkçe İzle`
-        : isSpecial
-        ? `Re:Zero ${SEASON_NUMBER}. Sezon Özel Bölüm Türkçe İzle`
-        : `Re:Zero ${SEASON_NUMBER}. Sezon ${ep.number}. Bölüm Türkçe İzle`
-    );
-  }
-
-  if (ogDesc) {
-    ogDesc.setAttribute(
-      "content",
-      unavailable
-        ? "Bu bölüm henüz hazır değil."
-        : isBreak
-        ? `Re:Zero ${SEASON_NUMBER}. sezon ${ep.number}. ara bölümünü izle.`
-        : isSpecial
-        ? `Re:Zero ${SEASON_NUMBER}. sezon özel bölümünü izle.`
-        : `Re:Zero ${SEASON_NUMBER}. sezon ${ep.number}. bölümü Türkçe izle: ${ep.title}`
-    );
-  }
-
-  // canonical + og:url => ?i=
-  // Not: canonical genelde build-time daha iyi; ama sen JS ile istedin.
-  const currentParamUrl = `${window.location.origin}${window.location.pathname}?i=${currentEpisode}`;
-  if (canonical) {
-    const base = canonical.getAttribute("href") || currentParamUrl;
-    const clean = base.split("?")[0].split("#")[0];
-    canonical.setAttribute("href", `${clean}?i=${currentEpisode}`);
-  }
-  if (ogUrl) {
-    const base = ogUrl.getAttribute("content") || (canonical ? canonical.getAttribute("href") : currentParamUrl);
-    const clean = String(base).split("?")[0].split("#")[0];
-    ogUrl.setAttribute("content", `${clean}?i=${currentEpisode}`);
-  }
-
-  // TVEpisode JSON-LD
-  const pageUrl = (canonical && canonical.getAttribute("href")) ? canonical.getAttribute("href") : currentParamUrl;
-
-  const episodeName = isBreak
-    ? `Re:Zero S${SEASON_NUMBER} Ara Bölüm ${ep.number}`
-    : isSpecial
-    ? `Re:Zero S${SEASON_NUMBER} Özel Bölüm`
-    : `Re:Zero S${SEASON_NUMBER}E${ep.number}: ${ep.title}`;
-
-  upsertJsonLd("rz-episode-jsonld", {
-    "@context": "https://schema.org",
-    "@type": "TVEpisode",
-    "name": episodeName,
-    "episodeNumber": isSpecial ? undefined : ep.number,
-    "url": pageUrl,
-    "description": descText,
-    "partOfSeason": {
-      "@type": "TVSeason",
-      "seasonNumber": SEASON_NUMBER,
-      "partOfSeries": {
-        "@type": "TVSeries",
-        "name": "Re:Zero kara Hajimeru Isekai Seikatsu"
-      }
-    }
-  });
-}
-
-/* ================================
-   LOAD EPISODE
-================================ */
-function loadEpisode(index) {
+function loadEpisode(index, userInitiated = true) {
   if (index < 0 || index >= episodes.length) return;
 
   currentEpisode = index;
   const ep = episodes[index];
 
-  // Video / Download / UI
   setVideoState(ep);
   setDownloadState(ep);
 
@@ -294,28 +172,17 @@ function loadEpisode(index) {
   if (seasonEl) seasonEl.textContent = seasonText;
   if (titleEl) titleEl.textContent = episodeText;
 
-  // URL (paylaşmak için)
-  history.replaceState(null, "", `?i=${index}`);
-
-  // ✅ En son açılanı global kaydet (yayınlanmamış olsa bile)
-  const now = Date.now();
-  try {
-    localStorage.setItem(GLOBAL_LAST_OPEN_KEY, JSON.stringify({ season: SEASON_NUMBER, i: index, t: now }));
-    localStorage.setItem(`rezero_s${SEASON_NUMBER}_last_seen_at`, String(now));
-    localStorage.setItem(`rezero_s${SEASON_NUMBER}_last_open`, String(index));
-  } catch (e) {
-    // localStorage kapalıysa sessiz geç
-  }
-
-  // ✅ Yayınlanmışsa "izleme ilerlemesi" olarak da kaydet (watched boyaması için)
-  if (isAvailable(ep)) {
+  if (userInitiated && isAvailable(ep)) {
+    const now = Date.now();
     try {
+      localStorage.setItem(GLOBAL_LAST_OPEN_KEY, JSON.stringify({ season: SEASON_NUMBER, i: index, t: now }));
+      localStorage.setItem(`rezero_s${SEASON_NUMBER}_last_seen_at`, String(now));
+      localStorage.setItem(`rezero_s${SEASON_NUMBER}_last_open`, String(index));
       localStorage.setItem(STORAGE_KEY, String(index));
       localStorage.setItem(GLOBAL_LAST_WATCH_KEY, JSON.stringify({ season: SEASON_NUMBER, i: index, t: now }));
     } catch (e) {}
   }
 
-  // comments reset (varsa)
   const spoiler = document.getElementById("spoiler-warning");
   const commentsBox = document.getElementById("commentsContainer");
   if (spoiler && commentsBox) {
@@ -324,22 +191,8 @@ function loadEpisode(index) {
   }
 
   loadComments();
-  applySEO(ep);
   renderEpisodeList();
 }
 
-/* ================================
-   INIT
-================================ */
 renderEpisodeList();
-
-const urlIndex = getIndexFromURL();
-const saved = localStorage.getItem(STORAGE_KEY);
-
-if (urlIndex !== null && !isNaN(urlIndex)) {
-  loadEpisode(urlIndex);
-} else if (saved !== null) {
-  loadEpisode(parseInt(saved, 10));
-} else {
-  loadEpisode(0);
-}
+loadEpisode(currentEpisode, true);
