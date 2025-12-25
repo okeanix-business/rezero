@@ -959,3 +959,58 @@ a {
     0 0 1px rgba(255, 200, 90, 0.65),
     0 0 1px rgba(255, 110, 40, 0.55) !important;
 }
+
+/* ====== UNRELEASED (Yayınlanmadı) Episode Button ====== */
+.episode-list button.unreleased {
+  background: linear-gradient(145deg, #0f132b, #0a0d1f) !important;
+  border-color: rgba(255,255,255,0.10) !important;
+  color: rgba(234,234,255,0.45) !important;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06) !important;
+  opacity: 0.85;
+}
+
+.episode-list button.unreleased:hover {
+  transform: none !important;
+  filter: brightness(1.05);
+}
+
+/* Download disabled */
+.episode-download-btn.disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* ====== UNRELEASED OVERLAY (Video yerine mesaj) ====== */
+.unreleased-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(2px);
+  z-index: 5;
+}
+
+.unreleased-box {
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  padding: 18px 18px;
+  border-radius: 16px;
+  background: rgba(21, 25, 51, 0.92);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+}
+
+.unreleased-title {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.unreleased-sub {
+  font-size: 13px;
+  color: var(--muted);
+}

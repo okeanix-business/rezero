@@ -1,120 +1,26 @@
 /* ================================
-   CONFIG
+   MULTI-SEASON PLAYER (DATA DRIVEN)
+   - seasons-data.js -> window.REZERO_SEASONS
+   - seasonX.html -> window.SEASON_NUMBER = X
+   - driveId boşsa: video açılmaz, overlay görünür
+   - Title / üst başlıkta "yayınlanmadı" yazmaz (overlay zaten anlatıyor)
+   - ✅ Index'teki "Devam Et" için: en son açılan bölüm GLOBAL olarak kaydedilir
 ================================ */
-const CURRENT_SEASON_INDEX = 0;
-const STORAGE_KEY = `rezero_s${CURRENT_SEASON_INDEX + 1}_last_episode`;
 
-/* ================================
-   SEASONS DATA (AUTO GENERATED)
-================================ */
-const seasons = [
-  {
-    season: 1,
-    episodes: generateSeason1()
-  }
-];
+const SEASON_NUMBER = Number(window.SEASON_NUMBER || 1);
 
-function generateSeason1() {
-  const list = [];
+// Bu key "izleme ilerlemesi" gibi davranır (watch/watched boyaması için)
+const STORAGE_KEY = `rezero_s${SEASON_NUMBER}_last_episode`;
 
-  const mainEpisodes = [
-    "Başlangıcın Sonu Ve Sonun Başlangıcı",
-    "Cadıyla Yeniden Buluşma",
-    "Hayat Başka Bir Dünyada Sıfırdan Başladı",
-    "Mutlu Roswaal Malikanesi Ailesi",
-    "Sözümüzün Sabahı Hala Uzak",
-    "Zincirlerin Sesi",
-    "Natsuki Subaru'nun Yeniden Başlaması",
-    "Ağladım, Ciğerlerim Çıkana Kadar Ağladım ve Ağlamayı Bıraktım",
-    "Cesaretin Anlamı",
-    "Bir Oni Gibi Fanatik Yöntemler",
-    "Rem",
-    "Başkente Dönüş",
-    "Kendini Şövalye İlan Eden Kişi",
-    "Çaresizlik Adındaki Hastalık",
-    "Deliliğin Dışında",
-    "Bir Domuzun Açgözlülüğü",
-	"Aşırı Utanç",
-	"Sıfırdan",
-	"Beyaz Balina'ya Karşı Savaş",
-	"Wilhelm van Astrea",
-	"Umutsuzluğu Aşan Kumar",
-	"Tembelliğin Ani Belirişi",
-	"Alçak Tembellik",
-	"Sözde Şövalye ile Şövalyelerin En Yücesi",
-	"Bu Hikâye Sadece Bundan İbaret" // 25 (Final)
-  ];
+// ✅ En son açılan bölüm (sezon fark etmeksizin index'te bunu gösteriyoruz)
+const GLOBAL_LAST_OPEN_KEY = "rezero_last_open";
+// İstersen sadece yayınlananlarda da ayrıca tut:
+const GLOBAL_LAST_WATCH_KEY = "rezero_last_watch";
 
-  const driveIds = [
-    ["1IRoumgrfF9L901hZa0DmVG6FTiXOxLTW", "1CGapULNS1POrTmYmXnKBlO_wDkKHaeMe"],
-    ["1Q6GZsTB5aADk6l8sOgWmq2QDvASYikDS", "1dwYy4k2U81Q8y1vUC8Ey6pIjCIFo1scR"],
-    ["1efyo-5cpEJZL0M14qWp_UdNCdeYFIsZP", "15Iwc2XhEmtdzPRP_o5lddjgnF39ClIt9"],
-    ["1RoAKrXq7oBvzU9iFn_mywfrp8TDqGzLT", "1gKCWIRI9t3LyjgnQubgRdCWhjsbWJu-H"],
-    ["19dhRuU8RQqoukjZQrJAjciAIXdlRd2dz", "1lv7LdOzUdXCoF_Elnf3kdnBeiWhP573g"],
-    ["19wz0YmTb7w5j_tpq9tZh3OIA3_6wVmrK", "1RKzi37yb1xByAy-ZQi5zHpveBAxpyGjD"],
-    ["1nKAAcB8XoxU2byOmPg3-m4ojzZ__kJwl", "1-GYhbc3uCN5nUCG21B40vuE91OMa9dIv"],
-    ["1WjaRK4eP7j5FRLm5D90BWlhaopK8_oSj", "1B-SZgEam7BccEorYFull HDwwE8GLVqnS6LtC"],
-    ["12KVdQF7TN0XznqlQzjU8wTyjmm5ZiEFH", "1mZT2EmXn-Ag3ZBc4g5D1Na-g_DCAPkuP"],
-    ["1pUE8LgLo24MM09fvXtGMaNa5n5-l13Pe", "1elORZUp1fXF1_83i8qXHLPNNNJzVh4Vv"],
-    ["1MsxjPwysXdvdKuPVfRzwsgpZ-XeKq_ab", "1_Yf-yO5LIU-3mDKiWTpesUFVdvREGCNv"],
+const episodes = window.REZERO_SEASONS?.buildEpisodes
+  ? window.REZERO_SEASONS.buildEpisodes(SEASON_NUMBER)
+  : [];
 
-    ["1NB9r8nD2tTEKuMimUWFfCbn3egPYSFEf"], // 12
-    ["1fNLA2nQFAxXxWptt88jLG6hMxVuaAlft"], // 13
-    ["1sM4kLJLV0-cC4wpywz2rHGwKLXZ4rbOh"], // 14
-    ["1hNJbMnk6vxmk10og_-zZgK54gipXzGOD"], // 15
-    ["1rLifn1wQU7cd8QNEN3F8z1YcC2V4rPHj"],  // 16
-	["1SCm55ZnTKa5Nb7Prl_PGaQ9rbws7VOaz"],  // 17
-	["1oQVfYnSqY1r_6qaEVBfgGKCIoT97pgZu"],  // 18
-	["13-4tmmMCCcMWE6AXr71HZvB1BD-hMno6"],  // 19
-	["1HbLwYAPWLfw5GGmbvZ9hc_JHIjhGX1s4"],  // 20
-	["1BOX7ABUF0vP7ibuwC2K8z-MqEi1ikqkf"],  // 21
-	["1cNDfioFdd46s1i7pVjN7XiqBsoaRVxcB"],  // 22
-	["1oI48XG-ER2ntdEDAAtEj9KnFA3y-33TF"],  // 23
-	["1287qoCy9SiZunFpwe-w0Ymw0GrIQC14z"],  // 24
-	["17T_ve_IA2f05GqhlRoTIDu39imgqiQ1z"] // 25 (Final)
-  ];
-
-  mainEpisodes.forEach((title, i) => {
-    const epNum = i + 1;
-    const isFinal = epNum === 25; // 🔥 FINAL
-
-    // 🎬 NORMAL BÖLÜM
-    list.push({
-      number: epNum,
-      title,
-      driveId: driveIds[i][0],
-      isExtra: false,
-      isFinal
-    });
-
-    // ☕ SADECE 1–11 ARASI MOLA EKLE
-    if (epNum <= 11 && driveIds[i][1]) {
-      list.push({
-        number: epNum,
-        title: `${epNum}. Mola Zamanı`,
-        driveId: driveIds[i][1],
-        isExtra: true
-      });
-    }
-
-    // ❄ 11. bölüm SONRASI — ÖZEL KAR BÖLÜMÜ
-    if (epNum === 11) {
-      list.push({
-        number: 11,
-        title: "Kar Altındaki Hatıralar (Memory Snow OVA)",
-        driveId: "1WmyT2LZB5j1u5Vyt22u9Vf21VE3se0S0",
-        isExtra: true,
-        extraType: "snow"
-      });
-    }
-  });
-
-  return list;
-}
-
-/* ================================
-   STATE
-================================ */
 let currentEpisode = 0;
 
 /* ================================
@@ -122,10 +28,9 @@ let currentEpisode = 0;
 ================================ */
 const player = document.getElementById("videoPlayer");
 const downloadBtn = document.getElementById("downloadBtn");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
 const episodeListContainer = document.querySelector(".episode-list");
 const utterancesContainer = document.getElementById("utterances-container");
+const unreleasedOverlay = document.getElementById("unreleasedOverlay");
 
 /* ================================
    URL
@@ -137,93 +42,97 @@ function getIndexFromURL() {
 }
 
 /* ================================
+   HELPERS
+================================ */
+function isAvailable(ep) {
+  return !!ep.driveId;
+}
+
+function setDownloadState(ep) {
+  if (!downloadBtn) return;
+
+  if (isAvailable(ep)) {
+    downloadBtn.classList.remove("disabled");
+    downloadBtn.href = `https://drive.google.com/uc?export=download&id=${ep.driveId}`;
+    downloadBtn.setAttribute("target", "_blank");
+  } else {
+    downloadBtn.classList.add("disabled");
+    downloadBtn.removeAttribute("href");
+  }
+}
+
+function setVideoState(ep) {
+  if (!player) return;
+
+  if (isAvailable(ep)) {
+    if (unreleasedOverlay) unreleasedOverlay.style.display = "none";
+    player.style.visibility = "visible";
+    player.src = `https://drive.google.com/file/d/${ep.driveId}/preview`;
+  } else {
+    player.src = "about:blank";
+    player.style.visibility = "hidden";
+    if (unreleasedOverlay) unreleasedOverlay.style.display = "flex";
+  }
+}
+
+// ✅ Üst başlıkta "yayınlanmadı" YAZMA
+function makeSeasonLine(ep) {
+  if (ep.isFinal) return `${SEASON_NUMBER}. Sezon Final Bölümü`;
+  if (ep.kind === "break") return `${SEASON_NUMBER}. Sezon ${ep.number}. Ara Bölüm`;
+  if (ep.kind === "special") return `${SEASON_NUMBER}. Sezon Özel Bölüm`;
+  return `${SEASON_NUMBER}. Sezon ${ep.number}. Bölüm`;
+}
+
+function makeTitleLine(ep) {
+  if (ep.kind === "break") return `${ep.number}. Mola Zamanı`;
+  return ep.title || `Bölüm ${ep.number}`;
+}
+
+/* ================================
    RENDER EPISODE LIST
 ================================ */
 function renderEpisodeList() {
-  episodeListContainer.innerHTML = "";
+  if (!episodeListContainer) return;
 
+  episodeListContainer.innerHTML = "";
   const savedIndex = parseInt(localStorage.getItem(STORAGE_KEY) || -1, 10);
 
-  seasons[CURRENT_SEASON_INDEX].episodes.forEach((ep, index) => {
+  episodes.forEach((ep, index) => {
     const btn = document.createElement("button");
 
-    if (!ep.isExtra) {
-      btn.textContent = ep.number; // Final bile olsa 25 görünsün
-    }
+    // normal bölüm
+    if (!ep.isExtra) btn.textContent = ep.number;
 
-    if (ep.isFinal) {
-      btn.classList.add("final-episode");
-    }
+    // final rengi
+    if (ep.isFinal) btn.classList.add("final-episode");
 
+    // extras
     if (ep.isExtra) {
-      if (ep.extraType === "snow") {
+      if (ep.kind === "break") {
+        btn.innerHTML = `${ep.number}<span class="break-icon">☕</span>`;
+        btn.classList.add("special-episode");
+      } else if (ep.extraType === "snow") {
         btn.innerHTML = `${ep.number}<span class="snow-icon">❄</span>`;
         btn.classList.add("special-snow");
       } else {
-        btn.innerHTML = `${ep.number}<span class="break-icon">☕</span>`;
-        btn.classList.add("special-episode");
+        btn.innerHTML = `${ep.number}<span class="snow-icon">❄</span>`;
+        btn.classList.add("special-snow");
       }
     }
 
-    if (index < savedIndex) {
-      btn.classList.add("watched");
-    }
+    // yayınlanmamış / çevirilmemiş (gri buton)
+    if (!isAvailable(ep)) btn.classList.add("unreleased");
 
-    if (index === currentEpisode) {
-      btn.classList.add("active");
-    }
+    // watched (sadece yayınlananlarda kaydedilmiş index'e göre)
+    if (index < savedIndex) btn.classList.add("watched");
+
+    // active
+    if (index === currentEpisode) btn.classList.add("active");
 
     btn.onclick = () => loadEpisode(index);
     episodeListContainer.appendChild(btn);
   });
 }
-
-/* ================================
-   LOAD EPISODE
-================================ */
-function loadEpisode(index) {
-  const episodes = seasons[CURRENT_SEASON_INDEX].episodes;
-  if (index < 0 || index >= episodes.length) return;
-
-  currentEpisode = index;
-  const ep = episodes[index];
-
-  player.src = `https://drive.google.com/file/d/${ep.driveId}/preview`;
-  downloadBtn.href = `https://drive.google.com/uc?export=download&id=${ep.driveId}`;
-
-  const seasonText = ep.isFinal
-    ? `1. Sezon Final Bölümü`
-    : ep.isExtra
-    ? ep.extraType === "snow"
-      ? `1. Sezon Özel Bölüm`
-      : `1. Sezon ${ep.number}. Ara Bölüm`
-    : `1. Sezon ${ep.number}. Bölüm`;
-
-  const episodeText = ep.isExtra && ep.extraType === "snow"
-    ? ep.title
-    : ep.isExtra
-    ? `${ep.number}. Mola Zamanı`
-    : ep.title; // Final olsa da kendi başlığı yazsın
-
-  document.querySelector(".season-episode").textContent = seasonText;
-  document.querySelector(".episode-title").textContent = episodeText;
-
-  [...episodeListContainer.children].forEach((b, i) =>
-    b.classList.toggle("active", i === index)
-  );
-
-  history.replaceState(null, "", `?i=${index}`);
-  localStorage.setItem(STORAGE_KEY, index);
-
-  loadComments();
-  applySEO(ep);
-  renderEpisodeList();
-  
-  // 🔥 Yorumları bölüm değiştirdikçe kapat
-  document.getElementById("spoiler-warning").style.display = "block";
-  document.getElementById("commentsContainer").style.display = "none";
-}
-
 
 /* ================================
    COMMENTS (UTTERANCES)
@@ -237,7 +146,7 @@ function loadComments() {
   script.src = "https://utteranc.es/client.js";
 
   script.setAttribute("repo", "okeanix-business/rezero");
-  script.setAttribute("issue-term", `s1-i${currentEpisode}`);
+  script.setAttribute("issue-term", `s${SEASON_NUMBER}-i${currentEpisode}`);
   script.setAttribute("theme", "github-dark");
   script.setAttribute("label", "comment");
   script.async = true;
@@ -246,14 +155,177 @@ function loadComments() {
 }
 
 /* ================================
-   CONTROLS
+   SEO (TITLE / META / OG / CANONICAL)
+   - canonical + og:url => ?i= ile güncellenir
 ================================ */
-function nextEpisode() {
-  loadEpisode(currentEpisode + 1);
+function upsertJsonLd(id, obj) {
+  let s = document.getElementById(id);
+  if (!s) {
+    s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.id = id;
+    document.head.appendChild(s);
+  }
+  s.textContent = JSON.stringify(obj);
 }
 
-function prevEpisode() {
-  loadEpisode(currentEpisode - 1);
+function applySEO(ep) {
+  const desc = document.querySelector('meta[name="description"]');
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  const ogDesc = document.querySelector('meta[property="og:description"]');
+  const ogUrl = document.querySelector('meta[property="og:url"]');
+  const canonical = document.querySelector('link[rel="canonical"]');
+
+  const isBreak = ep.kind === "break";
+  const isSpecial = ep.kind === "special";
+  const isSnow = ep.extraType === "snow";
+  const unavailable = !isAvailable(ep);
+
+  // Title
+  if (isSnow) {
+    document.title = `Re:Zero Memory Snow – Türkçe İzle | rezeroizle.com`;
+  } else if (isBreak) {
+    document.title = `Re:Zero ${SEASON_NUMBER}. Sezon ${ep.number}. Ara Bölüm Türkçe İzle | rezeroizle.com`;
+  } else if (isSpecial) {
+    document.title = `Re:Zero ${SEASON_NUMBER}. Sezon Özel Bölüm Türkçe İzle | rezeroizle.com`;
+  } else {
+    document.title = `Re:Zero ${SEASON_NUMBER}. Sezon ${ep.number}. Bölüm Türkçe Altyazılı İzle (Full HD) | rezeroizle.com`;
+  }
+
+  // Description
+  let descText = "";
+  if (unavailable) {
+    descText = `Bu bölüm henüz hazır değil. Güncellemeler için siteyi takip edin.`;
+  } else if (isSnow) {
+    descText = `Re:Zero Memory Snow özel bölümünü Türkçe altyazılı Full HD olarak izleyin.`;
+  } else if (isBreak) {
+    descText = `Re:Zero ${SEASON_NUMBER}. sezon ${ep.number}. ara bölümü (mola zamanı) Türkçe altyazılı Full HD izle.`;
+  } else if (isSpecial) {
+    descText = `Re:Zero ${SEASON_NUMBER}. sezon özel bölümünü Türkçe altyazılı Full HD izle.`;
+  } else {
+    descText = `Re:Zero ${SEASON_NUMBER}. sezon ${ep.number}. bölümü Türkçe altyazılı Full HD izle: ${ep.title}`;
+  }
+  if (desc) desc.setAttribute("content", descText);
+
+  // OG title/desc
+  if (ogTitle) {
+    ogTitle.setAttribute(
+      "content",
+      isBreak
+        ? `Re:Zero ${SEASON_NUMBER}. Sezon ${ep.number}. Ara Bölüm Türkçe İzle`
+        : isSpecial
+        ? `Re:Zero ${SEASON_NUMBER}. Sezon Özel Bölüm Türkçe İzle`
+        : `Re:Zero ${SEASON_NUMBER}. Sezon ${ep.number}. Bölüm Türkçe İzle`
+    );
+  }
+
+  if (ogDesc) {
+    ogDesc.setAttribute(
+      "content",
+      unavailable
+        ? "Bu bölüm henüz hazır değil."
+        : isBreak
+        ? `Re:Zero ${SEASON_NUMBER}. sezon ${ep.number}. ara bölümünü izle.`
+        : isSpecial
+        ? `Re:Zero ${SEASON_NUMBER}. sezon özel bölümünü izle.`
+        : `Re:Zero ${SEASON_NUMBER}. sezon ${ep.number}. bölümü Türkçe izle: ${ep.title}`
+    );
+  }
+
+  // canonical + og:url => ?i=
+  // Not: canonical genelde build-time daha iyi; ama sen JS ile istedin.
+  const currentParamUrl = `${window.location.origin}${window.location.pathname}?i=${currentEpisode}`;
+  if (canonical) {
+    const base = canonical.getAttribute("href") || currentParamUrl;
+    const clean = base.split("?")[0].split("#")[0];
+    canonical.setAttribute("href", `${clean}?i=${currentEpisode}`);
+  }
+  if (ogUrl) {
+    const base = ogUrl.getAttribute("content") || (canonical ? canonical.getAttribute("href") : currentParamUrl);
+    const clean = String(base).split("?")[0].split("#")[0];
+    ogUrl.setAttribute("content", `${clean}?i=${currentEpisode}`);
+  }
+
+  // TVEpisode JSON-LD
+  const pageUrl = (canonical && canonical.getAttribute("href")) ? canonical.getAttribute("href") : currentParamUrl;
+
+  const episodeName = isBreak
+    ? `Re:Zero S${SEASON_NUMBER} Ara Bölüm ${ep.number}`
+    : isSpecial
+    ? `Re:Zero S${SEASON_NUMBER} Özel Bölüm`
+    : `Re:Zero S${SEASON_NUMBER}E${ep.number}: ${ep.title}`;
+
+  upsertJsonLd("rz-episode-jsonld", {
+    "@context": "https://schema.org",
+    "@type": "TVEpisode",
+    "name": episodeName,
+    "episodeNumber": isSpecial ? undefined : ep.number,
+    "url": pageUrl,
+    "description": descText,
+    "partOfSeason": {
+      "@type": "TVSeason",
+      "seasonNumber": SEASON_NUMBER,
+      "partOfSeries": {
+        "@type": "TVSeries",
+        "name": "Re:Zero kara Hajimeru Isekai Seikatsu"
+      }
+    }
+  });
+}
+
+/* ================================
+   LOAD EPISODE
+================================ */
+function loadEpisode(index) {
+  if (index < 0 || index >= episodes.length) return;
+
+  currentEpisode = index;
+  const ep = episodes[index];
+
+  // Video / Download / UI
+  setVideoState(ep);
+  setDownloadState(ep);
+
+  const seasonText = makeSeasonLine(ep);
+  const episodeText = makeTitleLine(ep);
+
+  const seasonEl = document.querySelector(".season-episode");
+  const titleEl = document.querySelector(".episode-title");
+  if (seasonEl) seasonEl.textContent = seasonText;
+  if (titleEl) titleEl.textContent = episodeText;
+
+  // URL (paylaşmak için)
+  history.replaceState(null, "", `?i=${index}`);
+
+  // ✅ En son açılanı global kaydet (yayınlanmamış olsa bile)
+  const now = Date.now();
+  try {
+    localStorage.setItem(GLOBAL_LAST_OPEN_KEY, JSON.stringify({ season: SEASON_NUMBER, i: index, t: now }));
+    localStorage.setItem(`rezero_s${SEASON_NUMBER}_last_seen_at`, String(now));
+    localStorage.setItem(`rezero_s${SEASON_NUMBER}_last_open`, String(index));
+  } catch (e) {
+    // localStorage kapalıysa sessiz geç
+  }
+
+  // ✅ Yayınlanmışsa "izleme ilerlemesi" olarak da kaydet (watched boyaması için)
+  if (isAvailable(ep)) {
+    try {
+      localStorage.setItem(STORAGE_KEY, String(index));
+      localStorage.setItem(GLOBAL_LAST_WATCH_KEY, JSON.stringify({ season: SEASON_NUMBER, i: index, t: now }));
+    } catch (e) {}
+  }
+
+  // comments reset (varsa)
+  const spoiler = document.getElementById("spoiler-warning");
+  const commentsBox = document.getElementById("commentsContainer");
+  if (spoiler && commentsBox) {
+    spoiler.style.display = "block";
+    commentsBox.style.display = "none";
+  }
+
+  loadComments();
+  applySEO(ep);
+  renderEpisodeList();
 }
 
 /* ================================
@@ -270,75 +342,4 @@ if (urlIndex !== null && !isNaN(urlIndex)) {
   loadEpisode(parseInt(saved, 10));
 } else {
   loadEpisode(0);
-}
-
-function applySEO(ep) {
-
-  // === TITLE ===
-  if (ep.isExtra && ep.extraType === "snow") {
-    document.title = `Re:Zero Memory Snow – Kar Altındaki Hatıralar Türkçe İzle | rezeroizle.com`;
-  }
-
-  else if (ep.isExtra) {
-    document.title = `Re:Zero ${ep.number}. Ara Bölüm Türkçe İzle (Full HD) | rezeroizle.com`;
-  }
-
-  else {
-    document.title = `Re:Zero 1. Sezon ${ep.number}. Bölüm Türkçe Altyazılı İzle (Full HD) | rezeroizle.com`;
-  }
-
-
-  // === META DESCRIPTION ===
-  const desc = document.querySelector('meta[name="description"]');
-  if (desc) {
-
-    if (ep.isExtra && ep.extraType === "snow") {
-      desc.setAttribute("content", `Re:Zero Memory Snow özel bölümünü Türkçe altyazılı Full HD olarak izleyin.`);
-    }
-
-    else if (ep.isExtra) {
-      desc.setAttribute("content", `Re:Zero ${ep.number}. ara bölümü (mola zamanı) Türkçe altyazılı Full HD izle.`);
-    }
-
-    else {
-      desc.setAttribute("content", `Re:Zero 1. sezon ${ep.number}. bölümü Türkçe altyazılı Full HD izle: ${ep.title}`);
-    }
-
-  }
-
-
-  // === OG TITLE ===
-  const ogTitle = document.querySelector('meta[property="og:title"]');
-  if (ogTitle) {
-
-    if (ep.isExtra && ep.extraType === "snow") {
-      ogTitle.setAttribute("content", "Re:Zero – Memory Snow Türkçe İzle");
-    }
-
-    else if (ep.isExtra) {
-      ogTitle.setAttribute("content", `Re:Zero ${ep.number}. Ara Bölüm Türkçe İzle`);
-    }
-
-    else {
-      ogTitle.setAttribute("content", `Re:Zero 1. Sezon ${ep.number}. Bölüm Türkçe İzle`);
-    }
-  }
-
-
-  // === OG DESC ===
-  const ogDesc = document.querySelector('meta[property="og:description"]');
-  if (ogDesc) {
-
-    if (ep.isExtra && ep.extraType === "snow") {
-      ogDesc.setAttribute("content", "Re:Zero Memory Snow özel bölümünü Türkçe altyazılı Full HD izle.");
-    }
-
-    else if (ep.isExtra) {
-      ogDesc.setAttribute("content", `Re:Zero ${ep.number}. ara bölümünü izle.`);
-    }
-
-    else {
-      ogDesc.setAttribute("content", `Re:Zero 1. sezon ${ep.number}. bölümü Türkçe izle: ${ep.title}`);
-    }
-  }
 }

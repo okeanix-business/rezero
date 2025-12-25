@@ -44,7 +44,7 @@
   <div class="nav-logo">
 	  <a href="index.html">
 		<img src="images/icon.png" alt="Logo" class="nav-icon">
-		rezeroizle.com - Beta v0.4.1
+		rezeroizle.com - Beta v0.4.2
 	  </a>
   </div>
   <div class="hamburger" onclick="toggleMenu()">☰</div>
@@ -56,7 +56,7 @@
 	<h1 class="seo-hidden">
 	  Re:Zero kara Hajimeru Isekai Seikatsu (2016) Türkçe Altyazılı Full HD İzle
 	</h1>
-	
+
   <div class="hero-bg"></div>
   <div class="hero-grain"></div>
 
@@ -77,9 +77,7 @@
 
       <div class="continue-info">
         <span class="continue-label">KALDIĞIN YERDEN DEVAM ET</span>
-        <strong id="continueText">
-          1. Sezon 6. Bölümden devam ediyorsun
-        </strong>
+        <strong id="continueText"></strong>
       </div>
 
       <a class="continue-action" id="continueBtn">Devam Et →</a>
@@ -94,29 +92,29 @@
       <div class="overlay"><span>1. Sezon</span></div>
     </a>
 
-    <div class="season-card s2 locked">
-      <div class="coming-overlay">
-        <div class="lock-icon">🔒</div>
-        <div class="coming-text">Yakında</div>
-      </div>
-      <div class="overlay"><span>2. Sezon</span></div>
-    </div>
+	<a href="season2.html" class="season-card s2 locked">
+	  <div class="coming-overlay">
+		<div class="lock-icon">🔒</div>
+		<div class="coming-text">Yakında</div>
+	  </div>
+	  <div class="overlay"><span>2. Sezon</span></div>
+	</a>
 
-    <div class="season-card s3 locked">
-      <div class="coming-overlay">
-        <div class="lock-icon">🔒</div>
-        <div class="coming-text">Yakında</div>
-      </div>
-      <div class="overlay"><span>3. Sezon</span></div>
-    </div>
+	<a href="season3.html" class="season-card s3 locked">
+	  <div class="coming-overlay">
+		<div class="lock-icon">🔒</div>
+		<div class="coming-text">Yakında</div>
+	  </div>
+	  <div class="overlay"><span>3. Sezon</span></div>
+	</a>
 
-    <div class="season-card s4 locked">
-      <div class="coming-overlay">
-        <div class="lock-icon">🔒</div>
-        <div class="coming-text">Yakında</div>
-      </div>
-      <div class="overlay"><span>4. Sezon</span></div>
-    </div>
+	<a href="season4.html" class="season-card s4 locked">
+	  <div class="coming-overlay">
+		<div class="lock-icon">🔒</div>
+		<div class="coming-text">Yakında</div>
+	  </div>
+	  <div class="overlay"><span>4. Sezon</span></div>
+	</a>
 
   </main>
 
@@ -159,72 +157,74 @@
 <script>
 function toggleMenu() {
   const nav = document.getElementById("navLinks");
+  if (!nav) return;
   nav.classList.toggle("open");
   document.body.style.overflow = nav.classList.contains("open") ? "hidden" : "auto";
 }
 </script>
 
+<!-- ✅ Continue otomatik: seasons-data.js + global last open -->
+<script src="./seasons-data.js"></script>
 <script>
-const lastEpisode = localStorage.getItem("rezero_s1_last_episode");
+(function () {
+  const continueBox = document.getElementById("continueBox");
+  const continueText = document.getElementById("continueText");
+  const continueBtn = document.getElementById("continueBtn");
+  const continueBg = document.getElementById("continueBg");
 
-if (lastEpisode !== null) {
-  const epIndex = parseInt(lastEpisode, 10);
+  if (!continueBox || !continueText || !continueBtn) return;
 
-  // player.js ile uyumlu mini tablo
-  const episodeMap = [
-    { n: 1, type: "normal" }, { n: 1, type: "mola" },
-    { n: 2, type: "normal" }, { n: 2, type: "mola" },
-    { n: 3, type: "normal" }, { n: 3, type: "mola" },
-    { n: 4, type: "normal" }, { n: 4, type: "mola" },
-    { n: 5, type: "normal" }, { n: 5, type: "mola" },
-    { n: 6, type: "normal" }, { n: 6, type: "mola" },
-    { n: 7, type: "normal" }, { n: 7, type: "mola" },
-    { n: 8, type: "normal" }, { n: 8, type: "mola" },
-    { n: 9, type: "normal" }, { n: 9, type: "mola" },
-    { n: 10, type: "normal" }, { n: 10, type: "mola" },
-    { n: 11, type: "normal" }, { n: 11, type: "mola" },
-    { n: 11, type: "special" }, // ❄ Kar Altındaki Hatıralar
-    { n: 12, type: "normal" },
-	{ n: 13, type: "normal" },
-	{ n: 14, type: "normal" },
-	{ n: 15, type: "normal" },
-	{ n: 16, type: "normal" },
-	{ n: 17, type: "normal" },
-	{ n: 18, type: "normal" },
-	{ n: 19, type: "normal" },
-	{ n: 20, type: "normal" },
-	{ n: 21, type: "normal" },
-	{ n: 22, type: "normal" },
-	{ n: 23, type: "normal" },
-	{ n: 24, type: "normal" },
-	{ n: 25, type: "normal" }
-  ];
-
-  const ep = episodeMap[epIndex];
-
-  let text = "";
-
-  if (ep.type === "normal") {
-    text = `1. Sezon ${ep.n}. Bölümden devam ediyorsun`;
-  } else if (ep.type === "mola") {
-    text = `1. Sezon ${ep.n}. Ara Bölümden devam ediyorsun`;
-  } else if (ep.type === "special") {
-    text = `1. Sezon Özel Bölümden devam ediyorsun`;
+  // 1) Önce global last-open (player.js bunu her bölüm açılışında yazar)
+  let info = null;
+  const raw = localStorage.getItem("rezero_last_open") || localStorage.getItem("rezero_last_watch");
+  if (raw) {
+    try { info = JSON.parse(raw); } catch (e) { info = null; }
   }
 
-  document.getElementById("continueBox").style.display = "block";
-  document.getElementById("continueText").textContent = text;
-  document.getElementById("continueBtn").href =
-    `season1.html?i=${epIndex}`;
-}
-</script>
+  // 2) Fallback: season bazlı keylerden en günceli seç (timestamp varsa)
+  if (!info || typeof info.season !== "number" || typeof info.i !== "number") {
+    const candidates = [];
+    for (let s = 1; s <= 4; s++) {
+      const iRaw = localStorage.getItem(`rezero_s${s}_last_open`) || localStorage.getItem(`rezero_s${s}_last_episode`);
+      const tRaw = localStorage.getItem(`rezero_s${s}_last_seen_at`) || "0";
+      const i = iRaw !== null ? parseInt(iRaw, 10) : null;
+      const t = parseInt(tRaw, 10) || 0;
+      if (i !== null && !Number.isNaN(i)) candidates.push({ season: s, i, t });
+    }
+    if (candidates.length) {
+      candidates.sort((a, b) => b.t - a.t);
+      info = { season: candidates[0].season, i: candidates[0].i };
+    }
+  }
 
-<script>
-const continueBg = document.getElementById("continueBg");
+  if (!info) return;
 
-// Örnek: son izlenen bölümden görsel
-// bunu episode -> season cover -> frame olarak sonra otomatikleştirebilirsin
-continueBg.style.backgroundImage = "url('images/s1.jpg')";
+  const season = Number(info.season);
+  const idx = Number(info.i);
+
+  const eps = window.REZERO_SEASONS?.buildEpisodes ? window.REZERO_SEASONS.buildEpisodes(season) : null;
+  if (!eps || !eps[idx]) return;
+
+  const ep = eps[idx];
+
+  let text = "";
+  if (ep.kind === "break") {
+    text = `${season}. Sezon ${ep.number}. Ara Bölümden devam ediyorsun`;
+  } else if (ep.kind === "special") {
+    text = `${season}. Sezon Özel Bölümden devam ediyorsun`;
+  } else {
+    text = `${season}. Sezon ${ep.number}. Bölümden devam ediyorsun`;
+  }
+
+  continueBox.style.display = "block";
+  continueText.textContent = text;
+  continueBtn.href = `season${season}.html?i=${idx}`;
+
+  // Görsel (varsa images/s1.jpg, s2.jpg, s3.jpg, s4.jpg)
+  if (continueBg) {
+    continueBg.style.backgroundImage = `url('images/s${season}.jpg')`;
+  }
+})();
 </script>
 
 
