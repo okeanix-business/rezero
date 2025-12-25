@@ -76,14 +76,22 @@ function setVideoState(ep) {
 
   if (isAvailable(ep)) {
     if (unreleasedOverlay) unreleasedOverlay.style.display = "none";
+
+    // iframe ASLA gizlenmez
     player.style.visibility = "visible";
+
+    // Kaynak sadece değişir
     player.src = `https://drive.google.com/file/d/${ep.driveId}/preview`;
   } else {
+    // iframe boş kalır ama görünür kalır
     player.src = "about:blank";
-    player.style.visibility = "hidden";
-    if (unreleasedOverlay) unreleasedOverlay.style.display = "flex";
+
+    if (unreleasedOverlay) {
+      unreleasedOverlay.style.display = "flex";
+    }
   }
 }
+
 
 function makeSeasonLine(ep) {
   if (ep.isFinal) return `${SEASON_NUMBER}. Sezon Final Bölümü`;
