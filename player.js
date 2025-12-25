@@ -11,7 +11,10 @@ const episodes = window.REZERO_SEASONS?.buildEpisodes
   ? window.REZERO_SEASONS.buildEpisodes(SEASON_NUMBER)
   : [];
 
-let currentEpisode = Math.min(Math.max(EPISODE_INDEX, 0), Math.max(episodes.length - 1, 0));
+let currentEpisode = Math.min(
+  Math.max(EPISODE_INDEX, 0),
+  Math.max(episodes.length - 1, 0)
+);
 
 const player = document.getElementById("videoPlayer");
 const downloadBtn = document.getElementById("downloadBtn");
@@ -19,18 +22,92 @@ const episodeListContainer = document.querySelector(".episode-list");
 const utterancesContainer = document.getElementById("utterances-container");
 const unreleasedOverlay = document.getElementById("unreleasedOverlay");
 
-function isAvailable(ep) { return !!ep.driveId; }
+/* ================================
+   FULLSCREEN FIX (MOBILE)
+================================ */
 
-function slugifyLite(s) {
-  return String(s || "")
-    .toLowerCase()
-    .replace(/ı/g, "i").replace(/ğ/g, "g").replace(/ü/g, "u").replace(/ş/g, "s").replace(/ö/g, "o").replace(/ç/g, "c")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .slice(0, 60) || "ozel";
+// ✅ iframe fullscreen izinleri (HTML'de kaybolsa bile JS basar)
+(function ensureIframeFullscreen() {
+  if (!player) return;
+
+  player.setAttribute("allowfullscreen", "");
+  player.setAttribute("webkitallowfullscreen", "");
+  player.setAttribute("mozallowfullscreen", "");
+
+  const prev = (player.getAttribute("allow") || "")
+    .split(";")
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+  const need = ["autoplay", "fullscreen", "picture-in-picture"];
+  const merged = Array.from(new Set([...prev, ...need])).join("; ");
+  player.setAttribute("allow", merged);
+})();
+
+function getFsEl() {
+  return (
+    document.fullscreenElement ||
+    document.webkitFullscreenElement ||
+    document.mozFullScreenElement ||
+    document.msFullscreenElement ||
+    null
+  );
 }
 
-// ✅ (3) Yorumlar: index'e bağlı olmayan sabit anahtar
+async function lockLandscape() {
+  try {
+    if (screen.orientation && screen.orientation.lock) {
+      await screen.orientation.lock("landscape");
+    }
+  } catch (e) {
+    // iOS Safari vb. çoğu durumda izin vermez
+  }
+}
+
+function unlockOrientation() {
+  try {
+    if (screen.orientation && screen.orientation.unlock) {
+      screen.orientation.unlock();
+    }
+  } catch (e) {}
+}
+
+function onFullscreenChange() {
+  const fsEl = getFsEl();
+  if (fsEl) lockLandscape();
+  else unlockOrientation();
+}
+
+document.addEventListener("fullscreenchange", onFullscreenChange);
+document.addEventListener("webkitfullscreenchange", onFullscreenChange);
+document.addEventListener("mozfullscreenchange", onFullscreenChange);
+document.addEventListener("MSFullscreenChange", onFullscreenChange);
+
+/* ================================
+   HELPERS
+================================ */
+
+function isAvailable(ep) {
+  return !!ep.driveId;
+}
+
+function slugifyLite(s) {
+  return (
+    String(s || "")
+      .toLowerCase()
+      .replace(/ı/g, "i")
+      .replace(/ğ/g, "g")
+      .replace(/ü/g, "u")
+      .replace(/ş/g, "s")
+      .replace(/ö/g, "o")
+      .replace(/ç/g, "c")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .slice(0, 60) || "ozel"
+  );
+}
+
+// ✅ Yorumlar: index'e bağlı olmayan sabit anahtar
 function getIssueTerm(ep) {
   if (!ep) return `s${SEASON_NUMBER}-unknown`;
 
@@ -57,6 +134,10 @@ function getEpisodePageUrl(season, index) {
     return null;
   }
 }
+
+/* ================================
+   VIDEO/DOWNLOAD STATE
+================================ */
 
 function setDownloadState(ep) {
   if (!downloadBtn) return;
@@ -92,6 +173,9 @@ function setVideoState(ep) {
   }
 }
 
+/* ================================
+   UI TEXT
+================================ */
 
 function makeSeasonLine(ep) {
   if (ep.isFinal) return `${SEASON_NUMBER}. Sezon Final Bölümü`;
@@ -104,6 +188,10 @@ function makeTitleLine(ep) {
   if (ep.kind === "break") return `${ep.number}. Mola Zamanı`;
   return ep.title || `Bölüm ${ep.number}`;
 }
+
+/* ================================
+   RENDER EPISODE LIST
+================================ */
 
 function renderEpisodeList() {
   if (!episodeListContainer) return;
@@ -145,6 +233,10 @@ function renderEpisodeList() {
   });
 }
 
+/* ================================
+   COMMENTS (UTTERANCES)
+================================ */
+
 function loadComments() {
   if (!utterancesContainer) return;
   utterancesContainer.innerHTML = "";
@@ -162,6 +254,10 @@ function loadComments() {
 
   utterancesContainer.appendChild(script);
 }
+
+/* ================================
+   LOAD EPISODE
+================================ */
 
 function loadEpisode(index, userInitiated = true) {
   if (index < 0 || index >= episodes.length) return;
@@ -183,14 +279,21 @@ function loadEpisode(index, userInitiated = true) {
   if (userInitiated && isAvailable(ep)) {
     const now = Date.now();
     try {
-      localStorage.setItem(GLOBAL_LAST_OPEN_KEY, JSON.stringify({ season: SEASON_NUMBER, i: index, t: now }));
+      localStorage.setItem(
+        GLOBAL_LAST_OPEN_KEY,
+        JSON.stringify({ season: SEASON_NUMBER, i: index, t: now })
+      );
       localStorage.setItem(`rezero_s${SEASON_NUMBER}_last_seen_at`, String(now));
       localStorage.setItem(`rezero_s${SEASON_NUMBER}_last_open`, String(index));
       localStorage.setItem(STORAGE_KEY, String(index));
-      localStorage.setItem(GLOBAL_LAST_WATCH_KEY, JSON.stringify({ season: SEASON_NUMBER, i: index, t: now }));
+      localStorage.setItem(
+        GLOBAL_LAST_WATCH_KEY,
+        JSON.stringify({ season: SEASON_NUMBER, i: index, t: now })
+      );
     } catch (e) {}
   }
 
+  // Bölüm değişince yorumları tekrar kapat
   const spoiler = document.getElementById("spoiler-warning");
   const commentsBox = document.getElementById("commentsContainer");
   if (spoiler && commentsBox) {
@@ -201,6 +304,10 @@ function loadEpisode(index, userInitiated = true) {
   loadComments();
   renderEpisodeList();
 }
+
+/* ================================
+   INIT
+================================ */
 
 renderEpisodeList();
 loadEpisode(currentEpisode, true);
