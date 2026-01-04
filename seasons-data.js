@@ -44,8 +44,8 @@ var SEASON_CONFIGS = {
       "1YFLZMas9tGlbaqIXs2uG3qYyfmdqMwp6", //7
       "1BmZBuO6K4e4RGV68ts4ocySUskaAL2bR", //8
       "1KeqHAI9fUUHH_LlQt2qcF7_zUAAHm14t", //9
-      "1pUE8LgLo24MM09fvXtGMaNa5n5-l13Pe", //10
-      "1MsxjPwysXdvdKuPVfRzwsgpZ-XeKq_ab", //11
+      "1-CVvSJ9HmgtsWL28mdc4HmMhLlLCFAKN", //10
+      "1FvLCPBPKqSgoEKGmp5qOoreDreuh7QUO", //11
       "1NB9r8nD2tTEKuMimUWFfCbn3egPYSFEf", //12
       "1fNLA2nQFAxXxWptt88jLG6hMxVuaAlft", //13
       "1sM4kLJLV0-cC4wpywz2rHGwKLXZ4rbOh", //14
@@ -83,7 +83,7 @@ var SEASON_CONFIGS = {
         extraType: "snow",
         number: 11,
         title: "Kar Altındaki Hatıralar (Memory Snow OVA)",
-        driveId: "1WmyT2LZB5j1u5Vyt22u9Vf21VE3se0S0"
+        driveId: "1FWsfLE2MozttOzZgFNjLStK80jCbLEwp"
       }
     ],
 
