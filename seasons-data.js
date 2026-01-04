@@ -21,7 +21,7 @@ var SEASON_CONFIGS = {
       "Başkente Dönüş", //12
       "Kendini Şövalye İlan Eden Kişi", //13
       "Çaresizlik Adındaki Hastalık", //14
-      "Deliliğin Dışında", //15
+      "Deliliğin Ötesinde", //15
       "Bir Domuzun Açgözlülüğü", //16
       "Aşırı Utanç", //17
       "Sıfırdan", //18
@@ -46,12 +46,12 @@ var SEASON_CONFIGS = {
       "1KeqHAI9fUUHH_LlQt2qcF7_zUAAHm14t", //9
       "1-CVvSJ9HmgtsWL28mdc4HmMhLlLCFAKN", //10
       "1FvLCPBPKqSgoEKGmp5qOoreDreuh7QUO", //11
-      "1NB9r8nD2tTEKuMimUWFfCbn3egPYSFEf", //12
-      "1fNLA2nQFAxXxWptt88jLG6hMxVuaAlft", //13
-      "1sM4kLJLV0-cC4wpywz2rHGwKLXZ4rbOh", //14
-      "1hNJbMnk6vxmk10og_-zZgK54gipXzGOD", //15
-      "1rLifn1wQU7cd8QNEN3F8z1YcC2V4rPHj", //16
-      "1SCm55ZnTKa5Nb7Prl_PGaQ9rbws7VOaz", //17
+      "18HljC_vgaJQgUqqdC78dQ6WOcs8D2Qwi", //12
+      "1WamXGfq1phJZaSLnXmC8siDYCXy419VG", //13
+      "19v2-TcvENgKDTOt3HNeKFuC4aTISRcQa", //14
+      "1JVc99h0JZ74UH9q45KXuvbC2LdKbx6N8", //15
+      "1Gseu5ao1BnF2RjIhXNc1y3aBvKs7QqJ5", //16
+      "1s8yptmVl6RXiwXN9epgOxRECltJp_t_j", //17
       "1oQVfYnSqY1r_6qaEVBfgGKCIoT97pgZu", //18
       "13-4tmmMCCcMWE6AXr71HZvB1BD-hMno6", //19
       "1HbLwYAPWLfw5GGmbvZ9hc_JHIjhGX1s4", //20
