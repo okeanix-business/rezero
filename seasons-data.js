@@ -52,11 +52,11 @@ var SEASON_CONFIGS = {
       "1JVc99h0JZ74UH9q45KXuvbC2LdKbx6N8", //15
       "1Gseu5ao1BnF2RjIhXNc1y3aBvKs7QqJ5", //16
       "1s8yptmVl6RXiwXN9epgOxRECltJp_t_j", //17
-      "1oQVfYnSqY1r_6qaEVBfgGKCIoT97pgZu", //18
-      "13-4tmmMCCcMWE6AXr71HZvB1BD-hMno6", //19
-      "1HbLwYAPWLfw5GGmbvZ9hc_JHIjhGX1s4", //20
-      "1BOX7ABUF0vP7ibuwC2K8z-MqEi1ikqkf", //21
-      "1cNDfioFdd46s1i7pVjN7XiqBsoaRVxcB", //22
+      "1cJOr7dB9a1DDFMRlKCFcFVDxIpR931i_", //18
+      "1RTDAuNtemX_vGCXivKq6IyB3tpoJHWvQ", //19
+      "1dDaS0EAraz7dJqocM3dXJGk20IhsAOiM", //20
+      "1Osl-QEoeXCN19Bme6QiKp258k5UGLej5", //21
+      "1lPD80YS2bT8yLCm0cALhtzTJy7pqJmSZ", //22
       "1oI48XG-ER2ntdEDAAtEj9KnFA3y-33TF", //23
       "1287qoCy9SiZunFpwe-w0Ymw0GrIQC14z", //24
       "17T_ve_IA2f05GqhlRoTIDu39imgqiQ1z" //25
