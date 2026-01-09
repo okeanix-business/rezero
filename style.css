@@ -231,7 +231,7 @@ a {
 
 /* ---------- SEASON GRID ---------- */
 .season-grid {
-  max-width: 900px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 20px;
   display: grid;
@@ -242,7 +242,7 @@ a {
 .season-card {
   position: relative;
   aspect-ratio: 1 / 1;
-  border-radius: 16px;
+  border-radius: 32px;
   overflow: hidden;
   background-size: cover;
   background-position: center;
@@ -250,6 +250,27 @@ a {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+.season-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 3;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.season-badge.ova {
+  background: rgba(90, 120, 255, 0.35);
+  border-color: rgba(90, 120, 255, 0.55);
+}
 .season-card:hover {
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
@@ -273,6 +294,15 @@ a {
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
 }
 
+.season-card .overlay small {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.9;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
 /* ---------- LOCKED SEASONS ---------- */
 .season-card.locked {
   filter: grayscale(0.6);
@@ -506,6 +536,13 @@ a {
 .s4 {
   background-image: url("images/s4.webp");
 }
+
+
+.frozen-bond {
+  background-image: url("images/frozen-bond.webp"), url("images/s2.webp");
+}
+
+
 
 /* ---------- WHY SECTION ---------- */
 .why-section {
@@ -787,7 +824,7 @@ a {
 }
 
 .continue-strip-inner {
-  max-width: 860px; /* 🔴 SEASON GRID İLE AYNI */
+  max-width: 1140px; /* 🔴 SEASON GRID İLE AYNI */
   margin: 0 auto;
 
   display: flex;

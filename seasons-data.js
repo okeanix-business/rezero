@@ -184,10 +184,10 @@ var SEASON_CONFIGS = {
       {
         insertAfter: 0,
         kind: "special",
-        extraType: "special0",
+        extraType: "frozenbond",
         number: 0,
-        title: "The Frozen Bond",
-        driveId: ""
+        title: "Donmuş Bağlar (Frozen Bonds)",
+        driveId: "1ppB2BsVB9X5J-pzf4dABzEkCFLBPyaaX"
       }
     ],
 
