@@ -95,8 +95,8 @@ var SEASON_CONFIGS = {
     seasonNumber: 2,
 
     episodeTitles: [
-      "Bölüm 1", //1
-      "Bölüm 2", //2
+      "Her Birinin Sözü", //1
+      "Sıradaki Yer", //2
       "Bölüm 3", //3
       "Bölüm 4", //4
       "Bölüm 5", //5
@@ -123,8 +123,8 @@ var SEASON_CONFIGS = {
     ],
 
     episodeDriveIds: [
-      "", //1
-      "", //2
+      "1oMTN-MJVNsRbH_GY8fxeaClbdMIRoyCX", //1
+      "11CQUTlU1VjfOb_QcXP-x2OQWLVMg65SL", //2
       "", //3
       "", //4
       "", //5

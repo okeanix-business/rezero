@@ -41,9 +41,9 @@ window.REZERO_EP_PAGES = {
   },
   "2": {
     "0": "sezon/2/ozel/frozen-bond.html",
-    "1": null,
+    "1": "sezon/2/bolum/1.html",
     "2": null,
-    "3": null,
+    "3": "sezon/2/bolum/2.html",
     "4": null,
     "5": null,
     "6": null,
