@@ -97,7 +97,7 @@ var SEASON_CONFIGS = {
     episodeTitles: [
       "Her Birinin Sözü", //1
       "Sıradaki Yer", //2
-      "Bölüm 3", //3
+      "Uzun Zamandır Beklenen Kavuşma", //3
       "Bölüm 4", //4
       "Bölüm 5", //5
       "Bölüm 6", //6
@@ -125,7 +125,7 @@ var SEASON_CONFIGS = {
     episodeDriveIds: [
       "1oMTN-MJVNsRbH_GY8fxeaClbdMIRoyCX", //1
       "11CQUTlU1VjfOb_QcXP-x2OQWLVMg65SL", //2
-      "", //3
+      "1MIUr8XVv6JavzdrOsTil_K9xIxIP8zJ8", //3
       "", //4
       "", //5
       "", //6
