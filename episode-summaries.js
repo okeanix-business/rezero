@@ -298,8 +298,13 @@ Tam o anda heykel erimeye başlar ve Subaru “erimeyen buz diye bir şey yok”
 window.REZERO_EP_SUMMARIES[3] = window.REZERO_EP_SUMMARIES[3] || {};
 
 // S3E1 örnek
+
 window.REZERO_EP_SUMMARIES[3]["ep:1"] =
   `<p>Re:Zero’nun 3. sezon 1. bölümüdür. (Buraya kendi tek-paragraf özetini yapıştır.)</p>`;
+  
+window.REZERO_EP_SUMMARIES[3]["ep:2"] =
+  `<p>Re:Zero’nun 3. sezon 1. bölümüdür. (Buraya kendi tek-paragraf özetini yapıştır.)</p>`;
+  
 
 // S3 Break Time 1 örnek
 window.REZERO_EP_SUMMARIES[3]["break:1"] =

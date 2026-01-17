@@ -200,7 +200,7 @@ var SEASON_CONFIGS = {
 
     episodeTitles: [
       "Bölüm 1", //1
-      "Bölüm 2", //2
+      "Buz ve Ateşin Karşılaşması", //2
       "Bölüm 3", //3
       "Bölüm 4", //4
       "Bölüm 5", //5
@@ -219,7 +219,7 @@ var SEASON_CONFIGS = {
 
     episodeDriveIds: [
       "", //1
-      "", //2
+      "1Ar0hH6a2__qwdvtk3_pHVzXABZLpszFx", //2
       "", //3
       "", //4
       "", //5
