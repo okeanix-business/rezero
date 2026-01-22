@@ -89,7 +89,7 @@ window.REZERO_DLE_DATA = [
     gender: "Kız",
     race: "Yapay Ruh",
     heightCm: 130,
-    age: 400,
+    age: "400+",
     affiliation: "Emilia Kampı",
     elements: ["Yin", "Su", "Rüzgar"],
     divineProtection: false,

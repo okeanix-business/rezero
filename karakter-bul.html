@@ -439,14 +439,21 @@
       .dle-autoBox{ width: min(520px,92vw); }
     }
 
-    @media (max-width: 560px){
-      .dle-head, .dle-row{ grid-template-columns: repeat(2, 1fr); gap:10px; }
-      .dle-tile{ height:78px; font-size:13px; }
-      .dle-charTile{ height:78px; }
-      .dle-row{ height:78px; }
-      /* element kutusu daha da küçük */
-      .dle-row .dle-tile:nth-child(7){ font-size:11.5px; }
-    }
+	@media (max-width: 560px){
+	  .dle-head, .dle-row{
+		grid-template-columns: repeat(5, 1fr); /* 🔥 5’er 5’er */
+		gap: 10px;
+	  }
+
+	  .dle-tile{
+		height: 78px;
+		font-size: 12px;
+	  }
+
+	  .dle-charTile{ height: 78px; }
+	  .dle-row{ height: auto; }  /* 🔥 satır yüksekliğini kilitleme */
+	}
+
   </style>
 </head>
 
