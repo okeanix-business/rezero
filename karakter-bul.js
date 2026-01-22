@@ -92,7 +92,7 @@ $input.addEventListener("blur", () => {
   const MAX_ATTEMPTS = 5;
 
   // Deneme puanları: 1. deneme 100, sonra 80/60/40/20
-  const POINTS_BY_TRY = [100, 85, 70, 60, 50];
+  const POINTS_BY_TRY = [0, 100, 75, 50, 25];
 
   // Bilemezse ceza (skor düşsün istedin)
   const FAIL_PENALTY = 10000;
@@ -351,11 +351,15 @@ function hideArcHint(){
   function openModal(isWin, pointsOrPenalty) {
     const img = answer.portrait ? `<img src="${answer.portrait}" alt="${answer.name}">` : "";
     const title = isWin ? "✅ Doğru Bildin!" : "❌ Bilemedin!";
-    const extra =
-      isWin
-        ? `<div class="dle-winSub">+${pointsOrPenalty} puan kazandın.</div>`
+	const extra =
+	  isWin
+		? (
+			pointsOrPenalty === 0
+			  ? `<div class="dle-winSub">🎯 İlk denemede bildin! Şans olduğu için puan veremem.</div>`
+			  : `<div class="dle-winSub">🎯 +${pointsOrPenalty} puan kazandın.</div>`
+		  )
 		: `<div class="dle-winSub">Güncel skorun sıfırlandı.</div>`;
-        // : `<div class="dle-winSub">-${pointsOrPenalty} puan kaybettin.</div>`;
+
 
     // modal başlığını güncelle
     const titleEl = $modal.querySelector(".dle-modalTitle");
