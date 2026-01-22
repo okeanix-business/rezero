@@ -755,4 +755,32 @@ window.REZERO_DLE_DATA = [
     firstArc: 5,
     portrait: "images/chars/joshua.webp"
   }, 
+  {
+    id: "kiritaka",
+    name: "Kiritaka Muse",
+    gender: "Erkek",
+    race: "İnsan",
+    heightCm: "?",
+    age: "20+",
+    affiliation: ["Priestella"],
+    elements: ["Yok"],
+    divineProtection: false,
+    authority: false,
+    firstArc: 5,
+    portrait: "images/chars/kiritaka.webp"
+  },
+  {
+    id: "ryuzu",
+    name: "Ryuzu Meyer",
+    gender: "Kız",
+    race: "Yarı-Elf",
+    heightCm: "135",
+    age: "400+",
+    affiliation: ["Emilia Kampı"],
+    elements: ["Yok"],
+    divineProtection: false,
+    authority: false,
+    firstArc: 4,
+    portrait: "images/chars/ryuzu.webp"
+  },
 ];
