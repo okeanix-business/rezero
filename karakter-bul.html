@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Karakter Bul | Re:Zero Mini Oyun</title>
+
+  <meta name="description" content="Re:Zero Karakter Bul mini oyunu: cinsiyet, ırk, yaş, boy, taraf, element, ilahi koruma, otorite ve ilk arc ipuçlarıyla karakteri tahmin et!" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0b0e1a" />
+  <link rel="canonical" href="https://rezeroizle.com/karakter-bul.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="rezeroizle.com" />
+  <meta property="og:title" content="Karakter Bul | Re:Zero Mini Oyun" />
+  <meta property="og:description" content="İpuçlarıyla Re:Zero karakterini tahmin et! Cinsiyet, ırk, yaş, boy, taraf, element, ilahi koruma, otorite ve ilk arc." />
+  <meta property="og:url" content="https://rezeroizle.com/karakter-bul.html" />
+  <meta property="og:image" content="https://rezeroizle.com/images/dle-bg.webp" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Karakter Bul | Re:Zero Mini Oyun" />
+  <meta name="twitter:description" content="Re:Zero Karakter Bul: ipuçlarıyla karakteri tahmin et!" />
+  <meta name="twitter:image" content="https://rezeroizle.com/images/dle-bg.webp" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Karakter Bul | Re:Zero Mini Oyun",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "All",
+    "description": "İpuçlarıyla Re:Zero karakterini tahmin et: cinsiyet, ırk, yaş, boy, taraf, element, ilahi koruma, otorite ve ilk arc.",
+    "inLanguage": "tr-TR",
+    "url": "https://rezeroizle.com/karakter-bul.html",
+    "image": "https://rezeroizle.com/images/dle-bg.webp"
+  }
+  </script>
+
+  <style>
+    :root{
+      --dle-text:#f4f6ff;
+      --dle-muted:rgba(240,240,255,.75);
+      --dle-tile:#121622;
+      --dle-stroke:rgba(255,255,255,.12);
+      --dle-shadow:0 18px 50px rgba(0,0,0,.65);
+      --dle-green:#2ecc71;
+      --dle-yellow:#f1c40f;
+      --dle-red:#e74c3c;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; margin:0; font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif; color:var(--dle-text); }
+    body{ background:#000; overflow-x:hidden; }
+
+    .dle-bg{
+      position:fixed; inset:0;
+      background:url("images/dle-bg.webp") center/cover no-repeat;
+      filter: brightness(.55) saturate(1.0) contrast(1.05);
+      transform: scale(1.02);
+      z-index:-3;
+    }
+
+    .dle-vignette{
+      position:fixed; inset:0;
+      background:
+        radial-gradient(ellipse at 50% 40%, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.35) 65%, rgba(0,0,0,0.55) 100%),
+        linear-gradient(to bottom, rgba(0,0,0,0.10), rgba(0,0,0,0.28));
+      z-index:-2;
+    }
+
+    /* üst bar */
+    .dle-topbar{
+      position:fixed; top:16px; left:18px; right:18px;
+      display:flex; align-items:center; justify-content:space-between;
+      z-index:30;
+    }
+    .dle-brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:900;
+      color:rgba(255,255,255,.92);
+      text-decoration:none;
+    }
+    .dle-brand img{
+      width:34px; height:34px; border-radius:10px;
+      border:1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+      object-fit:cover;
+    }
+    .dle-links{ display:flex; gap:12px; font-weight:800; }
+    .dle-links a{
+      color: rgba(234,234,255,0.85);
+      text-decoration:none;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      background: transparent;
+    }
+    .dle-links a:hover{ border-color: rgba(255,255,255,0.10); background: rgba(0,0,0,0.18); }
+    .dle-links a.dle-active{ color:#fff; }
+
+    /* merkez */
+    .dle-wrap{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 90px 16px 70px;
+    }
+    .dle-center{
+      width:min(1150px,96vw);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap: 18px;
+    }
+
+    .dle-logo{
+      font-size:64px;
+      font-weight:1000;
+      letter-spacing:1px;
+      text-shadow:0 18px 60px rgba(0,0,0,.85);
+      user-select:none;
+      line-height:1;
+      text-align:center;
+    }
+    .dle-logo .dle-re{ color:rgba(200,200,255,.55); }
+    .dle-logo .dle-zero{ color:#fff; }
+    .dle-logo .dle-dle{ color:rgba(255,255,255,.35); letter-spacing:2px; }
+
+    .dle-tag{
+      padding:8px 14px;
+      border-radius:10px;
+      background:rgba(0,0,0,.40);
+      border:2px solid rgba(255,190,60,.55);
+      font-weight:900;
+      text-align:center;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.55);
+    }
+
+    .dle-inputRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+      align-items:center;
+      width:min(700px,96vw);
+      position:relative; /* autocomplete bunun içine hizalansın */
+    }
+
+    .dle-guess{
+      width:min(520px,92vw);
+      height:56px;
+      border-radius:10px;
+      border:1px solid var(--dle-stroke);
+      background:rgba(18,22,32,.85);
+      color:#fff;
+      padding:0 16px;
+      font-size:16px;
+      outline:none;
+      box-shadow:var(--dle-shadow);
+    }
+    .dle-guess::placeholder{ color: rgba(234,234,255,0.35); }
+    .dle-guess:focus{
+      border-color: rgba(255,255,255,0.20);
+      box-shadow: 0 0 0 6px rgba(255,255,255,0.06), var(--dle-shadow);
+    }
+
+    .dle-btn{
+      height:56px;
+      padding:0 18px;
+      border-radius:10px;
+      border:1px solid var(--dle-stroke);
+      background:rgba(20,24,34,.85);
+      color:#fff;
+      font-weight:1000;
+      cursor:pointer;
+      box-shadow:var(--dle-shadow);
+      transition: transform .12s ease, filter .12s ease;
+    }
+    .dle-btn:hover{ transform: translateY(-1px); filter: brightness(1.06); }
+    .dle-btn:active{ transform: translateY(0); }
+    .dle-btn:disabled{ opacity:.45; cursor:not-allowed; transform:none; }
+
+    .dle-toast{
+      min-height:22px;
+      font-weight:900;
+      color:var(--dle-muted);
+      text-shadow: 0 10px 30px rgba(0,0,0,0.55);
+      text-align:center;
+    }
+
+    /* board */
+    .dle-board{
+      width:min(1120px,96vw);
+      border-radius:16px;
+      background: rgba(10,12,18,.72);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.10);
+      padding:12px;
+      box-shadow:var(--dle-shadow);
+    }
+
+    .dle-head, .dle-row{
+      display:grid;
+      gap:12px;
+      align-items:stretch;
+      grid-template-columns: repeat(10, 1fr);
+    }
+
+    .dle-head{
+      padding: 4px 6px 10px;
+      font-weight:1000;
+      color:rgba(255,255,255,.86);
+      text-shadow:0 10px 30px rgba(0,0,0,.75);
+      font-size:13px;
+      height:auto;
+    }
+    .dle-head span{ text-align:center; }
+
+    .dle-rows{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      padding: 6px;
+    }
+
+    .dle-row{ height:100px; }
+    .dle-rows .dle-row{ grid-auto-rows:100px; }
+
+    .dle-tile{
+      border-radius:14px;
+      border:1px solid rgba(0,0,0,.5);
+      background: rgba(18,22,34,.92);
+      width:100%;
+      height:100px;
+      padding:8px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      font-weight:1000;
+      box-shadow:0 10px 26px rgba(0,0,0,.55);
+      position:relative;
+      white-space: pre-line;
+      overflow:hidden;
+      line-height:1.1;
+      font-size:15px;
+    }
+
+    .dle-charTile{
+      width:100%;
+      height:100px;
+      padding:0 !important;
+      overflow:hidden;
+      border-radius:14px;
+    }
+    .dle-charTile img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      border-radius:14px;
+    }
+
+    .dle-ok{ background:linear-gradient(#36d97c,#2ecc71); color:#062014; }
+    .dle-mid{ background:linear-gradient(#f5d76e,#f1c40f); color:#1a1400; }
+    .dle-bad{ background:linear-gradient(#f07b70,#e74c3c); color:#210503; }
+
+    .dle-arrow{
+      position:absolute;
+      left:50%;
+      transform: translateX(-50%);
+      bottom: 4px;
+      width:0; height:0;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,.65));
+      opacity:.95;
+    }
+    .dle-arrow.dle-down{
+      border-left: 16px solid transparent;
+      border-right: 16px solid transparent;
+      border-top: 18px solid rgba(0,0,0,.65);
+    }
+    .dle-arrow.dle-up{
+      border-left: 16px solid transparent;
+      border-right: 16px solid transparent;
+      border-bottom: 18px solid rgba(0,0,0,.65);
+    }
+    .dle-arrow::after{
+      content:"";
+      position:absolute;
+      left:-16px;
+      top:-18px;
+      width:0;height:0;
+      border-left: 16px solid transparent;
+      border-right: 16px solid transparent;
+    }
+    .dle-arrow.dle-down::after{ border-top: 18px solid rgba(255,255,255,.22); }
+    .dle-arrow.dle-up::after{ border-bottom: 18px solid rgba(255,255,255,.22); top:auto; bottom:-18px; }
+
+    .dle-modal{
+      position:fixed; inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      background:rgba(0,0,0,.72);
+      backdrop-filter: blur(6px);
+      z-index:60;
+    }
+    .dle-modal.dle-open{ display:flex; }
+    .dle-modalBox{
+      width:min(640px,96vw);
+      background:rgba(15,18,28,.95);
+      border-radius:16px;
+      padding:16px;
+      border:1px solid var(--dle-stroke);
+      box-shadow:0 30px 90px rgba(0,0,0,.85);
+    }
+    .dle-modalTitle{ font-size:18px; font-weight:1000; }
+    .dle-winCard{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      margin-top:10px;
+      padding: 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+    .dle-winCard img{
+      width:80px; height:80px;
+      border-radius:14px;
+      border:1px solid var(--dle-stroke);
+      object-fit: cover;
+    }
+    .dle-winName{ font-size:22px; font-weight:1000; line-height:1.1; }
+    .dle-winSub{ color:var(--dle-muted); font-weight:900; margin-top:6px; }
+
+    .dle-modalActions{
+      margin-top:14px;
+      display:flex;
+      justify-content:flex-end;
+      gap:10px;
+    }
+    .dle-primary{
+      background: rgba(46,204,113,.25);
+      border-color: rgba(46,204,113,.45);
+    }
+
+    /* Element uzun olunca */
+    .dle-elementTile{
+      font-size:11px !important;
+      line-height:1.05 !important;
+      padding:6px !important;
+      letter-spacing:0 !important;
+    }
+
+    /* ===== AUTOCOMPLETE (RESİMLİ) ===== */
+    .dle-autoBox{
+      position:absolute;
+      top:100%;
+      left:0;
+      width: min(520px,92vw); /* input ile aynı genişlikte dursun */
+      max-height:260px;
+      overflow-y:auto;
+      background: rgba(20,20,20,0.95);
+      border-radius:10px;
+      margin-top:6px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.6);
+      z-index:9999;
+      display:none;
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .dle-autoItem{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      cursor:pointer;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .dle-autoItem:hover{ background: rgba(255,255,255,.08); }
+    .dle-autoItem img{
+      width:36px;
+      height:36px;
+      object-fit:cover;
+      border-radius:6px;
+      flex-shrink:0;
+    }
+    .dle-autoItem span{
+      color:#fff;
+      font-size:14px;
+      line-height:1.2;
+    }
+	
+	.dle-guessWrap{
+	  position: relative;
+	  width: min(520px, 92vw);   /* input ile aynı */
+	}
+
+	.dle-guess{
+	  width: 100%;               /* wrapper genişliğini kullansın */
+	}
+
+	.dle-autoBox{
+	  position: absolute;
+	  top: calc(100% + 6px);
+	  left: 0;
+	  right: 0;                  /* 100% genişlik = input genişliği */
+	  width: auto;
+	}
+	
+	.dle-inputRow{
+	  align-items: flex-start;   /* dropdown açılınca zıplama azalsın */
+	}
+
+	.dle-arcHint{
+	  margin-top: 8px;
+	  padding: 10px 14px;
+	  border-radius: 12px;
+	  background: rgba(0,0,0,.35);
+	  border: 1px solid rgba(255,255,255,.10);
+	  font-weight: 900;
+	  color: rgba(255,255,255,.90);
+	  text-align: center;
+	  max-width: min(1100px, 200vw);
+	  white-space: pre-line;
+	}
+
+
+    /* responsive */
+    @media (max-width: 980px){
+      .dle-logo{ font-size:44px; }
+      .dle-head, .dle-row{ grid-template-columns: repeat(5, 1fr); }
+      .dle-tile{ height:84px; font-size:13px; padding:8px 6px; }
+      .dle-charTile{ height:84px; }
+      .dle-head{ font-size:11px; gap:10px; }
+      .dle-row{ height:84px; }
+      .dle-autoBox{ width: min(520px,92vw); }
+    }
+
+    @media (max-width: 560px){
+      .dle-head, .dle-row{ grid-template-columns: repeat(2, 1fr); gap:10px; }
+      .dle-tile{ height:78px; font-size:13px; }
+      .dle-charTile{ height:78px; }
+      .dle-row{ height:78px; }
+      /* element kutusu daha da küçük */
+      .dle-row .dle-tile:nth-child(7){ font-size:11.5px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dle-bg"></div>
+  <div class="dle-vignette"></div>
+
+  <div class="dle-topbar">
+    <a class="dle-brand" href="index.html">
+      <img src="images/icon.png" alt="rezeroizle.com">
+      <span>rezeroizle.com</span>
+    </a>
+    <div class="dle-links">
+      <a href="index.html">Ana Sayfa</a>
+      <a href="karakter-bul.html" class="dle-active">Karakter Bul</a>
+    </div>
+  </div>
+
+  <div class="dle-wrap">
+    <div class="dle-center">
+
+      <div class="dle-logo">
+        <span class="dle-re">Re:</span><span class="dle-zero">ZERO </span><span class="dle-dle">Karakter Bul</span>
+      </div>
+
+      <div class="dle-tag">5 Denemede Karakteri Bul!</div>
+
+		<div class="dle-inputRow">
+		  <div class="dle-guessWrap">
+			<input id="guessInput" class="dle-guess" placeholder="Karakter adı yaz..." autocomplete="off">
+			<div id="autoBox" class="dle-autoBox"></div>
+		  </div>
+
+		  <button id="guessBtn" class="dle-btn">Tahmin Et</button>
+		</div>
+
+
+      <div id="toast" class="dle-toast"></div>
+      <div id="scoreLine" class="dle-toast" style="opacity:.95"></div>
+
+      <div class="dle-board">
+        <div class="dle-head">
+          <span>Karakter</span>
+          <span>Cinsiyet</span>
+          <span>Irk</span>
+          <span>Yaş</span>
+          <span>Boy</span>
+          <span>Taraf</span>
+          <span>Element</span>
+          <span>İlahi Koruma</span>
+          <span>Otorite</span>
+          <span>İlk Arc</span>
+        </div>
+
+        <div id="rows" class="dle-rows"></div>
+      </div>
+
+		<div id="arcHint" class="dle-arcHint" style="display:none;"></div>
+
+    </div>
+  </div>
+
+  <div id="winModal" class="dle-modal" aria-hidden="true">
+    <div class="dle-modalBox" role="dialog" aria-modal="true" aria-label="Doğru bildin">
+      <div class="dle-modalTitle">✅ Doğru Bildin!</div>
+      <div id="winCard" class="dle-winCard"></div>
+      <div class="dle-modalActions">
+        <button id="newRoundBtn" class="dle-btn dle-primary">Yeni Karakter</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="karakter-data.js"></script>
+  <script src="karakter-bul.js"></script>
+</body>
+</html>

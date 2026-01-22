@@ -695,6 +695,14 @@ sitemapItems.push({
   priority: "1.0"
 });
 
+// ✅ Karakter Bul (mini oyun) sayfası
+sitemapItems.push({
+  loc: "/karakter-bul.html",
+  filePath: path.join(__dirname, "karakter-bul.html"),
+  changefreq: "weekly",
+  priority: "0.9"
+});
+
 const seasons = Object.keys(rz.configs || {}).map(Number).sort((a, b) => a - b);
 
 for (let si = 0; si < seasons.length; si++) {
