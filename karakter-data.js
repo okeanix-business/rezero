@@ -284,7 +284,7 @@ window.REZERO_DLE_DATA = [
     name: "Anastasia Hoshin",
     gender: "Kız",
     race: "İnsan",
-    heightCm: 168,
+    heightCm: 155,
     age: 23,
     affiliation: "Anastasia Kampı",
     elements: ["Yang"],
