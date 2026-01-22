@@ -429,15 +429,20 @@
 
 
     /* responsive */
-    @media (max-width: 980px){
-      .dle-logo{ font-size:44px; }
-      .dle-head, .dle-row{ grid-template-columns: repeat(5, 1fr); }
-      .dle-tile{ height:84px; font-size:13px; padding:8px 6px; }
-      .dle-charTile{ height:84px; }
-      .dle-head{ font-size:11px; gap:10px; }
-      .dle-row{ height:84px; }
-      .dle-autoBox{ width: min(520px,92vw); }
-    }
+	@media (max-width: 980px){
+	  .dle-logo{ font-size:44px; }
+	  .dle-head, .dle-row{ grid-template-columns: repeat(5, 1fr); }
+
+	  /* ✅ kritik fix: 10 kutu 2 satıra sarınca taşmasın */
+	  .dle-row{ height: auto; }
+	  .dle-row{ grid-auto-rows: 84px; }      /* her satır 84px */
+	  .dle-rows .dle-row{ grid-auto-rows: 84px; } /* önceki 100px’i override et */
+
+	  .dle-tile{ height:84px; font-size:13px; padding:8px 6px; }
+	  .dle-charTile{ height:84px; }
+	  .dle-head{ font-size:11px; gap:10px; }
+	  .dle-autoBox{ width: min(520px,92vw); }
+	}
 
 	@media (max-width: 560px){
 	  .dle-head, .dle-row{
