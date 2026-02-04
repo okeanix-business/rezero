@@ -37,7 +37,7 @@ var SEASON_CONFIGS = {
     episodeDriveIds: [
       "147GHfOyt5_dKEpN505SqiHenjgrNUNp0", //1
       "1kGssTBbkhJLV7WZWKbHcB4aabSVvJEC-", //2
-      "1EO4kdniSwOh_EiBdM4BzILB5Cennmn2h", //3
+      "1OaoZ47Da6a_3JAC4pKQx_W5a2INKKiG-", //3
       "122p7sBnGCngVKZXXyxujetQgHXo4ZzPp", //4
       "1du2c2JzgyXdgXync8U15szqGRhW6x27U", //5
       "15NzMzBSoO9y9fgeKvztgBYu3aWNmTfM0", //6
@@ -65,7 +65,7 @@ var SEASON_CONFIGS = {
     breakTimes: {
       1: "1CGapULNS1POrTmYmXnKBlO_wDkKHaeMe",
       2: "1dwYy4k2U81Q8y1vUC8Ey6pIjCIFo1scR",
-      3: "15Iwc2XhEmtdzPRP_o5lddjgnF39ClIt9",
+      3: "",
       4: "1gKCWIRI9t3LyjgnQubgRdCWhjsbWJu-H",
       5: "1lv7LdOzUdXCoF_Elnf3kdnBeiWhP573g",
       6: "1RKzi37yb1xByAy-ZQi5zHpveBAxpyGjD",
