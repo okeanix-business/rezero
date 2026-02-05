@@ -65,7 +65,6 @@ var SEASON_CONFIGS = {
     breakTimes: {
       1: "1CGapULNS1POrTmYmXnKBlO_wDkKHaeMe",
       2: "1dwYy4k2U81Q8y1vUC8Ey6pIjCIFo1scR",
-      3: "",
       4: "1gKCWIRI9t3LyjgnQubgRdCWhjsbWJu-H",
       5: "1lv7LdOzUdXCoF_Elnf3kdnBeiWhP573g",
       6: "1RKzi37yb1xByAy-ZQi5zHpveBAxpyGjD",
@@ -98,7 +97,7 @@ var SEASON_CONFIGS = {
       "Her Birinin Sözü", //1
       "Sıradaki Yer", //2
       "Uzun Zamandır Beklenen Kavuşma", //3
-      "Bölüm 4", //4
+      "Ebeveyn ve Çocuk", //4
       "Bölüm 5", //5
       "Bölüm 6", //6
       "Bölüm 7", //7
@@ -126,7 +125,7 @@ var SEASON_CONFIGS = {
       "1oMTN-MJVNsRbH_GY8fxeaClbdMIRoyCX", //1
       "11CQUTlU1VjfOb_QcXP-x2OQWLVMg65SL", //2
       "1MIUr8XVv6JavzdrOsTil_K9xIxIP8zJ8", //3
-      "", //4
+      "13_686vCmUY2GiJgptKsvRidMM04ba-IV", //4
       "", //5
       "", //6
       "", //7
@@ -152,31 +151,6 @@ var SEASON_CONFIGS = {
 
     // 25 breaktime (her bölümün arkasına)
     breakTimes: {
-      1: "",  // break after 1
-      2: "",  // break after 2
-      3: "",  // break after 3
-      4: "",  // break after 4
-      5: "",  // break after 5
-      6: "",  // break after 6
-      7: "",  // break after 7
-      8: "",  // break after 8
-      9: "",  // break after 9
-      10: "", // break after 10
-      11: "", // break after 11
-      12: "", // break after 12
-      13: "", // break after 13
-      14: "", // break after 14
-      15: "", // break after 15
-      16: "", // break after 16
-      17: "", // break after 17
-      18: "", // break after 18
-      19: "", // break after 19
-      20: "", // break after 20
-      21: "", // break after 21
-      22: "", // break after 22
-      23: "", // break after 23
-      24: "", // break after 24
-      25: ""  // break after 25
     },
 
     // 0. bölüm özel (liste başına gelsin diye insertAfter: 0)
