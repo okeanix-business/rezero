@@ -98,7 +98,7 @@ var SEASON_CONFIGS = {
       "Sıradaki Yer", //2
       "Uzun Zamandır Beklenen Kavuşma", //3
       "Ebeveyn ve Çocuk", //4
-      "Bölüm 5", //5
+      "İleriye Atılan Bir Adım", //5
       "Bölüm 6", //6
       "Bölüm 7", //7
       "Bölüm 8", //8
@@ -126,7 +126,7 @@ var SEASON_CONFIGS = {
       "11CQUTlU1VjfOb_QcXP-x2OQWLVMg65SL", //2
       "1MIUr8XVv6JavzdrOsTil_K9xIxIP8zJ8", //3
       "13_686vCmUY2GiJgptKsvRidMM04ba-IV", //4
-      "", //5
+      "1AwLqPyXIF0ZbDhIm8kkYhDsPK1w4P-RT", //5
       "", //6
       "", //7
       "", //8
