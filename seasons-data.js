@@ -99,7 +99,7 @@ var SEASON_CONFIGS = {
       "Uzun Zamandır Beklenen Kavuşma", //3
       "Ebeveyn ve Çocuk", //4
       "İleriye Atılan Bir Adım", //5
-      "Bölüm 6", //6
+      "Genç Kızın Kutsal Kitabı", //6
       "Bölüm 7", //7
       "Bölüm 8", //8
       "Bölüm 9", //9
@@ -127,7 +127,7 @@ var SEASON_CONFIGS = {
       "1MIUr8XVv6JavzdrOsTil_K9xIxIP8zJ8", //3
       "13_686vCmUY2GiJgptKsvRidMM04ba-IV", //4
       "1AwLqPyXIF0ZbDhIm8kkYhDsPK1w4P-RT", //5
-      "", //6
+      "1uPumls8bWxuxrAy_S-trjCNOgR-2hmxY", //6
       "", //7
       "", //8
       "", //9
