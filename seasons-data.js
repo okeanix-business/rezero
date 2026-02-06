@@ -100,7 +100,7 @@ var SEASON_CONFIGS = {
       "Ebeveyn ve Çocuk", //4
       "İleriye Atılan Bir Adım", //5
       "Genç Kızın Kutsal Kitabı", //6
-      "Bölüm 7", //7
+      "Arkadaş", //7
       "Bölüm 8", //8
       "Bölüm 9", //9
       "Bölüm 10", //10
@@ -128,7 +128,7 @@ var SEASON_CONFIGS = {
       "13_686vCmUY2GiJgptKsvRidMM04ba-IV", //4
       "1AwLqPyXIF0ZbDhIm8kkYhDsPK1w4P-RT", //5
       "1uPumls8bWxuxrAy_S-trjCNOgR-2hmxY", //6
-      "", //7
+      "1KtoZ6cEfTPMP86yCBUNudxYymHiq9gdk", //7
       "", //8
       "", //9
       "", //10
