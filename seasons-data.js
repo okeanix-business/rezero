@@ -101,7 +101,7 @@ var SEASON_CONFIGS = {
       "İleriye Atılan Bir Adım", //5
       "Genç Kızın Kutsal Kitabı", //6
       "Arkadaş", //7
-      "Bölüm 8", //8
+      "Hayatın Değeri", //8
       "Bölüm 9", //9
       "Bölüm 10", //10
       "Bölüm 11", //11
@@ -129,7 +129,7 @@ var SEASON_CONFIGS = {
       "1AwLqPyXIF0ZbDhIm8kkYhDsPK1w4P-RT", //5
       "1uPumls8bWxuxrAy_S-trjCNOgR-2hmxY", //6
       "1KtoZ6cEfTPMP86yCBUNudxYymHiq9gdk", //7
-      "", //8
+      "1LeTJu1wubb1MWZrnZfMr5zPpC2U8WbUI", //8
       "", //9
       "", //10
       "", //11
