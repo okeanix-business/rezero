@@ -102,7 +102,7 @@ var SEASON_CONFIGS = {
       "Genç Kızın Kutsal Kitabı", //6
       "Arkadaş", //7
       "Hayatın Değeri", //8
-      "Bölüm 9", //9
+      "Seviyorum Seviyorum Seviyorum Seviyorum Seviyorum Seviyorum Seni", //9
       "Bölüm 10", //10
       "Bölüm 11", //11
       "Bölüm 12", //12
@@ -130,7 +130,7 @@ var SEASON_CONFIGS = {
       "1uPumls8bWxuxrAy_S-trjCNOgR-2hmxY", //6
       "1KtoZ6cEfTPMP86yCBUNudxYymHiq9gdk", //7
       "1LeTJu1wubb1MWZrnZfMr5zPpC2U8WbUI", //8
-      "", //9
+      "1QG6Ux6ajTYuhc9OEPBclmPyL7aUm46pG", //9
       "", //10
       "", //11
       "", //12
