@@ -103,7 +103,7 @@ var SEASON_CONFIGS = {
       "Arkadaş", //7
       "Hayatın Değeri", //8
       "Seviyorum Seviyorum Seviyorum Seviyorum Seviyorum Seviyorum Seni", //9
-      "Bölüm 10", //10
+      "Cehennemi Biliyorum", //10
       "Bölüm 11", //11
       "Bölüm 12", //12
       "Bölüm 13", //13
@@ -131,7 +131,7 @@ var SEASON_CONFIGS = {
       "1KtoZ6cEfTPMP86yCBUNudxYymHiq9gdk", //7
       "1LeTJu1wubb1MWZrnZfMr5zPpC2U8WbUI", //8
       "1QG6Ux6ajTYuhc9OEPBclmPyL7aUm46pG", //9
-      "", //10
+      "1gU9fvuwqBCigz_HCl7Md7a2rP6jnXG0s", //10
       "", //11
       "", //12
       "", //13
