@@ -104,7 +104,7 @@ var SEASON_CONFIGS = {
       "Hayatın Değeri", //8
       "Seviyorum Seviyorum Seviyorum Seviyorum Seviyorum Seviyorum Seni", //9
       "Cehennemi Biliyorum", //10
-      "Bölüm 11", //11
+      "Ölümün Tadı", //11
       "Bölüm 12", //12
       "Bölüm 13", //13
       "Bölüm 14", //14
@@ -132,7 +132,7 @@ var SEASON_CONFIGS = {
       "1LeTJu1wubb1MWZrnZfMr5zPpC2U8WbUI", //8
       "1QG6Ux6ajTYuhc9OEPBclmPyL7aUm46pG", //9
       "1gU9fvuwqBCigz_HCl7Md7a2rP6jnXG0s", //10
-      "", //11
+      "1ws2FR9gCkoMLISheEFVsN0FgXsQLr_HW", //11
       "", //12
       "", //13
       "", //14
