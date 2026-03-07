@@ -173,7 +173,7 @@ var SEASON_CONFIGS = {
     seasonNumber: 3,
 
     episodeTitles: [
-      "Bölüm 1", //1
+      "Tiyatral Kötülük", //1
       "Buz ve Ateşin Karşılaşması", //2
       "Bölüm 3", //3
       "Bölüm 4", //4
@@ -192,7 +192,7 @@ var SEASON_CONFIGS = {
     ],
 
     episodeDriveIds: [
-      "", //1
+      "1vhTvM7cKVTJohTnOInjShmIHFAsI3kUD", //1
       "1Ar0hH6a2__qwdvtk3_pHVzXABZLpszFx", //2
       "", //3
       "", //4
