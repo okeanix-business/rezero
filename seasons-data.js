@@ -175,7 +175,7 @@ var SEASON_CONFIGS = {
     episodeTitles: [
       "Tiyatral Kötülük", //1
       "Buz ve Ateşin Karşılaşması", //2
-      "Bölüm 3", //3
+      "Muhteşem Kaplan", //3
       "Bölüm 4", //4
       "Bölüm 5", //5
       "Bölüm 6", //6
@@ -194,7 +194,7 @@ var SEASON_CONFIGS = {
     episodeDriveIds: [
       "1vhTvM7cKVTJohTnOInjShmIHFAsI3kUD", //1
       "1Ar0hH6a2__qwdvtk3_pHVzXABZLpszFx", //2
-      "", //3
+      "1FDeZIgqJFNs9wj49tVpULwp-ga9p0fuH", //3
       "", //4
       "", //5
       "", //6
@@ -211,22 +211,6 @@ var SEASON_CONFIGS = {
     ],
 
     breakTimes: {
-      1: "",  // break after 1
-      2: "",  // break after 2
-      3: "",  // break after 3
-      4: "",  // break after 4
-      5: "",  // break after 5
-      6: "",  // break after 6
-      7: "",  // break after 7
-      8: "",  // break after 8
-      9: "",  // break after 9
-      10: "", // break after 10
-      11: "", // break after 11
-      12: "", // break after 12
-      13: "", // break after 13
-      14: "", // break after 14
-      15: "", // break after 15
-      16: ""  // break after 16
     },
 
     specials: [],

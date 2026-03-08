@@ -68,8 +68,8 @@ window.REZERO_EP_PAGES = {
   },
   "3": {
     "0": "sezon/3/bolum/1.html",
-    "1": null,
-    "2": "sezon/3/bolum/2.html",
+    "1": "sezon/3/bolum/2.html",
+    "2": "sezon/3/bolum/3.html",
     "3": null,
     "4": null,
     "5": null,
@@ -82,23 +82,7 @@ window.REZERO_EP_PAGES = {
     "12": null,
     "13": null,
     "14": null,
-    "15": null,
-    "16": null,
-    "17": null,
-    "18": null,
-    "19": null,
-    "20": null,
-    "21": null,
-    "22": null,
-    "23": null,
-    "24": null,
-    "25": null,
-    "26": null,
-    "27": null,
-    "28": null,
-    "29": null,
-    "30": null,
-    "31": null
+    "15": null
   },
   "4": {
     "0": null
