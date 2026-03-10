@@ -177,7 +177,7 @@ var SEASON_CONFIGS = {
       "Buz ve Ateşin Karşılaşması", //2
       "Muhteşem Kaplan", //3
       "Belediye Binasını Geri Alma Operasyonu", //4
-      "Bölüm 5", //5
+      "Karanlık Sel", //5
       "Bölüm 6", //6
       "Bölüm 7", //7
       "Bölüm 8", //8
@@ -196,7 +196,7 @@ var SEASON_CONFIGS = {
       "1Ar0hH6a2__qwdvtk3_pHVzXABZLpszFx", //2
       "1FDeZIgqJFNs9wj49tVpULwp-ga9p0fuH", //3
       "1U6TVGLDsmsPL6kks0oZC_0dAEDsCMQ8A", //4
-      "", //5
+      "1sDNR4kJDNPFwTtwfh-cHegS31w6VCYNB", //5
       "", //6
       "", //7
       "", //8
