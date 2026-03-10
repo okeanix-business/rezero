@@ -176,7 +176,7 @@ var SEASON_CONFIGS = {
       "Tiyatral Kötülük", //1
       "Buz ve Ateşin Karşılaşması", //2
       "Muhteşem Kaplan", //3
-      "Bölüm 4", //4
+      "Belediye Binasını Geri Alma Operasyonu", //4
       "Bölüm 5", //5
       "Bölüm 6", //6
       "Bölüm 7", //7
@@ -195,7 +195,7 @@ var SEASON_CONFIGS = {
       "1vhTvM7cKVTJohTnOInjShmIHFAsI3kUD", //1
       "1Ar0hH6a2__qwdvtk3_pHVzXABZLpszFx", //2
       "1FDeZIgqJFNs9wj49tVpULwp-ga9p0fuH", //3
-      "", //4
+      "1U6TVGLDsmsPL6kks0oZC_0dAEDsCMQ8A", //4
       "", //5
       "", //6
       "", //7
