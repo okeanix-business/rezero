@@ -178,7 +178,7 @@ var SEASON_CONFIGS = {
       "Muhteşem Kaplan", //3
       "Belediye Binasını Geri Alma Operasyonu", //4
       "Karanlık Sel", //5
-      "Bölüm 6", //6
+      "Şövalyeliğin Kitabı", //6
       "Bölüm 7", //7
       "Bölüm 8", //8
       "Bölüm 9", //9
@@ -197,7 +197,7 @@ var SEASON_CONFIGS = {
       "1FDeZIgqJFNs9wj49tVpULwp-ga9p0fuH", //3
       "1U6TVGLDsmsPL6kks0oZC_0dAEDsCMQ8A", //4
       "1sDNR4kJDNPFwTtwfh-cHegS31w6VCYNB", //5
-      "", //6
+      "11HslSzqN8V5M2X_QFtyzaGAoPRsmsKIQ", //6
       "", //7
       "", //8
       "", //9
