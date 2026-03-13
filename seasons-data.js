@@ -179,7 +179,7 @@ var SEASON_CONFIGS = {
       "Belediye Binasını Geri Alma Operasyonu", //4
       "Karanlık Sel", //5
       "Şövalyeliğin Kitabı", //6
-      "Bölüm 7", //7
+      "Kahramanların En Yenisi ve Kahramanların En Eskisi", //7
       "Bölüm 8", //8
       "Bölüm 9", //9
       "Bölüm 10", //10
@@ -198,7 +198,7 @@ var SEASON_CONFIGS = {
       "1U6TVGLDsmsPL6kks0oZC_0dAEDsCMQ8A", //4
       "1sDNR4kJDNPFwTtwfh-cHegS31w6VCYNB", //5
       "11HslSzqN8V5M2X_QFtyzaGAoPRsmsKIQ", //6
-      "", //7
+      "1Grs6lBbXgSMwOFAL-E7F7xG04n1_u-yQ", //7
       "", //8
       "", //9
       "", //10
