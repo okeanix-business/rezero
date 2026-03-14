@@ -180,7 +180,7 @@ var SEASON_CONFIGS = {
       "Karanlık Sel", //5
       "Şövalyeliğin Kitabı", //6
       "Kahramanların En Yenisi ve Kahramanların En Eskisi", //7
-      "Bölüm 8", //8
+      "Bir Gün Aşık Olacağım O Kişi", //8
       "Bölüm 9", //9
       "Bölüm 10", //10
       "Bölüm 11", //11
@@ -199,7 +199,7 @@ var SEASON_CONFIGS = {
       "1sDNR4kJDNPFwTtwfh-cHegS31w6VCYNB", //5
       "11HslSzqN8V5M2X_QFtyzaGAoPRsmsKIQ", //6
       "1Grs6lBbXgSMwOFAL-E7F7xG04n1_u-yQ", //7
-      "", //8
+      "1ri8xIDeooaMNZQ-Nlz0B8dFs2hnjjE-J", //8
       "", //9
       "", //10
       "", //11

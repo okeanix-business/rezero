@@ -74,7 +74,7 @@ window.REZERO_EP_PAGES = {
     "4": "sezon/3/bolum/5.html",
     "5": "sezon/3/bolum/6.html",
     "6": "sezon/3/bolum/7.html",
-    "7": null,
+    "7": "sezon/3/bolum/8.html",
     "8": null,
     "9": null,
     "10": null,
