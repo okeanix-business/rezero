@@ -182,7 +182,7 @@ var SEASON_CONFIGS = {
       "Kahramanların En Yenisi ve Kahramanların En Eskisi", //7
       "Bir Gün Aşık Olacağım O Kişi", //8
       "Kaos İçindeki Şehir", //9
-      "Bölüm 10", //10
+      "Açgözlülüğü Alt Etme Savaşı", //10
       "Bölüm 11", //11
       "Bölüm 12", //12
       "Bölüm 13", //13
@@ -201,7 +201,7 @@ var SEASON_CONFIGS = {
       "1Grs6lBbXgSMwOFAL-E7F7xG04n1_u-yQ", //7
       "1ri8xIDeooaMNZQ-Nlz0B8dFs2hnjjE-J", //8
       "1iWfa7U_Xc6GOm_cLjnKIu7mxy4yXZfTc", //9
-      "", //10
+      "1WnNCs_EJSmF2DH8o88zBpDWIr5B2_ltD", //10
       "", //11
       "", //12
       "", //13
