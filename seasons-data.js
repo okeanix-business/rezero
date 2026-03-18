@@ -183,7 +183,7 @@ var SEASON_CONFIGS = {
       "Bir Gün Aşık Olacağım O Kişi", //8
       "Kaos İçindeki Şehir", //9
       "Açgözlülüğü Alt Etme Savaşı", //10
-      "Bölüm 11", //11
+      "Liliana Masquerade", //11
       "Bölüm 12", //12
       "Bölüm 13", //13
       "Bölüm 14", //14
@@ -202,7 +202,7 @@ var SEASON_CONFIGS = {
       "1ri8xIDeooaMNZQ-Nlz0B8dFs2hnjjE-J", //8
       "1iWfa7U_Xc6GOm_cLjnKIu7mxy4yXZfTc", //9
       "1WnNCs_EJSmF2DH8o88zBpDWIr5B2_ltD", //10
-      "", //11
+      "1CEDhVMOPGclzHbduBgMecPv1lxvqvJ_1", //11
       "", //12
       "", //13
       "", //14
