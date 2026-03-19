@@ -184,7 +184,7 @@ var SEASON_CONFIGS = {
       "Kaos İçindeki Şehir", //9
       "Açgözlülüğü Alt Etme Savaşı", //10
       "Liliana Masquerade", //11
-      "Bölüm 12", //12
+      "Regulus Corneas", //12
       "Bölüm 13", //13
       "Bölüm 14", //14
       "Bölüm 15", //15
@@ -203,7 +203,7 @@ var SEASON_CONFIGS = {
       "1iWfa7U_Xc6GOm_cLjnKIu7mxy4yXZfTc", //9
       "1WnNCs_EJSmF2DH8o88zBpDWIr5B2_ltD", //10
       "1CEDhVMOPGclzHbduBgMecPv1lxvqvJ_1", //11
-      "", //12
+      "1xQIfhIdi19IlMRi0pCWjcsqboeU1sz01", //12
       "", //13
       "", //14
       "", //15
