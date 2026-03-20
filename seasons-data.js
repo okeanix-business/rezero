@@ -185,7 +185,7 @@ var SEASON_CONFIGS = {
       "Açgözlülüğü Alt Etme Savaşı", //10
       "Liliana Masquerade", //11
       "Regulus Corneas", //12
-      "Bölüm 13", //13
+      "Bir Savaşçının Övgüsü", //13
       "Bölüm 14", //14
       "Bölüm 15", //15
       "Bölüm 16" //16
@@ -204,7 +204,7 @@ var SEASON_CONFIGS = {
       "1WnNCs_EJSmF2DH8o88zBpDWIr5B2_ltD", //10
       "1CEDhVMOPGclzHbduBgMecPv1lxvqvJ_1", //11
       "1xQIfhIdi19IlMRi0pCWjcsqboeU1sz01", //12
-      "", //13
+      "1rpn73-lLMiNJeLxMrL3K7z8Tdx_o6u1s", //13
       "", //14
       "", //15
       ""  //16
