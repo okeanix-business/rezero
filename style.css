@@ -1090,6 +1090,24 @@ a {
   color: var(--muted);
 }
 
+.unreleased-discord {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 8px 20px;
+  background: #5865F2;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(88,101,242,0.4);
+}
+.unreleased-discord:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(88,101,242,0.55);
+}
+
 /* ===============================
    EPISODE GRID – PREMIUM
 ================================ */
@@ -1397,3 +1415,117 @@ a {
 .dle{
   background-image: url("images/dle.webp");
 }
+.discord-card {
+  background: radial-gradient(circle at 50% 40%, #3a45c7, #1a1f6e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.discord-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  filter: brightness(0) invert(1) drop-shadow(0 4px 16px rgba(255,255,255,0.3));
+  transition: transform 0.3s ease;
+}
+.discord-card:hover .discord-logo {
+  transform: translate(-50%, -60%) scale(1.1);
+}
+
+/* Cover Overlay – Player Selection Screen */
+.cover-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: inherit;
+  transition: opacity 0.4s ease;
+}
+.cover-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(12px) brightness(0.35) saturate(1.2);
+  transform: scale(1.15);
+}
+.cover-darken {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(10,12,25,0.3) 0%, rgba(10,12,25,0.8) 100%);
+}
+.cover-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 20px;
+  margin-top: 5%;
+}
+.cover-play-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.2);
+  border: 2px solid rgba(99, 102, 241, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a5b4fc;
+  font-size: 30px;
+}
+.cover-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: rgba(165, 180, 252, 0.9);
+  margin-bottom: 22px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+.cover-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.cover-source-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 36px;
+  border-radius: 14px;
+  border: 1px solid rgba(120, 130, 255, 0.35);
+  background: rgba(15, 18, 40, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #e0e7ff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+.cover-source-btn:hover {
+  background: rgba(99, 102, 241, 0.25);
+  border-color: rgba(99, 102, 241, 0.7);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 14px 36px rgba(99, 102, 241, 0.35);
+  color: #fff;
+}
+.cover-btn-icon {
+  font-size: 18px;
+  color: #a5b4fc;
+}
+
+/* Episode Title Spoiler */
+.episode-title { display: inline; background-color: #4a4d5a; color: transparent; border-radius: 6px; padding: 2px 8px; transition: all 0.3s ease; cursor: pointer; user-select: none; }
+.episode-title:hover, .episode-title.revealed { background-color: transparent; color: #fff; user-select: text; }

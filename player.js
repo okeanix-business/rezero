@@ -19,8 +19,13 @@ let currentEpisode = Math.min(
 const player = document.getElementById("videoPlayer");
 const downloadBtn = document.getElementById("downloadBtn");
 const episodeListContainer = document.querySelector(".episode-list");
-const utterancesContainer = document.getElementById("utterances-container");
 const unreleasedOverlay = document.getElementById("unreleasedOverlay");
+const sourceSelectorBar = document.getElementById("sourceSelectorBar");
+const playerSelectContainer = document.querySelector(".player-select-container");
+const coverOverlay = document.getElementById("coverOverlay");
+const coverButtons = document.getElementById("coverButtons");
+let coverDismissed = false;
+let currentSourcePref = localStorage.getItem("rezero_source_pref") || "tau";
 
 /* ================================
    FULLSCREEN FIX (MOBILE)
@@ -88,7 +93,7 @@ document.addEventListener("MSFullscreenChange", onFullscreenChange);
 ================================ */
 
 function isAvailable(ep) {
-  return !!ep.driveId;
+  return !!(ep.driveId || ep.animecix);
 }
 
 function slugifyLite(s) {
@@ -139,15 +144,60 @@ function getEpisodePageUrl(season, index) {
    VIDEO/DOWNLOAD STATE
 ================================ */
 
+function switchSource(ep, sourceKey) {
+  currentSourcePref = sourceKey;
+  localStorage.setItem("rezero_source_pref", sourceKey);
+  setVideoState(ep);
+  setDownloadState(ep);
+  renderSourceSelectors(ep);
+}
+
+function renderSourceSelectors(ep) {
+  if (!sourceSelectorBar) return;
+  sourceSelectorBar.innerHTML = "";
+  if (!ep) return;
+
+  const sources = [];
+  const hasDrive = ep.driveId;
+  const hasTau = ep.animecix;
+
+  // TAU ve Google
+  if (hasTau) sources.push({ key: "tau", label: "TAU" });
+  if (hasDrive) sources.push({ key: "google", label: "Google" });
+
+  if (sources.length <= 1) {
+    if (playerSelectContainer) playerSelectContainer.style.display = "none";
+    sourceSelectorBar.style.display = "none";
+    return;
+  }
+
+  if (playerSelectContainer) playerSelectContainer.style.display = "block";
+  sourceSelectorBar.style.display = "flex";
+
+  sources.forEach(src => {
+    const btn = document.createElement("button");
+    btn.className = "source-selector-btn";
+    if (currentSourcePref === src.key) btn.classList.add("active");
+    btn.textContent = src.label;
+    btn.onclick = () => switchSource(ep, src.key);
+    sourceSelectorBar.appendChild(btn);
+  });
+}
+
 function setDownloadState(ep) {
   if (!downloadBtn) return;
 
-  if (isAvailable(ep)) {
+  // Her zaman Google ID'sine yönlendir, player seçimi fark etmez
+  let activeDriveId = ep.driveId;
+
+  if (activeDriveId) {
     downloadBtn.classList.remove("disabled");
-    downloadBtn.href = `https://drive.google.com/uc?export=download&id=${ep.driveId}`;
+    downloadBtn.style.display = "inline-flex";
+    downloadBtn.href = `https://drive.google.com/uc?export=download&id=${activeDriveId}`;
     downloadBtn.setAttribute("target", "_blank");
   } else {
     downloadBtn.classList.add("disabled");
+    downloadBtn.style.display = "none";
     downloadBtn.removeAttribute("href");
   }
 }
@@ -155,22 +205,94 @@ function setDownloadState(ep) {
 function setVideoState(ep) {
   if (!player) return;
 
-  if (isAvailable(ep)) {
-    if (unreleasedOverlay) unreleasedOverlay.style.display = "none";
-
-    // iframe ASLA gizlenmez
-    player.style.visibility = "visible";
-
-    // Kaynak sadece değişir
-    player.src = `https://drive.google.com/file/d/${ep.driveId}/preview`;
-  } else {
-    // iframe boş kalır ama görünür kalır
+  // Don't load video if cover is still showing
+  if (!coverDismissed) {
     player.src = "about:blank";
+    player.style.visibility = "hidden";
+    return;
+  }
 
+  const driveUrl = ep.driveId
+    ? `https://drive.google.com/file/d/${ep.driveId}/preview`
+    : null;
+  const tauUrl = ep.animecix ? ep.animecix : null;
+
+  let playUrl = null;
+
+  // Normalde eski kayıtlarda "drive1" vb. kalmış olabilir, onu temizleyelim
+  if (currentSourcePref !== "tau" && currentSourcePref !== "google") {
+    currentSourcePref = "tau";
+  }
+
+  // Fallback mantığıyla source seçimi
+  if (currentSourcePref === "tau") {
+    if (tauUrl) playUrl = tauUrl;
+    else if (driveUrl) { playUrl = driveUrl; currentSourcePref = "google"; }
+  } else if (currentSourcePref === "google") {
+    if (driveUrl) playUrl = driveUrl;
+    else if (tauUrl) { playUrl = tauUrl; currentSourcePref = "tau"; }
+  }
+
+  if (playUrl) {
+    if (unreleasedOverlay) unreleasedOverlay.style.display = "none";
+    player.style.visibility = "visible";
+    player.src = playUrl;
+  } else {
+    player.src = "about:blank";
     if (unreleasedOverlay) {
       unreleasedOverlay.style.display = "flex";
     }
   }
+}
+
+/* ================================
+   COVER OVERLAY
+================================ */
+
+function renderCoverButtons(ep) {
+  if (!coverButtons || !coverOverlay) return;
+  coverButtons.innerHTML = "";
+
+  if (!ep || !isAvailable(ep)) {
+    // No sources available, hide cover and show unreleased
+    coverOverlay.style.display = "none";
+    coverDismissed = true;
+    setVideoState(ep);
+    return;
+  }
+
+  const sources = [];
+  if (ep.animecix) sources.push({ key: "tau", label: "TAU Player", icon: "▶" });
+  if (ep.driveId) sources.push({ key: "google", label: "Google Drive", icon: "▶" });
+
+  if (sources.length === 0) {
+    coverOverlay.style.display = "none";
+    coverDismissed = true;
+    setVideoState(ep);
+    return;
+  }
+
+  sources.forEach(src => {
+    const btn = document.createElement("button");
+    btn.className = "cover-source-btn";
+    btn.innerHTML = `<span class="cover-btn-icon">${src.icon}</span> ${src.label}`;
+    btn.onclick = () => dismissCover(ep, src.key);
+    coverButtons.appendChild(btn);
+  });
+}
+
+function dismissCover(ep, sourceKey) {
+  coverDismissed = true;
+  currentSourcePref = sourceKey;
+  localStorage.setItem("rezero_source_pref", sourceKey);
+
+  if (coverOverlay) {
+    coverOverlay.style.opacity = "0";
+    setTimeout(() => { coverOverlay.style.display = "none"; }, 400);
+  }
+
+  // Re-trigger loadEpisode so localStorage saves now that cover is dismissed
+  loadEpisode(currentEpisode, true);
 }
 
 /* ================================
@@ -234,28 +356,6 @@ function renderEpisodeList() {
 }
 
 /* ================================
-   COMMENTS (UTTERANCES)
-================================ */
-
-function loadComments() {
-  if (!utterancesContainer) return;
-  utterancesContainer.innerHTML = "";
-
-  const ep = episodes[currentEpisode];
-  const issueTerm = getIssueTerm(ep);
-
-  const script = document.createElement("script");
-  script.src = "https://utteranc.es/client.js";
-  script.setAttribute("repo", "okeanix-business/rezero");
-  script.setAttribute("issue-term", issueTerm); // ✅ stabil
-  script.setAttribute("theme", "github-dark");
-  script.setAttribute("label", "comment");
-  script.async = true;
-
-  utterancesContainer.appendChild(script);
-}
-
-/* ================================
    LOAD EPISODE
 ================================ */
 
@@ -267,6 +367,7 @@ function loadEpisode(index, userInitiated = true) {
 
   setVideoState(ep);
   setDownloadState(ep);
+  renderSourceSelectors(ep);
 
   const seasonText = makeSeasonLine(ep);
   const episodeText = makeTitleLine(ep);
@@ -276,7 +377,7 @@ function loadEpisode(index, userInitiated = true) {
   if (seasonEl) seasonEl.textContent = seasonText;
   if (titleEl) titleEl.textContent = episodeText;
 
-  if (userInitiated && isAvailable(ep)) {
+  if (userInitiated && coverDismissed && isAvailable(ep)) {
     const now = Date.now();
     try {
       localStorage.setItem(
@@ -293,15 +394,7 @@ function loadEpisode(index, userInitiated = true) {
     } catch (e) {}
   }
 
-  // Bölüm değişince yorumları tekrar kapat
-  const spoiler = document.getElementById("spoiler-warning");
-  const commentsBox = document.getElementById("commentsContainer");
-  if (spoiler && commentsBox) {
-    spoiler.style.display = "block";
-    commentsBox.style.display = "none";
-  }
 
-  loadComments();
   renderEpisodeList();
 }
 
@@ -310,4 +403,12 @@ function loadEpisode(index, userInitiated = true) {
 ================================ */
 
 renderEpisodeList();
-loadEpisode(currentEpisode, true);
+const initEp = episodes[currentEpisode];
+if (initEp && isAvailable(initEp) && coverOverlay) {
+  renderCoverButtons(initEp);
+  loadEpisode(currentEpisode, true);
+} else {
+  coverDismissed = true;
+  if (coverOverlay) coverOverlay.style.display = "none";
+  loadEpisode(currentEpisode, true);
+}

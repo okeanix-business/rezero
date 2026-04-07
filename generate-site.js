@@ -183,14 +183,14 @@ function makeMetaForEpisode(season, ep, pageUrl, summaryText = "") {
   const ogTitle = isBreak
     ? `Re:Zero ${season}. Sezon ${ep.number}. Ara Bölüm Türkçe İzle`
     : isSpecial
-    ? `Re:Zero ${season}. Sezon Özel Bölüm Türkçe İzle`
-    : `Re:Zero ${season}. Sezon ${ep.number}. Bölüm Türkçe İzle`;
+      ? `Re:Zero ${season}. Sezon Özel Bölüm Türkçe İzle`
+      : `Re:Zero ${season}. Sezon ${ep.number}. Bölüm Türkçe İzle`;
 
   const ogDesc = isBreak
     ? `Re:Zero ${season}. sezon ${ep.number}. ara bölümünü izle.`
     : isSpecial
-    ? `Re:Zero ${season}. sezon özel bölümünü izle.`
-    : `Re:Zero ${season}. sezon ${ep.number}. bölümü Türkçe izle: ${ep.title || ""}`.trim();
+      ? `Re:Zero ${season}. sezon özel bölümünü izle.`
+      : `Re:Zero ${season}. sezon ${ep.number}. bölümü Türkçe izle: ${ep.title || ""}`.trim();
 
   return { title, desc, ogTitle, ogDesc, pageUrl };
 }
@@ -204,7 +204,8 @@ function makeMetaForHub(season, pageUrl) {
 }
 
 function shouldGenerateEpisodePage(ep) {
-  return !!(ep && ep.driveId);
+  // Always generate pages for configured episodes so unreleased/schedule overlays can be shown
+  return !!ep;
 }
 
 function navLabelForEp(ep) {
@@ -239,8 +240,8 @@ function buildEpisodePageHtml({
   const episodeName = isBreak
     ? `Re:Zero S${season} Ara Bölüm ${ep.number}`
     : isSpecial
-    ? `Re:Zero S${season} Özel Bölüm`
-    : `Re:Zero S${season}E${ep.number}: ${ep.title || ""}`.trim();
+      ? `Re:Zero S${season} Özel Bölüm`
+      : `Re:Zero S${season}E${ep.number}: ${ep.title || ""}`.trim();
 
   // ✅ Summary: supports object OR string
   let teaserHtml = "";
@@ -309,13 +310,13 @@ function buildEpisodePageHtml({
   const prevText = prevEp ? `← ${navLabelForEp(prevEp)}` : "← Önceki";
   const nextText = nextEp ? `${navLabelForEp(nextEp)} →` : "Sonraki →";
 
-	const prevBtnHtml = prevAbs
-	  ? `<a class="ep-nav-btn" href="${escAttr(prevAbs)}">${escAttr(prevText)}</a>`
-	  : `<span class="ep-nav-btn disabled" aria-disabled="true">←</span>`;
+  const prevBtnHtml = prevAbs
+    ? `<a class="ep-nav-btn" href="${escAttr(prevAbs)}">${escAttr(prevText)}</a>`
+    : `<span class="ep-nav-btn disabled" aria-disabled="true">←</span>`;
 
-	const nextBtnHtml = nextAbs
-	  ? `<a class="ep-nav-btn" href="${escAttr(nextAbs)}">${escAttr(nextText)}</a>`
-	  : `<span class="ep-nav-btn disabled" aria-disabled="true">→</span>`;
+  const nextBtnHtml = nextAbs
+    ? `<a class="ep-nav-btn" href="${escAttr(nextAbs)}">${escAttr(nextText)}</a>`
+    : `<span class="ep-nav-btn disabled" aria-disabled="true">→</span>`;
 
 
   return `<!DOCTYPE html>
@@ -364,10 +365,10 @@ function buildEpisodePageHtml({
   </div>
 </nav>
 
-<header class="player-header">
-  <h1 id="episodeTitle">
+<header class="player-header" style="position: relative;">
+  <h1 id="episodeTitle" style="margin: 0; padding: 0; text-align: center;">
     <span class="season-episode">${escAttr(seasonLine)}</span>
-    <span class="episode-title">${escAttr(titleLine)}</span>
+    <span class="episode-title" onmouseenter="this.classList.add('revealed')">${escAttr(titleLine)}</span>
   </h1>
 
   <noscript>
@@ -378,11 +379,23 @@ function buildEpisodePageHtml({
 </header>
 
 <main class="player-container">
+
   <div class="video-wrapper">
     <div id="unreleasedOverlay" class="unreleased-overlay" style="display:none;">
       <div class="unreleased-box">
-        <div class="unreleased-title">Bu bölümün çevirisini henüz tamamlamadım.</div>
-        <div class="unreleased-sub">Daha sonra tekrar kontrol edebilirsin.</div>
+        <div class="unreleased-title">Bu bölüm henüz hazır değil.</div>
+        <div class="unreleased-sub">(4. sezon bölümleri her çarşamba akşamı gelecek.)</div>
+        <a href="https://discord.gg/TdM5pYEgek" target="_blank" rel="noopener" class="unreleased-discord">Discord'a Katıl</a>
+      </div>
+    </div>
+
+    <div id="coverOverlay" class="cover-overlay">
+      <img src="images/s${season}.webp" alt="Kapak" class="cover-bg">
+      <div class="cover-darken"></div>
+      <div class="cover-content">
+        <div class="cover-play-icon">▶</div>
+        <div class="cover-title">Oynatıcı Seç</div>
+        <div class="cover-buttons" id="coverButtons"></div>
       </div>
     </div>
 
@@ -391,7 +404,7 @@ function buildEpisodePageHtml({
       src="about:blank"
       allow="autoplay; fullscreen"
       allowfullscreen
-      style="width: 100%; height: 100%; border: none;">
+      style="width: 100%; height: 100%; border: none; visibility: hidden;">
     </iframe>
   </div>
 
@@ -402,24 +415,11 @@ function buildEpisodePageHtml({
   </div>
 
   <div class="episode-download-box">
-    <span>► Daha yüksek görüntü kalitesi için bölümü indirebilirsiniz.</span>
+    <span>► Daha yüksek görüntü kalitesi ve bitrate için bölümü indirebilirsiniz.</span>
     <a id="downloadBtn" href="#" target="_blank" class="episode-download-btn">⬇ İndir</a>
   </div>
 
   <div class="episode-list"></div>
-
-  <section class="comments-section">
-    <h2>Bölüm Yorumları</h2>
-
-    <div id="spoiler-warning" class="spoiler-warning">
-      <p><strong>Uyarı:</strong> Gelecek bölümler hakkında konuşmak yasaktır, sadece izlediğiniz bölümle alakalı yorum giriniz. Saygılı olunuz.</p>
-      <button id="acceptRulesBtn">Yorumları Aç</button>
-    </div>
-
-    <div id="commentsContainer" class="comments-container" style="display: none;">
-      <div id="utterances-container"></div>
-    </div>
-  </section>
 
   ${summaryBlock}
 </main>
@@ -430,7 +430,77 @@ function buildEpisodePageHtml({
 <script src="player.js"></script>
 
 <style>
-  @media (max-width: 768px) { #downloadBtn { display: none; } }
+  @keyframes attentionPulse {
+    0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.6); }
+    50% { box-shadow: 0 0 0 8px rgba(99, 102, 241, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+  }
+  .source-selector-bar {
+    display: flex;
+    width: max-content;
+    margin: 0 auto 16px auto;
+    background: rgba(20, 24, 45, 0.8);
+    border: 1px solid rgba(120, 130, 255, 0.3);
+    padding: 4px;
+    border-radius: 12px;
+    gap: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    animation: attentionPulse 1.5s ease-out 3;
+  }
+  .source-selector-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid transparent;
+    color: rgba(234, 234, 255, 0.5);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  .source-selector-btn svg {
+    opacity: 0.6;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .source-selector-btn:hover {
+    color: rgba(234, 234, 255, 0.9);
+    background: rgba(255, 255, 255, 0.04);
+  }
+  .source-selector-btn.active {
+    background: rgba(99, 102, 241, 0.25);
+    border-color: rgba(99, 102, 241, 0.6);
+    color: #ffffff;
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+  }
+  .source-selector-btn.active svg {
+    opacity: 1;
+    transform: scale(1.1);
+    color: #a5b4fc;
+  }
+
+  .header-player-select .source-selector-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 6px;
+    gap: 6px;
+  }
+  .header-player-select .source-selector-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+  @media (min-width: 769px) {
+    .desktop-only-label { display: block !important; }
+  }
+  @media (max-width: 768px) {
+    .header-grid-wrapper { display: flex !important; flex-direction: column; gap: 12px; }
+    .header-player-select { justify-self: center !important; }
+    #downloadBtn { display: none; }
+  }
 
   .episode-toolbar{
     width: 100%;
@@ -501,17 +571,6 @@ function buildEpisodePageHtml({
   }
   .episode-summary-open p { margin: 8px 0; }
 </style>
-
-<script>
-document.getElementById("acceptRulesBtn").addEventListener("click", () => {
-  const warning = document.getElementById("spoiler-warning");
-  const container = document.getElementById("commentsContainer");
-  warning.style.display = "none";
-  container.style.display = "block";
-  setTimeout(() => container.scrollIntoView({ behavior: "smooth", block: "start" }), 80);
-});
-</script>
-
 </body>
 </html>`;
 }
@@ -537,8 +596,8 @@ function buildHubPageHtml({ season, episodes, relUrl, prevHubRel, nextHubRel }) 
           ep.kind === "break"
             ? `${ep.number}. Ara Bölüm`
             : ep.kind === "special"
-            ? (ep.title || "Özel Bölüm")
-            : `${ep.number}. Bölüm`;
+              ? (ep.title || "Özel Bölüm")
+              : `${ep.number}. Bölüm`;
         return { "@type": "ListItem", "position": idx + 1, "name": name, "url": url };
       })
   };
@@ -569,8 +628,8 @@ function buildHubPageHtml({ season, episodes, relUrl, prevHubRel, nextHubRel }) 
         ep.kind === "break"
           ? `${ep.number}. Ara Bölüm (Mola Zamanı)`
           : ep.kind === "special"
-          ? (ep.title || "Özel Bölüm")
-          : `${ep.number}. Bölüm – ${ep.title || ""}`.trim();
+            ? (ep.title || "Özel Bölüm")
+            : `${ep.number}. Bölüm – ${ep.title || ""}`.trim();
 
       if (!shouldGenerateEpisodePage(ep)) {
         unreleasedCount++;

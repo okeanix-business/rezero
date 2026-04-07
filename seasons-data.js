@@ -62,6 +62,34 @@ var SEASON_CONFIGS = {
       "1pH5B3iEVy_sSIj_k35IlYFKM1Nlh9EDD" //25
     ],
 
+    episodeAnimecixUrls: [
+      "https://tau-video.xyz/embed/69590465c0da000447f8c912?vid=739612", //1
+      "https://tau-video.xyz/embed/69590517c0da000447f8c913?vid=739615", //2
+      "https://tau-video.xyz/embed/695959a5eb1a5915e492abbf?vid=739624", //3
+      "https://tau-video.xyz/embed/69595a4df8d39f6943842987?vid=739627", //4
+      "https://tau-video.xyz/embed/69595b011d66f6c39d140413?vid=739630", //5
+      "https://tau-video.xyz/embed/6959a2d3faa4f0fe3c1460ed?vid=739786", //6
+      "https://tau-video.xyz/embed/6959a324e4b357250ada9225?vid=739789", //7
+      "https://tau-video.xyz/embed/6959a395c0da000447f8c91e?vid=739792", //8
+      "https://tau-video.xyz/embed/6959a3e1c0da000447f8c91f?vid=739795", //9
+      "https://tau-video.xyz/embed/695a75591d66f6c39d140421?vid=739900", //10
+      "https://tau-video.xyz/embed/695a75fffaa4f0fe3c1460f3?vid=739903", //11
+      "https://tau-video.xyz/embed/695aca961d66f6c39d140425?vid=739972", //12
+      "https://tau-video.xyz/embed/695acb3fc0da000447f8c927?vid=739975", //13
+      "https://tau-video.xyz/embed/695acbeef8d39f6943842994?vid=739978", //14
+      "https://tau-video.xyz/embed/695acc9df8d39f6943842995?vid=739981", //15
+      "https://tau-video.xyz/embed/695acde6c0da000447f8c928?vid=739987", //16
+      "https://tau-video.xyz/embed/695ace91eb1a5915e492abd2?vid=739990", //17
+      "https://tau-video.xyz/embed/695c48c0eb1a5915e492abdc?vid=740086", //18
+      "https://tau-video.xyz/embed/695c4963faa4f0fe3c1460f8?vid=740089", //19
+      "https://tau-video.xyz/embed/695c4a081d66f6c39d14042a?vid=740092", //20
+      "https://tau-video.xyz/embed/695c4aacfaa4f0fe3c1460f9?vid=740095", //21
+      "https://tau-video.xyz/embed/695c4b55faa4f0fe3c1460fa?vid=740098", //22
+      "https://tau-video.xyz/embed/695e85a0eb1a5915e492abde?vid=740129", //23
+      "https://tau-video.xyz/embed/695e8656a09ea30ace4838c8?vid=740132", //24
+      "https://tau-video.xyz/embed/695e8717c0da000447f8c92c?vid=740135"  //25
+    ],
+
     breakTimes: {
       1: "1CGapULNS1POrTmYmXnKBlO_wDkKHaeMe",
       2: "1dwYy4k2U81Q8y1vUC8Ey6pIjCIFo1scR",
@@ -82,7 +110,8 @@ var SEASON_CONFIGS = {
         extraType: "snow",
         number: 11,
         title: "Kar Altındaki Hatıralar (Memory Snow OVA)",
-        driveId: "1FWsfLE2MozttOzZgFNjLStK80jCbLEwp"
+        driveId: "1FWsfLE2MozttOzZgFNjLStK80jCbLEwp",
+        animecix: "https://tau-video.xyz/embed/695a7c18c0da000447f8c924?vid=739918"
       }
     ],
 
@@ -149,6 +178,34 @@ var SEASON_CONFIGS = {
       ""  //25
     ],
 
+    episodeAnimecixUrls: [
+      "https://tau-video.xyz/embed/696391021d66f6c39d140442?vid=740560", //1
+      "https://tau-video.xyz/embed/696391b1eb1a5915e492abef?vid=740563", //2
+      "https://tau-video.xyz/embed/69655933fd4c16eef7c23fe4?vid=740683", //3
+      "https://tau-video.xyz/embed/69842511fd4c16eef7c24079?vid=744304", //4
+      "https://tau-video.xyz/embed/6984e4ecfaa4f0fe3c1461b3?vid=744356", //5
+      "https://tau-video.xyz/embed/6985f876fd4c16eef7c2407d?vid=744404", //6
+      "https://tau-video.xyz/embed/698670b2a09ea30ace48397f?vid=744428", //7
+      "https://tau-video.xyz/embed/69876e3dfd4c16eef7c24081?vid=744512", //8
+      "https://tau-video.xyz/embed/69879541f8d39f6943842a55?vid=744524", //9
+      "https://tau-video.xyz/embed/69886ace1d66f6c39d1404ee?vid=744581", //10
+      "https://tau-video.xyz/embed/6989164aeb1a5915e492acad?vid=744678", //11
+      "", //12
+      "", //13
+      "", //14
+      "", //15
+      "", //16
+      "", //17
+      "", //18
+      "", //19
+      "", //20
+      "", //21
+      "", //22
+      "", //23
+      "", //24
+      ""  //25
+    ],
+
     // 25 breaktime (her bölümün arkasına)
     breakTimes: {
     },
@@ -161,7 +218,8 @@ var SEASON_CONFIGS = {
         extraType: "frozenbond",
         number: 0,
         title: "Donmuş Bağlar (Frozen Bonds)",
-        driveId: "1ppB2BsVB9X5J-pzf4dABzEkCFLBPyaaX"
+        driveId: "1ppB2BsVB9X5J-pzf4dABzEkCFLBPyaaX",
+        animecix: "https://tau-video.xyz/embed/6960fd841d66f6c39d140436?vid=740359"
       }
     ],
 
@@ -210,6 +268,25 @@ var SEASON_CONFIGS = {
       ""  //16
     ],
 
+    episodeAnimecixUrls: [
+      "https://tau-video.xyz/embed/69ac3c1198be3e47efffd799?vid=746656", //1
+      "https://tau-video.xyz/embed/696caae5e4b357250ada9261?vid=741449", //2
+      "https://tau-video.xyz/embed/69adf2bcb923b3ffeb12b549?vid=746751", //3
+      "https://tau-video.xyz/embed/69b02adcb923b3ffeb12b54c?vid=746820", //4
+      "https://tau-video.xyz/embed/69b0949fb067130deed1bfe4?vid=746883", //5
+      "https://tau-video.xyz/embed/69b1e728140a125ba837161b?vid=746949", //6
+      "https://tau-video.xyz/embed/69b4b2055d4202aa1736c069?vid=747138", //7
+      "https://tau-video.xyz/embed/69b5d40e98be3e47efffd7ad?vid=747180", //8
+      "https://tau-video.xyz/embed/69b72e02b923b3ffeb12b561?vid=747330", //9
+      "https://tau-video.xyz/embed/69b9aa175d4202aa1736c079?vid=747471", //10
+      "https://tau-video.xyz/embed/69badd20b84256f1db55ea77?vid=747630", //11
+      "https://tau-video.xyz/embed/69bc6ab276acb7a32c35377d?vid=747787", //12
+      "https://tau-video.xyz/embed/69bdb0f8cb8083ded340b946?vid=747814", //13
+      "", //14
+      "", //15
+      ""  //16
+    ],
+
     breakTimes: {
     },
 
@@ -217,14 +294,24 @@ var SEASON_CONFIGS = {
     finalEpisodeNumber: 16
   },
 
-  // ====== SEZON 4 (1 bölüm) — finalEpisodeNumber'a DOKUNMADIM ======
+  // ====== SEZON 4 (19 bölüm) ======
   4: {
     seasonNumber: 4,
-    episodeTitles: ["Bölüm 1"], //1
-    episodeDriveIds: [""], //1
+    episodeTitles: [
+      "Bölüm 1", "Bölüm 2", "Bölüm 3", "Bölüm 4", "Bölüm 5",
+      "Bölüm 6", "Bölüm 7", "Bölüm 8", "Bölüm 9", "Bölüm 10",
+      "Bölüm 11", "Bölüm 12", "Bölüm 13", "Bölüm 14", "Bölüm 15",
+      "Bölüm 16", "Bölüm 17", "Bölüm 18", "Bölüm 19"
+    ],
+    episodeDriveIds: [
+      "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
+    ],
+    episodeAnimecixUrls: [
+      "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
+    ],
     breakTimes: {},
     specials: [],
-    finalEpisodeNumber: 99
+    finalEpisodeNumber: 19
   }
 };
 
@@ -244,10 +331,12 @@ function buildEpisodes(seasonNumber) {
   var specialsZero = specialsByAfter[0] || [];
   specialsZero.forEach(function (s) {
     var sId0 = String(s.driveId || "").trim();
+    var sAni = s.animecix ? String(s.animecix).trim() : null;
     list.push({
       number: (typeof s.number !== "undefined" ? s.number : 0),
       title: s.title,
       driveId: sId0 ? sId0 : null,
+      animecix: sAni ? sAni : null,
       kind: s.kind || "special",
       isExtra: true,
       extraType: s.extraType || "special"
@@ -258,22 +347,27 @@ function buildEpisodes(seasonNumber) {
     var number = i + 1;
     var title = cfg.episodeTitles[i] || ("Bölüm " + number);
     var driveId = String(cfg.episodeDriveIds[i] || "").trim();
+    var animecix = cfg.episodeAnimecixUrls ? String(cfg.episodeAnimecixUrls[i] || "").trim() : null;
 
     list.push({
       number: number,
       title: title,
       driveId: driveId ? driveId : null,
+      animecix: animecix ? animecix : null,
       kind: "episode",
       isExtra: false,
       isFinal: number === cfg.finalEpisodeNumber
     });
 
     if (cfg.breakTimes && Object.prototype.hasOwnProperty.call(cfg.breakTimes, number)) {
-      var bId = String(cfg.breakTimes[number] || "").trim();
+      var bk = cfg.breakTimes[number];
+      var bId = typeof bk === "string" ? bk.trim() : (bk ? String(bk.driveId || "").trim() : "");
+      var bAni = (typeof bk === "object" && bk.animecix) ? String(bk.animecix).trim() : null;
       list.push({
         number: number,
         title: number + ". Mola Zamanı",
         driveId: bId ? bId : null,
+        animecix: bAni ? bAni : null,
         kind: "break",
         isExtra: true,
         extraType: "break"
@@ -283,10 +377,12 @@ function buildEpisodes(seasonNumber) {
     var specialsHere = specialsByAfter[number] || [];
     specialsHere.forEach(function (s) {
       var sId = String(s.driveId || "").trim();
+      var sAni = s.animecix ? String(s.animecix).trim() : null;
       list.push({
         number: (typeof s.number !== "undefined" ? s.number : number),
         title: s.title,
         driveId: sId ? sId : null,
+        animecix: sAni ? sAni : null,
         kind: s.kind || "special",
         isExtra: true,
         extraType: s.extraType || "special"
