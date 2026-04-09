@@ -304,10 +304,10 @@ var SEASON_CONFIGS = {
       "Bölüm 16", "Bölüm 17", "Bölüm 18", "Bölüm 19"
     ],
     episodeDriveIds: [
-      "19jwomQ1OcQCcbMpva38EMOPJtQOQQ2gg", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
+      "16DtSCF9rkbhDIMM4ZVtl8gD8xIfk-FZ5", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
     ],
     episodeAnimecixUrls: [
-      "https://tau-video.xyz/embed/69d6a239140a125ba8371678?vid=749177", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
+      "https://tau-video.xyz/embed/69d7d217b923b3ffeb12b5bc?vid=749249", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
     ],
     breakTimes: {},
     specials: [],
