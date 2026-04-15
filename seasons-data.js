@@ -298,13 +298,13 @@ var SEASON_CONFIGS = {
   4: {
     seasonNumber: 4,
     episodeTitles: [
-      "Seni Yanımda Götürme Sebebim / Yenilenmiş Muhteşem Kaplan", "Bölüm 2", "Bölüm 3", "Bölüm 4", "Bölüm 5",
+      "Seni Yanımda Götürme Sebebim / Yeniden Doğan Muhteşem Kaplan", "Kum Zamanını Aşmak", "Bölüm 3", "Bölüm 4", "Bölüm 5",
       "Bölüm 6", "Bölüm 7", "Bölüm 8", "Bölüm 9", "Bölüm 10",
       "Bölüm 11", "Bölüm 12", "Bölüm 13", "Bölüm 14", "Bölüm 15",
       "Bölüm 16", "Bölüm 17", "Bölüm 18", "Bölüm 19"
     ],
     episodeDriveIds: [
-      "16DtSCF9rkbhDIMM4ZVtl8gD8xIfk-FZ5", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
+      "16DtSCF9rkbhDIMM4ZVtl8gD8xIfk-FZ5", "1-Hzo5I51GekKbxG25Pb4xiC028NLp1tS", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
     ],
     episodeAnimecixUrls: [
       "https://tau-video.xyz/embed/69d7d217b923b3ffeb12b5bc?vid=749249", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
