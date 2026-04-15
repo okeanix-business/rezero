@@ -307,7 +307,7 @@ var SEASON_CONFIGS = {
       "16DtSCF9rkbhDIMM4ZVtl8gD8xIfk-FZ5", "1-Hzo5I51GekKbxG25Pb4xiC028NLp1tS", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
     ],
     episodeAnimecixUrls: [
-      "https://tau-video.xyz/embed/69d7d217b923b3ffeb12b5bc?vid=749249", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
+      "https://tau-video.xyz/embed/69d7d217b923b3ffeb12b5bc?vid=749249", "https://tau-video.xyz/embed/69dfd51bb923b3ffeb12b5da?vid=750103", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
     ],
     breakTimes: {},
     specials: [],
