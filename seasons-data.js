@@ -298,16 +298,19 @@ var SEASON_CONFIGS = {
   4: {
     seasonNumber: 4,
     episodeTitles: [
-      "Seni Yanımda Götürme Sebebim / Yeniden Doğan Muhteşem Kaplan", "Kum Zamanını Aşmak", "Gözetleme Kulesi'nin Bekçisi", "Bölüm 4", "Bölüm 5",
+      "Seni Yanımda Götürme Sebebim / Yeniden Doğan Muhteşem Kaplan", "Kum Zamanını Aşmak", "Gözetleme Kulesi'nin Bekçisi",
+	  "Bölüm 4", "Bölüm 5",
       "Bölüm 6", "Bölüm 7", "Bölüm 8", "Bölüm 9", "Bölüm 10",
       "Bölüm 11", "Bölüm 12", "Bölüm 13", "Bölüm 14", "Bölüm 15",
       "Bölüm 16", "Bölüm 17", "Bölüm 18", "Bölüm 19"
     ],
     episodeDriveIds: [
-      "1QX5Ci-qo7gAh71hvqPiyKb2VRjbKfQBc", "1JfeHf0uqoDy8ixEs_XgGYHqLOw42Y02H", "1DXE79eMB-VVJ0KSoVYSDBdWbSppRTeZc", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
+      "1QX5Ci-qo7gAh71hvqPiyKb2VRjbKfQBc", "1JfeHf0uqoDy8ixEs_XgGYHqLOw42Y02H", "1DXE79eMB-VVJ0KSoVYSDBdWbSppRTeZc",
+	  "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
     ],
     episodeAnimecixUrls: [
-      "https://tau-video.xyz/embed/69e8ceb7b067130deed1c092?vid=750688", "https://tau-video.xyz/embed/69e8bf60140a125ba83716c3?vid=750685", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
+      "https://tau-video.xyz/embed/69e8ceb7b067130deed1c092?vid=750688", "https://tau-video.xyz/embed/69e8bf60140a125ba83716c3?vid=750685", "https://tau-video.xyz/embed/69e8fec698be3e47efffd83a?vid=750724",
+	  "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
     ],
     breakTimes: {},
     specials: [],
