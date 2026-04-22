@@ -294,7 +294,7 @@ var SEASON_CONFIGS = {
     finalEpisodeNumber: 16
   },
 
-  // ====== SEZON 4 (19 bölüm) ======
+  // ====== SEZON 4 (19 bölüm) ======-
   4: {
     seasonNumber: 4,
     episodeTitles: [
@@ -307,7 +307,7 @@ var SEASON_CONFIGS = {
       "1QX5Ci-qo7gAh71hvqPiyKb2VRjbKfQBc", "1JfeHf0uqoDy8ixEs_XgGYHqLOw42Y02H", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
     ],
     episodeAnimecixUrls: [
-      "https://tau-video.xyz/embed/69d7d217b923b3ffeb12b5bc?vid=749249", "https://tau-video.xyz/embed/69dfd51bb923b3ffeb12b5da?vid=750103", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
+      "https://tau-video.xyz/embed/69e8ceb7b067130deed1c092?vid=750688", "https://tau-video.xyz/embed/69e8bf60140a125ba83716c3?vid=750685", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
     ],
     breakTimes: {},
     specials: [],
