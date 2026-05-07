@@ -306,7 +306,7 @@ var SEASON_CONFIGS = {
     ],
     episodeDriveIds: [
       "1QX5Ci-qo7gAh71hvqPiyKb2VRjbKfQBc", "1JfeHf0uqoDy8ixEs_XgGYHqLOw42Y02H", "1DXE79eMB-VVJ0KSoVYSDBdWbSppRTeZc",
-	  "1xPtLpdv7xfFFkZoDNtnN4tpqAwXmG3kh", "1v3hsZOVV95nh6ZMEL4G1LFiid5b2Hqly", "1bS5pCgmGPlwi3Hqu2Jf3f2ghAkcXt4ci", "", "", "", "", "", "", "", "", "", "", "", "", ""
+	  "1xPtLpdv7xfFFkZoDNtnN4tpqAwXmG3kh", "1bS5pCgmGPlwi3Hqu2Jf3f2ghAkcXt4ci", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
     ],
     episodeAnimecixUrls: [
       "https://tau-video.xyz/embed/69e8ceb7b067130deed1c092?vid=750688", "https://tau-video.xyz/embed/69e8bf60140a125ba83716c3?vid=750685", "https://tau-video.xyz/embed/69e8fec698be3e47efffd83a?vid=750724",
