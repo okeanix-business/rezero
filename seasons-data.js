@@ -7,13 +7,13 @@ var SEASON_CONFIGS = {
     seasonNumber: 1,
 
     episodeTitles: [
-      "Başlangıcın Sonu Ve Sonun Başlangıcı", //1
+      "Başlangıcın Sonu ve Sonun Başlangıcı", //1
       "Cadıyla Yeniden Buluşma", //2
       "Hayat Başka Bir Dünyada Sıfırdan Başladı", //3
-      "Mutlu Roswaal Malikanesi Ailesi", //4
-      "Sözümüzün Sabahı Hala Uzak", //5
+      "Mutlu Roswaal Malikânesi Ailesi", //4
+      "Sözümüzün Sabahı Hâlâ Uzak", //5
       "Zincirlerin Sesi", //6
-      "Natsuki Subaru'nun Yeniden Başlaması", //7
+      "Natsuki Subaru’nun Yeniden Başlaması", //7
       "Ağladım, Ciğerlerim Çıkana Kadar Ağladım ve Ağlamayı Bıraktım", //8
       "Cesaretin Anlamı", //9
       "Bir Oni Gibi Fanatik Yöntemler", //10
@@ -25,7 +25,7 @@ var SEASON_CONFIGS = {
       "Bir Domuzun Açgözlülüğü", //16
       "Aşırı Utanç", //17
       "Sıfırdan", //18
-      "Beyaz Balina'ya Karşı Savaş", //19
+      "Beyaz Balina’ya Karşı Savaş", //19
       "Wilhelm van Astrea", //20
       "Umutsuzluğu Aşan Kumar", //21
       "Tembelliğin Ani Belirişi", //22
@@ -238,7 +238,7 @@ var SEASON_CONFIGS = {
       "Karanlık Sel", //5
       "Şövalyeliğin Kitabı", //6
       "Kahramanların En Yenisi ve Kahramanların En Eskisi", //7
-      "Bir Gün Aşık Olacağım O Kişi", //8
+      "Bir Gün Âşık Olacağım O Kişi", //8
       "Kaos İçindeki Şehir", //9
       "Açgözlülüğü Alt Etme Savaşı", //10
       "Liliana Masquerade", //11
@@ -298,7 +298,7 @@ var SEASON_CONFIGS = {
   4: {
     seasonNumber: 4,
     episodeTitles: [
-      "Seni Yanımda Götürme Sebebim / Yeniden Doğan Muhteşem Kaplan", "Kum Zamanını Aşmak", "Gözetleme Kulesi'nin Bekçisi",
+      "Seni Yanımda Götürme Sebebim / Yeniden Doğan Muhteşem Kaplan", "Kum Zamanını Aşmak", "Gözetleme Kulesi’nin Bekçisi",
 	  "Beyaz Gökyüzünün Asterizmi", "Çubuk Sallayan",
       "Bölüm 6", "Bölüm 7", "Bölüm 8", "Bölüm 9", "Bölüm 10",
       "Bölüm 11", "Bölüm 12", "Bölüm 13", "Bölüm 14", "Bölüm 15",

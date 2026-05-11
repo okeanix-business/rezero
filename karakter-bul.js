@@ -126,7 +126,7 @@
         guessIds: Array.from(guessedIdsThisRound), // set -> unique
         // ama sıra önemli, o yüzden aşağıda ayrıca order tutacağız
       };
-      // sıra önemli: DOM'da en üstte son tahmin var ama biz giriş sırasını tutacağız
+      // sıra önemli: DOM’da en üstte son tahmin var ama biz giriş sırasını tutacağız
     } catch (_) {}
   }
 
@@ -160,7 +160,7 @@
     // Eğer bu cevap daha önce çözülmüşse, eski turu devam ettirmeyelim
     if (solved.has(ans.id)) return false;
 
-    // state'i uygula
+    // state’i uygula
     answer = ans;
     $rows.innerHTML = "";
     unlockRound();
@@ -316,7 +316,7 @@
     guessedIdsThisRound = new Set();
     guessOrder = [];
     unlockRound();
-    clearRoundState(); // eski tur state'ini sil
+    clearRoundState(); // eski tur state’ini sil
 
     $input.value = "";
     $input.focus();

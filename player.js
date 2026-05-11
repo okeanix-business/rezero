@@ -31,7 +31,7 @@ let currentSourcePref = localStorage.getItem("rezero_source_pref") || "tau";
    FULLSCREEN FIX (MOBILE)
 ================================ */
 
-// ✅ iframe fullscreen izinleri (HTML'de kaybolsa bile JS basar)
+// ✅ iframe fullscreen izinleri (HTML’de kaybolsa bile JS basar)
 (function ensureIframeFullscreen() {
   if (!player) return;
 
@@ -112,7 +112,7 @@ function slugifyLite(s) {
   );
 }
 
-// ✅ Yorumlar: index'e bağlı olmayan sabit anahtar
+// ✅ Yorumlar: index’e bağlı olmayan sabit anahtar
 function getIssueTerm(ep) {
   if (!ep) return `s${SEASON_NUMBER}-unknown`;
 
@@ -187,7 +187,7 @@ function renderSourceSelectors(ep) {
 function setDownloadState(ep) {
   if (!downloadBtn) return;
 
-  // Her zaman Google ID'sine yönlendir, player seçimi fark etmez
+  // Her zaman Google ID’sine yönlendir, player seçimi fark etmez
   let activeDriveId = ep.driveId;
 
   if (activeDriveId) {
@@ -205,7 +205,7 @@ function setDownloadState(ep) {
 function setVideoState(ep) {
   if (!player) return;
 
-  // Don't load video if cover is still showing
+  // Do not load video if cover is still showing
   if (!coverDismissed) {
     player.src = "about:blank";
     player.style.visibility = "hidden";

@@ -139,7 +139,7 @@ function breadcrumbJsonLd(items) {
   };
 }
 
-// ✅ SEO için: sayfa üst başlığını statik bas (JS'e bırakma)
+// ✅ SEO için: sayfa üst başlığını statik bas (JS’e bırakma)
 function makeSeasonLineStatic(season, ep) {
   if (ep.isFinal) return `${season}. Sezon Final Bölümü`;
   if (ep.kind === "break") return `${season}. Sezon ${ep.number}. Ara Bölüm`;
@@ -163,14 +163,14 @@ function makeMetaForEpisode(season, ep, pageUrl, summaryText = "") {
   else if (isFrozenBond) title = `Re:Zero The Frozen Bond – Türkçe İzle`;
   else if (isBreak) title = `Re:Zero ${season}. Sezon ${ep.number}. Ara Bölüm Türkçe İzle`;
   else if (isSpecial) title = `Re:Zero ${season}. Sezon Özel Bölüm Türkçe İzle`;
-  else title = `Re:Zero ${season}. Sezon ${ep.number}. Bölüm Türkçe Altyazılı İzle (Full HD)`;
+  else title = `Re:Zero ${season}. Sezon ${ep.number}. Bölüm Türkçe Alt Yazılı İzle (Full HD)`;
 
   let desc = "";
-  if (isSnow) desc = `Re:Zero Memory Snow özel bölümünü Türkçe altyazılı Full HD olarak izleyin.`;
-  else if (isFrozenBond) desc = `Re:Zero The Frozen Bond özel bölümünü Türkçe altyazılı Full HD olarak izleyin.`;
-  else if (isBreak) desc = `Re:Zero ${season}. sezon ${ep.number}. ara bölümü (mola zamanı) Türkçe altyazılı Full HD izle.`;
-  else if (isSpecial) desc = `Re:Zero ${season}. sezon özel bölümünü Türkçe altyazılı Full HD izle.`;
-  else desc = `Re:Zero ${season}. sezon ${ep.number}. bölümü Türkçe altyazılı Full HD izle: ${ep.title || ""}`.trim();
+  if (isSnow) desc = `Re:Zero Memory Snow özel bölümünü Türkçe alt yazılı Full HD olarak izleyin.`;
+  else if (isFrozenBond) desc = `Re:Zero The Frozen Bond özel bölümünü Türkçe alt yazılı Full HD olarak izleyin.`;
+  else if (isBreak) desc = `Re:Zero ${season}. sezon ${ep.number}. ara bölümü (mola zamanı) Türkçe alt yazılı Full HD izle.`;
+  else if (isSpecial) desc = `Re:Zero ${season}. sezon özel bölümünü Türkçe alt yazılı Full HD izle.`;
+  else desc = `Re:Zero ${season}. sezon ${ep.number}. bölümü Türkçe alt yazılı Full HD izle: ${ep.title || ""}`.trim();
 
   const extra = cut(stripHtml(summaryText), 120);
   // breaktime ve normal bölümler için summary’den zenginleştir
@@ -196,7 +196,7 @@ function makeMetaForEpisode(season, ep, pageUrl, summaryText = "") {
 }
 
 function makeMetaForHub(season, pageUrl) {
-  const title = `Re:Zero ${season}. Sezon Bölümleri – Türkçe Altyazılı İzle`;
+  const title = `Re:Zero ${season}. Sezon Bölümleri – Türkçe Alt Yazılı İzle`;
   const desc = `Re:Zero ${season}. sezon bölüm arşivi: tüm bölümler, ara bölümler (breaktime/mola zamanı) ve özel bölümler (OVA) listesi.`;
   const ogTitle = `Re:Zero ${season}. Sezon Bölüm Arşivi`;
   const ogDesc = desc;
@@ -232,7 +232,7 @@ function buildEpisodePageHtml({
   nextEp
 }) {
   const pageUrl = `${BASE}/${relUrl}`;
-  const twitterImg = `${BASE}/images/s${season}.jpg`;
+  const twitterImg = `${BASE}/images/s${season}.${season === 4 ? "webp" : "jpg"}`;
 
   const isBreak = ep.kind === "break";
   const isSpecial = ep.kind === "special";
@@ -385,7 +385,7 @@ function buildEpisodePageHtml({
       <div class="unreleased-box">
         <div class="unreleased-title">Bu bölüm henüz hazır değil.</div>
         <div class="unreleased-sub">(4. sezon bölümleri her çarşamba akşamı gelecek.)</div>
-        <a href="https://discord.gg/TdM5pYEgek" target="_blank" rel="noopener" class="unreleased-discord">Discord'a Katıl</a>
+        <a href="https://discord.gg/TdM5pYEgek" target="_blank" rel="noopener" class="unreleased-discord">Discord’a Katıl</a>
       </div>
     </div>
 
@@ -578,7 +578,7 @@ function buildEpisodePageHtml({
 function buildHubPageHtml({ season, episodes, relUrl, prevHubRel, nextHubRel }) {
   const pageUrl = `${BASE}/${relUrl}`;
   const meta = makeMetaForHub(season, pageUrl);
-  const twitterImg = `${BASE}/images/s${season}.jpg`;
+  const twitterImg = `${BASE}/images/s${season}.${season === 4 ? "webp" : "jpg"}`;
 
   const prevAbs = prevHubRel ? `${BASE}/${prevHubRel}` : null;
   const nextAbs = nextHubRel ? `${BASE}/${nextHubRel}` : null;

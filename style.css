@@ -37,8 +37,9 @@ a {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: linear-gradient(to bottom, rgba(11, 14, 26, 0.9), rgba(11, 14, 26, 0.6));
-  backdrop-filter: blur(10px);
+  background: rgba(8, 10, 20, 0.78);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 /* Ekstra Bölüm için özel stil */
@@ -49,7 +50,7 @@ a {
     display: inline-flex;
     align-items: center;  /* dikey ortalama */
     gap: 10px;
-    line-height: 3;
+    line-height: 1;
 }
 
 .nav-logo a img.nav-icon {
@@ -60,12 +61,14 @@ a {
 }
 .nav-links {
   display: flex;
-  gap: 20px;
+  gap: 8px;
 }
 
 .nav-links a {
   font-size: 14px;
   color: var(--muted);
+  padding: 8px 10px;
+  border-radius: 8px;
 }
 
 .nav-links a.active {
@@ -75,6 +78,7 @@ a {
 
 .nav-links a:hover {
   color: var(--accent);
+  background: rgba(255,255,255,0.06);
 }
 
 .hamburger {
@@ -234,6 +238,32 @@ a {
   color: var(--muted);
 }
 
+.season-wrapper {
+  padding: 18px 0 18px;
+}
+
+.section-heading {
+  width: min(1140px, calc(100% - 40px));
+  margin: 0 auto 6px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.section-heading::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, rgba(143,155,255,0.38), rgba(143,155,255,0));
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
 /* ---------- PAGE HEADER (simple) ---------- */
 .page-header {
   padding: 64px 20px 32px;
@@ -271,21 +301,23 @@ a {
 .season-grid {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 16px 20px 4px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
 }
 
 .season-card {
   position: relative;
-  aspect-ratio: 1 / 1;
-  border-radius: 32px;
+  aspect-ratio: 4 / 5;
+  border-radius: 8px;
   overflow: hidden;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.34);
+  isolation: isolate;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .season-badge {
@@ -310,29 +342,42 @@ a {
   border-color: rgba(90, 120, 255, 0.55);
 }
 .season-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 24px 42px rgba(0, 0, 0, 0.54);
+  border-color: rgba(190,200,255,0.26);
+}
+
+.season-card:hover .overlay {
+  background:
+    linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.28) 54%, rgba(0, 0, 0, 0.02)),
+    linear-gradient(to bottom, rgba(255,255,255,0.14), transparent 26%);
 }
 
 .season-card .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.15) 60%, rgba(0, 0, 0, 0));
+  background:
+    linear-gradient(to top, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.26) 54%, rgba(0, 0, 0, 0.04)),
+    linear-gradient(to bottom, rgba(255,255,255,0.10), transparent 26%);
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   align-items: flex-end;
   padding: 18px;
   z-index: 2;
 }
 
 .season-card .overlay span {
+  width: 100%;
   font-size: 20px;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0;
   color: #fff;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 .season-card .overlay small {
+  width: 100%;
   display: block;
   margin-top: 6px;
   font-size: 13px;
@@ -512,8 +557,51 @@ a {
 
 /* ---------- MOBILE ---------- */
 @media (max-width: 768px) {
+  .hero-header {
+    padding: 120px 18px 84px;
+  }
+
   .hero-header h1 {
     font-size: 36px;
+  }
+
+  .section-heading {
+    width: calc(100% - 36px);
+    gap: 12px;
+  }
+
+  .section-heading h2 {
+    font-size: 23px;
+  }
+
+  .season-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 16px 18px;
+  }
+
+  .season-card {
+    aspect-ratio: 3 / 4;
+  }
+
+  .season-card .overlay {
+    padding: 12px;
+  }
+
+  .season-card .overlay span {
+    font-size: 17px;
+  }
+
+  .season-card .overlay small {
+    font-size: 12px;
+  }
+
+  .why-section {
+    padding: 48px 18px;
+  }
+
+  .why-container {
+    grid-template-columns: 1fr;
   }
   
   #downloadBtn {
@@ -545,6 +633,19 @@ a {
 
   .controls {
     flex-direction: column;
+  }
+
+  .nav-links {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .hamburger {
+    display: none;
   }
 }
 
@@ -584,7 +685,7 @@ a {
 
 /* ---------- WHY SECTION ---------- */
 .why-section {
-  padding: 80px 20px;
+  padding: 70px 20px;
   position: relative;
   border-top: 1px solid var(--border);
   color: #fff;
@@ -603,9 +704,12 @@ a {
 .why-container {
   position: relative;
   z-index: 1;
-  max-width: 900px;
+  max-width: 1100px;
   margin: auto;
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  text-align: left;
 }
 
 .why-container h2 {
@@ -666,16 +770,18 @@ a {
 }
 
 .contact-box {
-  margin-top: 32px;
+  margin-top: 0;
   padding: 24px;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 16px;
+  background: rgba(15, 18, 36, 0.76);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  box-shadow: 0 16px 34px rgba(0,0,0,0.26);
 }
 
 .contact-box h3 {
   margin-top: 0;
   margin-bottom: 12px;
+  font-size: 20px;
 }
 
 .contact-box p {
@@ -858,7 +964,7 @@ a {
 ================================ */
 
 .continue-strip {
-  padding: 20px 0px 0px;
+  padding: 14px 20px 0;
 }
 
 .continue-strip-inner {
@@ -869,8 +975,8 @@ a {
   align-items: center;
   justify-content: space-between;
 
-  padding: 18px 22px;
-  border-radius: 16px;
+  padding: 14px 20px;
+  border-radius: 8px;
 
   background:
     linear-gradient(
@@ -903,15 +1009,15 @@ a {
 }
 
 .continue-info strong {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   line-height: 1.2;
 }
 
 /* Sağ buton */
 .continue-action {
-  padding: 10px 22px;
-  border-radius: 14px;
+  padding: 9px 20px;
+  border-radius: 8px;
 
   background: linear-gradient(145deg, #9aa6ff, #8f9bff);
   color: #0b0e1a;
