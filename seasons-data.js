@@ -300,13 +300,13 @@ var SEASON_CONFIGS = {
     episodeTitles: [
       "Seni Yanımda Götürme Sebebim / Yeniden Doğan Muhteşem Kaplan", "Kum Zamanını Aşmak", "Gözetleme Kulesi’nin Bekçisi",
 	  "Beyaz Gökyüzünün Asterizmi", "Çubuk Sallayan",
-      "Bölüm 6", "Bölüm 7", "Bölüm 8", "Bölüm 9", "Bölüm 10",
+      "Julius Juukulius", "Bölüm 7", "Bölüm 8", "Bölüm 9", "Bölüm 10",
       "Bölüm 11", "Bölüm 12", "Bölüm 13", "Bölüm 14", "Bölüm 15",
       "Bölüm 16", "Bölüm 17", "Bölüm 18", "Bölüm 19"
     ],
     episodeDriveIds: [
       "1QX5Ci-qo7gAh71hvqPiyKb2VRjbKfQBc", "1JfeHf0uqoDy8ixEs_XgGYHqLOw42Y02H", "1DXE79eMB-VVJ0KSoVYSDBdWbSppRTeZc",
-	  "1xPtLpdv7xfFFkZoDNtnN4tpqAwXmG3kh", "1bS5pCgmGPlwi3Hqu2Jf3f2ghAkcXt4ci", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
+	  "1xPtLpdv7xfFFkZoDNtnN4tpqAwXmG3kh", "1bS5pCgmGPlwi3Hqu2Jf3f2ghAkcXt4ci", "1Z5YcR-8wBW2qec27TAxXfHySLRJwZ9Io", "", "", "", "", "", "", "", "", "", "", "", "", ""
     ],
     episodeAnimecixUrls: [
       "https://tau-video.xyz/embed/69e8ceb7b067130deed1c092?vid=750688", "https://tau-video.xyz/embed/69e8bf60140a125ba83716c3?vid=750685", "https://tau-video.xyz/embed/69e8fec698be3e47efffd83a?vid=750724",
