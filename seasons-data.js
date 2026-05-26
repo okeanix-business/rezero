@@ -244,7 +244,7 @@ var SEASON_CONFIGS = {
       "Liliana Masquerade", //11
       "Regulus Corneas", //12
       "Bir Savaşçının Övgüsü", //13
-      "Bölüm 14", //14
+      "Theresia van Astrea", //14
       "Bölüm 15", //15
       "Bölüm 16" //16
     ],
@@ -263,7 +263,7 @@ var SEASON_CONFIGS = {
       "1CEDhVMOPGclzHbduBgMecPv1lxvqvJ_1", //11
       "1xQIfhIdi19IlMRi0pCWjcsqboeU1sz01", //12
       "1rpn73-lLMiNJeLxMrL3K7z8Tdx_o6u1s", //13
-      "", //14
+      "1jfFT0MqTE5jbUGzPwhMExbX0atoQ0eIL", //14
       "", //15
       ""  //16
     ],
@@ -282,7 +282,7 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/69badd20b84256f1db55ea77?vid=747630", //11
       "https://tau-video.xyz/embed/69bc6ab276acb7a32c35377d?vid=747787", //12
       "https://tau-video.xyz/embed/69bdb0f8cb8083ded340b946?vid=747814", //13
-      "", //14
+      "https://tau-video.xyz/embed/6a161c2981d720339fcc0e40?vid=754584", //14
       "", //15
       ""  //16
     ],
