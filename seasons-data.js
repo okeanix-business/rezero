@@ -245,7 +245,7 @@ var SEASON_CONFIGS = {
       "Regulus Corneas", //12
       "Bir Savaşçının Övgüsü", //13
       "Theresia van Astrea", //14
-      "Bölüm 15", //15
+      "Korkunç Bir Ziyafet", //15
       "Bölüm 16" //16
     ],
 
@@ -264,7 +264,7 @@ var SEASON_CONFIGS = {
       "1xQIfhIdi19IlMRi0pCWjcsqboeU1sz01", //12
       "1rpn73-lLMiNJeLxMrL3K7z8Tdx_o6u1s", //13
       "1jfFT0MqTE5jbUGzPwhMExbX0atoQ0eIL", //14
-      "", //15
+      "1-MB72v4JmecsrhjiQDEs1ei8VxQ6Eoh4", //15
       ""  //16
     ],
 
@@ -283,7 +283,7 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/69bc6ab276acb7a32c35377d?vid=747787", //12
       "https://tau-video.xyz/embed/69bdb0f8cb8083ded340b946?vid=747814", //13
       "https://tau-video.xyz/embed/6a161c2981d720339fcc0e40?vid=754584", //14
-      "", //15
+      "https://tau-video.xyz/embed/6a1cc3aae24203d706723b12?vid=755236", //15
       ""  //16
     ],
 
