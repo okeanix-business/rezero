@@ -238,6 +238,12 @@ a {
   color: var(--muted);
 }
 
+.support-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
 .season-wrapper {
   padding: 18px 0 18px;
 }
@@ -793,6 +799,27 @@ a {
   color: var(--accent);
 }
 
+.discord-join-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+  padding: 12px 26px;
+  background: #5865F2;
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(88,101,242,0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.discord-join-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(88,101,242,0.55);
+  filter: brightness(1.04);
+}
+
 #siteLogo {
   height: 40px;       /* Yükseklik, navbar ile uyumlu */
   width: auto;        /* Oranı korur */
@@ -811,6 +838,20 @@ a {
 .footer p {
   margin: 0;
   font-weight: 600;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
 }
 
 .footer span {
