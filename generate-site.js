@@ -25,6 +25,18 @@ const path = require("path");
 const vm = require("vm");
 
 const BASE = "https://rezeroizle.com";
+const GOOGLE_CONTRIBUTION_SCRIPT = `  <script async type="application/javascript"
+    src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
+  <script>
+    (self.SWG_BASIC = self.SWG_BASIC || []).push(basicSubscriptions => {
+      basicSubscriptions.init({
+        type: "NewsArticle",
+        isPartOfType: ["Product"],
+        isPartOfProductId: "CAowrqO3DA:openaccess",
+        clientOptions: { theme: "light", lang: "tr" },
+      });
+    });
+  </script>`;
 const OUT_ROOT = path.join(__dirname, "sezon");
 
 function ensureDir(p) {
@@ -356,6 +368,8 @@ function buildEpisodePageHtml({
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="images/icon.png">
 
+${GOOGLE_CONTRIBUTION_SCRIPT}
+
   <script type="application/ld+json">${JSON.stringify(jsonLdEpisode)}</script>
   <script type="application/ld+json">${JSON.stringify(crumbs)}</script>
 </head>
@@ -401,6 +415,12 @@ function buildEpisodePageHtml({
         <div class="cover-play-icon">▶</div>
         <div class="cover-title">Oynatıcı Seç</div>
         <div class="cover-buttons" id="coverButtons"></div>
+        <div class="cover-support" aria-label="Destekle">
+          <div class="cover-support-title">Destekle</div>
+          <div class="cover-support-cta">
+            <button swg-standard-button="contribution" aria-label="Google ile destekle"></button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -428,6 +448,14 @@ function buildEpisodePageHtml({
 
   ${summaryBlock}
 </main>
+
+<footer class="footer">
+  <p><a href="iletisim.html">&copy; 2026 rezeroizle.com</a></p>
+  <div class="footer-links">
+    <a href="privacy.html">Gizlilik Politikası</a>
+    <a href="iletisim.html">İletişim</a>
+  </div>
+</footer>
 
 <script src="seasons-data.js"></script>
 <script src="episode-pages-map.js"></script>
