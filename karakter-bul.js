@@ -389,6 +389,11 @@
   }
 
   // UI
+  function labelTile(el, label) {
+    if (el) el.dataset.dleLabel = label;
+    return el;
+  }
+
   function formatMultiline(text) {
     if (!text) return "-";
 
@@ -445,30 +450,30 @@
     const r = document.createElement("div");
     r.className = "dle-row";
 
-    r.appendChild(charTile(g));
-    r.appendChild(tile(g.gender, clsText(g.gender, answer.gender)));
-    r.appendChild(tile(g.race, clsText(g.race, answer.race)));
+    r.appendChild(labelTile(charTile(g), "Karakter"));
+    r.appendChild(labelTile(tile(g.gender, clsText(g.gender, answer.gender)), "Cinsiyet"));
+    r.appendChild(labelTile(tile(g.race, clsText(g.race, answer.race)), "Irk"));
 
     const ag = numCmp(g.age, answer.age, 2);
-    r.appendChild(tileArrow(String(g.age ?? "-"), ag.cls, ag.dir));
+    r.appendChild(labelTile(tileArrow(String(g.age ?? "-"), ag.cls, ag.dir), "Yaş"));
 
     const hg = numCmp(g.heightCm, answer.heightCm, 5);
-    r.appendChild(tileArrow(`${g.heightCm ?? "-"}`, hg.cls, hg.dir));
+    r.appendChild(labelTile(tileArrow(`${g.heightCm ?? "-"}`, hg.cls, hg.dir), "Boy"));
 
     r.appendChild(
-      tile(formatMultiline(g.affiliation), clsText(g.affiliation, answer.affiliation))
+      labelTile(tile(formatMultiline(g.affiliation), clsText(g.affiliation, answer.affiliation)), "Taraf")
     );
 
     const el = elCmp(g.elements, answer.elements);
     const elTile = tile(formatMultiline((g.elements || []).join(", ")), el);
     elTile.classList.add("dle-elementTile");
-    r.appendChild(elTile);
+    r.appendChild(labelTile(elTile, "Element"));
 
-    r.appendChild(tile(g.divineProtection ? "Var" : "Yok", clsBool(g.divineProtection, answer.divineProtection)));
-    r.appendChild(tile(g.authority ? "Var" : "Yok", clsBool(g.authority, answer.authority)));
+    r.appendChild(labelTile(tile(g.divineProtection ? "Var" : "Yok", clsBool(g.divineProtection, answer.divineProtection)), "İlahi Koruma"));
+    r.appendChild(labelTile(tile(g.authority ? "Var" : "Yok", clsBool(g.authority, answer.authority)), "Otorite"));
 
     const ar = numCmp(g.firstArc, answer.firstArc, 1);
-    r.appendChild(tileArrow(String(g.firstArc ?? "-"), ar.cls, ar.dir));
+    r.appendChild(labelTile(tileArrow(String(g.firstArc ?? "-"), ar.cls, ar.dir), "İlk Arc"));
 
     $rows.prepend(r);
   }

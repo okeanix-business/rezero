@@ -540,9 +540,18 @@
         border-radius:14px;
       }
 
+      .dle-head{
+        display:none;
+      }
+
       .dle-head,
       .dle-row{
         gap:8px;
+      }
+
+      .dle-row,
+      .dle-rows .dle-row{
+        grid-auto-rows:88px;
       }
 
       .dle-head{
@@ -556,20 +565,56 @@
       }
 
       .dle-tile{
-        height:74px;
+        height:88px;
         min-width:0;
         font-size:11px;
         border-radius:12px;
-        padding:6px 4px;
+        padding:22px 4px 6px;
+        overflow:hidden;
+      }
+
+      .dle-tile::before{
+        content:attr(data-dle-label);
+        position:absolute;
+        top:6px;
+        left:5px;
+        right:5px;
+        z-index:2;
+        padding:3px 4px;
+        border-radius:7px;
+        background:rgba(0,0,0,.64);
+        border:1px solid rgba(255,255,255,.14);
+        color:#fff;
+        font-size:8px;
+        font-weight:1000;
+        line-height:1.05;
+        letter-spacing:0;
+        text-align:center;
+        text-shadow:0 1px 3px rgba(0,0,0,.85);
+        white-space:normal;
+        box-shadow:0 3px 10px rgba(0,0,0,.28);
       }
 
       .dle-charTile{
-        height:74px;
+        height:88px;
         border-radius:12px;
+        padding:0 !important;
       }
 
       .dle-charTile img{
         border-radius:12px;
+      }
+
+      .dle-charTile::before{
+        top:5px;
+        left:5px;
+        right:5px;
+        background:rgba(0,0,0,.68);
+      }
+
+      .dle-elementTile{
+        font-size:10px !important;
+        padding:22px 3px 6px !important;
       }
     }
 
@@ -646,6 +691,6 @@
   </div>
 
   <script src="karakter-data.js"></script>
-  <script src="karakter-bul.js"></script>
+  <script src="karakter-bul.js?v=mobile-labels-20260608b"></script>
 </body>
 </html>
