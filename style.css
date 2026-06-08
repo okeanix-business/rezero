@@ -1821,3 +1821,268 @@ a {
 .destekle-card:hover .destekle-icon {
   transform: translate(-50%, -60%) scale(1.1);
 }
+
+/* ---------- MOBILE CONSOLIDATION ---------- */
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 8px 14px 10px;
+  }
+
+  .nav-logo a {
+    font-size: 18px;
+  }
+
+  .nav-logo a img.nav-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .nav-links {
+    position: static !important;
+    width: 100%;
+    max-width: 100%;
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    line-height: 1.15;
+    padding: 7px 8px;
+    text-align: center;
+  }
+
+  .hero-header {
+    padding: 82px 16px 64px;
+  }
+
+  .hero-header h1 {
+    font-size: clamp(28px, 8vw, 34px);
+    line-height: 1.2;
+  }
+
+  .hero-header .subtitle {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .section-heading {
+    width: calc(100% - 32px);
+  }
+
+  .section-heading h2 {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  .season-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 14px 18px 4px;
+  }
+
+  .continue-strip {
+    padding: 12px 20px 0;
+  }
+
+  .continue-strip-inner {
+    padding: 14px 18px;
+  }
+
+  .continue-info strong {
+    font-size: 16px;
+  }
+
+  .page-header,
+  .page-header-banner {
+    padding: 56px 18px 38px;
+  }
+
+  .page-header h1 {
+    font-size: clamp(30px, 9vw, 36px);
+    line-height: 1.15;
+  }
+
+  .page-header p {
+    font-size: 15px;
+  }
+
+  .page-section {
+    padding: 24px 20px 64px;
+  }
+
+  .why-section {
+    padding: 48px 20px;
+  }
+
+  .why-container {
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  .why-container h2 {
+    font-size: 28px;
+  }
+
+  .contact-box {
+    width: 100%;
+    min-width: 0;
+    padding: 22px 20px;
+  }
+
+  .legal-block {
+    font-size: 14px;
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+  }
+
+  .player-header {
+    padding: 20px 16px 8px;
+  }
+
+  .season-episode {
+    font-size: clamp(24px, 8vw, 30px);
+    line-height: 1.25;
+  }
+
+  .episode-title {
+    max-width: 100%;
+    font-size: clamp(14px, 4.4vw, 18px);
+    line-height: 1.35;
+    letter-spacing: 0;
+  }
+
+  .player-container {
+    padding: 16px 20px;
+  }
+
+  .episode-toolbar {
+    grid-template-columns: 44px minmax(0, 1fr) 44px !important;
+    align-items: center;
+    justify-items: stretch;
+    gap: 8px;
+    margin: 12px 0 6px;
+    text-align: center;
+  }
+
+  .episode-toolbar .episode-section-title {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    margin: 0;
+    font-size: 22px;
+    line-height: 1.15;
+  }
+
+  .episode-nav-left {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: end !important;
+  }
+
+  .episode-nav-right {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: start !important;
+  }
+
+  .episode-toolbar .ep-nav-btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 12px;
+    font-size: 0;
+    overflow: hidden;
+  }
+
+  .episode-nav-left .ep-nav-btn::before,
+  .episode-nav-right .ep-nav-btn::before {
+    font-size: 17px;
+    line-height: 1;
+  }
+
+  .episode-nav-left .ep-nav-btn::before {
+    content: "←";
+  }
+
+  .episode-nav-right .ep-nav-btn::before {
+    content: "→";
+  }
+
+  .episode-download-box {
+    flex-direction: row;
+    gap: 0;
+    margin: 4px auto 14px;
+    line-height: 1.45;
+  }
+
+  .episode-download-note {
+    display: none;
+  }
+
+  .episode-download-btn {
+    min-height: 34px;
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+
+  .episode-list {
+    grid-template-columns: repeat(auto-fill, 52px);
+    gap: 12px;
+    margin: 24px 0;
+  }
+
+  .episode-list button,
+  .episode-list a.ep-link {
+    width: 52px;
+    height: 52px;
+    border-radius: 13px;
+  }
+
+  .episode-summary-open {
+    padding: 15px;
+    font-size: 14px;
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-links a {
+    font-size: 12px;
+    padding: 7px 7px;
+  }
+
+  .season-grid {
+    gap: 10px;
+    padding-inline: 16px;
+  }
+
+  .episode-list {
+    grid-template-columns: repeat(auto-fill, 50px);
+    gap: 10px;
+  }
+
+  .episode-list button,
+  .episode-list a.ep-link {
+    width: 50px;
+    height: 50px;
+  }
+}

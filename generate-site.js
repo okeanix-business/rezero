@@ -328,12 +328,12 @@ function buildEpisodePageHtml({
   const nextText = nextEp ? `${navLabelForEp(nextEp)} →` : "Sonraki →";
 
   const prevBtnHtml = prevAbs
-    ? `<a class="ep-nav-btn" href="${escAttr(prevAbs)}">${escAttr(prevText)}</a>`
-    : `<span class="ep-nav-btn disabled" aria-disabled="true">←</span>`;
+    ? `<a class="ep-nav-btn" href="${escAttr(prevAbs)}" aria-label="${escAttr(prevText)}" title="${escAttr(prevText)}">${escAttr(prevText)}</a>`
+    : `<span class="ep-nav-btn disabled" aria-disabled="true" aria-label="Önceki bölüm yok" title="Önceki bölüm yok">←</span>`;
 
   const nextBtnHtml = nextAbs
-    ? `<a class="ep-nav-btn" href="${escAttr(nextAbs)}">${escAttr(nextText)}</a>`
-    : `<span class="ep-nav-btn disabled" aria-disabled="true">→</span>`;
+    ? `<a class="ep-nav-btn" href="${escAttr(nextAbs)}" aria-label="${escAttr(nextText)}" title="${escAttr(nextText)}">${escAttr(nextText)}</a>`
+    : `<span class="ep-nav-btn disabled" aria-disabled="true" aria-label="Sonraki bölüm yok" title="Sonraki bölüm yok">→</span>`;
 
 
   return `<!DOCTYPE html>
@@ -440,7 +440,7 @@ ${GOOGLE_CONTRIBUTION_SCRIPT}
   </div>
 
   <div class="episode-download-box">
-    <span>► Daha yüksek görüntü kalitesi ve bitrate için bölümü indirebilirsiniz.</span>
+    <span class="episode-download-note">► Daha yüksek görüntü kalitesi ve bitrate için bölümü indirebilirsiniz.</span>
     <a id="downloadBtn" href="#" target="_blank" class="episode-download-btn">⬇ İndir</a>
   </div>
 
@@ -460,7 +460,7 @@ ${GOOGLE_CONTRIBUTION_SCRIPT}
 <script src="seasons-data.js"></script>
 <script src="episode-pages-map.js"></script>
 <script>window.SEASON_NUMBER = ${season}; window.EPISODE_INDEX = ${epIndex};</script>
-<script src="player.js"></script>
+<script src="player.js?v=mobile-tau-20260608"></script>
 
 <style>
   @keyframes attentionPulse {
@@ -577,13 +577,55 @@ ${GOOGLE_CONTRIBUTION_SCRIPT}
 
   @media (max-width: 768px){
     .episode-toolbar{
-      grid-template-columns: 1fr;
-      justify-items: center;
+      grid-template-columns: 44px minmax(0, 1fr) 44px;
+      justify-items: stretch;
       text-align: center;
-      gap: 10px;
+      gap: 8px;
+      margin: 12px 0 6px;
     }
-    .episode-nav-left, .episode-nav-right{
+    .episode-toolbar .episode-section-title{
+      grid-column: 2;
+      grid-row: 1;
       justify-self: center;
+      font-size: 22px;
+      line-height: 1.15;
+    }
+    .episode-nav-left{
+      grid-column: 1;
+      grid-row: 1;
+      justify-self: end;
+    }
+    .episode-nav-right{
+      grid-column: 3;
+      grid-row: 1;
+      justify-self: start;
+    }
+    .episode-toolbar .ep-nav-btn{
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border-radius: 12px;
+      font-size: 0;
+      overflow: hidden;
+    }
+    .episode-nav-left .ep-nav-btn::before,
+    .episode-nav-right .ep-nav-btn::before{
+      font-size: 17px;
+      line-height: 1;
+    }
+    .episode-nav-left .ep-nav-btn::before{ content: "←"; }
+    .episode-nav-right .ep-nav-btn::before{ content: "→"; }
+    .episode-download-box{
+      margin: 4px auto 14px;
+      gap: 0;
+    }
+    .episode-download-note{
+      display: none;
+    }
+    .episode-download-btn{
+      min-height: 34px;
+      padding: 7px 12px;
+      font-size: 13px;
     }
   }
 

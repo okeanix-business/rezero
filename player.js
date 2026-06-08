@@ -96,6 +96,47 @@ function isAvailable(ep) {
   return !!(ep.driveId || ep.animecix);
 }
 
+function isMobilePlayback() {
+  return window.matchMedia
+    ? window.matchMedia("(max-width: 768px), (pointer: coarse)").matches
+    : window.innerWidth <= 768;
+}
+
+function getPlayableSources(ep, labels = "short") {
+  if (!ep) return [];
+
+  const sources = [];
+  const hasTau = !!ep.animecix;
+  const hasDrive = !!ep.driveId;
+  const hideDrive = isMobilePlayback();
+
+  if (hasTau) {
+    sources.push({
+      key: "tau",
+      label: labels === "cover" ? "TAU Player" : "TAU",
+      icon: "▶"
+    });
+  }
+
+  if (hasDrive && !hideDrive) {
+    sources.push({
+      key: "google",
+      label: labels === "cover" ? "Google Drive" : "Google",
+      icon: "▶"
+    });
+  }
+
+  return sources;
+}
+
+function normalizeSourcePref(ep) {
+  const sources = getPlayableSources(ep);
+  if (!sources.some((src) => src.key === currentSourcePref)) {
+    currentSourcePref = sources[0]?.key || "tau";
+    localStorage.setItem("rezero_source_pref", currentSourcePref);
+  }
+}
+
 function slugifyLite(s) {
   return (
     String(s || "")
@@ -157,13 +198,8 @@ function renderSourceSelectors(ep) {
   sourceSelectorBar.innerHTML = "";
   if (!ep) return;
 
-  const sources = [];
-  const hasDrive = ep.driveId;
-  const hasTau = ep.animecix;
-
-  // TAU ve Google
-  if (hasTau) sources.push({ key: "tau", label: "TAU" });
-  if (hasDrive) sources.push({ key: "google", label: "Google" });
+  normalizeSourcePref(ep);
+  const sources = getPlayableSources(ep);
 
   if (sources.length <= 1) {
     if (playerSelectContainer) playerSelectContainer.style.display = "none";
@@ -224,12 +260,14 @@ function setVideoState(ep) {
     currentSourcePref = "tau";
   }
 
+  normalizeSourcePref(ep);
+
   // Fallback mantığıyla source seçimi
   if (currentSourcePref === "tau") {
     if (tauUrl) playUrl = tauUrl;
-    else if (driveUrl) { playUrl = driveUrl; currentSourcePref = "google"; }
+    else if (driveUrl && !isMobilePlayback()) { playUrl = driveUrl; currentSourcePref = "google"; }
   } else if (currentSourcePref === "google") {
-    if (driveUrl) playUrl = driveUrl;
+    if (driveUrl && !isMobilePlayback()) playUrl = driveUrl;
     else if (tauUrl) { playUrl = tauUrl; currentSourcePref = "tau"; }
   }
 
@@ -264,6 +302,13 @@ function renderCoverButtons(ep) {
   const sources = [];
   if (ep.animecix) sources.push({ key: "tau", label: "TAU Player", icon: "▶" });
   if (ep.driveId) sources.push({ key: "google", label: "Google Drive", icon: "▶" });
+
+  if (isMobilePlayback()) {
+    for (let i = sources.length - 1; i >= 0; i--) {
+      if (sources[i].key === "google") sources.splice(i, 1);
+    }
+  }
+  normalizeSourcePref(ep);
 
   if (sources.length === 0) {
     coverOverlay.style.display = "none";
