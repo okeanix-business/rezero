@@ -107,13 +107,13 @@
   </div>
 
   <div class="episode-toolbar">
-    <div class="episode-nav-left"><a class="ep-nav-btn" href="https://rezeroizle.com/sezon/3/bolum/10.html">← 10. Bölüm</a></div>
+    <div class="episode-nav-left"><a class="ep-nav-btn" href="https://rezeroizle.com/sezon/3/bolum/10.html" aria-label="← 10. Bölüm" title="← 10. Bölüm">← 10. Bölüm</a></div>
     <h2 class="episode-section-title">Bölüm Seç</h2>
-    <div class="episode-nav-right"><a class="ep-nav-btn" href="https://rezeroizle.com/sezon/3/bolum/12.html">12. Bölüm →</a></div>
+    <div class="episode-nav-right"><a class="ep-nav-btn" href="https://rezeroizle.com/sezon/3/bolum/12.html" aria-label="12. Bölüm →" title="12. Bölüm →">12. Bölüm →</a></div>
   </div>
 
   <div class="episode-download-box">
-    <span>► Daha yüksek görüntü kalitesi ve bitrate için bölümü indirebilirsiniz.</span>
+    <span class="episode-download-note">► Daha yüksek görüntü kalitesi ve bitrate için bölümü indirebilirsiniz.</span>
     <a id="downloadBtn" href="#" target="_blank" class="episode-download-btn">⬇ İndir</a>
   </div>
 
@@ -133,7 +133,7 @@
 <script src="seasons-data.js"></script>
 <script src="episode-pages-map.js"></script>
 <script>window.SEASON_NUMBER = 3; window.EPISODE_INDEX = 10;</script>
-<script src="player.js"></script>
+<script src="player.js?v=mobile-tau-20260608"></script>
 
 <style>
   @keyframes attentionPulse {
@@ -250,13 +250,55 @@
 
   @media (max-width: 768px){
     .episode-toolbar{
-      grid-template-columns: 1fr;
-      justify-items: center;
+      grid-template-columns: 44px minmax(0, 1fr) 44px;
+      justify-items: stretch;
       text-align: center;
-      gap: 10px;
+      gap: 8px;
+      margin: 12px 0 6px;
     }
-    .episode-nav-left, .episode-nav-right{
+    .episode-toolbar .episode-section-title{
+      grid-column: 2;
+      grid-row: 1;
       justify-self: center;
+      font-size: 22px;
+      line-height: 1.15;
+    }
+    .episode-nav-left{
+      grid-column: 1;
+      grid-row: 1;
+      justify-self: end;
+    }
+    .episode-nav-right{
+      grid-column: 3;
+      grid-row: 1;
+      justify-self: start;
+    }
+    .episode-toolbar .ep-nav-btn{
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border-radius: 12px;
+      font-size: 0;
+      overflow: hidden;
+    }
+    .episode-nav-left .ep-nav-btn::before,
+    .episode-nav-right .ep-nav-btn::before{
+      font-size: 17px;
+      line-height: 1;
+    }
+    .episode-nav-left .ep-nav-btn::before{ content: "←"; }
+    .episode-nav-right .ep-nav-btn::before{ content: "→"; }
+    .episode-download-box{
+      margin: 4px auto 14px;
+      gap: 0;
+    }
+    .episode-download-note{
+      display: none;
+    }
+    .episode-download-btn{
+      min-height: 34px;
+      padding: 7px 12px;
+      font-size: 13px;
     }
   }
 
