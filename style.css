@@ -292,15 +292,52 @@ a {
   line-height: 1.7;
 }
 
+/* ---------- PAGE HEADER BANNER ---------- */
+.page-header-banner {
+  position: relative;
+  padding: 80px 20px 50px;
+  overflow: hidden;
+}
+.page-header-banner .page-header-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("images/second-banner.webp");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.35);
+  z-index: 0;
+}
+.page-header-banner .page-header-grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 1;
+}
+.page-header-banner .page-header-inner {
+  position: relative;
+  z-index: 2;
+}
+.page-header-banner h1 {
+  text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+.page-header-banner p {
+  color: rgba(234,234,255,0.75);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+}
+
 .page-section {
-  padding: 10px 20px 80px;
+  padding: 30px 20px 80px;
+  min-height: calc(100vh - 340px);
 }
 
 .legal-block {
   white-space: pre-line;
   text-align: left;
-  line-height: 1.8;
-  color: var(--text);
+  line-height: 1.85;
+  color: rgba(234,234,255,0.85);
+  font-size: 15px;
 }
 
 /* ---------- SEASON GRID ---------- */
@@ -777,22 +814,33 @@ a {
 
 .contact-box {
   margin-top: 0;
-  padding: 24px;
-  background: rgba(15, 18, 36, 0.76);
+  padding: 28px 28px 28px 32px;
+  background: rgba(15, 18, 36, 0.82);
   border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 8px;
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
   box-shadow: 0 16px 34px rgba(0,0,0,0.26);
+  backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+  border-left-color: #b0baff;
 }
 
 .contact-box h3 {
   margin-top: 0;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   font-size: 20px;
+  color: var(--accent);
 }
 
 .contact-box p {
   margin: 6px 0;
   color: var(--text);
+  line-height: 1.7;
 }
 
 .contact-box a {
@@ -1676,3 +1724,26 @@ a {
 /* Episode Title Spoiler */
 .episode-title { display: inline; background-color: #4a4d5a; color: transparent; border-radius: 6px; padding: 2px 8px; transition: all 0.3s ease; cursor: pointer; user-select: none; }
 .episode-title:hover, .episode-title.revealed { background-color: transparent; color: #fff; user-select: text; }
+
+/* ---------- DESTEKLE CARD ---------- */
+.destekle-card {
+  background: radial-gradient(circle at 50% 40%, #c73a6e, #6e1a3a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.destekle-icon {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  color: rgba(255,255,255,0.85);
+  filter: drop-shadow(0 4px 16px rgba(255,255,255,0.3));
+  transition: transform 0.3s ease;
+}
+.destekle-card:hover .destekle-icon {
+  transform: translate(-50%, -60%) scale(1.1);
+}

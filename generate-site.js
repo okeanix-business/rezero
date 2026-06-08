@@ -105,6 +105,10 @@ function stripHtml(s) {
     .replace(/\s+/g, " ")
     .trim();
 }
+function isPlaceholderSummaryHtml(s) {
+  const text = stripHtml(s).toLowerCase();
+  return text.includes("buraya kendi") && (text.includes("yapıştır") || text.includes("yapistir"));
+}
 function cut(s, n) {
   const t = String(s || "").trim();
   if (!t) return "";
@@ -254,7 +258,8 @@ function buildEpisodePageHtml({
   }
 
   // ✅ OPEN summary: full varsa full, yoksa teaser
-  const openSummaryHtml = (fullHtml && fullHtml.trim()) ? fullHtml : teaserHtml;
+  let openSummaryHtml = (fullHtml && fullHtml.trim()) ? fullHtml : teaserHtml;
+  if (isPlaceholderSummaryHtml(openSummaryHtml)) openSummaryHtml = "";
 
   const meta = makeMetaForEpisode(season, ep, pageUrl, stripHtml(openSummaryHtml).trim());
 

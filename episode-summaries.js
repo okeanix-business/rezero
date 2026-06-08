@@ -234,7 +234,7 @@ window.REZERO_EP_SUMMARIES[2]["ep:3"] =
 
 // S2 Break Time 1 örnek
 window.REZERO_EP_SUMMARIES[2]["break:1"] =
-  `<p>Re:Zero kara Hajimeru Break Time’ın 2. sezondaki 1. ara bölümüdür. (Buraya kendi özetini yapıştır.)</p>`;
+  "";
 
 // ✅ S2 Özel: Frozen Bond (extraType = "special0")
 window.REZERO_EP_SUMMARIES[2]["special:frozenbond"] =
@@ -300,15 +300,15 @@ window.REZERO_EP_SUMMARIES[3] = window.REZERO_EP_SUMMARIES[3] || {};
 // S3E1 örnek
 
 window.REZERO_EP_SUMMARIES[3]["ep:1"] =
-  `<p>Re:Zero’nun 3. sezon 1. bölümüdür. (Buraya kendi tek-paragraf özetini yapıştır.)</p>`;
+  "";
   
 window.REZERO_EP_SUMMARIES[3]["ep:2"] =
-  `<p>Re:Zero’nun 3. sezon 1. bölümüdür. (Buraya kendi tek-paragraf özetini yapıştır.)</p>`;
+  "";
   
 
 // S3 Break Time 1 örnek
 window.REZERO_EP_SUMMARIES[3]["break:1"] =
-  `<p>Re:Zero kara Hajimeru Break Time’ın 3. sezon 1. ara bölümüdür. (Buraya kendi özetini yapıştır.)</p>`;
+  "";
 
 /* =========================
    SEZON 4 (Örnekler)
@@ -317,4 +317,4 @@ window.REZERO_EP_SUMMARIES[4] = window.REZERO_EP_SUMMARIES[4] || {};
 
 // S4E1 örnek
 window.REZERO_EP_SUMMARIES[4]["ep:1"] =
-  `<p>Re:Zero’nun 4. sezon 1. bölümüdür. (Buraya kendi tek-paragraf özetini yapıştır.)</p>`;
+  "";
