@@ -534,6 +534,74 @@ a {
   object-fit: cover; /* Video dışarı taşmasın */
 }
 
+.drive-fullscreen-btn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 12;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 7px 12px;
+  border: 1px solid rgba(165, 180, 252, 0.45);
+  border-radius: 9px;
+  background: rgba(8, 10, 22, 0.76);
+  color: #eef2ff;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+
+.video-wrapper:fullscreen,
+.video-wrapper:-webkit-full-screen {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 0;
+  border-radius: 0;
+}
+
+.video-wrapper:fullscreen iframe,
+.video-wrapper:-webkit-full-screen iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body.drive-fullscreen-lock {
+  overflow: hidden;
+}
+
+.video-wrapper.drive-mobile-fullscreen {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100svh !important;
+  padding-top: 0 !important;
+  border-radius: 0 !important;
+  background: #000 !important;
+}
+
+.video-wrapper.drive-mobile-fullscreen iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-wrapper.drive-mobile-fullscreen .drive-fullscreen-btn {
+  top: calc(env(safe-area-inset-top) + 10px);
+  right: calc(env(safe-area-inset-right) + 10px);
+  bottom: auto;
+}
+
 /* ---------- CONTROLS ---------- */
 .controls {
   display: flex;
@@ -646,10 +714,6 @@ a {
   .why-container {
     grid-template-columns: 1fr;
   }
-  
-  #downloadBtn {
-    display: none;
-  } 
   
   .video-wrapper iframe {
     object-fit: contain; /* Video, tam ekranı kapsayacak şekilde düzgün yerleşsin */
@@ -1782,9 +1846,9 @@ a {
 
   .cover-support {
     width: min(320px, 100%);
-    margin-top: 12px;
-    padding-top: 10px;
-    gap: 6px;
+    margin-top: 10px;
+    padding-top: 8px;
+    gap: 4px;
   }
 
   .cover-support-title {
@@ -1793,7 +1857,14 @@ a {
   }
 
   .cover-support-cta {
-    min-height: 34px;
+    min-height: 28px;
+    height: 30px;
+    overflow: visible;
+  }
+
+  .cover-support-cta > * {
+    transform: scale(0.72);
+    transform-origin: top center;
   }
 
   .cover-btn-icon {

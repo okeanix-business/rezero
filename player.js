@@ -24,8 +24,11 @@ const sourceSelectorBar = document.getElementById("sourceSelectorBar");
 const playerSelectContainer = document.querySelector(".player-select-container");
 const coverOverlay = document.getElementById("coverOverlay");
 const coverButtons = document.getElementById("coverButtons");
+const videoWrapper = document.querySelector(".video-wrapper");
 let coverDismissed = false;
 let currentSourcePref = localStorage.getItem("rezero_source_pref") || "tau";
+let fakeDriveFullscreen = false;
+let driveFullscreenBtn = null;
 
 /* ================================
    FULLSCREEN FIX (MOBILE)
@@ -79,14 +82,137 @@ function unlockOrientation() {
 
 function onFullscreenChange() {
   const fsEl = getFsEl();
-  if (fsEl) lockLandscape();
+  if (fsEl || fakeDriveFullscreen) lockLandscape();
   else unlockOrientation();
+  updateDriveFullscreenButton();
 }
 
 document.addEventListener("fullscreenchange", onFullscreenChange);
 document.addEventListener("webkitfullscreenchange", onFullscreenChange);
 document.addEventListener("mozfullscreenchange", onFullscreenChange);
 document.addEventListener("MSFullscreenChange", onFullscreenChange);
+window.addEventListener("resize", () => {
+  if (fakeDriveFullscreen && !shouldShowDriveFullscreen()) {
+    setFakeDriveFullscreen(false);
+  }
+  updateDriveFullscreenButton();
+});
+
+function isMobileViewport() {
+  return window.matchMedia
+    ? window.matchMedia("(max-width: 768px), (pointer: coarse)").matches
+    : window.innerWidth <= 768;
+}
+
+function getCurrentEpisodeData() {
+  return episodes[currentEpisode] || null;
+}
+
+function shouldShowDriveFullscreen(ep = getCurrentEpisodeData()) {
+  return !!(
+    ep &&
+    ep.driveId &&
+    coverDismissed &&
+    currentSourcePref === "google" &&
+    isMobileViewport()
+  );
+}
+
+function setFakeDriveFullscreen(active) {
+  if (!videoWrapper) return;
+
+  fakeDriveFullscreen = active;
+  videoWrapper.classList.toggle("drive-mobile-fullscreen", active);
+  document.body.classList.toggle("drive-fullscreen-lock", active);
+
+  if (active) lockLandscape();
+  else if (!getFsEl()) unlockOrientation();
+
+  updateDriveFullscreenButton();
+}
+
+async function requestNativeFullscreen(el) {
+  const request =
+    el?.requestFullscreen ||
+    el?.webkitRequestFullscreen ||
+    el?.mozRequestFullScreen ||
+    el?.msRequestFullscreen;
+
+  if (!request) return false;
+
+  try {
+    const result = request.call(el);
+    if (result && typeof result.then === "function") await result;
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+async function exitNativeFullscreen() {
+  const exit =
+    document.exitFullscreen ||
+    document.webkitExitFullscreen ||
+    document.mozCancelFullScreen ||
+    document.msExitFullscreen;
+
+  if (!exit || !getFsEl()) return;
+
+  try {
+    const result = exit.call(document);
+    if (result && typeof result.then === "function") await result;
+  } catch (e) {}
+}
+
+async function enterDriveFullscreen() {
+  if (!videoWrapper || !shouldShowDriveFullscreen()) return;
+
+  const nativeOk = await requestNativeFullscreen(videoWrapper);
+  if (!nativeOk && !getFsEl()) {
+    setFakeDriveFullscreen(true);
+  } else {
+    updateDriveFullscreenButton();
+  }
+}
+
+async function exitDriveFullscreen() {
+  if (fakeDriveFullscreen) setFakeDriveFullscreen(false);
+  await exitNativeFullscreen();
+  updateDriveFullscreenButton();
+}
+
+function ensureDriveFullscreenButton() {
+  if (!videoWrapper || driveFullscreenBtn) return driveFullscreenBtn;
+
+  driveFullscreenBtn = document.createElement("button");
+  driveFullscreenBtn.type = "button";
+  driveFullscreenBtn.className = "drive-fullscreen-btn";
+  driveFullscreenBtn.onclick = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (fakeDriveFullscreen || getFsEl()) exitDriveFullscreen();
+    else enterDriveFullscreen();
+  };
+
+  videoWrapper.appendChild(driveFullscreenBtn);
+  return driveFullscreenBtn;
+}
+
+function updateDriveFullscreenButton(ep = getCurrentEpisodeData()) {
+  const btn = ensureDriveFullscreenButton();
+  if (!btn) return;
+
+  const visible = shouldShowDriveFullscreen(ep);
+  btn.style.display = visible ? "inline-flex" : "none";
+  btn.textContent = fakeDriveFullscreen || getFsEl() ? "Kapat" : "Tam ekran";
+  btn.setAttribute(
+    "aria-label",
+    fakeDriveFullscreen || getFsEl()
+      ? "Google Drive tam ekrandan cik"
+      : "Google Drive tam ekran ac"
+  );
+}
 
 /* ================================
    HELPERS
@@ -184,6 +310,9 @@ function switchSource(ep, sourceKey) {
   setVideoState(ep);
   setDownloadState(ep);
   renderSourceSelectors(ep);
+
+  if (sourceKey === "google") enterDriveFullscreen();
+  else exitDriveFullscreen();
 }
 
 function renderSourceSelectors(ep) {
@@ -238,6 +367,7 @@ function setVideoState(ep) {
   if (!coverDismissed) {
     player.src = "about:blank";
     player.style.visibility = "hidden";
+    updateDriveFullscreenButton(ep);
     return;
   }
 
@@ -274,6 +404,11 @@ function setVideoState(ep) {
       unreleasedOverlay.style.display = "flex";
     }
   }
+
+  if (currentSourcePref !== "google" && fakeDriveFullscreen) {
+    setFakeDriveFullscreen(false);
+  }
+  updateDriveFullscreenButton(ep);
 }
 
 /* ================================
@@ -326,6 +461,8 @@ function dismissCover(ep, sourceKey) {
 
   // Re-trigger loadEpisode so localStorage saves now that cover is dismissed
   loadEpisode(currentEpisode, true);
+
+  if (sourceKey === "google") enterDriveFullscreen();
 }
 
 /* ================================

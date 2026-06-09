@@ -460,7 +460,7 @@ ${GOOGLE_CONTRIBUTION_SCRIPT}
 <script src="seasons-data.js"></script>
 <script src="episode-pages-map.js"></script>
 <script>window.SEASON_NUMBER = ${season}; window.EPISODE_INDEX = ${epIndex};</script>
-<script src="player.js?v=mobile-drive-20260610"></script>
+<script src="player.js?v=mobile-drive-fs-20260610"></script>
 
 <style>
   @keyframes attentionPulse {
@@ -532,7 +532,6 @@ ${GOOGLE_CONTRIBUTION_SCRIPT}
   @media (max-width: 768px) {
     .header-grid-wrapper { display: flex !important; flex-direction: column; gap: 12px; }
     .header-player-select { justify-self: center !important; }
-    #downloadBtn { display: none; }
     .source-selector-bar {
       max-width: 100%;
       width: max-content;
