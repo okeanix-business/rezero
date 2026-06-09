@@ -96,19 +96,12 @@ function isAvailable(ep) {
   return !!(ep.driveId || ep.animecix);
 }
 
-function isMobilePlayback() {
-  return window.matchMedia
-    ? window.matchMedia("(max-width: 768px), (pointer: coarse)").matches
-    : window.innerWidth <= 768;
-}
-
 function getPlayableSources(ep, labels = "short") {
   if (!ep) return [];
 
   const sources = [];
   const hasTau = !!ep.animecix;
   const hasDrive = !!ep.driveId;
-  const hideDrive = isMobilePlayback();
 
   if (hasTau) {
     sources.push({
@@ -118,7 +111,7 @@ function getPlayableSources(ep, labels = "short") {
     });
   }
 
-  if (hasDrive && !hideDrive) {
+  if (hasDrive) {
     sources.push({
       key: "google",
       label: labels === "cover" ? "Google Drive" : "Google",
@@ -228,7 +221,7 @@ function setDownloadState(ep) {
 
   if (activeDriveId) {
     downloadBtn.classList.remove("disabled");
-    downloadBtn.style.display = "inline-flex";
+    downloadBtn.style.display = "";
     downloadBtn.href = `https://drive.google.com/uc?export=download&id=${activeDriveId}`;
     downloadBtn.setAttribute("target", "_blank");
   } else {
@@ -265,9 +258,9 @@ function setVideoState(ep) {
   // Fallback mantığıyla source seçimi
   if (currentSourcePref === "tau") {
     if (tauUrl) playUrl = tauUrl;
-    else if (driveUrl && !isMobilePlayback()) { playUrl = driveUrl; currentSourcePref = "google"; }
+    else if (driveUrl) { playUrl = driveUrl; currentSourcePref = "google"; }
   } else if (currentSourcePref === "google") {
-    if (driveUrl && !isMobilePlayback()) playUrl = driveUrl;
+    if (driveUrl) playUrl = driveUrl;
     else if (tauUrl) { playUrl = tauUrl; currentSourcePref = "tau"; }
   }
 
@@ -303,11 +296,6 @@ function renderCoverButtons(ep) {
   if (ep.animecix) sources.push({ key: "tau", label: "TAU Player", icon: "▶" });
   if (ep.driveId) sources.push({ key: "google", label: "Google Drive", icon: "▶" });
 
-  if (isMobilePlayback()) {
-    for (let i = sources.length - 1; i >= 0; i--) {
-      if (sources[i].key === "google") sources.splice(i, 1);
-    }
-  }
   normalizeSourcePref(ep);
 
   if (sources.length === 0) {

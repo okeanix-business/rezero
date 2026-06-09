@@ -1764,18 +1764,20 @@ a {
 
   .cover-title {
     margin-bottom: 12px;
-    font-size: 13px;
-    letter-spacing: 2px;
+    font-size: 11px;
+    letter-spacing: 1.4px;
   }
 
   .cover-buttons {
-    gap: 8px;
+    gap: 6px;
   }
 
   .cover-source-btn {
-    padding: 9px 14px;
-    border-radius: 10px;
-    font-size: 13px;
+    gap: 6px;
+    padding: 8px 10px;
+    border-radius: 9px;
+    font-size: 11px;
+    line-height: 1.1;
   }
 
   .cover-support {
@@ -1786,12 +1788,16 @@ a {
   }
 
   .cover-support-title {
-    font-size: 11px;
-    letter-spacing: 1px;
+    font-size: 10px;
+    letter-spacing: 0.8px;
   }
 
   .cover-support-cta {
     min-height: 34px;
+  }
+
+  .cover-btn-icon {
+    font-size: 14px;
   }
 }
 
@@ -1959,23 +1965,23 @@ a {
   }
 
   .season-episode {
-    font-size: clamp(24px, 8vw, 30px);
+    font-size: clamp(20px, 6.6vw, 24px);
     line-height: 1.25;
   }
 
   .episode-title {
     max-width: 100%;
-    font-size: clamp(14px, 4.4vw, 18px);
+    font-size: clamp(12px, 3.8vw, 15px);
     line-height: 1.35;
     letter-spacing: 0;
   }
 
   .player-container {
-    padding: 16px 20px;
+    padding: 12px 14px;
   }
 
   .episode-toolbar {
-    grid-template-columns: 44px minmax(0, 1fr) 44px !important;
+    grid-template-columns: 40px minmax(0, 1fr) 40px !important;
     align-items: center;
     justify-items: stretch;
     gap: 8px;
@@ -1988,7 +1994,7 @@ a {
     grid-row: 1;
     justify-self: center;
     margin: 0;
-    font-size: 22px;
+    font-size: 18px;
     line-height: 1.15;
   }
 
@@ -2005,17 +2011,17 @@ a {
   }
 
   .episode-toolbar .ep-nav-btn {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     padding: 0;
-    border-radius: 12px;
+    border-radius: 10px;
     font-size: 0;
     overflow: hidden;
   }
 
   .episode-nav-left .ep-nav-btn::before,
   .episode-nav-right .ep-nav-btn::before {
-    font-size: 17px;
+    font-size: 15px;
     line-height: 1;
   }
 
@@ -2039,22 +2045,22 @@ a {
   }
 
   .episode-download-btn {
-    min-height: 34px;
-    padding: 7px 12px;
-    font-size: 13px;
+    min-height: 32px;
+    padding: 6px 10px;
+    font-size: 12px;
   }
 
   .episode-list {
-    grid-template-columns: repeat(auto-fill, 52px);
-    gap: 12px;
-    margin: 24px 0;
+    grid-template-columns: repeat(auto-fill, 48px);
+    gap: 10px;
+    margin: 20px 0;
   }
 
   .episode-list button,
   .episode-list a.ep-link {
-    width: 52px;
-    height: 52px;
-    border-radius: 13px;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
   }
 
   .episode-summary-open {
@@ -2077,13 +2083,13 @@ a {
   }
 
   .episode-list {
-    grid-template-columns: repeat(auto-fill, 50px);
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, 44px);
+    gap: 9px;
   }
 
   .episode-list button,
   .episode-list a.ep-link {
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
   }
 }
