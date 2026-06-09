@@ -133,7 +133,7 @@
 <script src="seasons-data.js"></script>
 <script src="episode-pages-map.js"></script>
 <script>window.SEASON_NUMBER = 4; window.EPISODE_INDEX = 11;</script>
-<script src="player.js?v=mobile-tau-20260608"></script>
+<script src="player.js?v=mobile-drive-20260610"></script>
 
 <style>
   @keyframes attentionPulse {
@@ -206,6 +206,21 @@
     .header-grid-wrapper { display: flex !important; flex-direction: column; gap: 12px; }
     .header-player-select { justify-self: center !important; }
     #downloadBtn { display: none; }
+    .source-selector-bar {
+      max-width: 100%;
+      width: max-content;
+      margin-bottom: 10px;
+      padding: 3px;
+      border-radius: 10px;
+      gap: 3px;
+    }
+    .source-selector-btn {
+      gap: 4px;
+      padding: 7px 10px;
+      border-radius: 7px;
+      font-size: 11px;
+      line-height: 1.1;
+    }
   }
 
   .episode-toolbar{
@@ -250,7 +265,7 @@
 
   @media (max-width: 768px){
     .episode-toolbar{
-      grid-template-columns: 44px minmax(0, 1fr) 44px;
+      grid-template-columns: 40px minmax(0, 1fr) 40px;
       justify-items: stretch;
       text-align: center;
       gap: 8px;
@@ -260,7 +275,7 @@
       grid-column: 2;
       grid-row: 1;
       justify-self: center;
-      font-size: 22px;
+      font-size: 18px;
       line-height: 1.15;
     }
     .episode-nav-left{
@@ -274,16 +289,16 @@
       justify-self: start;
     }
     .episode-toolbar .ep-nav-btn{
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       padding: 0;
-      border-radius: 12px;
+      border-radius: 10px;
       font-size: 0;
       overflow: hidden;
     }
     .episode-nav-left .ep-nav-btn::before,
     .episode-nav-right .ep-nav-btn::before{
-      font-size: 17px;
+      font-size: 15px;
       line-height: 1;
     }
     .episode-nav-left .ep-nav-btn::before{ content: "←"; }
@@ -296,9 +311,9 @@
       display: none;
     }
     .episode-download-btn{
-      min-height: 34px;
-      padding: 7px 12px;
-      font-size: 13px;
+      min-height: 32px;
+      padding: 6px 10px;
+      font-size: 12px;
     }
   }
 
