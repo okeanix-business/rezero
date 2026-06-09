@@ -29,6 +29,7 @@ let coverDismissed = false;
 let currentSourcePref = localStorage.getItem("rezero_source_pref") || "tau";
 let fakeDriveFullscreen = false;
 let driveFullscreenBtn = null;
+let driveFullscreenHistoryActive = false;
 
 /* ================================
    FULLSCREEN FIX (MOBILE)
@@ -98,6 +99,12 @@ window.addEventListener("resize", () => {
   updateDriveFullscreenButton();
 });
 
+window.addEventListener("popstate", () => {
+  if (fakeDriveFullscreen) {
+    setFakeDriveFullscreen(false);
+  }
+});
+
 function isMobileViewport() {
   return window.matchMedia
     ? window.matchMedia("(max-width: 768px), (pointer: coarse)").matches
@@ -121,7 +128,15 @@ function shouldShowDriveFullscreen(ep = getCurrentEpisodeData()) {
 function setFakeDriveFullscreen(active) {
   if (!videoWrapper) return;
 
+  if (active && !driveFullscreenHistoryActive) {
+    try {
+      window.history.pushState({ driveFullscreen: true }, "", window.location.href);
+      driveFullscreenHistoryActive = true;
+    } catch (e) {}
+  }
+
   fakeDriveFullscreen = active;
+  if (!active) driveFullscreenHistoryActive = false;
   videoWrapper.classList.toggle("drive-mobile-fullscreen", active);
   document.body.classList.toggle("drive-fullscreen-lock", active);
 
@@ -191,8 +206,7 @@ function ensureDriveFullscreenButton() {
     event.preventDefault();
     event.stopPropagation();
 
-    if (fakeDriveFullscreen || getFsEl()) exitDriveFullscreen();
-    else enterDriveFullscreen();
+    if (!fakeDriveFullscreen && !getFsEl()) enterDriveFullscreen();
   };
 
   videoWrapper.appendChild(driveFullscreenBtn);
@@ -203,15 +217,11 @@ function updateDriveFullscreenButton(ep = getCurrentEpisodeData()) {
   const btn = ensureDriveFullscreenButton();
   if (!btn) return;
 
-  const visible = shouldShowDriveFullscreen(ep);
+  const fullscreenActive = !!(fakeDriveFullscreen || getFsEl());
+  const visible = shouldShowDriveFullscreen(ep) && !fullscreenActive;
   btn.style.display = visible ? "inline-flex" : "none";
-  btn.textContent = fakeDriveFullscreen || getFsEl() ? "Kapat" : "Tam ekran";
-  btn.setAttribute(
-    "aria-label",
-    fakeDriveFullscreen || getFsEl()
-      ? "Google Drive tam ekrandan cik"
-      : "Google Drive tam ekran ac"
-  );
+  btn.textContent = "Tam ekran";
+  btn.setAttribute("aria-label", "Google Drive tam ekran ac");
 }
 
 /* ================================
@@ -311,8 +321,7 @@ function switchSource(ep, sourceKey) {
   setDownloadState(ep);
   renderSourceSelectors(ep);
 
-  if (sourceKey === "google") enterDriveFullscreen();
-  else exitDriveFullscreen();
+  if (sourceKey !== "google") exitDriveFullscreen();
 }
 
 function renderSourceSelectors(ep) {
@@ -461,8 +470,6 @@ function dismissCover(ep, sourceKey) {
 
   // Re-trigger loadEpisode so localStorage saves now that cover is dismissed
   loadEpisode(currentEpisode, true);
-
-  if (sourceKey === "google") enterDriveFullscreen();
 }
 
 /* ================================

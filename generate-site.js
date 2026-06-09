@@ -460,7 +460,7 @@ ${GOOGLE_CONTRIBUTION_SCRIPT}
 <script src="seasons-data.js"></script>
 <script src="episode-pages-map.js"></script>
 <script>window.SEASON_NUMBER = ${season}; window.EPISODE_INDEX = ${epIndex};</script>
-<script src="player.js?v=mobile-drive-fs-20260610"></script>
+<script src="player.js?v=mobile-drive-back-20260610"></script>
 
 <style>
   @keyframes attentionPulse {

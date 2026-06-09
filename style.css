@@ -1852,6 +1852,7 @@ body.drive-fullscreen-lock {
   }
 
   .cover-support-title {
+    display: none;
     font-size: 10px;
     letter-spacing: 0.8px;
   }
