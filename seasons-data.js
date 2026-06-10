@@ -300,19 +300,21 @@ var SEASON_CONFIGS = {
     episodeTitles: [
       "Seni Yanımda Götürme Sebebim / Yeniden Doğan Muhteşem Kaplan", "Kum Zamanını Aşmak", "Gözetleme Kulesi’nin Bekçisi",
 	  "Beyaz Gökyüzünün Asterizmi", "Çubuk Sallayan",
-      "Julius Juukulius", "Marketin Kapısından Çıkıp Harikalarla Dolu Bir Dünyaya Adım Attım", "Sen Kimsin?", "Kalıntı", "Bölüm 10",
+      "Julius Juukulius", "Marketin Kapısından Çıkıp Harikalarla Dolu Bir Dünyaya Adım Attım", "Sen Kimsin?", "Öldürmek Alışkanlığa Dönüşür", "Bölüm 10",
       "Bölüm 11", "Bölüm 12", "Bölüm 13", "Bölüm 14", "Bölüm 15",
       "Bölüm 16", "Bölüm 17", "Bölüm 18", "Bölüm 19"
     ],
     episodeDriveIds: [
       "1QX5Ci-qo7gAh71hvqPiyKb2VRjbKfQBc", "1JfeHf0uqoDy8ixEs_XgGYHqLOw42Y02H", "1DXE79eMB-VVJ0KSoVYSDBdWbSppRTeZc",
 	  "1xPtLpdv7xfFFkZoDNtnN4tpqAwXmG3kh", "1bS5pCgmGPlwi3Hqu2Jf3f2ghAkcXt4ci", "1Z5YcR-8wBW2qec27TAxXfHySLRJwZ9Io", 
-	  "1Smh9gH3o3PNXbUqOXktf0kDkcbKc8OOF", "19EtnNefYAbpOQ-D23xFvKchDn14AvYzZ", "1RF6CQwSkMQG-tSkc4dRxjaGPQumUeCtW", "", "", "", "", "", "", "", "", "", ""
+	  "1Smh9gH3o3PNXbUqOXktf0kDkcbKc8OOF", "19EtnNefYAbpOQ-D23xFvKchDn14AvYzZ", "1RF6CQwSkMQG-tSkc4dRxjaGPQumUeCtW", 
+	  "1IxzeEfGR-xKPBHfrQktjnxaiopRUyuPa", "", "", "", "", "", "", "", "", ""
     ],
     episodeAnimecixUrls: [
       "https://tau-video.xyz/embed/69e8ceb7b067130deed1c092?vid=750688", "https://tau-video.xyz/embed/69e8bf60140a125ba83716c3?vid=750685", "https://tau-video.xyz/embed/69e8fec698be3e47efffd83a?vid=750724",
 	  "https://tau-video.xyz/embed/69f251d0b067130deed1c0a9?vid=751376", "https://tau-video.xyz/embed/69fc9193b067130deed1c0c8?vid=752258", "https://tau-video.xyz/embed/6a04c6cb3729057a605fd310?vid=752950", 
-	  "https://tau-video.xyz/embed/6a0df516a885b85179cd7eeb?vid=753720", "https://tau-video.xyz/embed/6a17385f5ff7bff04ed66d5f?vid=754671", "https://tau-video.xyz/embed/6a205b5748d0c9a296abef0b?vid=755401", "", "", "", "", "", "", "", "", "", ""
+	  "https://tau-video.xyz/embed/6a0df516a885b85179cd7eeb?vid=753720", "https://tau-video.xyz/embed/6a17385f5ff7bff04ed66d5f?vid=754671", "https://tau-video.xyz/embed/6a205b5748d0c9a296abef0b?vid=755401", 
+	  "https://tau-video.xyz/embed/6a29b418224010c9ef3ebc1a?vid=755865", "", "", "", "", "", "", "", "", ""
     ],
     breakTimes: {},
     specials: [],
