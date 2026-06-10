@@ -299,9 +299,9 @@ var SEASON_CONFIGS = {
     seasonNumber: 4,
     episodeTitles: [
       "Seni Yanımda Götürme Sebebim / Yeniden Doğan Muhteşem Kaplan", "Kum Zamanını Aşmak", "Gözetleme Kulesi’nin Bekçisi",
-	  "Beyaz Gökyüzünün Asterizmi", "Çubuk Sallayan",
-      "Julius Juukulius", "Marketin Kapısından Çıkıp Harikalarla Dolu Bir Dünyaya Adım Attım", "Sen Kimsin?", "Öldürmek Alışkanlığa Dönüşür", "Bölüm 10",
-      "Bölüm 11", "Bölüm 12", "Bölüm 13", "Bölüm 14", "Bölüm 15",
+	  "Beyaz Gökyüzünün Asterizmi", "Çubuk Sallayan", "Julius Juukulius", "Marketin Kapısından Çıkıp Harikalarla Dolu Bir Dünyaya Adım Attım",
+	  "Sen Kimsin?", "Kalıntı", "Öldürmek Alışkanlığa Dönüşür", "Bölüm 11", 
+	  "Bölüm 12", "Bölüm 13", "Bölüm 14", "Bölüm 15",
       "Bölüm 16", "Bölüm 17", "Bölüm 18", "Bölüm 19"
     ],
     episodeDriveIds: [
