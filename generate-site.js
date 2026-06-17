@@ -837,6 +837,14 @@ sitemapItems.push({
   priority: "0.9"
 });
 
+// Ekstra Bölümler sayfası
+sitemapItems.push({
+  loc: "/ekstra-bolumler.html",
+  filePath: path.join(__dirname, "ekstra-bolumler.html"),
+  changefreq: "weekly",
+  priority: "0.8"
+});
+
 const seasons = Object.keys(rz.configs || {}).map(Number).sort((a, b) => a - b);
 
 for (let si = 0; si < seasons.length; si++) {

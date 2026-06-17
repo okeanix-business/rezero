@@ -384,6 +384,50 @@ a {
   background: rgba(90, 120, 255, 0.35);
   border-color: rgba(90, 120, 255, 0.55);
 }
+
+/* ---------- CARD RIBBONS (DIAGONAL METALLIC) ---------- */
+.card-ribbon {
+  position: absolute;
+  top: 14px;
+  right: -32px;
+  z-index: 10;
+  width: 110px;
+  padding: 4px 0;
+  transform: rotate(45deg);
+  text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 9.5px;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  text-rendering: geometricPrecision;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.55);
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.3s ease;
+  pointer-events: none;
+}
+
+/* Luxury 5-Stop Gold Gradient for Blu-ray */
+.ribbon-bluray {
+  background: linear-gradient(135deg, #6f4307 0%, #c28a24 20%, #ffe38a 42%, #b77918 58%, #fff1a8 76%, #8a560b 100%);
+  color: #1b0f00;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.62), 0 0 8px rgba(255, 213, 91, 0.4);
+}
+
+/* Chrome Silver Gradient for Web-DL */
+.ribbon-web {
+  background: linear-gradient(135deg, #16415a 0%, #d8f7ff 24%, #7ab8d7 44%, #ffffff 63%, #60788f 82%, #102233 100%);
+  color: #07101a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.62), 0 0 7px rgba(112, 218, 255, 0.28);
+}
+
+/* Premium scale and glow effect on card hover */
+.season-card:hover .card-ribbon {
+  transform: rotate(45deg) scale(1.06);
+  filter: brightness(1.15);
+}
 .season-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 24px 42px rgba(0, 0, 0, 0.54);
@@ -1573,6 +1617,14 @@ body.drive-fullscreen-lock {
   font-size: 14px;
 }
 
+.extra-summary {
+  margin-top: 18px;
+}
+
+.extra-summary p + p {
+  margin-top: 10px;
+}
+
   /* Prev / Hub / Next */
   .ep-nav {
     max-width: 900px;
@@ -1674,6 +1726,157 @@ body.drive-fullscreen-lock {
 .dle{
   background-image: url("images/dle.webp");
 }
+
+.extra-card {
+  background-image:
+    linear-gradient(135deg, rgba(10, 13, 32, 0.12), rgba(92, 70, 180, 0.18)),
+    url("images/breaktime.webp");
+}
+
+.season-badge.extra-badge {
+  background: rgba(120, 82, 255, 0.36);
+  border-color: rgba(190, 170, 255, 0.55);
+}
+
+.extras-panel {
+  width: min(840px, 100%);
+  max-width: calc(100vw - 40px);
+  margin: 0 auto;
+  padding: 0;
+}
+
+.extras-title {
+  margin: 0 0 18px;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.extra-episode-list {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
+.extra-episode-link {
+  width: 100%;
+  max-width: calc(100vw - 40px);
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  min-height: 74px;
+  padding: 10px 14px 10px 10px;
+  border: 1px solid rgba(143,155,255,0.22);
+  border-radius: 10px;
+  background:
+    linear-gradient(135deg, rgba(143,155,255,0.14), rgba(255,255,255,0.04)),
+    rgba(12, 16, 36, 0.78);
+  color: #eef0ff;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.extra-episode-link:not(.locked):hover {
+  transform: translateY(-2px);
+  border-color: rgba(180,190,255,0.45);
+  background:
+    linear-gradient(135deg, rgba(143,155,255,0.22), rgba(255,255,255,0.07)),
+    rgba(15, 20, 48, 0.9);
+}
+
+.extra-episode-link.locked {
+  cursor: not-allowed;
+  color: rgba(234,234,255,0.48);
+  border-color: rgba(255,255,255,0.09);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.055), rgba(255,255,255,0.02)),
+    rgba(10, 13, 28, 0.72);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.025);
+}
+
+.extra-episode-number {
+  width: 54px;
+  height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: radial-gradient(circle at 50% 40%, #5560ff, #1b2252);
+  border: 2px solid rgba(190,200,255,0.72);
+  font-size: 18px;
+  font-weight: 900;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    0 8px 18px rgba(0,0,0,0.34);
+}
+
+.extra-episode-link.locked .extra-episode-number {
+  background: radial-gradient(circle at 50% 40%, #3c435d, #171b2a);
+  border-color: rgba(255,255,255,0.18);
+  color: rgba(234,234,255,0.58);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.extra-episode-title {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.extra-episode-title strong {
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.extra-episode-title small {
+  color: rgba(234,234,255,0.66);
+  font-weight: 650;
+}
+
+.extra-episode-source {
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  color: rgba(234,234,255,0.78);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.4px;
+}
+
+.extra-episode-link.locked .extra-episode-source {
+  background: rgba(255,255,255,0.045);
+  color: rgba(234,234,255,0.48);
+}
+
+@media (max-width: 520px) {
+  .extras-panel {
+    width: 100%;
+    padding: 0;
+  }
+
+  .extra-episode-list,
+  .extra-episode-link {
+    width: calc(100vw - 64px);
+    max-width: calc(100vw - 64px);
+  }
+
+.extra-episode-link {
+    grid-template-columns: 52px minmax(0, 1fr);
+    min-height: 68px;
+    padding: 9px 10px 9px 9px;
+  }
+
+  .extra-episode-number {
+    width: 48px;
+    height: 48px;
+  }
+
+  .extra-episode-source {
+    display: none;
+  }
+}
+
 .discord-card {
   background: radial-gradient(circle at 50% 40%, #3a45c7, #1a1f6e);
   display: flex;
@@ -1917,6 +2120,16 @@ body.drive-fullscreen-lock {
 /* Episode Title Spoiler */
 .episode-title { display: inline; background-color: #4a4d5a; color: transparent; border-radius: 6px; padding: 2px 8px; transition: all 0.3s ease; cursor: pointer; user-select: none; }
 .episode-title:hover, .episode-title.revealed { background-color: transparent; color: #fff; user-select: text; }
+
+.extra-player-page .episode-title {
+  display: block;
+  margin-top: 10px;
+  padding: 0;
+  background: transparent;
+  color: var(--text);
+  cursor: default;
+  user-select: text;
+}
 
 /* ---------- DESTEKLE CARD ---------- */
 .destekle-card {

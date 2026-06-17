@@ -1,13 +1,18 @@
 /* player.js — URL çözümleme + yönlendirme + yorum issue-term stabil */
 
-const SEASON_NUMBER = Number(window.SEASON_NUMBER || 1);
-const EPISODE_INDEX = Number(window.EPISODE_INDEX ?? 0);
+const IS_EXTRA_PLAYER = Array.isArray(window.REZERO_EXTRA_EPISODES);
+const SEASON_NUMBER = IS_EXTRA_PLAYER ? 0 : Number(window.SEASON_NUMBER || 1);
+const EPISODE_INDEX = Number(window.EXTRA_EPISODE_INDEX ?? window.EPISODE_INDEX ?? 0);
 
-const STORAGE_KEY = `rezero_s${SEASON_NUMBER}_last_episode`;
+const STORAGE_KEY = IS_EXTRA_PLAYER
+  ? `rezero_${window.EXTRA_COLLECTION_ID || "extra"}_last_episode`
+  : `rezero_s${SEASON_NUMBER}_last_episode`;
 const GLOBAL_LAST_OPEN_KEY = "rezero_last_open";
 const GLOBAL_LAST_WATCH_KEY = "rezero_last_watch";
 
-const episodes = window.REZERO_SEASONS?.buildEpisodes
+const episodes = IS_EXTRA_PLAYER
+  ? window.REZERO_EXTRA_EPISODES
+  : window.REZERO_SEASONS?.buildEpisodes
   ? window.REZERO_SEASONS.buildEpisodes(SEASON_NUMBER)
   : [];
 
@@ -118,7 +123,7 @@ function getCurrentEpisodeData() {
 function shouldShowDriveFullscreen(ep = getCurrentEpisodeData()) {
   return !!(
     ep &&
-    ep.driveId &&
+    getDriveId(ep) &&
     coverDismissed &&
     currentSourcePref === "google" &&
     isMobileViewport()
@@ -229,7 +234,20 @@ function updateDriveFullscreenButton(ep = getCurrentEpisodeData()) {
 ================================ */
 
 function isAvailable(ep) {
-  return !!(ep.driveId || ep.animecix);
+  return !!(getDriveId(ep) || ep.animecix);
+}
+
+function getDriveId(ep) {
+  const raw = String(ep?.driveId || "").trim();
+  if (!raw || raw.includes("GOOGLE_DRIVE_FILE_ID")) return "";
+
+  const fileMatch = raw.match(/\/file\/d\/([^/?#]+)/);
+  if (fileMatch) return fileMatch[1];
+
+  const idMatch = raw.match(/[?&]id=([^&#]+)/);
+  if (idMatch) return idMatch[1];
+
+  return raw;
 }
 
 function getPlayableSources(ep, labels = "short") {
@@ -237,7 +255,7 @@ function getPlayableSources(ep, labels = "short") {
 
   const sources = [];
   const hasTau = !!ep.animecix;
-  const hasDrive = !!ep.driveId;
+  const hasDrive = !!getDriveId(ep);
 
   if (hasTau) {
     sources.push({
@@ -286,6 +304,10 @@ function slugifyLite(s) {
 function getIssueTerm(ep) {
   if (!ep) return `s${SEASON_NUMBER}-unknown`;
 
+  if (IS_EXTRA_PLAYER) {
+    return `extra-${slugifyLite(ep.id || ep.code || ep.number || currentEpisode)}`;
+  }
+
   if (ep.kind === "episode") return `s${SEASON_NUMBER}-e${ep.number}`;
   if (ep.kind === "break") return `s${SEASON_NUMBER}-b${ep.number}`;
 
@@ -302,6 +324,11 @@ function getIssueTerm(ep) {
 
 function getEpisodePageUrl(season, index) {
   try {
+    if (IS_EXTRA_PLAYER) {
+      const rel = episodes[index]?.page || null;
+      return rel ? new URL(rel, document.baseURI).toString() : null;
+    }
+
     const rel = window.REZERO_EP_PAGES?.[season]?.[index] || null;
     if (!rel) return null;
     return new URL(rel, document.baseURI).toString();
@@ -355,14 +382,17 @@ function setDownloadState(ep) {
   if (!downloadBtn) return;
 
   // Her zaman Google ID’sine yönlendir, player seçimi fark etmez
-  let activeDriveId = ep.driveId;
+  let activeDriveId = getDriveId(ep);
+  const downloadBox = downloadBtn.closest(".episode-download-box");
 
   if (activeDriveId) {
+    if (downloadBox) downloadBox.style.display = "";
     downloadBtn.classList.remove("disabled");
     downloadBtn.style.display = "";
     downloadBtn.href = `https://drive.google.com/uc?export=download&id=${activeDriveId}`;
     downloadBtn.setAttribute("target", "_blank");
   } else {
+    if (downloadBox && IS_EXTRA_PLAYER) downloadBox.style.display = "none";
     downloadBtn.classList.add("disabled");
     downloadBtn.style.display = "none";
     downloadBtn.removeAttribute("href");
@@ -380,8 +410,9 @@ function setVideoState(ep) {
     return;
   }
 
-  const driveUrl = ep.driveId
-    ? `https://drive.google.com/file/d/${ep.driveId}/preview`
+  const driveId = getDriveId(ep);
+  const driveUrl = driveId
+    ? `https://drive.google.com/file/d/${driveId}/preview`
     : null;
   const tauUrl = ep.animecix ? ep.animecix : null;
 
@@ -438,7 +469,7 @@ function renderCoverButtons(ep) {
 
   const sources = [];
   if (ep.animecix) sources.push({ key: "tau", label: "TAU Player", icon: "▶" });
-  if (ep.driveId) sources.push({ key: "google", label: "Google Drive", icon: "▶" });
+  if (getDriveId(ep)) sources.push({ key: "google", label: "Google Drive", icon: "▶" });
 
   normalizeSourcePref(ep);
 
@@ -477,6 +508,7 @@ function dismissCover(ep, sourceKey) {
 ================================ */
 
 function makeSeasonLine(ep) {
+  if (IS_EXTRA_PLAYER) return ep.seasonLine || "Ekstra Bölüm";
   if (ep.isFinal) return `${SEASON_NUMBER}. Sezon Final Bölümü`;
   if (ep.kind === "break") return `${SEASON_NUMBER}. Sezon ${ep.number}. Ara Bölüm`;
   if (ep.kind === "special") return `${SEASON_NUMBER}. Sezon Özel Bölüm`;
@@ -484,6 +516,7 @@ function makeSeasonLine(ep) {
 }
 
 function makeTitleLine(ep) {
+  if (IS_EXTRA_PLAYER) return ep.title || `Ekstra Bölüm ${ep.number}`;
   if (ep.kind === "break") return `${ep.number}. Mola Zamanı`;
   return ep.title || `Bölüm ${ep.number}`;
 }
@@ -557,17 +590,22 @@ function loadEpisode(index, userInitiated = true) {
   if (userInitiated && coverDismissed && isAvailable(ep)) {
     const now = Date.now();
     try {
-      localStorage.setItem(
-        GLOBAL_LAST_OPEN_KEY,
-        JSON.stringify({ season: SEASON_NUMBER, i: index, t: now })
-      );
-      localStorage.setItem(`rezero_s${SEASON_NUMBER}_last_seen_at`, String(now));
-      localStorage.setItem(`rezero_s${SEASON_NUMBER}_last_open`, String(index));
-      localStorage.setItem(STORAGE_KEY, String(index));
-      localStorage.setItem(
-        GLOBAL_LAST_WATCH_KEY,
-        JSON.stringify({ season: SEASON_NUMBER, i: index, t: now })
-      );
+      if (IS_EXTRA_PLAYER) {
+        localStorage.setItem(`${window.EXTRA_COLLECTION_ID || "extra"}_last_seen_at`, String(now));
+        localStorage.setItem(STORAGE_KEY, String(index));
+      } else {
+        localStorage.setItem(
+          GLOBAL_LAST_OPEN_KEY,
+          JSON.stringify({ season: SEASON_NUMBER, i: index, t: now })
+        );
+        localStorage.setItem(`rezero_s${SEASON_NUMBER}_last_seen_at`, String(now));
+        localStorage.setItem(`rezero_s${SEASON_NUMBER}_last_open`, String(index));
+        localStorage.setItem(STORAGE_KEY, String(index));
+        localStorage.setItem(
+          GLOBAL_LAST_WATCH_KEY,
+          JSON.stringify({ season: SEASON_NUMBER, i: index, t: now })
+        );
+      }
     } catch (e) {}
   }
 
