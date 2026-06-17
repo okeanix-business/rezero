@@ -300,7 +300,7 @@ var SEASON_CONFIGS = {
     episodeTitles: [
       "Seni Yanımda Götürme Sebebim / Yeniden Doğan Muhteşem Kaplan", "Kum Zamanını Aşmak", "Gözetleme Kulesi’nin Bekçisi",
 	  "Beyaz Gökyüzünün Asterizmi", "Çubuk Sallayan", "Julius Juukulius", "Marketin Kapısından Çıkıp Harikalarla Dolu Bir Dünyaya Adım Attım",
-	  "Sen Kimsin?", "Kalıntı", "Öldürmek Alışkanlığa Dönüşür", "Bölüm 11", 
+	  "Sen Kimsin?", "Kalıntı", "Öldürmek Alışkanlığa Dönüşür", "Re: Sıfırdan Başka Bir Dünyada Hayata Başlamak", 
 	  "Bölüm 12", "Bölüm 13", "Bölüm 14", "Bölüm 15",
       "Bölüm 16", "Bölüm 17", "Bölüm 18", "Bölüm 19"
     ],
@@ -308,7 +308,7 @@ var SEASON_CONFIGS = {
       "1QX5Ci-qo7gAh71hvqPiyKb2VRjbKfQBc", "1JfeHf0uqoDy8ixEs_XgGYHqLOw42Y02H", "1DXE79eMB-VVJ0KSoVYSDBdWbSppRTeZc",
 	  "1xPtLpdv7xfFFkZoDNtnN4tpqAwXmG3kh", "1bS5pCgmGPlwi3Hqu2Jf3f2ghAkcXt4ci", "1Z5YcR-8wBW2qec27TAxXfHySLRJwZ9Io", 
 	  "1Smh9gH3o3PNXbUqOXktf0kDkcbKc8OOF", "19EtnNefYAbpOQ-D23xFvKchDn14AvYzZ", "1RF6CQwSkMQG-tSkc4dRxjaGPQumUeCtW", 
-	  "1IxzeEfGR-xKPBHfrQktjnxaiopRUyuPa", "", "", "", "", "", "", "", "", ""
+	  "1IxzeEfGR-xKPBHfrQktjnxaiopRUyuPa", "1VFbcKH_7qF21Uzun-iaUg6qx5_1wnh8N", "", "", "", "", "", "", "", ""
     ],
     episodeAnimecixUrls: [
       "https://tau-video.xyz/embed/69e8ceb7b067130deed1c092?vid=750688", "https://tau-video.xyz/embed/69e8bf60140a125ba83716c3?vid=750685", "https://tau-video.xyz/embed/69e8fec698be3e47efffd83a?vid=750724",
