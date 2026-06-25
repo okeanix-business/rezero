@@ -134,7 +134,7 @@ var SEASON_CONFIGS = {
       "Seviyorum Seviyorum Seviyorum Seviyorum Seviyorum Seviyorum Seni", //9
       "Cehennemi Biliyorum", //10
       "Ölümün Tadı", //11
-      "Bölüm 12", //12
+      "Cadıların Çay Partisi", //12
       "Bölüm 13", //13
       "Bölüm 14", //14
       "Bölüm 15", //15
@@ -162,7 +162,7 @@ var SEASON_CONFIGS = {
       "1QG6Ux6ajTYuhc9OEPBclmPyL7aUm46pG", //9
       "1gU9fvuwqBCigz_HCl7Md7a2rP6jnXG0s", //10
       "1ws2FR9gCkoMLISheEFVsN0FgXsQLr_HW", //11
-      "", //12
+      "18xovlR6DxDJtCWYA53e39jSyzGO7XpSV", //12
       "", //13
       "", //14
       "", //15
@@ -190,7 +190,7 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/69879541f8d39f6943842a55?vid=744524", //9
       "https://tau-video.xyz/embed/69886ace1d66f6c39d1404ee?vid=744581", //10
       "https://tau-video.xyz/embed/6989164aeb1a5915e492acad?vid=744678", //11
-      "", //12
+      "https://tau-video.xyz/embed/6a3cdde9f342e3f8d7f903b9?vid=756522", //12
       "", //13
       "", //14
       "", //15
