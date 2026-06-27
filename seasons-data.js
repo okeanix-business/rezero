@@ -135,7 +135,7 @@ var SEASON_CONFIGS = {
       "Cehennemi Biliyorum", //10
       "Ölümün Tadı", //11
       "Cadıların Çay Partisi", //12
-      "Bölüm 13", //13
+      "İnsanı Ağlatacak Ses", //13
       "Bölüm 14", //14
       "Bölüm 15", //15
       "Bölüm 16", //16
@@ -163,7 +163,7 @@ var SEASON_CONFIGS = {
       "1gU9fvuwqBCigz_HCl7Md7a2rP6jnXG0s", //10
       "1ws2FR9gCkoMLISheEFVsN0FgXsQLr_HW", //11
       "18xovlR6DxDJtCWYA53e39jSyzGO7XpSV", //12
-      "", //13
+      "1VOkvOyyvyKpNc0pJuEcwYoDUPM9YFIFo", //13
       "", //14
       "", //15
       "", //16
@@ -191,7 +191,7 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/69886ace1d66f6c39d1404ee?vid=744581", //10
       "https://tau-video.xyz/embed/6989164aeb1a5915e492acad?vid=744678", //11
       "https://tau-video.xyz/embed/6a3cdde9f342e3f8d7f903b9?vid=756522", //12
-      "", //13
+      "https://tau-video.xyz/embed/6a3fba73002a74333f66add6?vid=756595", //13
       "", //14
       "", //15
       "", //16
