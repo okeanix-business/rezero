@@ -783,4 +783,46 @@ window.REZERO_DLE_DATA = [
     firstArc: 4,
     portrait: "images/chars/ryuzu.webp"
   },
+  {
+    id: "joseph",
+    name: "Joseph",
+    gender: "Erkek",
+    race: "Yer Ejderi",
+    heightCm: "?",
+    age: "?",
+    affiliation: "Emilia Kampı",
+    elements: ["Yok"],
+    divineProtection: true,
+    authority: false,
+    firstArc: 6,
+    portrait: "images/chars/joseph.webp"
+  },
+  {
+    id: "shaula",
+    name: "Shaula",
+    gender: "Kız",
+    race: "Cadı Yaratığı",
+    heightCm: 170,
+    age: "400+",
+    affiliation: "Pleiades Gözetleme Kulesi",
+    elements: ["Yok"],
+    divineProtection: false,
+    authority: false,
+    firstArc: 6,
+    portrait: "images/chars/shaula.webp"
+  },
+  {
+    id: "reid",
+    name: "Reid Astrea",
+    gender: "Erkek",
+    race: "İnsan",
+    heightCm: "?",
+    age: "?",
+    affiliation: "Astrea Hanesi",
+    elements: ["Yok"],
+    divineProtection: false,
+    authority: false,
+    firstArc: 6,
+    portrait: "images/chars/reid.webp"
+  },  
 ];
