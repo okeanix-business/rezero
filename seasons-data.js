@@ -136,7 +136,7 @@ var SEASON_CONFIGS = {
       "Ölümün Tadı", //11
       "Cadıların Çay Partisi", //12
       "İnsanı Ağlatacak Ses", //13
-      "Bölüm 14", //14
+      "Doğrudan Bahis", //14
       "Bölüm 15", //15
       "Bölüm 16", //16
       "Bölüm 17", //17
@@ -164,7 +164,7 @@ var SEASON_CONFIGS = {
       "1ws2FR9gCkoMLISheEFVsN0FgXsQLr_HW", //11
       "18xovlR6DxDJtCWYA53e39jSyzGO7XpSV", //12
       "1VOkvOyyvyKpNc0pJuEcwYoDUPM9YFIFo", //13
-      "", //14
+      "1z428JvmHpEa7n-A03a29f9GB5Mwch3GV", //14
       "", //15
       "", //16
       "", //17
@@ -192,7 +192,7 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/6989164aeb1a5915e492acad?vid=744678", //11
       "https://tau-video.xyz/embed/6a3cdde9f342e3f8d7f903b9?vid=756522", //12
       "https://tau-video.xyz/embed/6a3fba73002a74333f66add6?vid=756595", //13
-      "", //14
+      "https://tau-video.xyz/embed/6a441bdbf2c0587e0fd8b8e7?vid=756981", //14
       "", //15
       "", //16
       "", //17
