@@ -138,7 +138,7 @@ var SEASON_CONFIGS = {
       "İnsanı Ağlatacak Ses", //13
       "Doğrudan Bahis", //14
       "Otto Suwen / İnanmak İçin Bir Sebep", //15
-      "Bölüm 16", //16
+      "Kuwein Taşı'nı Kimse Tek Başına Kaldıramaz", //16
       "Bölüm 17", //17
       "Bölüm 18", //18
       "Bölüm 19", //19
@@ -166,7 +166,7 @@ var SEASON_CONFIGS = {
       "1VOkvOyyvyKpNc0pJuEcwYoDUPM9YFIFo", //13
       "1z428JvmHpEa7n-A03a29f9GB5Mwch3GV", //14
       "1WiMv7-oM6zqSWRqNTxXARKDnLJ_yJdWP", //15
-      "", //16
+      "1GUeJoRikG-JbeHDDLXDOl4axlDDZVBbv", //16
       "", //17
       "", //18
       "", //19
@@ -194,7 +194,7 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/6a3fba73002a74333f66add6?vid=756595", //13
       "https://tau-video.xyz/embed/6a441bdbf2c0587e0fd8b8e7?vid=756981", //14
       "https://tau-video.xyz/embed/6a469f7ad5ce148fbbb338b2?vid=757205", //15
-      "", //16
+      "https://tau-video.xyz/embed/6a4804e859edd8529b31224f?vid=757265", //16
       "", //17
       "", //18
       "", //19
