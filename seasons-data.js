@@ -139,7 +139,7 @@ var SEASON_CONFIGS = {
       "Doğrudan Bahis", //14
       "Otto Suwen / İnanmak İçin Bir Sebep", //15
       "Kuwein Taşı'nı Kimse Tek Başına Kaldıramaz", //16
-      "Bölüm 17", //17
+      "Anılarda Bir Yolculuk", //17
       "Bölüm 18", //18
       "Bölüm 19", //19
       "Bölüm 20", //20
@@ -167,7 +167,7 @@ var SEASON_CONFIGS = {
       "1z428JvmHpEa7n-A03a29f9GB5Mwch3GV", //14
       "1WiMv7-oM6zqSWRqNTxXARKDnLJ_yJdWP", //15
       "1GUeJoRikG-JbeHDDLXDOl4axlDDZVBbv", //16
-      "", //17
+      "13nU4GzG_K3hRHmkDgRx-N3AjgKwHMZsv", //17
       "", //18
       "", //19
       "", //20
@@ -182,7 +182,7 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/696391021d66f6c39d140442?vid=740560", //1
       "https://tau-video.xyz/embed/696391b1eb1a5915e492abef?vid=740563", //2
       "https://tau-video.xyz/embed/69655933fd4c16eef7c23fe4?vid=740683", //3
-      "https://tau-video.xyz/embed/69842511fd4c16eef7c24079?vid=744304", //4
+      "https://tau-video.xyz/embed/69842511fd4c16eef7c24079?vid=744304", //4https://drive.google.com/file/d/13nU4GzG_K3hRHmkDgRx-N3AjgKwHMZsv/view?usp=drive_link
       "https://tau-video.xyz/embed/6984e4ecfaa4f0fe3c1461b3?vid=744356", //5
       "https://tau-video.xyz/embed/6985f876fd4c16eef7c2407d?vid=744404", //6
       "https://tau-video.xyz/embed/698670b2a09ea30ace48397f?vid=744428", //7
@@ -195,7 +195,7 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/6a441bdbf2c0587e0fd8b8e7?vid=756981", //14
       "https://tau-video.xyz/embed/6a469f7ad5ce148fbbb338b2?vid=757205", //15
       "https://tau-video.xyz/embed/6a4804e859edd8529b31224f?vid=757265", //16
-      "", //17
+      "https://tau-video.xyz/embed/6a49917ef2c0587e0fd8b912?vid=757414", //17
       "", //18
       "", //19
       "", //20
