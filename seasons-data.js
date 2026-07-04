@@ -218,8 +218,8 @@ var SEASON_CONFIGS = {
         extraType: "frozenbond",
         number: 0,
         title: "Donmuş Bağlar (Frozen Bonds)",
-        driveId: "1ppB2BsVB9X5J-pzf4dABzEkCFLBPyaaX",
-        animecix: "https://tau-video.xyz/embed/6960fd841d66f6c39d140436?vid=740359"
+        driveId: "1mCqTf2q6BDimWzlcyx8Ksi8Ny3vONsSE",
+        animecix: "https://tau-video.xyz/embed/6a48f26bec3223a31a1ece76?vid=757342"
       }
     ],
 
