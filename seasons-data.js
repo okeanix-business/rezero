@@ -18,11 +18,11 @@ var SEASON_CONFIGS = {
       "Cesaretin Anlamı", //9
       "Bir Oni Gibi Fanatik Yöntemler", //10
       "Rem", //11
-      "Kraliyet Başkenti’ne Dönüş", //12
-      "Kendini Şövalye İlan Eden Kişi", //13
-      "Çaresizlik Adındaki Hastalık", //14
-      "Deliliğin Ötesinde", //15
-      "Bir Domuzun Açgözlülüğü", //16
+      "Kraliyet Başkenti’ne Dönüş", //12 REMASTERED
+      "Kendini Şövalye İlan Eden Kişi", //13 REMASTERED
+      "Çaresizlik Denen Hastalık", //14 REMASTERED
+      "Deliliğin Ötesinde", //15 REMASTERED
+      "Bir Domuzun Açgözlülüğü", //16 REMASTERED
       "Aşırı Utanç", //17
       "Sıfırdan", //18
       "Beyaz Balina’ya Karşı Savaş", //19
@@ -48,8 +48,8 @@ var SEASON_CONFIGS = {
       "1FvLCPBPKqSgoEKGmp5qOoreDreuh7QUO", //11
       "1xdN5yuXhgz_punnDc2LIabwd0ZDhwVcY", //12 REMASTERED
       "1vMuCzJQ75q5Rd_JPxNGsU5M-aOb01CP9", //13 REMASTERED
-      "19v2-TcvENgKDTOt3HNeKFuC4aTISRcQa", //14
-      "1JVc99h0JZ74UH9q45KXuvbC2LdKbx6N8", //15
+      "1f3wd1XS0CpUAkIQoFqEe1qFHrJBsnGqE", //14 REMASTERED
+      "1jm4_dLygqc_d8MYkhFgocx6nPsxj5WMG", //15 REMASTERED
       "1Gseu5ao1BnF2RjIhXNc1y3aBvKs7QqJ5", //16
       "1s8yptmVl6RXiwXN9epgOxRECltJp_t_j", //17
       "1cJOr7dB9a1DDFMRlKCFcFVDxIpR931i_", //18
@@ -76,8 +76,8 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/695a75fffaa4f0fe3c1460f3?vid=739903", //11
       "https://tau-video.xyz/embed/6a4a598275c86a0b6f67b706?vid=757488", //12 REMASTERED
       "https://tau-video.xyz/embed/6a4a87adf342e3f8d7f903fe?vid=757521", //13 REMASTERED
-      "https://tau-video.xyz/embed/695acbeef8d39f6943842994?vid=739978", //14
-      "https://tau-video.xyz/embed/695acc9df8d39f6943842995?vid=739981", //15
+      "https://tau-video.xyz/embed/6a4aad50f342e3f8d7f90400?vid=757542", //14 REMASTERED
+      "https://tau-video.xyz/embed/6a4ad1f9f2c0587e0fd8b917?vid=757557", //15 REMASTERED
       "https://tau-video.xyz/embed/695acde6c0da000447f8c928?vid=739987", //16
       "https://tau-video.xyz/embed/695ace91eb1a5915e492abd2?vid=739990", //17
       "https://tau-video.xyz/embed/695c48c0eb1a5915e492abdc?vid=740086", //18
