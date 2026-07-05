@@ -18,7 +18,7 @@ var SEASON_CONFIGS = {
       "Cesaretin Anlamı", //9
       "Bir Oni Gibi Fanatik Yöntemler", //10
       "Rem", //11
-      "Başkente Dönüş", //12
+      "Kraliyet Başkenti’ne Dönüş", //12
       "Kendini Şövalye İlan Eden Kişi", //13
       "Çaresizlik Adındaki Hastalık", //14
       "Deliliğin Ötesinde", //15
@@ -46,7 +46,7 @@ var SEASON_CONFIGS = {
       "1KeqHAI9fUUHH_LlQt2qcF7_zUAAHm14t", //9
       "1-CVvSJ9HmgtsWL28mdc4HmMhLlLCFAKN", //10
       "1FvLCPBPKqSgoEKGmp5qOoreDreuh7QUO", //11
-      "18HljC_vgaJQgUqqdC78dQ6WOcs8D2Qwi", //12
+      "1xdN5yuXhgz_punnDc2LIabwd0ZDhwVcY", //12 REMASTERED
       "1WamXGfq1phJZaSLnXmC8siDYCXy419VG", //13
       "19v2-TcvENgKDTOt3HNeKFuC4aTISRcQa", //14
       "1JVc99h0JZ74UH9q45KXuvbC2LdKbx6N8", //15
@@ -74,7 +74,7 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/6959a3e1c0da000447f8c91f?vid=739795", //9
       "https://tau-video.xyz/embed/695a75591d66f6c39d140421?vid=739900", //10
       "https://tau-video.xyz/embed/695a75fffaa4f0fe3c1460f3?vid=739903", //11
-      "https://tau-video.xyz/embed/695aca961d66f6c39d140425?vid=739972", //12
+      "https://tau-video.xyz/embed/6a4a598275c86a0b6f67b706?vid=757488", //12 REMASTERED
       "https://tau-video.xyz/embed/695acb3fc0da000447f8c927?vid=739975", //13
       "https://tau-video.xyz/embed/695acbeef8d39f6943842994?vid=739978", //14
       "https://tau-video.xyz/embed/695acc9df8d39f6943842995?vid=739981", //15
