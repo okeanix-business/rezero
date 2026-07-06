@@ -23,8 +23,8 @@ var SEASON_CONFIGS = {
       "Çaresizlik Denen Hastalık", //14 REMASTERED
       "Deliliğin Ötesinde", //15 REMASTERED
       "Bir Domuzun Açgözlülüğü", //16 REMASTERED
-      "Aşırı Utanç", //17
-      "Sıfırdan", //18
+      "Utancın Son Noktasında", //17 REMASTERED
+      "Sıfırdan", //18 
       "Beyaz Balina’ya Karşı Savaş", //19
       "Wilhelm van Astrea", //20
       "Umutsuzluğu Aşan Kumar", //21
@@ -46,10 +46,10 @@ var SEASON_CONFIGS = {
       "1KeqHAI9fUUHH_LlQt2qcF7_zUAAHm14t", //9
       "1-CVvSJ9HmgtsWL28mdc4HmMhLlLCFAKN", //10
       "1FvLCPBPKqSgoEKGmp5qOoreDreuh7QUO", //11
-      "1xdN5yuXhgz_punnDc2LIabwd0ZDhwVcY", //12 REMASTERED
-      "1vMuCzJQ75q5Rd_JPxNGsU5M-aOb01CP9", //13 REMASTERED
-      "1f3wd1XS0CpUAkIQoFqEe1qFHrJBsnGqE", //14 REMASTERED
-      "1jm4_dLygqc_d8MYkhFgocx6nPsxj5WMG", //15 REMASTERED
+      "1R54bUmtYhMqbKAHhRo7IxIaNxZzzMvS9", //12 REMASTERED
+      "11mikDuHoPe9e5OO_Cp9LQhGaV-RrPhBw", //13 REMASTERED
+      "18uG4fj0YO20tOOLYHn0pEit7lwsdHPTa", //14 REMASTERED
+      "1sUnz_fW7Sda3VBrOQ2KTYZ79JFuGbEJA", //15 REMASTERED
       "1pqBA6JNRRruEBuLAo7iknU_D0oOvtps3", //16 REMASTERED
       "1s8yptmVl6RXiwXN9epgOxRECltJp_t_j", //17
       "1cJOr7dB9a1DDFMRlKCFcFVDxIpR931i_", //18
@@ -72,12 +72,12 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/6959a324e4b357250ada9225?vid=739789", //7
       "https://tau-video.xyz/embed/6959a395c0da000447f8c91e?vid=739792", //8
       "https://tau-video.xyz/embed/6959a3e1c0da000447f8c91f?vid=739795", //9
-      "https://tau-video.xyz/embed/695a75591d66f6c39d140421?vid=739900", //10https://drive.google.com/file/d/1pqBA6JNRRruEBuLAo7iknU_D0oOvtps3/view?usp=drive_link
+      "https://tau-video.xyz/embed/695a75591d66f6c39d140421?vid=739900", //10
       "https://tau-video.xyz/embed/695a75fffaa4f0fe3c1460f3?vid=739903", //11
-      "https://tau-video.xyz/embed/6a4a598275c86a0b6f67b706?vid=757488", //12 REMASTERED
-      "https://tau-video.xyz/embed/6a4a87adf342e3f8d7f903fe?vid=757521", //13 REMASTERED
-      "https://tau-video.xyz/embed/6a4aad50f342e3f8d7f90400?vid=757542", //14 REMASTERED
-      "https://tau-video.xyz/embed/6a4ad1f9f2c0587e0fd8b917?vid=757557", //15 REMASTERED
+      "https://tau-video.xyz/embed/6a4beb6ef2c0587e0fd8b927?vid=757780", //12 REMASTERED
+      "https://tau-video.xyz/embed/6a4bc510002a74333f66ae18?vid=757762", //13 REMASTERED
+      "https://tau-video.xyz/embed/6a4bd0b675c86a0b6f67b715?vid=757765", //14 REMASTERED
+      "https://tau-video.xyz/embed/6a4bb089ec3223a31a1ece91?vid=757753", //15 REMASTERED
       "https://tau-video.xyz/embed/6a4b9bc7002a74333f66ae17?vid=757750", //16 REMASTERED
       "https://tau-video.xyz/embed/695ace91eb1a5915e492abd2?vid=739990", //17
       "https://tau-video.xyz/embed/695c48c0eb1a5915e492abdc?vid=740086", //18
