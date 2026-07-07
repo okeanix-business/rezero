@@ -53,7 +53,7 @@ var SEASON_CONFIGS = {
       "1pqBA6JNRRruEBuLAo7iknU_D0oOvtps3", //16 REMASTERED
       "1pq-GsljUngeMiaHD_Z4WTsImktE7gwiD", //17 REMASTERED
       "1haUah3-E3gLdgIxeamUebwLJI0EjUpEZ", //18 REMASTERED
-      "1RTDAuNtemX_vGCXivKq6IyB3tpoJHWvQ", //19
+      "1bYMOebheg00c5BsrzIqbXV8NMP6_2psV", //19 REMASTERED
       "1dDaS0EAraz7dJqocM3dXJGk20IhsAOiM", //20
       "1Osl-QEoeXCN19Bme6QiKp258k5UGLej5", //21
       "1lPD80YS2bT8yLCm0cALhtzTJy7pqJmSZ", //22
@@ -81,7 +81,7 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/6a4b9bc7002a74333f66ae17?vid=757750", //16 REMASTERED
       "https://tau-video.xyz/embed/6a4c4ca9ec3223a31a1ece93?vid=757795", //17 REMASTERED
       "https://tau-video.xyz/embed/6a4d28eea4f5f9e71074dccd?vid=757816", //18 REMASTERED
-      "https://tau-video.xyz/embed/695c4963faa4f0fe3c1460f8?vid=740089", //19
+      "https://tau-video.xyz/embed/6a4d8580f342e3f8d7f90409?vid=757837", //19 REMASTERED
       "https://tau-video.xyz/embed/695c4a081d66f6c39d14042a?vid=740092", //20
       "https://tau-video.xyz/embed/695c4aacfaa4f0fe3c1460f9?vid=740095", //21
       "https://tau-video.xyz/embed/695c4b55faa4f0fe3c1460fa?vid=740098", //22
