@@ -24,8 +24,8 @@ var SEASON_CONFIGS = {
       "Deliliğin Ötesinde", //15 REMASTERED
       "Bir Domuzun Açgözlülüğü", //16 REMASTERED
       "Utancın Son Noktasında", //17 REMASTERED
-      "Sıfırdan", //18 
-      "Beyaz Balina’ya Karşı Savaş", //19
+      "Sıfırdan", //18 REMASTERED
+      "Beyaz Balina Savaşı", //19 REMASTERED
       "Wilhelm van Astrea", //20
       "Umutsuzluğu Aşan Kumar", //21
       "Tembelliğin Ani Belirişi", //22
@@ -52,7 +52,7 @@ var SEASON_CONFIGS = {
       "1sUnz_fW7Sda3VBrOQ2KTYZ79JFuGbEJA", //15 REMASTERED
       "1pqBA6JNRRruEBuLAo7iknU_D0oOvtps3", //16 REMASTERED
       "1pq-GsljUngeMiaHD_Z4WTsImktE7gwiD", //17 REMASTERED
-      "1cJOr7dB9a1DDFMRlKCFcFVDxIpR931i_", //18
+      "1haUah3-E3gLdgIxeamUebwLJI0EjUpEZ", //18 REMASTERED
       "1RTDAuNtemX_vGCXivKq6IyB3tpoJHWvQ", //19
       "1dDaS0EAraz7dJqocM3dXJGk20IhsAOiM", //20
       "1Osl-QEoeXCN19Bme6QiKp258k5UGLej5", //21
@@ -80,7 +80,7 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/6a4bb089ec3223a31a1ece91?vid=757753", //15 REMASTERED
       "https://tau-video.xyz/embed/6a4b9bc7002a74333f66ae17?vid=757750", //16 REMASTERED
       "https://tau-video.xyz/embed/6a4c4ca9ec3223a31a1ece93?vid=757795", //17 REMASTERED
-      "https://tau-video.xyz/embed/695c48c0eb1a5915e492abdc?vid=740086", //18
+      "https://tau-video.xyz/embed/6a4d28eea4f5f9e71074dccd?vid=757816", //18 REMASTERED
       "https://tau-video.xyz/embed/695c4963faa4f0fe3c1460f8?vid=740089", //19
       "https://tau-video.xyz/embed/695c4a081d66f6c39d14042a?vid=740092", //20
       "https://tau-video.xyz/embed/695c4aacfaa4f0fe3c1460f9?vid=740095", //21
