@@ -140,8 +140,8 @@ var SEASON_CONFIGS = {
       "Otto Suwen / İnanmak İçin Bir Sebep", //15
       "Kuwein Taşı'nı Kimse Tek Başına Kaldıramaz", //16
       "Anılarda Bir Yolculuk", //17
-      "Betelgeuse’ün Güldüğü Gün", //18 REMASTERED
-      "Bölüm 19", //19
+      "Betelgeuse’ün Güldüğü Gün", //18
+      "Büyük Elior Ormanı’nın Donmuş Toprağı", //19
       "Bölüm 20", //20
       "Bölüm 21", //21
       "Bölüm 22", //22
@@ -168,8 +168,8 @@ var SEASON_CONFIGS = {
       "1WiMv7-oM6zqSWRqNTxXARKDnLJ_yJdWP", //15
       "1GUeJoRikG-JbeHDDLXDOl4axlDDZVBbv", //16
       "13nU4GzG_K3hRHmkDgRx-N3AjgKwHMZsv", //17
-      "1ocAkWSaPl28_PoaF5Gb0raRQvMelszm7", //18 REMASTERED
-      "", //19
+      "1ocAkWSaPl28_PoaF5Gb0raRQvMelszm7", //18
+      "1sSnZ7rLhCKJXe4Twxv-2bPV12vRu45EV", //19
       "", //20
       "", //21
       "", //22
@@ -196,8 +196,8 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/6a469f7ad5ce148fbbb338b2?vid=757205", //15
       "https://tau-video.xyz/embed/6a4804e859edd8529b31224f?vid=757265", //16
       "https://tau-video.xyz/embed/6a49917ef2c0587e0fd8b912?vid=757414", //17
-      "https://tau-video.xyz/embed/6a4e753e59edd8529b31226c?vid=757855", //18 REMASTERED
-      "", //19
+      "https://tau-video.xyz/embed/6a4e753e59edd8529b31226c?vid=757855", //18
+      "https://tau-video.xyz/embed/6a4fe4e5a4f5f9e71074dcd4?vid=757938", //19
       "", //20
       "", //21
       "", //22
