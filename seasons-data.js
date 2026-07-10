@@ -198,7 +198,7 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/6a49917ef2c0587e0fd8b912?vid=757414", //17
       "https://tau-video.xyz/embed/6a4e753e59edd8529b31226c?vid=757855", //18
       "https://tau-video.xyz/embed/6a4fe4e5a4f5f9e71074dcd4?vid=757938", //19
-      "", //20
+      "https://tau-video.xyz/embed/6a5154d9d5ce148fbbb338e3?vid=758103", //20
       "", //21
       "", //22
       "", //23
