@@ -170,7 +170,7 @@ var SEASON_CONFIGS = {
       "13nU4GzG_K3hRHmkDgRx-N3AjgKwHMZsv", //17
       "1ocAkWSaPl28_PoaF5Gb0raRQvMelszm7", //18
       "1sSnZ7rLhCKJXe4Twxv-2bPV12vRu45EV", //19
-      "/1WfUmzjDI6ldGLA5HSFeT37XyyUQxDtJw", //20
+      "1WfUmzjDI6ldGLA5HSFeT37XyyUQxDtJw", //20
       "", //21
       "", //22
       "", //23
