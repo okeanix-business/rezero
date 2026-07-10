@@ -142,7 +142,7 @@ var SEASON_CONFIGS = {
       "Anılarda Bir Yolculuk", //17
       "Betelgeuse’ün Güldüğü Gün", //18
       "Büyük Elior Ormanı’nın Donmuş Toprağı", //19
-      "Bölüm 20", //20
+      "Kutsal Bölge’nin Doğuşu ve Çöküşün Başlangıcı", //20
       "Bölüm 21", //21
       "Bölüm 22", //22
       "Bölüm 23", //23
@@ -170,7 +170,7 @@ var SEASON_CONFIGS = {
       "13nU4GzG_K3hRHmkDgRx-N3AjgKwHMZsv", //17
       "1ocAkWSaPl28_PoaF5Gb0raRQvMelszm7", //18
       "1sSnZ7rLhCKJXe4Twxv-2bPV12vRu45EV", //19
-      "", //20
+      "/1WfUmzjDI6ldGLA5HSFeT37XyyUQxDtJw", //20
       "", //21
       "", //22
       "", //23
