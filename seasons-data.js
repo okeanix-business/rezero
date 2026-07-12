@@ -18,14 +18,14 @@ var SEASON_CONFIGS = {
       "Cesaretin Anlamı", //9
       "Bir Oni Gibi Fanatik Yöntemler", //10
       "Rem", //11
-      "Kraliyet Başkenti’ne Dönüş", //12 REMASTERED
-      "Kendini Şövalye İlan Eden Kişi", //13 REMASTERED
-      "Çaresizlik Denen Hastalık", //14 REMASTERED
-      "Deliliğin Ötesinde", //15 REMASTERED
-      "Bir Domuzun Açgözlülüğü", //16 REMASTERED
-      "Utancın Son Noktasında", //17 REMASTERED
-      "Sıfırdan", //18 REMASTERED
-      "Beyaz Balina Savaşı", //19 REMASTERED
+      "Kraliyet Başkenti’ne Dönüş", //12 FINAL DAHA ELLENMEYECEK
+      "Kendini Şövalye İlan Eden Kişi", //13 FINAL DAHA ELLENMEYECEK
+      "Çaresizlik Denen Hastalık", //14 FINAL DAHA ELLENMEYECEK
+      "Deliliğin Ötesinde", //15 FINAL DAHA ELLENMEYECEK
+      "Bir Domuzun Açgözlülüğü", //16 FINAL DAHA ELLENMEYECEK
+      "Utancın Son Noktasında", //17 FINAL DAHA ELLENMEYECEK
+      "Sıfırdan", //18 FINAL DAHA ELLENMEYECEK
+      "Beyaz Balina Savaşı", //19 FINAL DAHA ELLENMEYECEK
       "Wilhelm van Astrea", //20
       "Umutsuzluğu Aşan Kumar", //21
       "Tembelliğin Ani Belirişi", //22
@@ -139,12 +139,12 @@ var SEASON_CONFIGS = {
       "Doğrudan Bahis", //14
       "Otto Suwen / İnanmak İçin Bir Sebep", //15
       "Kuwein Taşı'nı Kimse Tek Başına Kaldıramaz", //16
-      "Anılarda Bir Yolculuk", //17
-      "Betelgeuse’ün Güldüğü Gün", //18
-      "Büyük Elior Ormanı’nın Donmuş Toprağı", //19
-      "Kutsal Bölge’nin Doğuşu ve Çöküşün Başlangıcı", //20
-      "Bölüm 21", //21
-      "Bölüm 22", //22
+      "Anılarda Bir Yolculuk", //17 
+      "Betelgeuse’ün Güldüğü Gün", //18 FINAL DAHA ELLENMEYECEK
+      "Büyük Elior Ormanı’nın Donmuş Toprağı", //19 FINAL DAHA ELLENMEYECEK
+      "Kutsal Bölge’nin Doğuşu ve Çöküşün Başlangıcı", //20 FINAL DAHA ELLENMEYECEK
+      "Kükreyişlerin Buluşması ", //21 FINAL DAHA ELLENMEYECEK
+      "Su Yüzüne Yansıyan Mutluluk", //22 FINAL DAHA ELLENMEYECEK
       "Bölüm 23", //23
       "Bölüm 24", //24
       "Bölüm 25" //25
@@ -171,7 +171,7 @@ var SEASON_CONFIGS = {
       "1ocAkWSaPl28_PoaF5Gb0raRQvMelszm7", //18
       "1sSnZ7rLhCKJXe4Twxv-2bPV12vRu45EV", //19
       "1WfUmzjDI6ldGLA5HSFeT37XyyUQxDtJw", //20
-      "", //21
+      "19fpACc5Fc4jSKBJxsIA4Ju0xn2gVITBw", //21 FINAL DAHA ELLENMEYECEK
       "", //22
       "", //23
       "", //24
@@ -199,7 +199,7 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/6a4e753e59edd8529b31226c?vid=757855", //18
       "https://tau-video.xyz/embed/6a4fe4e5a4f5f9e71074dcd4?vid=757938", //19
       "https://tau-video.xyz/embed/6a5154d9d5ce148fbbb338e3?vid=758103", //20
-      "", //21
+      "https://tau-video.xyz/embed/6a53efc8002a74333f66ae43?vid=758242", //21 FINAL DAHA ELLENMEYECEK
       "", //22
       "", //23
       "", //24
