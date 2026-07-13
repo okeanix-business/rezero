@@ -173,7 +173,7 @@ var SEASON_CONFIGS = {
       "1WfUmzjDI6ldGLA5HSFeT37XyyUQxDtJw", //20
       "19fpACc5Fc4jSKBJxsIA4Ju0xn2gVITBw", //21
       "16HsKpsasUm-xsuc8BgDyXKXdJ_Grw8ZA", //22 FINAL DAHA ELLENMEYECEK
-      "", //23 FINAL DAHA ELLENMEYECEK
+      "1bpjCD9PGmqR19Ql5El06c4OmPZ75kJ5L", //23 FINAL DAHA ELLENMEYECEK
       "", //24
       ""  //25
     ],
@@ -201,7 +201,7 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/6a5154d9d5ce148fbbb338e3?vid=758103", //20
       "https://tau-video.xyz/embed/6a53efc8002a74333f66ae43?vid=758242", //21
       "https://tau-video.xyz/embed/6a553fdad5ce148fbbb33909?vid=758311", //22 FINAL DAHA ELLENMEYECEK
-      "", //23 FINAL DAHA ELLENMEYECEK
+      "https://tau-video.xyz/embed/6a555791a4f5f9e71074dcf3?vid=758320", //23 FINAL DAHA ELLENMEYECEK
       "", //24
       ""  //25
     ],
