@@ -146,7 +146,7 @@ var SEASON_CONFIGS = {
       "Kükreyişlerin Kavuşması", //21 FINAL DAHA ELLENMEYECEK
       "Su Yüzüne Yansıyan Mutluluk", //22 FINAL DAHA ELLENMEYECEK
       "Kanıma ve Bağırsaklarıma Kadar Sev Beni", //23 FINAL DAHA ELLENMEYECEK
-      "Bölüm 24", //24
+      "Beni Seç", //24
       "Bölüm 25" //25
     ],
 
@@ -172,9 +172,9 @@ var SEASON_CONFIGS = {
       "1sSnZ7rLhCKJXe4Twxv-2bPV12vRu45EV", //19
       "1WfUmzjDI6ldGLA5HSFeT37XyyUQxDtJw", //20
       "19fpACc5Fc4jSKBJxsIA4Ju0xn2gVITBw", //21
-      "16HsKpsasUm-xsuc8BgDyXKXdJ_Grw8ZA", //22 FINAL DAHA ELLENMEYECEK
-      "1bpjCD9PGmqR19Ql5El06c4OmPZ75kJ5L", //23 FINAL DAHA ELLENMEYECEK
-      "", //24
+      "16HsKpsasUm-xsuc8BgDyXKXdJ_Grw8ZA", //22
+      "1bpjCD9PGmqR19Ql5El06c4OmPZ75kJ5L", //23
+      "1LA954BPBF8mJlL01YkaAW5eMeSPuccb4", //24
       ""  //25
     ],
 
@@ -200,9 +200,9 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/6a4fe4e5a4f5f9e71074dcd4?vid=757938", //19
       "https://tau-video.xyz/embed/6a5154d9d5ce148fbbb338e3?vid=758103", //20
       "https://tau-video.xyz/embed/6a53efc8002a74333f66ae43?vid=758242", //21
-      "https://tau-video.xyz/embed/6a553fdad5ce148fbbb33909?vid=758311", //22 FINAL DAHA ELLENMEYECEK
-      "https://tau-video.xyz/embed/6a555791a4f5f9e71074dcf3?vid=758320", //23 FINAL DAHA ELLENMEYECEK
-      "", //24
+      "https://tau-video.xyz/embed/6a553fdad5ce148fbbb33909?vid=758311", //22
+      "https://tau-video.xyz/embed/6a555791a4f5f9e71074dcf3?vid=758320", //23
+      "https://tau-video.xyz/embed/6a569c9475c86a0b6f67b747?vid=758539", //24 FINAL DAHA ELLENMEYECEK
       ""  //25
     ],
 
