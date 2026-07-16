@@ -17,16 +17,16 @@ var SEASON_CONFIGS = {
       "Ağladım, Ciğerlerim Çıkana Kadar Ağladım ve Ağlamayı Bıraktım", //8
       "Cesaretin Anlamı", //9
       "Bir Oni Gibi Fanatik Yöntemler", //10
-      "Rem", //11
-      "Kraliyet Başkenti’ne Dönüş", //12 FINAL DAHA ELLENMEYECEK
-      "Kendini Şövalye İlan Eden Kişi", //13 FINAL DAHA ELLENMEYECEK
-      "Çaresizlik Denen Hastalık", //14 FINAL DAHA ELLENMEYECEK
-      "Deliliğin Ötesinde", //15 FINAL DAHA ELLENMEYECEK
-      "Bir Domuzun Açgözlülüğü", //16 FINAL DAHA ELLENMEYECEK
-      "Utancın Son Noktasında", //17 FINAL DAHA ELLENMEYECEK
-      "Sıfırdan", //18 FINAL DAHA ELLENMEYECEK
-      "Beyaz Balina Savaşı", //19 FINAL DAHA ELLENMEYECEK
-      "Wilhelm van Astrea", //20
+      "Rem", //11 REMASTERED (2026)
+      "Kraliyet Başkenti’ne Dönüş", //12 REMASTERED (2026)
+      "Kendini Şövalye İlan Eden Kişi", //13 REMASTERED (2026)
+      "Çaresizlik Denen Hastalık", //14 REMASTERED (2026)
+      "Deliliğin Ötesinde", //15 REMASTERED (2026)
+      "Bir Domuzun Açgözlülüğü", //16 REMASTERED (2026)
+      "Utancın Son Noktasında", //17 REMASTERED (2026)
+      "Sıfırdan", //18 REMASTERED (2026)
+      "Beyaz Balina Savaşı", //19 REMASTERED (2026)
+      "Wilhelm van Astrea", //20 REMASTERED (2026)
       "Umutsuzluğu Aşan Kumar", //21
       "Tembelliğin Ani Belirişi", //22
       "Alçak Tembellik", //23
@@ -46,14 +46,14 @@ var SEASON_CONFIGS = {
       "1KeqHAI9fUUHH_LlQt2qcF7_zUAAHm14t", //9
       "1-CVvSJ9HmgtsWL28mdc4HmMhLlLCFAKN", //10
       "1FvLCPBPKqSgoEKGmp5qOoreDreuh7QUO", //11
-      "1R54bUmtYhMqbKAHhRo7IxIaNxZzzMvS9", //12 REMASTERED
-      "11mikDuHoPe9e5OO_Cp9LQhGaV-RrPhBw", //13 REMASTERED
-      "18uG4fj0YO20tOOLYHn0pEit7lwsdHPTa", //14 REMASTERED
-      "1sUnz_fW7Sda3VBrOQ2KTYZ79JFuGbEJA", //15 REMASTERED
-      "1pqBA6JNRRruEBuLAo7iknU_D0oOvtps3", //16 REMASTERED
-      "1pq-GsljUngeMiaHD_Z4WTsImktE7gwiD", //17 REMASTERED
-      "1haUah3-E3gLdgIxeamUebwLJI0EjUpEZ", //18 REMASTERED
-      "1bYMOebheg00c5BsrzIqbXV8NMP6_2psV", //19 REMASTERED
+      "1R54bUmtYhMqbKAHhRo7IxIaNxZzzMvS9", //12
+      "11mikDuHoPe9e5OO_Cp9LQhGaV-RrPhBw", //13
+      "18uG4fj0YO20tOOLYHn0pEit7lwsdHPTa", //14
+      "1sUnz_fW7Sda3VBrOQ2KTYZ79JFuGbEJA", //15
+      "1pqBA6JNRRruEBuLAo7iknU_D0oOvtps3", //16
+      "1pq-GsljUngeMiaHD_Z4WTsImktE7gwiD", //17
+      "1haUah3-E3gLdgIxeamUebwLJI0EjUpEZ", //18
+      "1bYMOebheg00c5BsrzIqbXV8NMP6_2psV", //19
       "1dDaS0EAraz7dJqocM3dXJGk20IhsAOiM", //20
       "1Osl-QEoeXCN19Bme6QiKp258k5UGLej5", //21
       "1lPD80YS2bT8yLCm0cALhtzTJy7pqJmSZ", //22
@@ -74,14 +74,14 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/6959a3e1c0da000447f8c91f?vid=739795", //9
       "https://tau-video.xyz/embed/695a75591d66f6c39d140421?vid=739900", //10
       "https://tau-video.xyz/embed/695a75fffaa4f0fe3c1460f3?vid=739903", //11
-      "https://tau-video.xyz/embed/6a4beb6ef2c0587e0fd8b927?vid=757780", //12 REMASTERED
-      "https://tau-video.xyz/embed/6a4bc510002a74333f66ae18?vid=757762", //13 REMASTERED
-      "https://tau-video.xyz/embed/6a4bd0b675c86a0b6f67b715?vid=757765", //14 REMASTERED
-      "https://tau-video.xyz/embed/6a4bb089ec3223a31a1ece91?vid=757753", //15 REMASTERED
-      "https://tau-video.xyz/embed/6a4b9bc7002a74333f66ae17?vid=757750", //16 REMASTERED
-      "https://tau-video.xyz/embed/6a4c4ca9ec3223a31a1ece93?vid=757795", //17 REMASTERED
-      "https://tau-video.xyz/embed/6a4d28eea4f5f9e71074dccd?vid=757816", //18 REMASTERED
-      "https://tau-video.xyz/embed/6a4d8580f342e3f8d7f90409?vid=757837", //19 REMASTERED
+      "https://tau-video.xyz/embed/6a4beb6ef2c0587e0fd8b927?vid=757780", //12
+      "https://tau-video.xyz/embed/6a4bc510002a74333f66ae18?vid=757762", //13
+      "https://tau-video.xyz/embed/6a4bd0b675c86a0b6f67b715?vid=757765", //14
+      "https://tau-video.xyz/embed/6a4bb089ec3223a31a1ece91?vid=757753", //15
+      "https://tau-video.xyz/embed/6a4b9bc7002a74333f66ae17?vid=757750", //16
+      "https://tau-video.xyz/embed/6a4c4ca9ec3223a31a1ece93?vid=757795", //17
+      "https://tau-video.xyz/embed/6a4d28eea4f5f9e71074dccd?vid=757816", //18 
+      "https://tau-video.xyz/embed/6a4d8580f342e3f8d7f90409?vid=757837", //19
       "https://tau-video.xyz/embed/695c4a081d66f6c39d14042a?vid=740092", //20
       "https://tau-video.xyz/embed/695c4aacfaa4f0fe3c1460f9?vid=740095", //21
       "https://tau-video.xyz/embed/695c4b55faa4f0fe3c1460fa?vid=740098", //22
@@ -146,8 +146,8 @@ var SEASON_CONFIGS = {
       "Kükreyişlerin Kavuşması", //21 FINAL DAHA ELLENMEYECEK
       "Su Yüzüne Yansıyan Mutluluk", //22 FINAL DAHA ELLENMEYECEK
       "Kanıma ve Bağırsaklarıma Kadar Sev Beni", //23 FINAL DAHA ELLENMEYECEK
-      "Beni Seç", //24
-      "Bölüm 25" //25
+      "Beni Seç", //24 FINAL DAHA ELLENMEYECEK 
+      "Ay Işığında Gelişigüzel Adımlar" //25 FINAL DAHA ELLENMEYECEK
     ],
 
     episodeDriveIds: [
@@ -175,7 +175,7 @@ var SEASON_CONFIGS = {
       "16HsKpsasUm-xsuc8BgDyXKXdJ_Grw8ZA", //22
       "1bpjCD9PGmqR19Ql5El06c4OmPZ75kJ5L", //23
       "1LA954BPBF8mJlL01YkaAW5eMeSPuccb4", //24
-      ""  //25
+      "1pwZMpUXdUBPQF4FOZki76UgitWN0rdPD"  //25 REMASTERED (2026)
     ],
 
     episodeAnimecixUrls: [
@@ -202,8 +202,8 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/6a53efc8002a74333f66ae43?vid=758242", //21
       "https://tau-video.xyz/embed/6a553fdad5ce148fbbb33909?vid=758311", //22
       "https://tau-video.xyz/embed/6a555791a4f5f9e71074dcf3?vid=758320", //23
-      "https://tau-video.xyz/embed/6a569c9475c86a0b6f67b747?vid=758539", //24 FINAL DAHA ELLENMEYECEK
-      ""  //25
+      "https://tau-video.xyz/embed/6a569c9475c86a0b6f67b747?vid=758539", //24
+      "https://tau-video.xyz/embed/6a58b680f2c0587e0fd8b958?vid=758668"  //25 REMASTERED (2026)
     ],
 
     // 25 breaktime (her bölümün arkasına)
