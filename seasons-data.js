@@ -7,16 +7,16 @@ var SEASON_CONFIGS = {
     seasonNumber: 1,
 
     episodeTitles: [
-      "Başlangıcın Sonu ve Sonun Başlangıcı", //1
-      "Cadıyla Yeniden Buluşma", //2
-      "Hayat Başka Bir Dünyada Sıfırdan Başladı", //3
-      "Mutlu Roswaal Malikânesi Ailesi", //4
-      "Sözümüzün Sabahı Hâlâ Uzak", //5
-      "Zincirlerin Sesi", //6
-      "Natsuki Subaru’nun Yeniden Başlaması", //7
-      "Ağladım, Ciğerlerim Çıkana Kadar Ağladım ve Ağlamayı Bıraktım", //8
-      "Cesaretin Anlamı", //9
-      "Bir Oni Gibi Fanatik Yöntemler", //10
+      "Başlangıcın Sonu ve Sonun Başlangıcı", //1 REMASTERED (2026)
+      "Kavuşma Cadısı", //2 REMASTERED (2026)
+      "Başka Bir Dünyada Sıfırdan Başlayan Hayat", //3 REMASTERED (2026)
+      "Roswaal Malikânesi’nde Aile Saadeti", //4 REMASTERED (2026)
+      "Sözümüzün Sabahı Hâlâ Uzak", //5 REMASTERED (2026)
+      "Zincirlerin Sesi", //6 REMASTERED (2026) 
+      "Natsuki Subaru’nun Yeniden Başlayışı", //7 REMASTERED (2026)
+      "Ağladım, Haykıra Haykıra Ağladım ve Sonunda Ağlamam Dindi", //8 REMASTERED (2026)
+      "Cesaretin Anlamı", //9 REMASTERED (2026)
+      "Oni Misali Bir Yöntem", //10 REMASTERED (2026)
       "Rem", //11 REMASTERED (2026)
       "Kraliyet Başkenti’ne Dönüş", //12 REMASTERED (2026)
       "Kendini Şövalye İlan Eden Kişi", //13 REMASTERED (2026)
@@ -27,17 +27,17 @@ var SEASON_CONFIGS = {
       "Sıfırdan", //18 REMASTERED (2026)
       "Beyaz Balina Savaşı", //19 REMASTERED (2026)
       "Wilhelm van Astrea", //20 REMASTERED (2026)
-      "Umutsuzluğu Aşan Kumar", //21
-      "Tembelliğin Ani Belirişi", //22
-      "Alçak Tembellik", //23
-      "Sözde Şövalye ile Şövalyelerin En Yücesi", //24
-      "Bu Hikâye Sadece Bundan İbaret" //25
+      "Umutsuzluğu Aşan Kumar", //21 REMASTERED (2026)
+      "Tembelliğin Ani Belirişi", //22 REMASTERED (2026)
+      "Habis Tembellik", //23 REMASTERED (2026)
+      "Sözde Şövalye ve En Seçkin Şövalye", //24 REMASTERED (2026)
+      "Yalnızca Bundan İbaret Bir Hikâye" //25 REMASTERED (2026)
     ],
 
     episodeDriveIds: [
-      "147GHfOyt5_dKEpN505SqiHenjgrNUNp0", //1
-      "1kGssTBbkhJLV7WZWKbHcB4aabSVvJEC-", //2
-      "1OaoZ47Da6a_3JAC4pKQx_W5a2INKKiG-", //3
+      "10P68er2R1e2mrb851mf7Tg55tZRldzZM", //1 REMASTERED (2026)
+      "1OiUgLCMi8kecTO7u1fy3Zfwo0ivd-Alj", //2 REMASTERED (2026)
+      "1QwYXBTvbny3ndouHDAKDxluqjLHOjts_", //3 REMASTERED (2026)
       "122p7sBnGCngVKZXXyxujetQgHXo4ZzPp", //4
       "1du2c2JzgyXdgXync8U15szqGRhW6x27U", //5
       "15NzMzBSoO9y9fgeKvztgBYu3aWNmTfM0", //6
@@ -63,9 +63,9 @@ var SEASON_CONFIGS = {
     ],
 
     episodeAnimecixUrls: [
-      "https://tau-video.xyz/embed/69590465c0da000447f8c912?vid=739612", //1
-      "https://tau-video.xyz/embed/69590517c0da000447f8c913?vid=739615", //2
-      "https://tau-video.xyz/embed/695959a5eb1a5915e492abbf?vid=739624", //3
+      "https://tau-video.xyz/embed/6a5aca71ec3223a31a1eced4?vid=758753", //1 REMASTERED (2026)
+      "https://tau-video.xyz/embed/6a5acb04f342e3f8d7f9045b?vid=758756", //2 REMASTERED (2026)
+      "https://tau-video.xyz/embed/6a5acb8ff342e3f8d7f9045c?vid=758759", //3 REMASTERED (2026)
       "https://tau-video.xyz/embed/69595a4df8d39f6943842987?vid=739627", //4
       "https://tau-video.xyz/embed/69595b011d66f6c39d140413?vid=739630", //5
       "https://tau-video.xyz/embed/6959a2d3faa4f0fe3c1460ed?vid=739786", //6
@@ -91,16 +91,6 @@ var SEASON_CONFIGS = {
     ],
 
     breakTimes: {
-      1: "1CGapULNS1POrTmYmXnKBlO_wDkKHaeMe",
-      2: "1dwYy4k2U81Q8y1vUC8Ey6pIjCIFo1scR",
-      4: "1gKCWIRI9t3LyjgnQubgRdCWhjsbWJu-H",
-      5: "1lv7LdOzUdXCoF_Elnf3kdnBeiWhP573g",
-      6: "1RKzi37yb1xByAy-ZQi5zHpveBAxpyGjD",
-      7: "1-GYhbc3uCN5nUCG21B40vuE91OMa9dIv",
-      8: "1B-SZgEam7BccEorYHdwwE8GLVqnS6LtC",
-      9: "1mZT2EmXn-Ag3ZBc4g5D1Na-g_DCAPkuP",
-      10: "1elORZUp1fXF1_83i8qXHLPNNNJzVh4Vv",
-      11: "1_Yf-yO5LIU-3mDKiWTpesUFVdvREGCNv"
     },
 
     specials: [
