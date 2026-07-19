@@ -41,7 +41,7 @@ var SEASON_CONFIGS = {
       "1l9cT1V0U1_-4Xvfg3Iy6VAiDlJ1J9Q7Q", //4 REMASTERED (2026)
       "1VGxgcgHOlhoNsti5IQ7v_XRngtePrD1J", //5 REMASTERED (2026)
       "1gFPM90dfgPPJjkStm7aAVNp0yTbzjCgM", //6 REMASTERED (2026)
-      "1YFLZMas9tGlbaqIXs2uG3qYyfmdqMwp6", //7
+      "1QlkSDPGX6wGgoAeq64QpQLtLAl3DD0mg", //7 REMASTERED (2026)
       "1BmZBuO6K4e4RGV68ts4ocySUskaAL2bR", //8
       "1KeqHAI9fUUHH_LlQt2qcF7_zUAAHm14t", //9
       "1-CVvSJ9HmgtsWL28mdc4HmMhLlLCFAKN", //10
@@ -69,7 +69,7 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/6a5bcaafa4f5f9e71074dd0c?vid=758789", //4 REMASTERED (2026)
       "https://tau-video.xyz/embed/6a5bcb4075c86a0b6f67b759?vid=758792", //5 REMASTERED (2026)
       "https://tau-video.xyz/embed/6a5cabb4d5ce148fbbb3392c?vid=758831", //6 REMASTERED (2026)
-      "https://tau-video.xyz/embed/6959a324e4b357250ada9225?vid=739789", //7
+      "https://tau-video.xyz/embed/6a5cc914002a74333f66ae6b?vid=758840", //7 REMASTERED (2026)
       "https://tau-video.xyz/embed/6959a395c0da000447f8c91e?vid=739792", //8
       "https://tau-video.xyz/embed/6959a3e1c0da000447f8c91f?vid=739795", //9
       "https://tau-video.xyz/embed/695a75591d66f6c39d140421?vid=739900", //10
