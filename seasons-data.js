@@ -13,7 +13,7 @@ var SEASON_CONFIGS = {
       "Roswaal Malikânesi’nde Aile Saadeti", //4 REMASTERED (2026)
       "Sözümüzün Sabahı Hâlâ Uzak", //5 REMASTERED (2026)
       "Zincirlerin Sesi", //6 REMASTERED (2026) 
-      "Natsuki Subaru’nun Yeniden Başlayışı", //7 REMASTERED (2026)
+      "Natsuki Subaru’nun Yeniden Başlangıcı", //7 REMASTERED (2026)
       "Ağladım, Haykıra Haykıra Ağladım ve Sonunda Ağlamam Dindi", //8 REMASTERED (2026)
       "Cesaretin Anlamı", //9 REMASTERED (2026)
       "Oni Misali Bir Yöntem", //10 REMASTERED (2026)
@@ -40,7 +40,7 @@ var SEASON_CONFIGS = {
       "1QwYXBTvbny3ndouHDAKDxluqjLHOjts_", //3 REMASTERED (2026)
       "1l9cT1V0U1_-4Xvfg3Iy6VAiDlJ1J9Q7Q", //4 REMASTERED (2026)
       "1VGxgcgHOlhoNsti5IQ7v_XRngtePrD1J", //5 REMASTERED (2026)
-      "15NzMzBSoO9y9fgeKvztgBYu3aWNmTfM0", //6
+      "1gFPM90dfgPPJjkStm7aAVNp0yTbzjCgM", //6 REMASTERED (2026)
       "1YFLZMas9tGlbaqIXs2uG3qYyfmdqMwp6", //7
       "1BmZBuO6K4e4RGV68ts4ocySUskaAL2bR", //8
       "1KeqHAI9fUUHH_LlQt2qcF7_zUAAHm14t", //9
@@ -68,7 +68,7 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/6a5acb8ff342e3f8d7f9045c?vid=758759", //3 REMASTERED (2026)
       "https://tau-video.xyz/embed/6a5bcaafa4f5f9e71074dd0c?vid=758789", //4 REMASTERED (2026)
       "https://tau-video.xyz/embed/6a5bcb4075c86a0b6f67b759?vid=758792", //5 REMASTERED (2026)
-      "https://tau-video.xyz/embed/6959a2d3faa4f0fe3c1460ed?vid=739786", //6
+      "https://tau-video.xyz/embed/6a5cabb4d5ce148fbbb3392c?vid=758831", //6 REMASTERED (2026)
       "https://tau-video.xyz/embed/6959a324e4b357250ada9225?vid=739789", //7
       "https://tau-video.xyz/embed/6959a395c0da000447f8c91e?vid=739792", //8
       "https://tau-video.xyz/embed/6959a3e1c0da000447f8c91f?vid=739795", //9
