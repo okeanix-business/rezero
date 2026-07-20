@@ -16,7 +16,7 @@ var SEASON_CONFIGS = {
       "Natsuki Subaru’nun Yeniden Başlangıcı", //7 REMASTERED (2026)
       "Ağladım, Haykıra Haykıra Ağladım ve Sonunda Ağlamam Dindi", //8 REMASTERED (2026)
       "Cesaretin Anlamı", //9 REMASTERED (2026)
-      "Oni Misali Bir Yöntem", //10 REMASTERED (2026)
+      "Oni Gibi Bir Yöntem", //10 REMASTERED (2026)
       "Rem", //11 REMASTERED (2026)
       "Kraliyet Başkenti’ne Dönüş", //12 REMASTERED (2026)
       "Kendini Şövalye İlan Eden Kişi", //13 REMASTERED (2026)
@@ -45,7 +45,7 @@ var SEASON_CONFIGS = {
       "10ViNTKNLBk_6y-FXIpVgVHpJX6mNIJOS", //8 REMASTERED (2026)
       "1Q2cUkHwvEsbzZRsILP6CxcvBjDXJd2Dm", //9 REMASTERED (2026)
       "1DfNzmwT1zEBijaJSeQnJj6Yn6-P7LCYD", //10 REMASTERED (2026)
-      "1FvLCPBPKqSgoEKGmp5qOoreDreuh7QUO", //11
+      "1Tg7CgFWwNVDX3DAY0W08il0otqvgslQA", //11 REMASTERED (2026)
       "1R54bUmtYhMqbKAHhRo7IxIaNxZzzMvS9", //12
       "11mikDuHoPe9e5OO_Cp9LQhGaV-RrPhBw", //13
       "18uG4fj0YO20tOOLYHn0pEit7lwsdHPTa", //14
@@ -73,7 +73,7 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/6a5cf0bdf342e3f8d7f90462?vid=758846", //8 REMASTERED (2026)
       "https://tau-video.xyz/embed/6a5d1b08002a74333f66ae71?vid=758894", //9 REMASTERED (2026)
       "https://tau-video.xyz/embed/6a5d5987002a74333f66ae73?vid=758909", //10 REMASTERED (2026)
-      "https://tau-video.xyz/embed/695a75fffaa4f0fe3c1460f3?vid=739903", //11
+      "https://tau-video.xyz/embed/6a5e65caf342e3f8d7f90469?vid=758951", //11 REMASTERED (2026)
       "https://tau-video.xyz/embed/6a4beb6ef2c0587e0fd8b927?vid=757780", //12
       "https://tau-video.xyz/embed/6a4bc510002a74333f66ae18?vid=757762", //13
       "https://tau-video.xyz/embed/6a4bd0b675c86a0b6f67b715?vid=757765", //14
