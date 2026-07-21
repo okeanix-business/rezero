@@ -100,8 +100,8 @@ var SEASON_CONFIGS = {
         extraType: "snow",
         number: 11,
         title: "Kar Altındaki Hatıralar (Memory Snow OVA)",
-        driveId: "1FWsfLE2MozttOzZgFNjLStK80jCbLEwp",
-        animecix: "https://tau-video.xyz/embed/695a7c18c0da000447f8c924?vid=739918"
+        driveId: "1zfp3ngG6b5cpKjcsj2KHBHuh_Q3sadMB",
+        animecix: "https://tau-video.xyz/embed/6a5f8987002a74333f66ae78?vid=758990"
       }
     ],
 
