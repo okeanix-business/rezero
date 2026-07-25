@@ -24,6 +24,87 @@
   }
 
   const norm = (s) => String(s ?? "").trim().toLowerCase();
+  const searchCache = new Map();
+
+  function searchNorm(s) {
+    return String(s ?? "")
+      .trim()
+      .toLocaleLowerCase("tr-TR")
+      .replace(/ı/g, "i")
+      .replace(/ğ/g, "g")
+      .replace(/ü/g, "u")
+      .replace(/ş/g, "s")
+      .replace(/ö/g, "o")
+      .replace(/ç/g, "c")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function compactSearch(s) {
+    return searchNorm(s).replace(/\s+/g, "");
+  }
+
+  function getSearchParts(c) {
+    if (searchCache.has(c.id)) return searchCache.get(c.id);
+
+    const aliases = Array.isArray(c.aliases) ? c.aliases.map(searchNorm).filter(Boolean) : [];
+    const name = searchNorm(c.name);
+    const id = searchNorm(c.id);
+    const tokens = name.split(" ").filter(Boolean);
+    const full = [name, id, ...aliases].filter(Boolean).join(" ");
+    const compact = compactSearch(full);
+    const parts = { name, id, aliases, tokens, full, compact };
+
+    searchCache.set(c.id, parts);
+    return parts;
+  }
+
+  function getCharacterMatches(query) {
+    const q = searchNorm(query);
+    const qc = compactSearch(query);
+    const terms = q.split(" ").filter(Boolean);
+
+    if (!q) return [];
+
+    return data
+      .map((c) => {
+        const p = getSearchParts(c);
+        let score = null;
+
+        if (p.name === q || p.id === q || p.aliases.includes(q)) score = 0;
+        else if (p.name.startsWith(q)) score = 1;
+        else if (p.tokens.some((token) => token.startsWith(q))) score = 2;
+        else if (p.full.includes(q)) score = 3;
+        else if (terms.length > 1 && terms.every((term) => p.full.includes(term))) score = 4;
+        else if (qc.length >= 2 && p.compact.includes(qc)) score = 5;
+
+        return score === null ? null : { c, score };
+      })
+      .filter(Boolean)
+      .sort((a, b) => a.score - b.score || a.c.name.localeCompare(b.c.name, "tr"))
+      .map((item) => item.c);
+  }
+
+  function findCharacterFromInput(query) {
+    const q = searchNorm(query);
+    if (!q) return { character: null, matches: [] };
+
+    const exact = data.find((c) => {
+      const p = getSearchParts(c);
+      return p.name === q || p.id === q || p.aliases.includes(q);
+    });
+    if (exact) return { character: exact, matches: [exact] };
+
+    const matches = getCharacterMatches(query);
+    return {
+      character: matches.length === 1 ? matches[0] : null,
+      matches
+    };
+  }
+
   const toast = (t) => { $toast.textContent = t || ""; };
 
   function updateAutocomplete(query) {
@@ -37,8 +118,7 @@
       return;
     }
 
-    const matches = data
-      .filter(c => norm(c.name).startsWith(q))
+    const matches = getCharacterMatches(q)
       .slice(0, 10);
 
     if (matches.length === 0) {
@@ -529,10 +609,17 @@
   function submit() {
     if (roundLocked) return;
 
-    const name = norm($input.value);
-    const g = data.find((c) => norm(c.name) === name);
+    const name = $input.value;
+    const result = findCharacterFromInput(name);
+    const g = result.character;
+
     if (!g) {
-      toast("Bu isim listede yok. Yazımı kontrol et veya listeden seç.");
+      if (result.matches.length > 1) {
+        updateAutocomplete(name);
+        toast("Birden fazla karakter eşleşti. Listeden karakteri seç.");
+      } else {
+        toast("Bu isim listede yok. Yazımı kontrol et veya listeden seç.");
+      }
       return;
     }
 
