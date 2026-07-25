@@ -141,8 +141,8 @@ var SEASON_CONFIGS = {
     ],
 
     episodeDriveIds: [
-      "1i_8hQBw4Svc2evzMmVn-fGkJsJGBrjV-", //1 REMASTERED (2026)
-      "11CQUTlU1VjfOb_QcXP-x2OQWLVMg65SL", //2 
+      "1YAj-fxcBnGqBDUneVIV4TPPd20XtqO7L", //1 REMASTERED (2026)
+      "1c5g4LM2oTSEzt8mu5lGElSrjQ5xDDm-t", //2 REMASTERED (2026)
       "1MIUr8XVv6JavzdrOsTil_K9xIxIP8zJ8", //3
       "13_686vCmUY2GiJgptKsvRidMM04ba-IV", //4
       "1AwLqPyXIF0ZbDhIm8kkYhDsPK1w4P-RT", //5
@@ -169,8 +169,8 @@ var SEASON_CONFIGS = {
     ],
 
     episodeAnimecixUrls: [
-      "https://tau-video.xyz/embed/6a64721359edd8529b3122d9?vid=759242", //1 REMASTERED (2026)
-      "https://tau-video.xyz/embed/696391b1eb1a5915e492abef?vid=740563", //2
+      "https://tau-video.xyz/embed/6a652475a4f5f9e71074dd2b?vid=759269", //1 REMASTERED (2026)
+      "https://tau-video.xyz/embed/6a652507ec3223a31a1ecef2?vid=759272", //2 REMASTERED (2026)
       "https://tau-video.xyz/embed/69655933fd4c16eef7c23fe4?vid=740683", //3
       "https://tau-video.xyz/embed/69842511fd4c16eef7c24079?vid=744304", //4
       "https://tau-video.xyz/embed/6984e4ecfaa4f0fe3c1461b3?vid=744356", //5
