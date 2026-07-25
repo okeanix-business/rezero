@@ -212,16 +212,58 @@ function shouldGenerateEpisodePage(ep) {
   return !!ep;
 }
 
-function navLabelForEp(ep) {
+function navLabelForEp(ep, targetSeason = null) {
   if (!ep) return "";
-  if (ep.kind === "episode") return `${ep.number}. Bölüm`;
-  if (ep.kind === "break") return `${ep.number}. Ara Bölüm`;
+  const seasonPrefix = targetSeason ? `${targetSeason}. Sezon ` : "";
+  if (ep.kind === "episode") return `${seasonPrefix}${ep.number}. Bölüm`;
+  if (ep.kind === "break") return `${seasonPrefix}${ep.number}. Ara Bölüm`;
   if (ep.kind === "special") {
-    if (ep.extraType === "snow") return "Memory Snow";
-    if (ep.extraType === "frozenbond") return "Frozen Bond";
-    return "Özel Bölüm";
+    if (ep.extraType === "snow") return `${seasonPrefix}Memory Snow`;
+    if (ep.extraType === "frozenbond") return `${seasonPrefix}Frozen Bond`;
+    return `${seasonPrefix}Özel Bölüm`;
   }
-  return "İçerik";
+  return `${seasonPrefix}İçerik`;
+}
+
+function getGeneratedIndexes(episodes) {
+  const indexes = [];
+  for (let i = 0; i < episodes.length; i++) {
+    if (shouldGenerateEpisodePage(episodes[i])) indexes.push(i);
+  }
+  return indexes;
+}
+
+function makeEpisodeNavTarget(season, episodes, index) {
+  if (index === null || typeof index === "undefined") return null;
+  const ep = episodes[index];
+  if (!ep) return null;
+  return {
+    season,
+    index,
+    ep,
+    rel: makeRelUrl(season, ep, index)
+  };
+}
+
+function findAdjacentSeasonNavTarget({ seasons, seasonEpisodeMap, seasonIndex, direction }) {
+  for (
+    let si = seasonIndex + direction;
+    si >= 0 && si < seasons.length;
+    si += direction
+  ) {
+    const targetSeason = seasons[si];
+    const targetEpisodes = seasonEpisodeMap.get(targetSeason) || [];
+    const targetIndexes = getGeneratedIndexes(targetEpisodes);
+    if (!targetIndexes.length) continue;
+
+    const targetIndex = direction > 0
+      ? targetIndexes[0]
+      : targetIndexes[targetIndexes.length - 1];
+
+    return makeEpisodeNavTarget(targetSeason, targetEpisodes, targetIndex);
+  }
+
+  return null;
 }
 
 function buildEpisodePageHtml({
@@ -233,7 +275,9 @@ function buildEpisodePageHtml({
   prevRel,
   nextRel,
   prevEp,
-  nextEp
+  nextEp,
+  prevEpSeason,
+  nextEpSeason
 }) {
   const pageUrl = `${BASE}/${relUrl}`;
   const twitterImg = `${BASE}/images/s${season}.${season === 4 ? "webp" : "jpg"}`;
@@ -312,8 +356,10 @@ function buildEpisodePageHtml({
   const prevAbs = prevRel ? `${BASE}/${prevRel}` : null;
   const nextAbs = nextRel ? `${BASE}/${nextRel}` : null;
 
-  const prevText = prevEp ? `← ${navLabelForEp(prevEp)}` : "← Önceki";
-  const nextText = nextEp ? `${navLabelForEp(nextEp)} →` : "Sonraki →";
+  const prevNavSeason = prevEpSeason && prevEpSeason !== season ? prevEpSeason : null;
+  const nextNavSeason = nextEpSeason && nextEpSeason !== season ? nextEpSeason : null;
+  const prevText = prevEp ? `← ${navLabelForEp(prevEp, prevNavSeason)}` : "← Önceki";
+  const nextText = nextEp ? `${navLabelForEp(nextEp, nextNavSeason)} →` : "Sonraki →";
 
   const prevBtnHtml = prevAbs
     ? `<a class="ep-nav-btn" href="${escAttr(prevAbs)}" aria-label="${escAttr(prevText)}" title="${escAttr(prevText)}">${escAttr(prevText)}</a>`
@@ -845,11 +891,20 @@ sitemapItems.push({
   priority: "0.8"
 });
 
+// Google Drive sezon arşivi sayfası
+sitemapItems.push({
+  loc: "/arsiv.html",
+  filePath: path.join(__dirname, "arsiv.html"),
+  changefreq: "weekly",
+  priority: "0.8"
+});
+
 const seasons = Object.keys(rz.configs || {}).map(Number).sort((a, b) => a - b);
+const seasonEpisodeMap = new Map(seasons.map((season) => [season, rz.buildEpisodes(season)]));
 
 for (let si = 0; si < seasons.length; si++) {
   const season = seasons[si];
-  const eps = rz.buildEpisodes(season);
+  const eps = seasonEpisodeMap.get(season);
 
   const prevSeason = seasons[si - 1] || null;
   const nextSeason = seasons[si + 1] || null;
@@ -875,10 +930,7 @@ for (let si = 0; si < seasons.length; si++) {
 
   map[season] = {};
 
-  const generatedIdxs = [];
-  for (let i = 0; i < eps.length; i++) {
-    if (shouldGenerateEpisodePage(eps[i])) generatedIdxs.push(i);
-  }
+  const generatedIdxs = getGeneratedIndexes(eps);
 
   for (let i = 0; i < eps.length; i++) {
     const ep = eps[i];
@@ -896,11 +948,18 @@ for (let si = 0; si < seasons.length; si++) {
     const prevI = pos > 0 ? generatedIdxs[pos - 1] : null;
     const nextI = (pos >= 0 && pos < generatedIdxs.length - 1) ? generatedIdxs[pos + 1] : null;
 
-    const prevRel = (prevI !== null) ? makeRelUrl(season, eps[prevI], prevI) : null;
-    const nextRel = (nextI !== null) ? makeRelUrl(season, eps[nextI], nextI) : null;
+    const prevTarget = (prevI !== null)
+      ? makeEpisodeNavTarget(season, eps, prevI)
+      : findAdjacentSeasonNavTarget({ seasons, seasonEpisodeMap, seasonIndex: si, direction: -1 });
+    const nextTarget = (nextI !== null)
+      ? makeEpisodeNavTarget(season, eps, nextI)
+      : findAdjacentSeasonNavTarget({ seasons, seasonEpisodeMap, seasonIndex: si, direction: 1 });
 
-    const prevEp = (prevI !== null) ? eps[prevI] : null;
-    const nextEp = (nextI !== null) ? eps[nextI] : null;
+    const prevRel = prevTarget ? prevTarget.rel : null;
+    const nextRel = nextTarget ? nextTarget.rel : null;
+
+    const prevEp = prevTarget ? prevTarget.ep : null;
+    const nextEp = nextTarget ? nextTarget.ep : null;
 
     // ✅ KEY önce, yoksa index fallback
     const seasonSumm = summaries?.[season] || {};
@@ -922,7 +981,9 @@ for (let si = 0; si < seasons.length; si++) {
       prevRel,
       nextRel,
       prevEp,
-      nextEp
+      nextEp,
+      prevEpSeason: prevTarget ? prevTarget.season : null,
+      nextEpSeason: nextTarget ? nextTarget.season : null
     });
 
     fs.writeFileSync(outPath, html, "utf8");

@@ -233,6 +233,16 @@ a {
   margin: 0;
 }
 
+.hero-claim {
+  max-width: 760px;
+  margin: 14px auto 0;
+  color: rgba(234,234,255,0.9);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.55;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
 .hero-header .subtitle {
   margin-top: 6px;
   color: var(--muted);
@@ -1738,6 +1748,301 @@ body.drive-fullscreen-lock {
   border-color: rgba(190, 170, 255, 0.55);
 }
 
+.archive-card {
+  background:
+    linear-gradient(135deg, rgba(10, 13, 32, 0.08), rgba(20, 184, 166, 0.12)),
+    url("images/Arsiv.webp");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.archive-card::before {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  opacity: 0.55;
+  z-index: 1;
+}
+
+.archive-card-mark {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -56%);
+  width: 96px;
+  height: 96px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: rgba(255,255,255,0.9);
+  font-size: 28px;
+  font-weight: 950;
+  letter-spacing: 1px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.04)),
+    rgba(8, 12, 28, 0.52);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.34);
+  z-index: 1;
+  transition: transform 0.28s ease, border-color 0.28s ease;
+}
+
+.archive-card:hover .archive-card-mark {
+  transform: translate(-50%, -62%) scale(1.06);
+  border-color: rgba(190, 220, 255, 0.42);
+}
+
+.season-badge.archive-badge {
+  background: rgba(20, 184, 166, 0.28);
+  border-color: rgba(125, 211, 252, 0.52);
+}
+
+.archive-section {
+  margin: 28px 0 0;
+  padding: 38px 20px 44px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  background:
+    linear-gradient(180deg, rgba(143,155,255,0.07), rgba(10,13,30,0.34)),
+    radial-gradient(circle at 12% 0%, rgba(45, 212, 191, 0.12), transparent 38%),
+    radial-gradient(circle at 86% 24%, rgba(244, 201, 112, 0.10), transparent 34%);
+}
+
+.archive-page {
+  padding: 0 0 54px;
+}
+
+.archive-page .archive-section {
+  margin: 0;
+  border-top: 0;
+}
+
+.archive-shell {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.archive-heading {
+  max-width: 760px;
+  margin-bottom: 20px;
+}
+
+.archive-kicker {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  color: #c7fff7;
+  background: rgba(20, 184, 166, 0.13);
+  border: 1px solid rgba(45, 212, 191, 0.26);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.archive-heading h2 {
+  margin: 12px 0 8px;
+  font-size: 30px;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.archive-heading p {
+  margin: 0;
+  color: rgba(234,234,255,0.72);
+  line-height: 1.65;
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.archive-special-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.archive-group-title {
+  margin: 18px 0 12px;
+  color: rgba(234,234,255,0.94);
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.archive-group-title-spaced {
+  margin-top: 26px;
+}
+
+.archive-season {
+  --archive-accent: #8f9bff;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px;
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.075), rgba(255,255,255,0.022)),
+    rgba(12, 16, 36, 0.72);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-top: 3px solid var(--archive-accent);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.24);
+}
+
+.archive-season:nth-child(1) { --archive-accent: #f4c970; }
+.archive-season:nth-child(2) { --archive-accent: #94a3ff; }
+.archive-season:nth-child(3) { --archive-accent: #45d4bf; }
+.archive-season:nth-child(4) { --archive-accent: #f08bb8; }
+
+.archive-season-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.archive-season-top > div {
+  min-width: 0;
+}
+
+.archive-poster {
+  width: 44px;
+  height: 58px;
+  flex: 0 0 44px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.16);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.28);
+  background: rgba(255,255,255,0.06);
+}
+
+.archive-season-number {
+  color: var(--archive-accent);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+}
+
+.archive-season h3 {
+  margin: 9px 0 7px;
+  font-size: 22px;
+  line-height: 1.15;
+}
+
+.archive-season p {
+  margin: 0;
+  color: rgba(234,234,255,0.68);
+  line-height: 1.55;
+  font-size: 14px;
+}
+
+.archive-drive-row {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.archive-drive-label {
+  color: rgba(234,234,255,0.88);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.archive-drive-link,
+.archive-status {
+  min-height: 32px;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.archive-drive-link {
+  display: inline-flex;
+  color: #d1fae5;
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(52, 211, 153, 0.38);
+}
+
+.archive-drive-link:hover {
+  background: rgba(16, 185, 129, 0.24);
+  border-color: rgba(110, 231, 183, 0.58);
+  transform: translateY(-1px);
+}
+
+.archive-drive-link[href=""] {
+  display: none;
+}
+
+.archive-status {
+  display: none;
+  color: rgba(234,234,255,0.58);
+  background: rgba(255,255,255,0.055);
+  border: 1px solid rgba(255,255,255,0.09);
+}
+
+.archive-drive-link[href=""] + .archive-status {
+  display: inline-flex;
+}
+
+@media (max-width: 920px) {
+  .archive-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .archive-section {
+    margin-top: 22px;
+    padding: 30px 18px 34px;
+  }
+
+  .archive-heading h2 {
+    font-size: 25px;
+  }
+
+  .archive-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .archive-season {
+    min-height: 168px;
+  }
+
+  .archive-drive-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .archive-drive-link,
+  .archive-status {
+    width: 100%;
+  }
+
+  .archive-card-mark {
+    width: 76px;
+    height: 76px;
+    font-size: 23px;
+  }
+}
+
 .extras-panel {
   width: min(840px, 100%);
   max-width: calc(100vw - 40px);
@@ -2208,6 +2513,13 @@ body.drive-fullscreen-lock {
   .hero-header h1 {
     font-size: clamp(28px, 8vw, 34px);
     line-height: 1.2;
+  }
+
+  .hero-claim {
+    max-width: 560px;
+    font-size: 15px;
+    line-height: 1.55;
+    margin-top: 12px;
   }
 
   .hero-header .subtitle {

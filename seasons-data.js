@@ -29,8 +29,8 @@ var SEASON_CONFIGS = {
       "Wilhelm van Astrea", //20 REMASTERED (2026)
       "Umutsuzluğu Aşan Kumar", //21 REMASTERED (2026)
       "Tembelliğin Ani Belirişi", //22 REMASTERED (2026)
-      "Habis Tembellik", //23 REMASTERED (2026)
-      "Sözde Şövalye ve En Seçkin Şövalye", //24 REMASTERED (2026)
+      "Alçak Tembellik", //23 REMASTERED (2026)
+      "Sözde Şövalye ile En Seçkin Şövalye", //24 REMASTERED (2026)
       "Yalnızca Bundan İbaret Bir Hikâye" //25 REMASTERED (2026)
     ],
 
@@ -58,8 +58,8 @@ var SEASON_CONFIGS = {
       "1YUUDLVccpRr2NrZBHXqyFOHbOGiETwHR", //21 REMASTERED (2026)
       "178IdqPQhhLOMShHzFYDceWnV_nV5qlF0", //22 REMASTERED (2026)
       "1vGYpxbgc5y5cExvn4aTtwc7wjfv7sbhR", //23 REMASTERED (2026)
-      "1Pr2HGzyxHLjkyMprr2SuFTJREmDxoKx0", //24
-      "1pH5B3iEVy_sSIj_k35IlYFKM1Nlh9EDD" //25
+      "1JXh5jQX2mVQ5QmizVVOsW0fH4ueI69Ve", //24 REMASTERED (2026)
+      "1gS01BmHXt4XYJwSVFgol-ixMY_Qcfgu9" //25 REMASTERED (2026)
     ],
 
     episodeAnimecixUrls: [
@@ -86,8 +86,8 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/6a611bab002a74333f66ae87?vid=759086", //21 REMASTERED (2026)
       "https://tau-video.xyz/embed/6a624554f2c0587e0fd8b987?vid=759116", //22 REMASTERED (2026)
       "https://tau-video.xyz/embed/6a6246abf342e3f8d7f9047d?vid=759122", //23 REMASTERED (2026)
-      "https://tau-video.xyz/embed/695e8656a09ea30ace4838c8?vid=740132", //24
-      "https://tau-video.xyz/embed/695e8717c0da000447f8c92c?vid=740135"  //25
+      "https://tau-video.xyz/embed/6a646ab5002a74333f66ae93?vid=759236", //24 REMASTERED (2026)
+      "https://tau-video.xyz/embed/6a646b41a4f5f9e71074dd28?vid=759239"  //25 REMASTERED (2026)
     ],
 
     breakTimes: {
@@ -100,7 +100,7 @@ var SEASON_CONFIGS = {
         extraType: "snow",
         number: 11,
         title: "Kar Altındaki Hatıralar (Memory Snow OVA)",
-        driveId: "1zfp3ngG6b5cpKjcsj2KHBHuh_Q3sadMB",
+        driveId: "1904Fem662P68xR2D0ZNR_iziH3rj7ceW",
         animecix: "https://tau-video.xyz/embed/6a5f8987002a74333f66ae78?vid=758990"
       }
     ],
@@ -113,8 +113,8 @@ var SEASON_CONFIGS = {
     seasonNumber: 2,
 
     episodeTitles: [
-      "Her Birinin Sözü", //1
-      "Sıradaki Yer", //2
+      "Her Birinin Sözü", //1 REMASTERED (2026)
+      "Sıradaki Yer", //2 
       "Uzun Zamandır Beklenen Kavuşma", //3
       "Ebeveyn ve Çocuk", //4
       "İleriye Atılan Bir Adım", //5
@@ -130,7 +130,7 @@ var SEASON_CONFIGS = {
       "Otto Suwen / İnanmak İçin Bir Sebep", //15
       "Kuwein Taşı'nı Kimse Tek Başına Kaldıramaz", //16
       "Anılarda Bir Yolculuk", //17 
-      "Betelgeuse’ün Güldüğü Gün", //18 FINAL DAHA ELLENMEYECEK
+      "Betelgeuse’ün Güldüğü Gün", //18 REMASTERED (2026)
       "Büyük Elior Ormanı’nın Donmuş Toprağı", //19 FINAL DAHA ELLENMEYECEK
       "Kutsal Bölge’nin Doğuşu ve Çöküşün Başlangıcı", //20 FINAL DAHA ELLENMEYECEK
       "Kükreyişlerin Kavuşması", //21 FINAL DAHA ELLENMEYECEK
@@ -141,8 +141,8 @@ var SEASON_CONFIGS = {
     ],
 
     episodeDriveIds: [
-      "1oMTN-MJVNsRbH_GY8fxeaClbdMIRoyCX", //1
-      "11CQUTlU1VjfOb_QcXP-x2OQWLVMg65SL", //2
+      "1i_8hQBw4Svc2evzMmVn-fGkJsJGBrjV-", //1 REMASTERED (2026)
+      "11CQUTlU1VjfOb_QcXP-x2OQWLVMg65SL", //2 
       "1MIUr8XVv6JavzdrOsTil_K9xIxIP8zJ8", //3
       "13_686vCmUY2GiJgptKsvRidMM04ba-IV", //4
       "1AwLqPyXIF0ZbDhIm8kkYhDsPK1w4P-RT", //5
@@ -169,7 +169,7 @@ var SEASON_CONFIGS = {
     ],
 
     episodeAnimecixUrls: [
-      "https://tau-video.xyz/embed/696391021d66f6c39d140442?vid=740560", //1
+      "https://tau-video.xyz/embed/6a64721359edd8529b3122d9?vid=759242", //1 REMASTERED (2026)
       "https://tau-video.xyz/embed/696391b1eb1a5915e492abef?vid=740563", //2
       "https://tau-video.xyz/embed/69655933fd4c16eef7c23fe4?vid=740683", //3
       "https://tau-video.xyz/embed/69842511fd4c16eef7c24079?vid=744304", //4
@@ -208,7 +208,7 @@ var SEASON_CONFIGS = {
         extraType: "frozenbond",
         number: 0,
         title: "Donmuş Bağlar (Frozen Bonds)",
-        driveId: "1X7f70tSQH_Cj1cr0bpbaDUyJMg5WzwN1",
+        driveId: "13bqGz0XivQi9yaMmrZoRnxF54v-byY9B",
         animecix: "https://tau-video.xyz/embed/6a5fb88aa4f5f9e71074dd15?vid=759002"
       }
     ],
@@ -288,23 +288,67 @@ var SEASON_CONFIGS = {
   4: {
     seasonNumber: 4,
     episodeTitles: [
-      "Seni Yanımda Götürme Sebebim / Yeniden Doğan Muhteşem Kaplan", "Kum Zamanını Aşmak", "Gözetleme Kulesi’nin Bekçisi",
-	  "Beyaz Gökyüzünün Asterizmi", "Çubuk Sallayan", "Julius Juukulius", "Marketin Kapısından Çıkıp Harikalarla Dolu Bir Dünyaya Adım Attım",
-	  "Sen Kimsin?", "Kalıntı", "Öldürmek Alışkanlığa Dönüşür", "Re: Sıfırdan Başka Bir Dünyada Hayata Başlamak", 
-	  "Bölüm 12", "Bölüm 13", "Bölüm 14", "Bölüm 15",
-      "Bölüm 16", "Bölüm 17", "Bölüm 18", "Bölüm 19"
+      "Seni Yanımda Götürme Sebebim / Yeniden Doğan Muhteşem Kaplan", //1
+	  "Kum Zamanını Aşmak", //2
+	  "Gözetleme Kulesi’nin Bekçisi", //3
+	  "Beyaz Gökyüzünün Asterizmi", //4
+	  "Çubuk Sallayan",  //5
+	  "Julius Juukulius", //6
+	  "Marketin Kapısından Çıkıp Harikalarla Dolu Bir Dünyaya Adım Attım", //7
+	  "Sen Kimsin?", //8
+	  "Kalıntı", //9tt
+	  "Öldürmek Alışkanlığa Dönüşür", //10
+	  "Re: Sıfırdan Başka Bir Dünyada Hayata Başlamak",  //11
+	  "Bölüm 12", //12
+	  "Bölüm 13", //13
+	  "Bölüm 14", //14
+	  "Bölüm 15", //15
+      "Bölüm 16", //16
+	  "Bölüm 17", //17
+	  "Bölüm 18", //18
+	  "Bölüm 19" //19
     ],
     episodeDriveIds: [
-      "1QX5Ci-qo7gAh71hvqPiyKb2VRjbKfQBc", "1JfeHf0uqoDy8ixEs_XgGYHqLOw42Y02H", "1DXE79eMB-VVJ0KSoVYSDBdWbSppRTeZc",
-	  "1xPtLpdv7xfFFkZoDNtnN4tpqAwXmG3kh", "1bS5pCgmGPlwi3Hqu2Jf3f2ghAkcXt4ci", "1Z5YcR-8wBW2qec27TAxXfHySLRJwZ9Io", 
-	  "1Smh9gH3o3PNXbUqOXktf0kDkcbKc8OOF", "19EtnNefYAbpOQ-D23xFvKchDn14AvYzZ", "1RF6CQwSkMQG-tSkc4dRxjaGPQumUeCtW", 
-	  "1IxzeEfGR-xKPBHfrQktjnxaiopRUyuPa", "1VFbcKH_7qF21Uzun-iaUg6qx5_1wnh8N", "", "", "", "", "", "", "", ""
+      "1QX5Ci-qo7gAh71hvqPiyKb2VRjbKfQBc", //1
+	  "1JfeHf0uqoDy8ixEs_XgGYHqLOw42Y02H", //2
+	  "1DXE79eMB-VVJ0KSoVYSDBdWbSppRTeZc", //3
+	  "1xPtLpdv7xfFFkZoDNtnN4tpqAwXmG3kh", //4
+	  "1bS5pCgmGPlwi3Hqu2Jf3f2ghAkcXt4ci", //5
+	  "1Z5YcR-8wBW2qec27TAxXfHySLRJwZ9Io", //6
+	  "1Smh9gH3o3PNXbUqOXktf0kDkcbKc8OOF", //7
+	  "19EtnNefYAbpOQ-D23xFvKchDn14AvYzZ", //8
+	  "1RF6CQwSkMQG-tSkc4dRxjaGPQumUeCtW", //9
+	  "1IxzeEfGR-xKPBHfrQktjnxaiopRUyuPa", //10
+	  "1VFbcKH_7qF21Uzun-iaUg6qx5_1wnh8N", //11
+	  "", //12
+	  "", //13
+	  "", //14
+	  "", //15
+	  "", //16
+	  "", //17
+	  "", //18
+	  "" //19
     ],
     episodeAnimecixUrls: [
-      "https://tau-video.xyz/embed/69e8ceb7b067130deed1c092?vid=750688", "https://tau-video.xyz/embed/69e8bf60140a125ba83716c3?vid=750685", "https://tau-video.xyz/embed/69e8fec698be3e47efffd83a?vid=750724",
-	  "https://tau-video.xyz/embed/69f251d0b067130deed1c0a9?vid=751376", "https://tau-video.xyz/embed/69fc9193b067130deed1c0c8?vid=752258", "https://tau-video.xyz/embed/6a04c6cb3729057a605fd310?vid=752950", 
-	  "https://tau-video.xyz/embed/6a0df516a885b85179cd7eeb?vid=753720", "https://tau-video.xyz/embed/6a17385f5ff7bff04ed66d5f?vid=754671", "https://tau-video.xyz/embed/6a205b5748d0c9a296abef0b?vid=755401", 
-	  "https://tau-video.xyz/embed/6a29b418224010c9ef3ebc1a?vid=755865", "https://tau-video.xyz/embed/6a32e69ef2c0587e0fd8b8b7?vid=756201", "", "", "", "", "", "", "", ""
+      "https://tau-video.xyz/embed/69e8ceb7b067130deed1c092?vid=750688",
+	  "https://tau-video.xyz/embed/69e8bf60140a125ba83716c3?vid=750685",
+	  "https://tau-video.xyz/embed/69e8fec698be3e47efffd83a?vid=750724",
+	  "https://tau-video.xyz/embed/69f251d0b067130deed1c0a9?vid=751376",
+	  "https://tau-video.xyz/embed/69fc9193b067130deed1c0c8?vid=752258",
+	  "https://tau-video.xyz/embed/6a04c6cb3729057a605fd310?vid=752950", 
+	  "https://tau-video.xyz/embed/6a0df516a885b85179cd7eeb?vid=753720",
+	  "https://tau-video.xyz/embed/6a17385f5ff7bff04ed66d5f?vid=754671",
+	  "https://tau-video.xyz/embed/6a205b5748d0c9a296abef0b?vid=755401", 
+	  "https://tau-video.xyz/embed/6a29b418224010c9ef3ebc1a?vid=755865",
+	  "https://tau-video.xyz/embed/6a32e69ef2c0587e0fd8b8b7?vid=756201",
+	  "",
+	  "",
+	  "",
+	  "",
+	  "",
+	  "",
+	  "",
+	  ""
     ],
     breakTimes: {},
     specials: [],
