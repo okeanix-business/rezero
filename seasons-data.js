@@ -143,7 +143,7 @@ var SEASON_CONFIGS = {
     episodeDriveIds: [
       "1YAj-fxcBnGqBDUneVIV4TPPd20XtqO7L", //1 REMASTERED (2026)
       "1c5g4LM2oTSEzt8mu5lGElSrjQ5xDDm-t", //2 REMASTERED (2026)
-      "1MIUr8XVv6JavzdrOsTil_K9xIxIP8zJ8", //3
+      "1fea2vrbKlVYpeg9bHosGhJ2GkQi_iylD", //3 REMASTERED (2026)
       "13_686vCmUY2GiJgptKsvRidMM04ba-IV", //4
       "1AwLqPyXIF0ZbDhIm8kkYhDsPK1w4P-RT", //5
       "1uPumls8bWxuxrAy_S-trjCNOgR-2hmxY", //6
@@ -165,13 +165,13 @@ var SEASON_CONFIGS = {
       "16HsKpsasUm-xsuc8BgDyXKXdJ_Grw8ZA", //22
       "1bpjCD9PGmqR19Ql5El06c4OmPZ75kJ5L", //23
       "1LA954BPBF8mJlL01YkaAW5eMeSPuccb4", //24
-      "1pwZMpUXdUBPQF4FOZki76UgitWN0rdPD"  //25 REMASTERED (2026)
+      "1pwZMpUXdUBPQF4FOZki76UgitWN0rdPD"  //25
     ],
 
     episodeAnimecixUrls: [
       "https://tau-video.xyz/embed/6a652475a4f5f9e71074dd2b?vid=759269", //1 REMASTERED (2026)
       "https://tau-video.xyz/embed/6a652507ec3223a31a1ecef2?vid=759272", //2 REMASTERED (2026)
-      "https://tau-video.xyz/embed/69655933fd4c16eef7c23fe4?vid=740683", //3
+      "https://tau-video.xyz/embed/6a6629bff342e3f8d7f90483?vid=759284", //3 REMASTERED (2026)
       "https://tau-video.xyz/embed/69842511fd4c16eef7c24079?vid=744304", //4
       "https://tau-video.xyz/embed/6984e4ecfaa4f0fe3c1461b3?vid=744356", //5
       "https://tau-video.xyz/embed/6985f876fd4c16eef7c2407d?vid=744404", //6
@@ -193,7 +193,7 @@ var SEASON_CONFIGS = {
       "https://tau-video.xyz/embed/6a553fdad5ce148fbbb33909?vid=758311", //22
       "https://tau-video.xyz/embed/6a555791a4f5f9e71074dcf3?vid=758320", //23
       "https://tau-video.xyz/embed/6a569c9475c86a0b6f67b747?vid=758539", //24
-      "https://tau-video.xyz/embed/6a58b680f2c0587e0fd8b958?vid=758668"  //25 REMASTERED (2026)
+      "https://tau-video.xyz/embed/6a58b680f2c0587e0fd8b958?vid=758668"  //25
     ],
 
     // 25 breaktime (her bölümün arkasına)
