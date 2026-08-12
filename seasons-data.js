@@ -299,7 +299,7 @@ var SEASON_CONFIGS = {
 	  "Kalıntı", //9tt
 	  "Öldürmek Alışkanlığa Dönüşür", //10
 	  "Re: Sıfırdan Başka Bir Dünyada Hayata Başlamak",  //11
-	  "Bölüm 12", //12
+	  "Bundan Sonrası Üzerine", //12
 	  "Bölüm 13", //13
 	  "Bölüm 14", //14
 	  "Bölüm 15", //15
