@@ -300,7 +300,7 @@ var SEASON_CONFIGS = {
 	  "Öldürmek Alışkanlığa Dönüşür", //10
 	  "Re: Sıfırdan Başka Bir Dünyada Hayata Başlamak",  //11
 	  "Bundan Sonrası Üzerine", //12
-	  "Bölüm 13", //13
+	  "Ayağa Kalk", //13
 	  "Bölüm 14", //14
 	  "Bölüm 15", //15
       "Bölüm 16", //16
