@@ -19,7 +19,11 @@
   list.innerHTML = "";
 
   episodes.forEach(function (ep) {
-    var available = !!getDriveId(ep.driveId);
+    var available = !!(
+      getDriveId(ep.driveId) ||
+      getDriveId(ep.driveId2) ||
+      getDriveId(ep.driveId3)
+    );
     var item = document.createElement(available ? "a" : "div");
     item.className = "extra-episode-link" + (available ? "" : " locked");
 

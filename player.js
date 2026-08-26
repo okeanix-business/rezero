@@ -121,11 +121,17 @@ function getCurrentEpisodeData() {
 }
 
 function shouldShowDriveFullscreen(ep = getCurrentEpisodeData()) {
+  const selectedDriveField = currentSourcePref === "google2"
+    ? "driveId2"
+    : currentSourcePref === "google3"
+      ? "driveId3"
+      : "driveId";
+
   return !!(
     ep &&
-    getDriveId(ep) &&
+    getDriveId(ep, selectedDriveField) &&
     coverDismissed &&
-    currentSourcePref === "google" &&
+    (currentSourcePref === "google" || currentSourcePref === "google2" || currentSourcePref === "google3") &&
     isMobileViewport()
   );
 }
@@ -234,11 +240,16 @@ function updateDriveFullscreenButton(ep = getCurrentEpisodeData()) {
 ================================ */
 
 function isAvailable(ep) {
-  return !!(getDriveId(ep) || ep.animecix);
+  return !!(
+    getDriveId(ep) ||
+    getDriveId(ep, "driveId2") ||
+    getDriveId(ep, "driveId3") ||
+    ep.animecix
+  );
 }
 
-function getDriveId(ep) {
-  const raw = String(ep?.driveId || "").trim();
+function getDriveId(ep, field = "driveId") {
+  const raw = String(ep?.[field] || "").trim();
   if (!raw || raw.includes("GOOGLE_DRIVE_FILE_ID")) return "";
 
   const fileMatch = raw.match(/\/file\/d\/([^/?#]+)/);
@@ -255,7 +266,13 @@ function getPlayableSources(ep, labels = "short") {
 
   const sources = [];
   const hasTau = !!ep.animecix;
-  const hasDrive = !!getDriveId(ep);
+  const driveId = getDriveId(ep);
+  const driveId2 = getDriveId(ep, "driveId2");
+  const driveId3 = getDriveId(ep, "driveId3");
+  const hasDrive = !!driveId;
+  const hasDrive2 = !!driveId2 && driveId2 !== driveId;
+  const hasDrive3 = !!driveId3 && driveId3 !== driveId && driveId3 !== driveId2;
+  const hasAlternativeDrive = hasDrive2 || hasDrive3;
 
   if (hasTau) {
     sources.push({
@@ -268,7 +285,25 @@ function getPlayableSources(ep, labels = "short") {
   if (hasDrive) {
     sources.push({
       key: "google",
-      label: labels === "cover" ? "Google Drive" : "Google",
+      label: labels === "cover"
+        ? (hasAlternativeDrive ? "Google Drive 1" : "Google Drive")
+        : (hasAlternativeDrive ? "Google 1" : "Google"),
+      icon: "▶"
+    });
+  }
+
+  if (hasDrive2) {
+    sources.push({
+      key: "google2",
+      label: labels === "cover" ? "Google Drive 2" : "Google 2",
+      icon: "▶"
+    });
+  }
+
+  if (hasDrive3) {
+    sources.push({
+      key: "google3",
+      label: labels === "cover" ? "Google Drive 3" : "Google 3",
       icon: "▶"
     });
   }
@@ -348,7 +383,9 @@ function switchSource(ep, sourceKey) {
   setDownloadState(ep);
   renderSourceSelectors(ep);
 
-  if (sourceKey !== "google") exitDriveFullscreen();
+  if (sourceKey !== "google" && sourceKey !== "google2" && sourceKey !== "google3") {
+    exitDriveFullscreen();
+  }
 }
 
 function renderSourceSelectors(ep) {
@@ -382,7 +419,7 @@ function setDownloadState(ep) {
   if (!downloadBtn) return;
 
   // Her zaman Google ID’sine yönlendir, player seçimi fark etmez
-  let activeDriveId = getDriveId(ep);
+  let activeDriveId = getDriveId(ep) || getDriveId(ep, "driveId2") || getDriveId(ep, "driveId3");
   const downloadBox = downloadBtn.closest(".episode-download-box");
 
   if (activeDriveId) {
@@ -411,28 +448,17 @@ function setVideoState(ep) {
   }
 
   const driveId = getDriveId(ep);
-  const driveUrl = driveId
-    ? `https://drive.google.com/file/d/${driveId}/preview`
-    : null;
-  const tauUrl = ep.animecix ? ep.animecix : null;
-
-  let playUrl = null;
-
-  // Normalde eski kayıtlarda "drive1" vb. kalmış olabilir, onu temizleyelim
-  if (currentSourcePref !== "tau" && currentSourcePref !== "google") {
-    currentSourcePref = "tau";
-  }
+  const driveId2 = getDriveId(ep, "driveId2");
+  const driveId3 = getDriveId(ep, "driveId3");
+  const sourceUrls = {
+    tau: ep.animecix || null,
+    google: driveId ? `https://drive.google.com/file/d/${driveId}/preview` : null,
+    google2: driveId2 ? `https://drive.google.com/file/d/${driveId2}/preview` : null,
+    google3: driveId3 ? `https://drive.google.com/file/d/${driveId3}/preview` : null
+  };
 
   normalizeSourcePref(ep);
-
-  // Fallback mantığıyla source seçimi
-  if (currentSourcePref === "tau") {
-    if (tauUrl) playUrl = tauUrl;
-    else if (driveUrl) { playUrl = driveUrl; currentSourcePref = "google"; }
-  } else if (currentSourcePref === "google") {
-    if (driveUrl) playUrl = driveUrl;
-    else if (tauUrl) { playUrl = tauUrl; currentSourcePref = "tau"; }
-  }
+  const playUrl = sourceUrls[currentSourcePref] || null;
 
   if (playUrl) {
     if (unreleasedOverlay) unreleasedOverlay.style.display = "none";
@@ -445,7 +471,12 @@ function setVideoState(ep) {
     }
   }
 
-  if (currentSourcePref !== "google" && fakeDriveFullscreen) {
+  if (
+    currentSourcePref !== "google" &&
+    currentSourcePref !== "google2" &&
+    currentSourcePref !== "google3" &&
+    fakeDriveFullscreen
+  ) {
     setFakeDriveFullscreen(false);
   }
   updateDriveFullscreenButton(ep);
@@ -467,9 +498,7 @@ function renderCoverButtons(ep) {
     return;
   }
 
-  const sources = [];
-  if (ep.animecix) sources.push({ key: "tau", label: "TAU Player", icon: "▶" });
-  if (getDriveId(ep)) sources.push({ key: "google", label: "Google Drive", icon: "▶" });
+  const sources = getPlayableSources(ep, "cover");
 
   normalizeSourcePref(ep);
 

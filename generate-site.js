@@ -10,7 +10,7 @@
  * ✅ H1/H2 boş değil: statik içerik basılır (SEO için kritik)
  * ✅ Episode SEO: hreflang(tr-TR) + canonical + rel=prev/next (episode)
  * ✅ HUB SEO: hreflang(tr-TR) + rel=prev/next (sezonlar arası)
- * ✅ driveId boş olan sayfalar: HİÇ ÜRETİLMEZ + sitemap’ten çıkar
+ * ✅ Oynatıcı kaynakları: TAU + Google Drive 1/2/3
  * ✅ sitemap lastmod: gerçek dosya mtime (YYYY-MM-DD)
  * ✅ robots.txt + episode-pages-map.js + 404.html üretir
  * ✅ Meta description: summary’den otomatik zenginleşir (≈160 char)
@@ -493,7 +493,7 @@ function buildEpisodePageHtml({
 <script src="seasons-data.js"></script>
 <script src="episode-pages-map.js"></script>
 <script>window.SEASON_NUMBER = ${season}; window.EPISODE_INDEX = ${epIndex};</script>
-<script src="player.js?v=mobile-drive-back-20260610"></script>
+<script src="player.js?v=drive3-20260826"></script>
 
 <style>
   @keyframes attentionPulse {

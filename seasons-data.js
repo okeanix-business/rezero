@@ -1,5 +1,9 @@
 /* seasons-data.js - TEK DOSYA
-   driveId boşsa ("") veya null ise bölüm “yayınlanmadı” olur.
+   Birincil Google Drive için episodeDriveIds/driveId kullanılır.
+   İsteğe bağlı ikinci ve üçüncü Google Drive için bölüm numarasını anahtar yap:
+   episodeDriveIds2: { 3: "DOSYA_ID_VEYA_PAYLASIM_LINKI" }
+   episodeDriveIds3: { 3: "DOSYA_ID_VEYA_PAYLASIM_LINKI" }
+   (Özel ve ara bölümlerde doğrudan driveId2 ve driveId3 alanları kullanılabilir.)
 */
 
 var SEASON_CONFIGS = {
@@ -61,6 +65,9 @@ var SEASON_CONFIGS = {
       "1JXh5jQX2mVQ5QmizVVOsW0fH4ueI69Ve", //24 REMASTERED (2026)
       "1gS01BmHXt4XYJwSVFgol-ixMY_Qcfgu9" //25 REMASTERED (2026)
     ],
+
+    episodeDriveIds2: {},
+    episodeDriveIds3: {},
 
     episodeAnimecixUrls: [
       "https://tau-video.xyz/embed/6a5aca71ec3223a31a1eced4?vid=758753", //1 REMASTERED (2026)
@@ -168,6 +175,9 @@ var SEASON_CONFIGS = {
       "1pwZMpUXdUBPQF4FOZki76UgitWN0rdPD"  //25
     ],
 
+    episodeDriveIds2: {},
+    episodeDriveIds3: {},
+
     episodeAnimecixUrls: [
       "https://tau-video.xyz/embed/6a652475a4f5f9e71074dd2b?vid=759269", //1 REMASTERED (2026)
       "https://tau-video.xyz/embed/6a652507ec3223a31a1ecef2?vid=759272", //2 REMASTERED (2026)
@@ -258,6 +268,9 @@ var SEASON_CONFIGS = {
       "1y6VE-maPbisreKwMYsucFHlvdYk1mQsf"  //16
     ],
 
+    episodeDriveIds2: {},
+    episodeDriveIds3: {},
+
     episodeAnimecixUrls: [
       "https://tau-video.xyz/embed/69ac3c1198be3e47efffd799?vid=746656", //1
       "https://tau-video.xyz/embed/696caae5e4b357250ada9261?vid=741449", //2
@@ -329,6 +342,12 @@ var SEASON_CONFIGS = {
 	  "", //18
 	  "" //19
     ],
+	episodeDriveIds2: {
+	  //13: "1QX5Ci-qo7gAh71hvqPiyKb2VRjbKfQBc",
+	},
+    episodeDriveIds3: {
+      //13: "1QX5Ci-qo7gAh71hvqPiyKb2VRj6bKfQBc",
+    },
     episodeAnimecixUrls: [
       "https://tau-video.xyz/embed/69e8ceb7b067130deed1c092?vid=750688",
 	  "https://tau-video.xyz/embed/69e8bf60140a125ba83716c3?vid=750685",
@@ -356,6 +375,23 @@ var SEASON_CONFIGS = {
   }
 };
 
+function getEpisodeDriveId2(cfg, index, number) {
+  var values = cfg.episodeDriveIds2;
+  if (!values) return "";
+
+  // Dizi kullanılırsa episodeDriveIds ile aynı sıra; nesne kullanılırsa bölüm numarası anahtardır.
+  var value = Array.isArray(values) ? values[index] : values[number];
+  return String(value || "").trim();
+}
+
+function getEpisodeDriveId3(cfg, index, number) {
+  var values = cfg.episodeDriveIds3;
+  if (!values) return "";
+
+  var value = Array.isArray(values) ? values[index] : values[number];
+  return String(value || "").trim();
+}
+
 function buildEpisodes(seasonNumber) {
   var cfg = SEASON_CONFIGS[seasonNumber];
   if (!cfg) throw new Error("Season config not found: " + seasonNumber);
@@ -372,11 +408,15 @@ function buildEpisodes(seasonNumber) {
   var specialsZero = specialsByAfter[0] || [];
   specialsZero.forEach(function (s) {
     var sId0 = String(s.driveId || "").trim();
+    var sId20 = String(s.driveId2 || "").trim();
+    var sId30 = String(s.driveId3 || "").trim();
     var sAni = s.animecix ? String(s.animecix).trim() : null;
     list.push({
       number: (typeof s.number !== "undefined" ? s.number : 0),
       title: s.title,
       driveId: sId0 ? sId0 : null,
+      driveId2: sId20 ? sId20 : null,
+      driveId3: sId30 ? sId30 : null,
       animecix: sAni ? sAni : null,
       kind: s.kind || "special",
       isExtra: true,
@@ -388,12 +428,16 @@ function buildEpisodes(seasonNumber) {
     var number = i + 1;
     var title = cfg.episodeTitles[i] || ("Bölüm " + number);
     var driveId = String(cfg.episodeDriveIds[i] || "").trim();
+    var driveId2 = getEpisodeDriveId2(cfg, i, number);
+    var driveId3 = getEpisodeDriveId3(cfg, i, number);
     var animecix = cfg.episodeAnimecixUrls ? String(cfg.episodeAnimecixUrls[i] || "").trim() : null;
 
     list.push({
       number: number,
       title: title,
       driveId: driveId ? driveId : null,
+      driveId2: driveId2 ? driveId2 : null,
+      driveId3: driveId3 ? driveId3 : null,
       animecix: animecix ? animecix : null,
       kind: "episode",
       isExtra: false,
@@ -403,11 +447,15 @@ function buildEpisodes(seasonNumber) {
     if (cfg.breakTimes && Object.prototype.hasOwnProperty.call(cfg.breakTimes, number)) {
       var bk = cfg.breakTimes[number];
       var bId = typeof bk === "string" ? bk.trim() : (bk ? String(bk.driveId || "").trim() : "");
+      var bId2 = (typeof bk === "object" && bk.driveId2) ? String(bk.driveId2).trim() : "";
+      var bId3 = (typeof bk === "object" && bk.driveId3) ? String(bk.driveId3).trim() : "";
       var bAni = (typeof bk === "object" && bk.animecix) ? String(bk.animecix).trim() : null;
       list.push({
         number: number,
         title: number + ". Mola Zamanı",
         driveId: bId ? bId : null,
+        driveId2: bId2 ? bId2 : null,
+        driveId3: bId3 ? bId3 : null,
         animecix: bAni ? bAni : null,
         kind: "break",
         isExtra: true,
@@ -418,11 +466,15 @@ function buildEpisodes(seasonNumber) {
     var specialsHere = specialsByAfter[number] || [];
     specialsHere.forEach(function (s) {
       var sId = String(s.driveId || "").trim();
+      var sId2 = String(s.driveId2 || "").trim();
+      var sId3 = String(s.driveId3 || "").trim();
       var sAni = s.animecix ? String(s.animecix).trim() : null;
       list.push({
         number: (typeof s.number !== "undefined" ? s.number : number),
         title: s.title,
         driveId: sId ? sId : null,
+        driveId2: sId2 ? sId2 : null,
+        driveId3: sId3 ? sId3 : null,
         animecix: sAni ? sAni : null,
         kind: s.kind || "special",
         isExtra: true,

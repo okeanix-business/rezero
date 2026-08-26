@@ -2259,10 +2259,16 @@ body.drive-fullscreen-lock {
   letter-spacing: 3px;
 }
 .cover-buttons {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
-  justify-content: center;
-  flex-wrap: wrap;
+  width: min(430px, 100%);
+  margin-inline: auto;
+}
+.cover-buttons .cover-source-btn:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  width: calc(50% - 7px);
+  justify-self: center;
 }
 .cover-support {
   width: min(420px, 100%);
@@ -2327,8 +2333,11 @@ body.drive-fullscreen-lock {
 .cover-source-btn {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  padding: 14px 36px;
+  width: 100%;
+  min-width: 0;
+  padding: 14px 18px;
   border-radius: 14px;
   border: 1px solid rgba(120, 130, 255, 0.35);
   background: rgba(15, 18, 40, 0.8);
@@ -2374,7 +2383,12 @@ body.drive-fullscreen-lock {
   }
 
   .cover-buttons {
+    width: min(320px, 100%);
     gap: 6px;
+  }
+
+  .cover-buttons .cover-source-btn:last-child:nth-child(odd) {
+    width: calc(50% - 3px);
   }
 
   .cover-source-btn {

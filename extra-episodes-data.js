@@ -1,4 +1,4 @@
-/* Google Drive dosya ID'sini veya paylaşım linkini driveId alanına yapıştır. */
+/* Google Drive dosya ID'sini veya paylaşım linkini driveId, driveId2 ve driveId3 alanlarına yaz. */
 window.REZERO_EXTRA_EPISODES = [
   {
     id: "break-time-s1",
@@ -7,6 +7,8 @@ window.REZERO_EXTRA_EPISODES = [
     seasonLine: "Mola Zamanı",
     description: "Tüm bölümlerin derlemesidir.",
     driveId: "",
+    driveId2: "",
+    driveId3: "",
     page: "ekstra/bolum/1.html"
   },
   {
@@ -16,6 +18,8 @@ window.REZERO_EXTRA_EPISODES = [
     seasonLine: "Re:Petit",
     description: "Tüm bölümlerin derlemesidir.",
     driveId: "",
+    driveId2: "",
+    driveId3: "",
     page: "ekstra/bolum/1b.html"
   },
   {
@@ -25,6 +29,8 @@ window.REZERO_EXTRA_EPISODES = [
     seasonLine: "Mola Zamanı",
     description: "Tüm bölümlerin derlemesidir.",
     driveId: "",
+    driveId2: "",
+    driveId3: "",
     page: "ekstra/bolum/2.html"
   },
   {
@@ -34,6 +40,8 @@ window.REZERO_EXTRA_EPISODES = [
     seasonLine: "Mola Zamanı",
     description: "Tüm bölümlerin derlemesidir.",
     driveId: "1iVJCCjc3rGERrKtuwoDjBQxVj24-p46P",
+    driveId2: "",
+    driveId3: "",
     page: "ekstra/bolum/3.html"
   },
   {
@@ -43,6 +51,8 @@ window.REZERO_EXTRA_EPISODES = [
     seasonLine: "Mola Zamanı",
     description: "Tüm bölümlerin derlemesidir.",
     driveId: "",
+    driveId2: "",
+    driveId3: "",
     page: "ekstra/bolum/4.html"
   }
 ];
