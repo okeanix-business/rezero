@@ -399,7 +399,7 @@ function buildEpisodePageHtml({
   <meta name="twitter:description" content="${escAttr(meta.desc)}">
   <meta name="twitter:image" content="${escAttr(twitterImg)}">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=player-buttons-20260826-4">
   <link rel="icon" type="image/png" href="images/icon.png">
 
   <script type="application/ld+json">${JSON.stringify(jsonLdEpisode)}</script>
@@ -1033,7 +1033,7 @@ const notFound = `<!doctype html>
   <link rel="canonical" href="${BASE}/404.html">
   <link rel="alternate" hreflang="tr-TR" href="${BASE}/404.html">
   <link rel="alternate" hreflang="x-default" href="${BASE}/404.html">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=player-buttons-20260826-4">
 </head>
 <body>
   <nav class="navbar">
