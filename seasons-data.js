@@ -315,7 +315,7 @@ var SEASON_CONFIGS = {
 	  "Bundan Sonrası Üzerine", //12
 	  "Ayağa Kalk", //13
 	  "Beş Engel", //14
-	  "Bölüm 15", //15
+	  "Gönülden Bağlı Yıldız", //15
       "Bölüm 16", //16
 	  "Bölüm 17", //17
 	  "Bölüm 18", //18
@@ -336,7 +336,7 @@ var SEASON_CONFIGS = {
 	  "1PSQs9zPTRawjAiaXgaYqZC8Pdm8_Q50c", //12
 	  "1zHySDUjP68x5hBPdN7zH_Y8u6yJCO8TC", //13
 	  "17k9-1LrZzQ7d10cMMt4Nhw-wil3N8M_q", //14
-	  "", //15
+	  "1NnffJT91xwD0kpBAdiqtyFwLsH2dJseO", //15
 	  "", //16
 	  "", //17
 	  "", //18
@@ -344,6 +344,7 @@ var SEASON_CONFIGS = {
     ],
 	episodeDriveIds2: {
 	  14: "1k7omeMC2KPAgsS4t-A7DrtxKvn_-wg-K",
+	  15: "1jgxHsPxlX218876GPOEeySpiskclGxtO",
 	},
     episodeDriveIds3: {
       //13: "1QX5Ci-qo7gAh71hvqPiyKb2VRj6bKfQBc",
