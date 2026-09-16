@@ -1058,5 +1058,8 @@ const notFound = `<!doctype html>
 </html>`;
 fs.writeFileSync(path.join(__dirname, "404.html"), notFound, "utf8");
 
+// Version assets only after the generated episode map and all HTML are final.
+console.log("[OK] Asset versions:", require("./version-assets.js").versionAssets());
+
 console.log("[OK] generate-site.js done (V9 - OPEN SUMMARY + KEYED SUMMARIES)");
 console.log("[OK] Summaries: key-first (ep: / break: / special:) then index fallback.");

@@ -317,7 +317,7 @@ var SEASON_CONFIGS = {
 	  "Beş Engel", //14
 	  "Gönülden Bağlı Yıldız", //15
       "Natsuki Subaru", //16
-	  "Bölüm 17", //17
+	  "Good Loser", //17
 	  "Bölüm 18", //18
 	  "Bölüm 19" //19
     ],
@@ -338,7 +338,7 @@ var SEASON_CONFIGS = {
 	  "17k9-1LrZzQ7d10cMMt4Nhw-wil3N8M_q", //14
 	  "1NnffJT91xwD0kpBAdiqtyFwLsH2dJseO", //15
 	  "1Q7E2LVSOkH64kOpzSpNj61Zhd_M81b5X", //16
-	  "", //17
+	  "1WXX8tH2-1jZmN5xcNywcq2Ewj6wfqHrQ", //17
 	  "", //18
 	  "" //19
     ],
