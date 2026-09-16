@@ -338,14 +338,15 @@ var SEASON_CONFIGS = {
 	  "17k9-1LrZzQ7d10cMMt4Nhw-wil3N8M_q", //14
 	  "1NnffJT91xwD0kpBAdiqtyFwLsH2dJseO", //15
 	  "1Q7E2LVSOkH64kOpzSpNj61Zhd_M81b5X", //16
-	  "1WXX8tH2-1jZmN5xcNywcq2Ewj6wfqHrQ", //17
+	  "10xmpJPBJMeOkWj2ToWpVqHH7rW_fsnpJ", //17
 	  "", //18
-	  "" //19
+	  "" //19 
     ],
 	episodeDriveIds2: {
 	  14: "1k7omeMC2KPAgsS4t-A7DrtxKvn_-wg-K",
 	  15: "1jgxHsPxlX218876GPOEeySpiskclGxtO",
 	  16: "1xbH10I5O0oWtcCKMkWaED0qn-A2X7aq6",
+	  17: "1WXX8tH2-1jZmN5xcNywcq2Ewj6wfqHrQ",
 	},
     episodeDriveIds3: {
       //13: "1QX5Ci-qo7gAh71hvqPiyKb2VRj6bKfQBc",
@@ -367,7 +368,7 @@ var SEASON_CONFIGS = {
 	  "https://tau-video.xyz/embed/6a8f15ea59edd8529b31239b", // 14
 	  "https://tau-video.xyz/embed/6a986160f2c0587e0fd8ba64", // 15
 	  "https://tau-video.xyz/embed/6aa19d68a4f5f9e71074ddf3?vid=762508", // 16
-	  "",
+	  "https://tau-video.xyz/embed/6aaacb0959edd8529b312401?vid=762987",
 	  "",
 	  ""
     ],
