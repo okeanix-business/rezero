@@ -318,7 +318,7 @@ var SEASON_CONFIGS = {
 	  "Gönülden Bağlı Yıldız", //15
       "Natsuki Subaru", //16
 	  "Good Loser", //17
-	  "Bölüm 18", //18
+	  "Ram", //18
 	  "Bölüm 19" //19
     ],
     episodeDriveIds: [
@@ -339,7 +339,7 @@ var SEASON_CONFIGS = {
 	  "1NnffJT91xwD0kpBAdiqtyFwLsH2dJseO", //15
 	  "1Q7E2LVSOkH64kOpzSpNj61Zhd_M81b5X", //16
 	  "10xmpJPBJMeOkWj2ToWpVqHH7rW_fsnpJ", //17
-	  "", //18
+	  "1byfmAjnFkbZM2uMqmHEKToKLZoxdueA-", //18
 	  "" //19 
     ],
 	episodeDriveIds2: {
@@ -347,6 +347,7 @@ var SEASON_CONFIGS = {
 	  15: "1jgxHsPxlX218876GPOEeySpiskclGxtO",
 	  16: "1xbH10I5O0oWtcCKMkWaED0qn-A2X7aq6",
 	  17: "1WXX8tH2-1jZmN5xcNywcq2Ewj6wfqHrQ",
+	  18: "",
 	},
     episodeDriveIds3: {
       //13: "1QX5Ci-qo7gAh71hvqPiyKb2VRj6bKfQBc",
