@@ -347,7 +347,7 @@ var SEASON_CONFIGS = {
 	  15: "1jgxHsPxlX218876GPOEeySpiskclGxtO",
 	  16: "1xbH10I5O0oWtcCKMkWaED0qn-A2X7aq6",
 	  17: "1WXX8tH2-1jZmN5xcNywcq2Ewj6wfqHrQ",
-	  18: "",
+	  18: "1aixw3sXF9iUkSil7ZGldeqRe7ztP1nH-",
 	},
     episodeDriveIds3: {
       //13: "1QX5Ci-qo7gAh71hvqPiyKb2VRj6bKfQBc",
