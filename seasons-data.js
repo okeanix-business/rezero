@@ -340,7 +340,7 @@ var SEASON_CONFIGS = {
 	  "1Q7E2LVSOkH64kOpzSpNj61Zhd_M81b5X", //16
 	  "10xmpJPBJMeOkWj2ToWpVqHH7rW_fsnpJ", //17
 	  "1byfmAjnFkbZM2uMqmHEKToKLZoxdueA-", //18
-	  "1" //19 
+	  "1PZBJE2LfwB-8VnGoHtoemTCHxyhB6TQT" //19 
     ],
 	episodeDriveIds2: {
 	  14: "1k7omeMC2KPAgsS4t-A7DrtxKvn_-wg-K",
@@ -348,7 +348,7 @@ var SEASON_CONFIGS = {
 	  16: "1xbH10I5O0oWtcCKMkWaED0qn-A2X7aq6",
 	  17: "1WXX8tH2-1jZmN5xcNywcq2Ewj6wfqHrQ",
 	  18: "1aixw3sXF9iUkSil7ZGldeqRe7ztP1nH-",
-	  19: "1",
+	  19: "1I7-faHL1nkMY4GSxpQ2J11aXeB0oIGEm",
 	},
     episodeDriveIds3: {
       //13: "1QX5Ci-qo7gAh71hvqPiyKb2VRj6bKfQBc",
